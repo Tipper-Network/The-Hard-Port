@@ -1,12 +1,17 @@
-FROM oven/bun:1 AS build
+FROM node:22-alpine AS build
+
+RUN corepack enable
 
 WORKDIR /app
 
-COPY package.json bun.lock ./
-RUN bun install --frozen-lockfile
+COPY package.json pnpm-workspace.yaml pnpm-lock.yaml ./
+COPY apps/web/package.json apps/web/
 
-COPY . .
-RUN bun run build
+RUN pnpm install --frozen-lockfile
+
+COPY apps/web apps/web
+
+RUN pnpm --filter web build
 
 FROM node:22-alpine AS runner
 
@@ -16,7 +21,7 @@ ENV NODE_ENV=production
 ENV PORT=3000
 ENV HOST=0.0.0.0
 
-COPY --from=build /app/.output ./.output
+COPY --from=build /app/apps/web/.output ./.output
 
 USER node
 
