@@ -14,7 +14,7 @@
     "test": "vitest run"
   },
   "engines": {
-    "node": ">=22"
+    "node": "22.x"
   },
   "dependencies": {
     "@fontsource-variable/geist": "^5.2.9",
