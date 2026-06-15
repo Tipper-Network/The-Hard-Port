@@ -14,8 +14,10 @@
     "test": "vitest run"
   },
   "engines": {
-    "node": "22.x"
+    "node": "22.x",
+    "pnpm": ">=9"
   },
+  "packageManager": "pnpm@9.15.9",
   "dependencies": {
     "@fontsource-variable/geist": "^5.2.9",
     "@tailwindcss/vite": "^4.3.1",

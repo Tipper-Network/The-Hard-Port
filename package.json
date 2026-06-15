@@ -1,12 +1,13 @@
 {
   "name": "the-hard-port",
   "private": true,
+  "packageManager": "pnpm@9.15.9",
   "scripts": {
-    "dev": "bun run --cwd apps/web dev",
-    "build": "bun run --cwd apps/web build",
-    "start": "bun run --cwd apps/web start",
-    "preview": "bun run --cwd apps/web preview",
-    "test": "bun run --cwd apps/web test",
-    "generate-routes": "bun run --cwd apps/web generate-routes"
+    "dev": "pnpm --filter web dev",
+    "build": "pnpm --filter web build",
+    "start": "pnpm --filter web start",
+    "preview": "pnpm --filter web preview",
+    "test": "pnpm --filter web test",
+    "generate-routes": "pnpm --filter web generate-routes"
   }
 }
