@@ -1,0 +1,10 @@
+node_modules
+.output
+dist
+dist-ssr
+.git
+*.md
+.env
+.env.*
+coverage
+*.log
