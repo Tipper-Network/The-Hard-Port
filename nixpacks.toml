@@ -1,0 +1,13 @@
+# Nixpacks defaults to Node 18, which nixpkgs removed (EOL).
+# Pin a recent nixpkgs snapshot with Node 22.
+[phases.setup]
+nixpkgsArchive = "51ad838b03a05b1de6f9f2a0fffecee64a9788ee"
+
+[phases.install]
+cmds = ["bun install --frozen-lockfile"]
+
+[phases.build]
+cmds = ["bun run build"]
+
+[start]
+cmd = "node .output/server/index.mjs"
