@@ -1,5 +1,26 @@
-
 @import "tailwindcss";
+
+@theme {
+  /* The Hard Port brand palette (hardport.pdf) */
+  --color-navy: #082878;
+  --color-navy-light: #183878;
+  --color-navy-muted: #284888;
+  --color-orange: #f86818;
+  --color-ice: #f3fbff;
+  --color-ice-muted: #e8f8f8;
+
+  /* Avenir is licensed — Montserrat is the web stand-in */
+  --font-sans: "Montserrat", "Avenir", "Avenir Next", system-ui, sans-serif;
+
+  /* Hero type scale (Figma Hero 16) */
+  --text-hero: 3.4375rem;
+  --text-hero--line-height: 1;
+  --text-body-lg: 1rem;
+  --text-body-lg--line-height: 1.75;
+
+  --max-width-hero: 90rem;
+  --radius-button: 0.25rem;
+}
 
 * {
   box-sizing: border-box;
@@ -13,5 +34,8 @@ body,
 
 body {
   margin: 0;
+  font-family: var(--font-sans);
+  color: var(--color-navy);
+  background-color: white;
+  -webkit-font-smoothing: antialiased;
 }
-
