@@ -2,7 +2,7 @@ type LogoProps = {
   className?: string
 }
 
-export function Logo({ className = 'h-10 w-auto' }: LogoProps) {
+export function THPLogo({ className = 'h-10 w-auto' }: LogoProps) {
   return (
     <img
       src="/THP_Logo.svg"

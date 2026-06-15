@@ -1,4 +1,4 @@
-import { LogoWordmark } from './logo-mark'
+import { THPLogo } from './logo-mark'
 
 const footerLinks = [
   { href: '#services', label: 'Services' },
@@ -12,7 +12,7 @@ export function SiteFooter() {
     <footer className="border-t border-navy/10 bg-ice px-6 py-12 lg:px-12">
       <div className="mx-auto flex max-w-hero flex-col gap-10 md:flex-row md:items-start md:justify-between">
         <div>
-          <LogoWordmark />
+          <THPLogo />
           <p className="mt-4 max-w-xs text-sm leading-6 text-navy/60">
             Media agency for brands that want to set sail and stand out.
           </p>
