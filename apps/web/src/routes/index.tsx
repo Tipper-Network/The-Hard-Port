@@ -17,7 +17,7 @@ function Home() {
       <SiteHeader />
       <main>
         <Hero />
-        <ClientsSection />
+        {/* <ClientsSection /> */}
         <ServicesSection />
         <WorkSection />
         <AboutSection />
