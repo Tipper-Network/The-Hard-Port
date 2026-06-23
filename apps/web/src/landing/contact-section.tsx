@@ -1,8 +1,10 @@
+import WhatsappButton from '#/components/whatsapp'
+
 export function ContactSection() {
   return (
-    <section id="contact" className="relative overflow-hidden bg-navy px-6 py-20 lg:px-12 lg:py-28">
-      <div className="absolute -right-20 top-0 h-72 w-72 rounded-full bg-orange/20 blur-3xl" />
-      <div className="absolute -left-20 bottom-0 h-72 w-72 rounded-full bg-navy-light/40 blur-3xl" />
+    <section id="contact" className="relative overflow-hidden bg-primary px-6 py-20 lg:px-12 lg:py-28">
+      <div className="absolute -right-20 top-0 h-72 w-72 rounded-full bg-accent/20 blur-3xl" />
+      <div className="absolute -left-20 bottom-0 h-72 w-72 rounded-full bg-primary/40 blur-3xl" />
 
       <div className="relative mx-auto max-w-hero">
         <div className="mx-auto max-w-3xl text-center">
@@ -19,17 +21,12 @@ export function ContactSection() {
 
           <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
             <a
-              href="mailto:hello@thehardport.com"
-              className="inline-flex min-w-[180px] items-center justify-center rounded-button bg-orange px-8 py-3 text-base font-bold text-white transition-opacity hover:opacity-90"
+              href="mailto:setSail@thehardport.com"
+              className="inline-flex min-w-45 items-center justify-center rounded-button bg-accent px-8 py-3 text-base font-bold text-white transition-opacity hover:opacity-90"
             >
-              hello@thehardport.com
+              setSail@thehardport.com
             </a>
-            <a
-              href="#"
-              className="inline-flex min-w-[180px] items-center justify-center rounded-button border border-white/80 px-8 py-3 text-sm font-medium text-white/80 transition-colors hover:border-white hover:text-white"
-            >
-              Book a call
-            </a>
+            <WhatsappButton/>
           </div>
         </div>
       </div>

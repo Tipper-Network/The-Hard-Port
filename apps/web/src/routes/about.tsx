@@ -1,7 +1,7 @@
 import { Link, createFileRoute } from '@tanstack/react-router'
 
-import { SiteFooter } from '#/components/landing/site-footer'
-import { SiteHeader } from '#/components/landing/site-header'
+import { SiteFooter } from '#/landing/site-footer'
+import { SiteHeader } from '#/landing/site-header'
 import { site } from '#/lib/brand'
 
 export const Route = createFileRoute('/about')({
@@ -49,9 +49,9 @@ function AboutPage() {
     <>
       <SiteHeader />
       <main>
-        <section className="bg-navy px-6 py-20 lg:px-12 lg:py-28">
+        <section className="bg-primary px-6 py-20 lg:px-12 lg:py-28">
           <div className="mx-auto max-w-hero">
-            <p className="text-sm font-semibold tracking-[0.2em] text-orange uppercase">
+            <p className="text-sm font-semibold tracking-[0.2em] text-accent uppercase">
               About us
             </p>
             <h1 className="mt-3 max-w-3xl text-4xl font-extrabold text-white md:text-5xl">
@@ -68,15 +68,15 @@ function AboutPage() {
         <section className="bg-white px-6 py-20 lg:px-12 lg:py-28">
           <div className="mx-auto grid max-w-hero gap-14 lg:grid-cols-2">
             <div>
-              <h2 className="text-3xl font-extrabold text-navy md:text-4xl">
+              <h2 className="text-3xl font-extrabold text-primary md:text-4xl">
                 Where journeys begin
               </h2>
-              <p className="mt-5 text-base leading-7 text-navy/70">
+              <p className="mt-5 text-base leading-7 text-primary/70">
                 Our name isn&apos;t decorative. A port is where cargo moves, ships
                 find direction, and new routes open up. That&apos;s the role we play
                 for every client we take on board.
               </p>
-              <p className="mt-4 text-base leading-7 text-navy/70">
+              <p className="mt-4 text-base leading-7 text-primary/70">
                 From brand launches to always-on content systems, we partner with
                 teams who are ready to move — not brands looking for another vendor
                 to tick a box.
@@ -87,9 +87,9 @@ function AboutPage() {
               {stats.map((stat) => (
                 <div
                   key={stat.label}
-                  className="rounded-lg bg-navy px-6 py-8 text-center text-white"
+                  className="rounded-lg bg-primary px-6 py-8 text-center text-white"
                 >
-                  <p className="text-4xl font-extrabold text-orange">{stat.value}</p>
+                  <p className="text-4xl font-extrabold text-accent">{stat.value}</p>
                   <p className="mt-2 text-sm font-medium text-white/80">{stat.label}</p>
                 </div>
               ))}
@@ -97,12 +97,12 @@ function AboutPage() {
           </div>
         </section>
 
-        <section className="bg-ice px-6 py-20 lg:px-12 lg:py-28">
+        <section className="bg-secondary px-6 py-20 lg:px-12 lg:py-28">
           <div className="mx-auto max-w-hero">
-            <p className="text-sm font-semibold tracking-[0.2em] text-orange uppercase">
+            <p className="text-sm font-semibold tracking-[0.2em] text-accent uppercase">
               How we work
             </p>
-            <h2 className="mt-3 text-3xl font-extrabold text-navy md:text-4xl">
+            <h2 className="mt-3 text-3xl font-extrabold text-primary md:text-4xl">
               What you can expect on deck
             </h2>
 
@@ -110,10 +110,10 @@ function AboutPage() {
               {values.map((value) => (
                 <article
                   key={value.title}
-                  className="rounded-lg border border-navy/10 bg-white p-8"
+                  className="rounded-lg border border-primary/10 bg-white p-8"
                 >
-                  <h3 className="text-xl font-bold text-navy">{value.title}</h3>
-                  <p className="mt-3 text-sm leading-6 text-navy/70">
+                  <h3 className="text-xl font-bold text-primary">{value.title}</h3>
+                  <p className="mt-3 text-sm leading-6 text-primary/70">
                     {value.description}
                   </p>
                 </article>
@@ -124,17 +124,17 @@ function AboutPage() {
 
         <section className="bg-white px-6 py-20 lg:px-12 lg:py-28">
           <div className="mx-auto max-w-hero text-center">
-            <h2 className="text-3xl font-extrabold text-navy md:text-4xl">
+            <h2 className="text-3xl font-extrabold text-primary md:text-4xl">
               Ready to set sail?
             </h2>
-            <p className="mx-auto mt-4 max-w-xl text-base leading-7 text-navy/70">
+            <p className="mx-auto mt-4 max-w-xl text-base leading-7 text-primary/70">
               Tell us where you&apos;re headed. We&apos;ll help you stand out from
               the first impression onward.
             </p>
             <Link
               to="/"
               hash="contact"
-              className="mt-8 inline-flex min-w-[180px] items-center justify-center rounded-button bg-orange px-8 py-3 text-base font-bold text-white transition-opacity hover:opacity-90"
+              className="mt-8 inline-flex min-w-[180px] items-center justify-center rounded-button bg-accent px-8 py-3 text-base font-bold text-white transition-opacity hover:opacity-90"
             >
               Get in touch
             </Link>
