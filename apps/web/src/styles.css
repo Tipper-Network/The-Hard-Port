@@ -6,19 +6,18 @@
 @config "../tailwind.config.ts";
 
 @theme inline {
-  /* Hard Port brand palette */
-  --color-navy: #082878;
-  --color-navy-light: #183878;
-  --color-navy-muted: #284888;
-  --color-orange: #f86818;
-  --color-ice: #f3fbff;
-  --color-ice-muted: #e8f8f8;
+  /* Brand palette */
+  --color-navy: #0a2c75;
+  --color-light-blue: #f3fbff;
+  --color-orange: #ff6b17;
+  --color-primary: var(--color-navy);
+  --color-secondary: var(--color-light-blue);
+  --color-accent: var(--color-orange);
 
-  /* Avenir is licensed — Montserrat is the web stand-in */
+
   --font-sans: "Montserrat", "Avenir", "Avenir Next", system-ui, sans-serif;
   --font-heading: var(--font-sans);
 
-  /* Hero type scale */
   --text-hero: 3.4375rem;
   --text-hero--line-height: 1;
   --text-body-lg: 1rem;
@@ -26,38 +25,23 @@
   --max-width-hero: 90rem;
   --radius-button: 0.25rem;
 
-  /* shadcn semantic color mappings */
+  /* shadcn semantic tokens */
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --color-card: var(--card);
   --color-card-foreground: var(--card-foreground);
   --color-popover: var(--popover);
   --color-popover-foreground: var(--popover-foreground);
-  --color-primary: var(--primary);
   --color-primary-foreground: var(--primary-foreground);
-  --color-secondary: var(--secondary);
   --color-secondary-foreground: var(--secondary-foreground);
   --color-muted: var(--muted);
   --color-muted-foreground: var(--muted-foreground);
-  --color-accent: var(--accent);
   --color-accent-foreground: var(--accent-foreground);
   --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
   --color-border: var(--border);
   --color-input: var(--input);
   --color-ring: var(--ring);
-  --color-chart-1: var(--chart-1);
-  --color-chart-2: var(--chart-2);
-  --color-chart-3: var(--chart-3);
-  --color-chart-4: var(--chart-4);
-  --color-chart-5: var(--chart-5);
-  --color-sidebar: var(--sidebar);
-  --color-sidebar-foreground: var(--sidebar-foreground);
-  --color-sidebar-primary: var(--sidebar-primary);
-  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
-  --color-sidebar-accent: var(--sidebar-accent);
-  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
-  --color-sidebar-border: var(--sidebar-border);
-  --color-sidebar-ring: var(--sidebar-ring);
   --radius-sm: calc(var(--radius) * 0.6);
   --radius-md: calc(var(--radius) * 0.8);
   --radius-lg: var(--radius);
@@ -68,38 +52,26 @@
 }
 
 :root {
-  --background: var(--color-navy);
-  --foreground: var(--color-ice);
-  --card: var(--color-navy);
-  --card-foreground: var(--color-ice);
-  --popover: var(--color-navy);
-  --popover-foreground: var(--color-ice);
-  --primary: var(--color-orange);
-  --primary-foreground: var(--color-navy);
-  --secondary: var(--color-ice);
-  --secondary-foreground: var(--color-navy);
-  --muted: var(--color-ice-muted);
-  --muted-foreground: var(--color-navy-muted);
-  --accent: var(--color-ice-muted);
-  --accent-foreground: var(--color-navy);
-  --destructive: var(--color-orange);
-  --border: var(--color-navy-light);
-  --input: var(--color-navy-light);
-  --ring: var(--color-orange);
-  --chart-1: var(--color-orange);
-  --chart-2: var(--color-navy);
-  --chart-3: var(--color-navy-muted);
-  --chart-4: var(--color-ice);
-  --chart-5: var(--color-navy-light);
+  --background: var(--color-primary);
+  --foreground: var(--color-secondary);
+  --card: var(--color-primary);
+  --card-foreground: var(--color-secondary);
+  --popover: var(--color-primary);
+  --popover-foreground: var(--color-secondary);
+  --primary: var(--color-primary);
+  --primary-foreground: var(--color-secondary);
+  --secondary: var(--color-secondary);
+  --secondary-foreground: var(--color-primary);
+  --muted: var(--color-secondary-muted);
+  --muted-foreground: var(--color-primary-muted);
+  --accent: var(--color-accent);
+  --accent-foreground: #ffffff;
+  --destructive: #dc2626;
+  --destructive-foreground: #ffffff;
+  --border: var(--color-primary-light);
+  --input: var(--color-primary-light);
+  --ring: var(--color-accent);
   --radius: 0.5rem;
-  --sidebar: var(--color-navy);
-  --sidebar-foreground: var(--color-ice);
-  --sidebar-primary: var(--color-orange);
-  --sidebar-primary-foreground: var(--color-navy);
-  --sidebar-accent: var(--color-ice-muted);
-  --sidebar-accent-foreground: var(--color-navy);
-  --sidebar-border: var(--color-navy-light);
-  --sidebar-ring: var(--color-orange);
 }
 
 @layer base {

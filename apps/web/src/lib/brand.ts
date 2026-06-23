@@ -1,14 +1,9 @@
 /** Hard Port brand tokens — keep in sync with src/styles.css @theme */
 export const brand = {
-  navy: '#082878',
-  navyLight: '#183878',
-  navyMuted: '#284888',
-  orange: '#f86818',
-  ice: '#f3fbff',
-  iceMuted: '#e8f8f8',
-  background: '#082878',
-  foreground: '#f3fbff',
-  primary: '#f86818',
+  navy: '#0A2C75',
+  lightBlue: '#F3FBFF',
+  orange: '#FF6B17',
+
 } as const
 
 export const site = {
