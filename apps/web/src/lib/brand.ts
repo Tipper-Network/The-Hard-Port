@@ -14,3 +14,9 @@ export const site = {
     'The Hard Port is a media agency built for brands ready to move — bold creative, sharp strategy, and campaigns that stand out.',
   logo: '/THP_Logo.svg',
 } as const
+
+/** Paste a full YouTube URL or 11-character video ID */
+export const video = {
+  hero: 'https://youtu.be/wqH_2z21zEc?si=TIfRY47lHca205uc',
+  branding: '',
+} as const

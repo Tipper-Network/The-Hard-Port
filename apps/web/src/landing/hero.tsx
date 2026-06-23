@@ -1,9 +1,12 @@
+// import { YoutubeEmbed } from '#/components/youtube-embed'
+// import { video } from '#/lib/brand'
+
 function HeroSail() {
   return (
     <img
       src="/THP_Sail_Icon.svg"
       alt="Hero sail"
-      className="pointer-events-none absolute top-0 right-0 h-full  text-secondary"
+      className="pointer-events-none absolute top-0 right-0 h-full text-secondary"
     />
   )
 }
@@ -20,6 +23,10 @@ export function Hero() {
         playsInline
         aria-hidden="true"
       />
+       {/* <section className="relative min-h-85 overflow-hidden bg-primary md:min-h-165">
+      {video.hero ? (
+        <YoutubeEmbed url={video.hero} title="The Hard Port hero reel" variant="background" />
+      ) : null} */}
       <div className="absolute inset-0 bg-primary/40" aria-hidden="true" />
 
       <div className="relative z-10 mx-auto flex h-full min-h-[inherit] max-w-hero items-center px-6 py-20 md:py-28 lg:px-12 lg:py-32">
@@ -36,7 +43,7 @@ export function Hero() {
           <div className="mt-10 flex flex-wrap items-center gap-4">
             <a
               href="#contact"
-              className="inline-flex  items-center justify-center rounded-button border border-white/80 bg-accent px-6 py-3 text-base font-bold text-white transition-colors hover:bg-accent/90"
+              className="inline-flex items-center justify-center rounded-button border border-white/80 bg-accent px-6 py-3 text-base font-bold text-white transition-colors hover:bg-accent/90"
             >
               Start Your Voyage
             </a>

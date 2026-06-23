@@ -1,6 +1,6 @@
 import { BrowserMockup } from '#/components/browser-mockup'
-
-const brandingVideoSrc: string | undefined = undefined
+import { YoutubeEmbed } from '#/components/youtube-embed'
+import { video } from '#/lib/brand'
 
 export function ServicesSection() {
   return (
@@ -66,18 +66,11 @@ export function ServicesSection() {
           </div>
 
           <div className="order-1 lg:order-2">
-            {brandingVideoSrc ? (
-              <div className="overflow-hidden rounded-sm border border-primary/10 bg-primary shadow-[0_2px_2px_rgba(0,0,0,0.04)]">
-                <video
-                  className="aspect-video w-full object-cover"
-                  src={brandingVideoSrc}
-                  autoPlay
-                  muted
-                  loop
-                  playsInline
-                  aria-label="Branding and strategy overview"
-                />
-              </div>
+            {video.branding ? (
+              <YoutubeEmbed
+                url={video.branding}
+                title="Branding and strategy overview"
+              />
             ) : (
               <BrowserMockup variant="grid" showPhone />
             )}
