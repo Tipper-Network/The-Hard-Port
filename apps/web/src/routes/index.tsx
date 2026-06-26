@@ -1,14 +1,18 @@
 import { createFileRoute } from '@tanstack/react-router'
 
 import { AboutSection } from '#/landing/about-section'
-import { ClientsSection } from '#/landing/clients-section'
+import { BoostingSection } from '#/landing/boosting-section'
 import { ContactSection } from '#/landing/contact-section'
+import { FaqSection } from '#/landing/faq-section'
+import { FreeSlotsSection } from '#/landing/free-slots-section'
+import { GapSection } from '#/landing/gap-section'
 import { Hero } from '#/landing/hero'
+import { LetterSection } from '#/landing/letter-section'
 import { PackagesSection } from '#/landing/packages-section'
-import { ServicesSection } from '#/landing/services-section'
+import { ProcessSection } from '#/landing/process-section'
+import { ProofSection } from '#/landing/proof-section'
 import { SiteFooter } from '#/landing/site-footer'
 import { SiteHeader } from '#/landing/site-header'
-import { WorkSection } from '#/landing/work-section'
 
 export const Route = createFileRoute('/')({ component: Home })
 
@@ -18,11 +22,15 @@ function Home() {
       <SiteHeader />
       <main>
         <Hero />
-        {/* <ClientsSection /> */}  
-        <ServicesSection />
+        <LetterSection />
+        <BoostingSection />
+        <GapSection />
+        <ProofSection />
+        <ProcessSection />
+        <FreeSlotsSection />
         <PackagesSection />
-        {/* <WorkSection /> */}
         <AboutSection />
+        <FaqSection />
         <ContactSection />
       </main>
       <SiteFooter />

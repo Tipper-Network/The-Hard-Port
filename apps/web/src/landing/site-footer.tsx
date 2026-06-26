@@ -3,9 +3,11 @@ import { Link } from '@tanstack/react-router'
 import { THPLogo } from './logo-mark'
 
 const footerLinks = [
-  { to: '/' as const, hash: 'services' as const, label: 'Services' },
-  { to: '/' as const, hash: 'work' as const, label: 'Work' },
-  { to: '/about' as const, label: 'About' },
+  { to: '/' as const, hash: 'boosting' as const, label: 'The Truth' },
+  { to: '/' as const, hash: 'gap' as const, label: 'The Gap' },
+  { to: '/' as const, hash: 'packages' as const, label: 'Pricing' },
+  { to: '/' as const, hash: 'apply' as const, label: 'Apply free' },
+  { to: '/about' as const, label: 'Who We Are' },
   { to: '/' as const, hash: 'contact' as const, label: 'Contact' },
 ] as const
 
@@ -18,7 +20,8 @@ export function SiteFooter() {
             <THPLogo />
           </Link>
           <p className="mt-4 max-w-xs text-sm leading-6 text-primary/60">
-            Media agency for brands that want to set sail and stand out.
+            A no-bullshit media agency for businesses that are done being
+            &quot;fine.&quot; We give a f*ck. We just don&apos;t care.
           </p>
         </div>
 
