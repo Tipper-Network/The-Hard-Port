@@ -93,14 +93,16 @@ export function PackagesSection() {
   return (
     <section id="packages" className="bg-primary px-6 py-20 lg:px-12 lg:py-28">
       <div className="mx-auto max-w-hero">
-        <header className="mx-auto  text-center">
-          <h2 className="text-3xl font-extrabold leading-tight text-white md:text-4xl lg:text-[2.75rem]">
-            Open Waters.
-            Open Horizons.
-            Open Terms.
+        <header className="mx-auto max-w-3xl text-center">
+          <p className="text-sm font-bold tracking-[0.2em] text-accent uppercase">
+            No hidden fees. No "let me check with the team."
+          </p>
+          <h2 className="mt-4 text-3xl font-extrabold leading-tight text-white md:text-4xl lg:text-[2.75rem]">
+            Pick a lane. They&apos;re named after how brave you are.
           </h2>
           <p className="mt-6 text-base leading-7 text-white/80">
-            Flexible retainers for businesses at every stage of growth.
+            Or skip the whole thing and apply for a free slot. Two a month. We
+            pick. Your call.
           </p>
         </header>
 
