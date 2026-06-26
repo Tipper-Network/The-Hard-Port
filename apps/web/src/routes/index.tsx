@@ -21,7 +21,7 @@ function Home() {
         {/* <ClientsSection /> */}  
         <ServicesSection />
         <PackagesSection />
-        <WorkSection />
+        {/* <WorkSection /> */}
         <AboutSection />
         <ContactSection />
       </main>

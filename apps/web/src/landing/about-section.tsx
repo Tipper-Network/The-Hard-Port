@@ -27,7 +27,7 @@ export function AboutSection() {
           </p>
         </div>
 
-        <div className="grid gap-4 sm:grid-cols-3 lg:grid-cols-1 xl:grid-cols-3">
+        {/* <div className="grid gap-4 sm:grid-cols-3 lg:grid-cols-1 xl:grid-cols-3">
           {stats.map((stat) => (
             <div
               key={stat.label}
@@ -37,7 +37,7 @@ export function AboutSection() {
               <p className="mt-2 text-sm font-medium text-white/80">{stat.label}</p>
             </div>
           ))}
-        </div>
+        </div> */}
       </div>
     </section>
   )
