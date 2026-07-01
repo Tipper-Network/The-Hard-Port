@@ -28,9 +28,9 @@ export function BoostingSection() {
             Have you been boosting posts and calling it marketing?
           </h2>
           <p className="mt-5 text-base leading-7 text-white/70 md:text-lg">
-            Cute. Here&apos;s the difference between what you do and what
-            actually moves money. We charge people to learn this. You&apos;re
-            getting it for free. You&apos;re welcome.
+            There&apos;s a difference between spending money on visibility and making
+            money from it. Most businesses never see the gap. Here&apos;s what
+            closing it actually looks like.
           </p>
         </div>
 

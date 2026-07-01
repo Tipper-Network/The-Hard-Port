@@ -20,8 +20,7 @@ export function SiteFooter() {
             <THPLogo />
           </Link>
           <p className="mt-4 max-w-xs text-sm leading-6 text-primary/60">
-            A no-bullshit media agency for businesses that are done being
-            &quot;fine.&quot; We give a f*ck. We just don&apos;t care.
+            The Media Agency with no tolerance for nonsense.
           </p>
         </div>
 
@@ -49,8 +48,13 @@ export function SiteFooter() {
         </nav>
       </div>
 
-      <div className="mx-auto mt-10 max-w-hero border-t border-primary/10 pt-6 text-sm text-primary/50">
-        © {new Date().getFullYear()} The Hard Port. All rights reserved.
+      <div className="mx-auto mt-10 max-w-hero border-t border-primary/10 pt-6">
+        <p className="text-sm italic text-primary/40 mb-4">
+          Each sailor should have their own experience in the open sea. For the sea takes the ship each time on a new journey.
+        </p>
+        <p className="text-sm text-primary/50">
+          © {new Date().getFullYear()} The Hard Port. All rights reserved.
+        </p>
       </div>
     </footer>
   )

@@ -17,7 +17,7 @@ export function ContactSection() {
             {slogan}
           </p>
           <h2 className="mt-4 text-3xl font-extrabold text-white md:text-5xl">
-            Still &quot;doing fine&quot;? Or ready to actually move?
+            Ready to give a f*ck, and not care???
           </h2>
           <p className="mx-auto mt-5 max-w-2xl text-base leading-7 text-white/80">
             Two ways in: apply for a free slot and hope we pick you, or skip the

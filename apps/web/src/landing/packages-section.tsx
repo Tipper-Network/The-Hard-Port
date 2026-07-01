@@ -95,7 +95,7 @@ export function PackagesSection() {
       <div className="mx-auto max-w-hero">
         <header className="mx-auto max-w-3xl text-center">
           <p className="text-sm font-bold tracking-[0.2em] text-accent uppercase">
-            No hidden fees. No "let me check with the team."
+            Priced clearly. Built around where you&apos;re going.
           </p>
           <h2 className="mt-4 text-3xl font-extrabold leading-tight text-white md:text-4xl lg:text-[2.75rem]">
             Pick a lane. They&apos;re named after how brave you are.
@@ -126,7 +126,12 @@ export function PackagesSection() {
                 ) : null}
               </h3>
 
-              <p className="mt-4 text-center text-3xl font-extrabold tracking-tight">
+              {pkg.price !== 0 && (
+                <p className="mt-4 text-center text-[0.65rem] font-bold tracking-[0.18em] text-white/40 uppercase">
+                  Starting from
+                </p>
+              )}
+              <p className={cn('text-center text-3xl font-extrabold tracking-tight', pkg.price !== 0 ? 'mt-1' : 'mt-4')}>
                 ${pkg.price !== 0 ? formatPrice(pkg.price) : "???"}
                 <span className="text-sm font-medium text-white/60">/mo</span>
               </p>
@@ -165,9 +170,6 @@ export function PackagesSection() {
           <TabsList variant="line" className={cn(tabListClass, 'mx-auto')}>
             <TabsTrigger value="compare" className={tabTriggerClass}>
               Compare Features
-            </TabsTrigger>
-            <TabsTrigger value="capabilities" className={tabTriggerClass}>
-              Capabilities
             </TabsTrigger>
             <TabsTrigger value="details" className={tabTriggerClass}>
               Detailed Breakdown
@@ -214,44 +216,7 @@ export function PackagesSection() {
             </Accordion>
           </TabsContent>
 
-          {/* Tab 2 — accordion per capability (availability only) */}
-          <TabsContent value="capabilities" className="mt-6 text-white/75">
-            <p className="mb-4 text-center text-sm text-white/60">
-              Expand any capability to see which plans include it
-            </p>
-            <Accordion type="single" collapsible className={accordionShellClass}>
-              {capabilities.map((capability) => {
-                const availability = capabilityAvailability[capability]
-
-                return (
-                  <AccordionItem
-                    key={capability}
-                    value={capability}
-                    className="border-white/10 px-4 last:border-b-0"
-                  >
-                    <AccordionTrigger className={accordionTriggerClass}>
-                      <CapabilityTrigger capability={capability} availability={availability} />
-                    </AccordionTrigger>
-                    <AccordionContent>
-                      <div className="sm:hidden">
-                        <PlanAvailabilityRow availability={availability} />
-                      </div>
-                      <div className="hidden space-y-2 sm:block">
-                        {planIds.map((plan) => (
-                          <div key={plan} className="flex items-center justify-between text-sm">
-                            <span className="text-white/70">{planLabel(plan)}</span>
-                            <ComparisonCellContent value={availability[plan]} />
-                          </div>
-                        ))}
-                      </div>
-                    </AccordionContent>
-                  </AccordionItem>
-                )
-              })}
-            </Accordion>
-          </TabsContent>
-
-          {/* Tab 3 — accordion per capability (full detail bullets) */}
+          {/* Tab 2 — accordion per capability (full detail bullets) */}
           <TabsContent value="details" className="mt-6 text-white/75">
             <p className="mb-4 text-center text-sm text-white/60">
               Expand any capability to see exactly what&apos;s included

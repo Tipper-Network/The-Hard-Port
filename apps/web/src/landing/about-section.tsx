@@ -16,13 +16,13 @@ export function AboutSection() {
             turn the wheel.
           </p>
           <p className="mt-4 text-base leading-7 text-primary/70">
-            We&apos;re not your friends, your yes-men, or another vendor to tick a
-            box. We&apos;re the people who&apos;ll tell you the truth, charge you
-            for it, and then actually do the work. You focus on sailing. We handle
-            the ship, the crew, the identity, the campaigns.
+            We&apos;re the people in your corner who&apos;ll tell you the truth,
+            do the work, and not stop until it moves. You focus on your craft.
+            We handle the brand, the strategy, the campaigns &mdash; everything
+            that turns attention into growth.
           </p>
           <p className="mt-6 text-xl font-extrabold text-primary">
-            We give a f*ck. We just don&apos;t care.
+            Remember&hellip; We give a f*ck &mdash; about you. We just don&apos;t care, about your feelings.
           </p>
         </div>
 

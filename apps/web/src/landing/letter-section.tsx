@@ -34,7 +34,7 @@ export function LetterSection() {
             not <span className="italic">moving</span>.
           </p>
           <p>
-            Here&apos;s the honest part most agencies will never tell you:{' '}
+            Here&apos;s the honest part:{' '}
             <span className="font-bold text-primary">you don&apos;t need us.</span>{' '}
             Nobody <span className="italic">needs</span> a media agency. You
             could figure it all out yourself. You&apos;ve had years. How&apos;s
@@ -42,15 +42,14 @@ export function LetterSection() {
           </p>
           <p>
             You don&apos;t need us. You just can&apos;t get where you say you
-            want to go without us — and that&apos;s a completely different
+            want to go without us, and that&apos;s a completely different
             sentence. The day you admit that out loud is the day this starts
             working.
           </p>
           <p>
-            We&apos;re not here to be your friend, hype your feelings, or clap
-            for &quot;fine.&quot; We&apos;re here to tell you where you actually
-            are, where you actually want to be, and the ugly distance in
-            between.
+            We&apos;re here for your business. Not your feelings about your
+            business. The gap between where you are and where you want to be
+            &mdash; that&apos;s what we show up for.
           </p>
           <p className="border-l-4 border-accent pl-5 text-xl font-extrabold text-primary">
             We give a f*ck about the work. We just don&apos;t care about your

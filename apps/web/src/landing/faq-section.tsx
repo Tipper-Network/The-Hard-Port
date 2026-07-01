@@ -8,35 +8,35 @@ import { Link } from '@tanstack/react-router'
 
 const faqs = [
   {
-    q: 'Why are you so rude?',
-    a: 'We\u2019re not rude. We\u2019re honest, and you\u2019re not used to it. Every other agency tells you what you want to hear so you\u2019ll sign. We tell you the truth so you\u2019ll actually grow. Pick which one you\u2019d rather pay for.',
+    q: 'Why are you so direct?',
+    a: 'We're honest because we care about your results. The answer you want to hear and the answer that actually grows your business aren't always the same one. We choose the second one, every time.',
   },
   {
     q: 'My business is doing fine, though.',
-    a: 'That\u2019s literally the section above. "Fine" is the polite word for "stuck." If fine was working, you wouldn\u2019t be reading the FAQ of a media agency at 1am.',
+    a: '"Fine" is the polite word for "stuck." If fine was working the way you want it to, you wouldn't be here.',
   },
   {
-    q: 'Can\u2019t I just boost my posts myself?',
-    a: 'Sure. You\u2019ve been doing that. How\u2019s the queue of new customers looking? Boosting spends money. Campaigns make it. We covered this.',
+    q: 'Can't I just boost my posts myself?',
+    a: 'Sure. You've been doing that. How's the queue of new customers looking? Boosting spends money. Campaigns make it. We covered this.',
     linkText: 'Scroll up',
     hash: 'boosting' as const,
     to: '/',
   },
   {
     q: 'Why do I have to pay if you offer free slots?',
-    a: 'Because free slots are 2 a month and we pick them. If you\u2019re reading this expecting a discount, you\u2019re probably not one of the two. Free advice gets ignored anyway; paying is what makes you actually do it.',
+    a: 'Because free slots are 2 a month and we pick them. Paying is what makes you actually do it \u2014 skin in the game changes everything.',
   },
   {
     q: 'What do I actually get?',
-    a: 'Clarity, first. The map between where you are and where you want to be. Then the brand and the campaigns that close that gap. Not 12 random posts a month that nobody asked for.',
+    a: 'Clarity, first. The map between where you are and where you want to be. Then the brand and the campaigns that close that gap. Direction, work, and results you can feel.',
   },
   {
     q: 'Do you guarantee results?',
-    a: 'No, and run from anyone who does on day one. We guarantee we\u2019ll tell you the truth, do the work properly,show you how and teach you along the way. we willnot waste your money on vanity metrics. The rest is a partnership, not a magic trick.',
+    a: 'No. What we guarantee is the truth, the work done properly, and a partner who shows up all the way. We will not waste your money on vanity metrics. The rest is a partnership, not a magic trick.',
   },
   {
     q: 'This feels like a lot. Can I think about it?',
-    a: 'You can think about it for another year, like the last one. Or you can decide. We don\u2019t work with maybes; that\u2019s not a sales tactic, it\u2019s just what works.',
+    a: 'You can think about it for another year, like the last one. Or you can decide. We don't work with maybes \u2014 that's not pressure, it's just what actually works.',
   },
 ]
 
