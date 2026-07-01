@@ -1,10 +1,10 @@
 import { freeSlots } from '#/lib/brand'
 
 const criteria = [
-  'You actually have a business — not a "someday" idea.',
-  'You\u2019re coachable. We talk, you don\u2019t argue with the map.',
-  'You\u2019ll let us do it properly, not water it down.',
-  'You\u2019re interesting enough that the work makes us better too.',
+  'You actually have a business. Not a "someday" idea.',
+  'You’re coachable. We talk, we discuss, and we map. We don’t argue.',
+  'You trust us to choose the proper plan, no feelings attached.',
+  'You’re interesting enough that the work makes us better too.',
 ]
 
 export function FreeSlotsSection() {
@@ -25,20 +25,20 @@ export function FreeSlotsSection() {
               free.
             </h2>
             <p className="mt-5 text-base leading-7 text-white/80 md:text-lg">
-              No catch. No &quot;free trial&quot; that bills you in 7 days. Two
-              real businesses a month get the full treatment — strategy, brand,
-              campaign — on the house.
+              No catch. Two real businesses a month get the full treatment &mdash;
+              strategy, brand, campaign &mdash; on the house.
             </p>
             <p className="mt-4 text-base leading-7 text-white/70">
-              Why? Because we&apos;re new and we&apos;d rather prove it than brag
-              about it. The catch isn&apos;t money.{' '}
+              Why? Because we&apos;re starting a movement. Because we want design,
+              branding, and strategy to be accessible for more people who are
+              intentional and trying. The catch isn&apos;t money.{' '}
               <span className="font-bold text-white">
                 The catch is we choose. Not you.
               </span>{' '}
               You apply. We decide if you&apos;re worth it.
             </p>
 
-          
+
             <p className="mt-4 text-sm text-white/50">
               Most applications get a polite no. We&apos;d rather be honest than
               busy.

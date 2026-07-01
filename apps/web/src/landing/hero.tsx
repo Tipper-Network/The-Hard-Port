@@ -7,14 +7,14 @@ function HeroSail() {
       src="/THP_Sail_Icon.svg"
       alt=""
       aria-hidden="true"
-      className="pointer-events-none absolute top-0 right-0 h-full opacity-40 mix-blend-luminosity"
+      className="pointer-events-none absolute top-0 right-0 h-full opacity-70 mix-blend-luminosity"
     />
   )
 }
 
 export function Hero() {
   return (
-    <section className="relative min-h-144 overflow-hidden bg-primary md:min-h-176">
+    <section className="relative min-h-screen overflow-hidden bg-primary">
       <video
         className="absolute inset-0 h-full w-full object-cover"
         src="/oceanvid.mp4"
@@ -36,7 +36,7 @@ export function Hero() {
           {slogan}
         </p>
 
-        <h1 className="max-w-4xl text-[2.5rem] leading-[0.92] font-extrabold tracking-tight text-white uppercase md:text-6xl lg:text-[5rem]">
+        <h1 className="max-w-4xl text-4xl md:text-5xl font-extrabold tracking-tight text-white uppercase lg:text-6xl xl:text-[4.5rem]">
           Your business isn&apos;t sinking.
           <br />
           <span className="text-accent">It&apos;s just not going anywhere.</span>

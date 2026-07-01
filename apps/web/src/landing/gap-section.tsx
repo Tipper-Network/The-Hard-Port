@@ -62,9 +62,9 @@ export function GapSection() {
               Strategy. Brand. Campaigns.
             </p>
             <p className="mt-4 text-sm leading-6 text-white/75 md:text-base">
-              The bridge you keep avoiding. The fog between &quot;here&quot; and
-              &quot;there.&quot; This is the only thing we sell, and the part
-              nobody else will map for you.
+              The bridge you keep putting off. The fog between &quot;here&quot; and
+              &quot;there.&quot; This is what we live for &mdash; mapping the
+              distance, and then closing it.
             </p>
             <div className="mt-6 flex items-center gap-3 text-accent">
               <span className="hidden h-px flex-1 bg-accent/40 md:block" aria-hidden="true" />
@@ -89,8 +89,8 @@ export function GapSection() {
         </div>
 
         <p className="mx-auto mt-12 max-w-2xl text-center text-lg font-bold text-primary">
-          Most agencies sell you &quot;content.&quot; We sell you clarity about
-          the gap, and then we close it.
+          Your business doesn&apos;t need more content. It needs a clear direction,
+          a strategy that means something, and someone who sees it through.
         </p>
       </div>
     </section>
