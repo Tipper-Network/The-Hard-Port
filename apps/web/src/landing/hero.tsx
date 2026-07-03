@@ -14,7 +14,7 @@ function HeroSail() {
 
 export function Hero() {
   return (
-    <section className="relative min-h-screen overflow-hidden bg-primary">
+    <section className="relative max-h-90vh overflow-hidden bg-primary">
       <video
         className="absolute inset-0 h-full w-full object-cover"
         src="/oceanvid.mp4"
