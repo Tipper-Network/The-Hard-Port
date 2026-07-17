@@ -9,7 +9,7 @@ export const brand = {
 
 export const site = {
   name: 'The Hard Port',
-  title: 'The Hard Port — We give a f*ck. We just don\u2019t care.',
+  title: 'The Hard Port; We give a f*ck. We just don\u2019t care.',
   shortName: 'The Hard Port',
   description:
     'A no-bullshit media agency for small businesses that are "doing fine." Fine is the problem. We bring clarity, you bring the commitment. Hard a-port.',
@@ -30,3 +30,6 @@ export const video = {
   hero: 'https://youtu.be/wqH_2z21zEc?si=TIfRY47lHca205uc',
   branding: '',
 } as const
+
+/** The one number every wa.me deep-link on the site points at. */
+export const whatsappNumber = '96178883966' 

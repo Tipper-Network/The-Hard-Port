@@ -2,14 +2,14 @@ import { createFileRoute } from '@tanstack/react-router'
 
 import { SiteFooter } from '#/shared/site-footer'
 import { SiteHeader } from '#/shared/site-header'
-import { site, slogan } from '#/lib/brand'
+import { site, slogan, freeSlots } from '#/lib/brand'
 import LinkButton from '#/components/link_button'
 
 export const Route = createFileRoute('/about')({
   head: () => ({
     meta: [
       {
-        title: `Who We Are — ${site.name}`,
+        title: `Who We Are; ${site.name}`,
       },
       {
         name: 'description',
@@ -23,7 +23,7 @@ export const Route = createFileRoute('/about')({
 
 const values = [
   {
-    title: 'Honest to a fault',
+    title: 'No sugar, ever',
     description:
       'We\u2019ll tell you your "fine" is actually stuck, your boosting isn\u2019t marketing, and your last logo was a waste. You\u2019ll thank us later.',
   },
@@ -83,7 +83,7 @@ function AboutPage() {
 
             <div className="border border-secondary/15 bg-secondary/5 p-8">
               <p className="text-sm font-bold tracking-[0.18em] text-secondary/40 uppercase">
-                The honest disclaimer
+                No spin
               </p>
               <ul className="mt-6 space-y-4 text-sm leading-6 text-secondary/70">
                 <li className="flex gap-3">
@@ -92,7 +92,8 @@ function AboutPage() {
                 </li>
                 <li className="flex gap-3">
                   <span className="font-bold text-accent">&#10003;</span>
-                  We&apos;ve built 3 strategies. The clients ran them solo.
+                  We&apos;ve built 11 strategies. Five clients ran theirs solo
+                  ; no cut for us.
                 </li>
                 <li className="flex gap-3">
                   <span className="font-bold text-accent">&#10003;</span>
@@ -100,7 +101,7 @@ function AboutPage() {
                 </li>
                 <li className="flex gap-3">
                   <span className="font-bold text-accent">&#10003;</span>
-                  2 businesses a month get our work free. We pick them.
+                  {freeSlots.perMonth} businesses a month get our work free. We pick them.
                 </li>
               </ul>
             </div>

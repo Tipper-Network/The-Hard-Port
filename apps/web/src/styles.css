@@ -22,21 +22,22 @@
   --color-alert: var(--color-rust);
 
   /* Scroll-depth backgrounds — one per landing section, in page order.
-     Background darkens as the visitor descends; floors out at the offer
-     stack onward. See design-system/07-depth-scroll-intensity.md. */
+     Continuous darkening from hero to last call — no early floor, so the
+     back half of the page (offer stack onward) keeps escalating instead of
+     going flat. See design-system/07-depth-scroll-intensity.md. */
   --color-depth-0: oklch(0.3 0.045 250);
-  --color-depth-1: oklch(0.258 0.045 250);
-  --color-depth-2: oklch(0.216 0.045 250);
-  --color-depth-3: oklch(0.174 0.045 250);
-  --color-depth-4: oklch(0.132 0.045 250);
-  --color-depth-5: oklch(0.09 0.045 250);
-  --color-depth-6: oklch(0.08 0.045 250);
-  --color-depth-7: oklch(0.08 0.045 250);
-  --color-depth-8: oklch(0.08 0.045 250);
-  --color-depth-9: oklch(0.08 0.045 250);
-  --color-depth-10: oklch(0.08 0.045 250);
-  --color-depth-11: oklch(0.08 0.045 250);
-  --color-depth-12: oklch(0.08 0.045 250);
+  --color-depth-1: oklch(0.279 0.045 250);
+  --color-depth-2: oklch(0.258 0.045 250);
+  --color-depth-3: oklch(0.238 0.045 250);
+  --color-depth-4: oklch(0.217 0.045 250);
+  --color-depth-5: oklch(0.196 0.045 250);
+  --color-depth-6: oklch(0.175 0.045 250);
+  --color-depth-7: oklch(0.154 0.045 250);
+  --color-depth-8: oklch(0.133 0.045 250);
+  --color-depth-9: oklch(0.113 0.045 250);
+  --color-depth-10: oklch(0.092 0.045 250);
+  --color-depth-11: oklch(0.071 0.045 250);
+  --color-depth-12: oklch(0.05 0.045 250);
 
   --font-sans: "IBM Plex Sans", "Avenir", "Avenir Next", system-ui, sans-serif;
   --font-heading: "Anton", "Avenir Next", system-ui, sans-serif;

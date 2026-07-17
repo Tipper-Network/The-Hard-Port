@@ -1,3 +1,6 @@
+import { rungPunchlineClass } from '#/lib/rung-weight'
+import { cn } from '#/lib/utils'
+
 const steps = [
   {
     no: '01',
@@ -17,7 +20,7 @@ const steps = [
   {
     no: '04',
     title: 'Then You Commit',
-    body: 'And yes, we charge. You pay so it counts, so it gets done, so it compounds. Skin in the game — yours and ours.',
+    body: 'And yes, we charge. You pay so it counts, so it gets done, so it compounds. Skin in the game; yours and ours.',
   },
 ]
 
@@ -34,7 +37,7 @@ export function ProcessSection() {
           </h2>
           <p className="mt-5 text-base leading-7 text-secondary/70 md:text-lg">
             This isn&apos;t a vending machine. There&apos;s a reason it goes in
-            this exact order — and skipping a step is why nothing&apos;s changed
+            this exact order; and skipping a step is why nothing&apos;s changed
             for you yet.
           </p>
         </div>
@@ -54,7 +57,7 @@ export function ProcessSection() {
           ))}
         </div>
 
-        <p className="mx-auto mt-12 max-w-2xl text-center text-lg font-bold text-secondary">
+        <p className={cn('mx-auto mt-12 max-w-2xl text-center text-secondary', rungPunchlineClass('process'))}>
           You don&apos;t pay us for time. You pay us so you finally do the thing
           you keep saying you&apos;ll do.
         </p>

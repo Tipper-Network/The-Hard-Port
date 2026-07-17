@@ -1,3 +1,11 @@
+import { whatsappNumber } from '#/lib/brand'
+import { rungPunchlineClass } from '#/lib/rung-weight'
+import { cn } from '#/lib/utils'
+
+const strategyInquiryHref = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(
+  'Strategy inquiry: we need the map, not just more content —',
+)}`
+
 const strategyPillars = [
   {
     no: '01',
@@ -7,7 +15,7 @@ const strategyPillars = [
   {
     no: '02',
     title: 'Growth Testing',
-    body: 'We test what works and cut what doesn\'t. Every month builds on the last — strategy that compounds instead of resets.',
+    body: 'We test what works and cut what doesn\'t. Every month builds on the last; strategy that compounds instead of resets.',
   },
   {
     no: '03',
@@ -17,7 +25,7 @@ const strategyPillars = [
   {
     no: '04',
     title: 'Performance Review',
-    body: 'Numbers aren\'t vanity if you use them. We do. Every month we close the loop — what worked, what didn\'t, what changes next.',
+    body: 'Numbers aren\'t vanity if you use them. We do. Every month we close the loop; what worked, what didn\'t, what changes next.',
   },
 ]
 
@@ -34,7 +42,7 @@ export function StrategySection() {
           </h2>
           <p className="mt-5 text-base leading-7 text-secondary/70 md:text-lg">
             Most content plans fail because they plan content, not outcomes. We
-            build the system that makes content compound — month after month,
+            build the system that makes content compound; month after month,
             not post after post.
           </p>
         </div>
@@ -58,10 +66,24 @@ export function StrategySection() {
           ))}
         </div>
 
-        <p className="mx-auto mt-12 max-w-2xl text-center text-lg font-bold text-secondary">
+        <p className={cn('mx-auto mt-12 max-w-2xl text-center text-secondary', rungPunchlineClass('strategy'))}>
           You don&apos;t need more content. You need a reason for the content
           you already have.
         </p>
+        <p className="mx-auto mt-4 max-w-2xl text-center text-sm text-secondary/50">
+          This is the standalone engine. Ocean already builds this into the
+          retainer; this is the door for everyone else.
+        </p>
+        <div className="mt-8 flex justify-center">
+          <a
+            href={strategyInquiryHref}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center justify-center bg-accent px-7 py-4 text-base font-extrabold tracking-wide text-background uppercase transition-transform hover:-translate-y-0.5"
+          >
+            Get the roadmap priced
+          </a>
+        </div>
       </div>
     </section>
   )

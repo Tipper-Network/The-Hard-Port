@@ -51,3 +51,35 @@ observations:
     outcome: correction
     note: "Loop was copy-pasted from a different project (Tipper) wholesale — wrong paths, wrong skill names, fintech-app example scenarios. User caught it and asked for a real adaptation."
     source: session
+
+  - id: obs-20260717-007
+    at: 2026-07-17
+    task: "depth-token floor audit"
+    artifact: 03-ui-visual-system.mdc
+    outcome: fail
+    note: "Depth ramp floored at depth-6 through depth-12 (7 sections, one shade) despite the rule's own 'flat top to bottom is a bug' line. User caught it via live-site read; rewrote to a continuous 13-step gradient."
+    source: session
+
+  - id: obs-20260717-008
+    at: 2026-07-17
+    task: "Hero CTA visual hierarchy"
+    artifact: 03-ui-visual-system.mdc
+    outcome: correction
+    note: "Two equal-weight solid-gold CTAs in Hero — rule never states only one CTA per section should carry full visual weight. Added ghost variant to link_button.tsx after user flagged it."
+    source: session
+
+  - id: obs-20260717-009
+    at: 2026-07-17
+    task: "featured pricing tier elevation"
+    artifact: 03-ui-visual-system.mdc
+    outcome: correction
+    note: "Recommended tier had a border + star only; user had to explicitly ask for scale/shadow/ribbon. No rule states a singled-out choice needs actual visual lift, not just a label."
+    source: session
+
+  - id: obs-20260717-010
+    at: 2026-07-17
+    task: "letter panel lift-off"
+    artifact: 03-ui-visual-system.mdc
+    outcome: pass
+    note: "navy-mid card + border + shadow against a darker section bg, per explicit user color-token spec — clean execution, no rule gap."
+    source: session

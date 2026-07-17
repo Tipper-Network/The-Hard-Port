@@ -13,7 +13,19 @@ a lot of this traffic arrives from silent autoplay clips on social.
 
 Mirror the copy escalation rule visually: background gets darker, type gets tighter/heavier,
 CTA buttons get bigger, as the visitor moves down the page. A page that looks visually flat top
-to bottom is a bug, same as copy that reads flat top to bottom.
+to bottom is a bug, same as copy that reads flat top to bottom. Concretely, that means:
+
+- **No floor before the last section.** The depth-background ramp (`--color-depth-0` through
+  `-12` in `styles.css`) must keep decreasing in lightness every step, all the way to the last
+  call. Plateauing early (multiple consecutive sections sharing one shade) shipped once already
+  and read as flat — don't reintroduce a floor to "simplify" the scale.
+- **One CTA carries full weight per section.** When a section shows two CTAs (e.g. Hero), only
+  one is solid-gold; the other renders as the ghost/secondary variant (`link_button.tsx`'s
+  `variant="ghost"`). Two equal-weight solid buttons in the same viewport is a hierarchy bug.
+- **A singled-out choice needs elevation, not just a label.** If a comparison (pricing tier,
+  package, plan) marks one option as recommended/featured, a star or border alone doesn't cut
+  it — it needs actual visual lift (scale, shadow, or a ribbon) so it reads as raised before
+  anyone reads the label.
 
 ## The nautical metaphor is load-bearing
 
@@ -24,15 +36,15 @@ iconography).
 
 ## Scroll-position indicator
 
-Consider a thin progress element styled as "distance from port" — fills as the user scrolls,
-making the metaphor literal: reaching the bottom of the page should visually read as being out
-at sea, past the point of easy return.
+Shipped as `components/distance-meter.tsx` — a thin progress bar styled as "distance from port,"
+mounted globally in `routes/index.tsx`. Don't duplicate this per-section; extend this component
+if a section needs its own depth cue.
 
 ## Sticky CTA
 
-The CTA button should be persistent (sticky) but its label changes per section per
-`02-conversion-funnel.mdc`. One button, evolving language — not a static "Apply Now" bolted to
-the corner throughout.
+Shipped as `components/sticky-cta.tsx`, driven by `lib/use-active-section.ts`. Label changes per
+section per `02-conversion-funnel.mdc` — one button, evolving language, not a static "Apply Now."
+New sections add an entry to `LABEL_BY_SECTION` in that file, not a second sticky element.
 
 ## What to avoid
 
