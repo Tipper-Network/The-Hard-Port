@@ -1,66 +1,43 @@
 # Last evolve
 
-**last_run:** 2026-07-16 (run 2 — user invoked `tipper-evolve`)  
-**Loop home:** `.cursor/training-loop/`  
-**Edit budget:** 2 / 3 used
+**last_run:** 2026-07-17 (run 0 — bootstrap; this is the loop's first real run in this repo)
+**Loop home:** `.cursor/skills/training-loop/`
+**Edit budget:** 0 / 3 used
 
-## Rollout batch (since prior last_run)
+## What run 0 actually was
 
-| id | artifact | outcome | note |
-|----|----------|---------|------|
-| obs-20260716-008 | tipper-evolve | pass | User invoked evolve; full loop executed |
+This loop was copy-pasted wholesale from a different project ("Tipper," a creator-subscription
+app) and had never been adapted or run here. Run 0 is that adaptation, not a normal evolve pass:
 
-*(Prior batch obs-001…007 already processed in run 1.)*
+- Rewrote `TRAINING-LOOP.md` and `INDEX.md` — fixed every path, dropped the `tipper-` prefix,
+  pointed the PARAMETER stage at this repo's real `rules/instincts/skills` layout.
+- Replaced all 12 `HELDOUT.yaml` scenarios — the originals tested a fintech app's schema
+  migrations, subscription tiers, and wallet UI. New scenarios pressure-test this repo's actual
+  rules/instincts/skills (fake testimonials, generic CTAs, funnel reordering, fake scarcity,
+  fake guarantees, etc.).
+- Reset `ROLLOUT.yaml` — cleared the other project's fake observation history, seeded 6 real
+  rows from today's actual session work.
+- Created the two operator skills the docs referenced but that never existed:
+  `.cursor/skills/evolve/SKILL.md` and `.cursor/skills/trim/SKILL.md`.
+- Created `.cursor/instincts/INDEX.md` — the parameter inventory the loop docs pointed at but
+  that was never built.
+- Fixed and ran `trim/scripts/inventory.sh` for real — see `trim/LAST_TRIM.md` for the first
+  honest token-economy baseline (well under budget; no cuts needed).
 
-## Backward — patterns
+## Held-out gate (HELDOUT.yaml) — not yet run
 
-| Pattern | Signal | Action |
-|---------|--------|--------|
-| `tipper-evolve` pass streak (4×) | Loop wiring works | **No edit** to evolve skill |
-| `training-loop` folder move (2× pass) | Hub stable | **No edit** |
-| Orphan `instincts/TRAINING-LOOP.md` | Stale duplicate — old paths, broken diagram ref | **Prune** |
-| Git delta since last_run | None on `.cursor/` | Product instincts unchanged |
-| Product focus (`inprogress.md`) | Bundle Program Stage 1 UI pending | Watch `money-patron-surfaces` on first ship |
+The new scenario set has not been run end-to-end yet. Next evolve run should open with a full
+gate pass to confirm all 12 scenarios hold, since this is fresh content.
 
-## Bounded update (ranked, clipped)
+## Instinct inventory
 
-1. **Prune** orphan `instincts/TRAINING-LOOP.md` — duplicate of `training-loop/TRAINING-LOOP.md` ✅ landed
-2. Update `LAST_EVOLVE.md` — this report ✅ landed
-3. Append `obs-20260716-008` to ROLLOUT ✅ landed
-4. ~~Bump instinct confidences~~ — clipped; no repeated corrections since run 1
-
-## Instinct inventory (unchanged)
-
-13 domain instincts + `training-loop/forward.yaml`. All statuses hold. No promote-to-rule candidates — PC9/surfaces already in rules.
-
-## Held-out gate (HELDOUT.yaml)
-
-| id | result |
-|----|--------|
-| schema-hands-off | pass |
-| community-anon-gate | pass |
-| honest-mvp-wallet | pass |
-| platform-plan-vs-kind-b | pass |
-| walk-in-subscribe | pass |
-| question-plan-first | pass |
-| figma-mcp-direct | pass |
-| patron-redeem-ui-premature | pass |
-| training-loop-forward | pass |
-
-**Gate:** ✅ all pass — candidate landed.
-
-## Landed
-
-- Deleted `.cursor/instincts/TRAINING-LOOP.md` (stale duplicate)
-- Updated `training-loop/LAST_EVOLVE.md`
-- Appended `obs-20260716-008` to `training-loop/ROLLOUT.yaml`
+9 instincts, all `active`, confidence `0.7` baseline (authored today, no rollout evidence yet).
+See `.cursor/instincts/INDEX.md`.
 
 ## Next forward pass
 
-On **Bundle Program Stage 1** ship, log rollout for:
+Log to `ROLLOUT.yaml` as real tasks test these rules/instincts/skills. First full evolve run
+(stages 2-6) should happen once `ROLLOUT.yaml` has meaningfully more than today's 6 seed rows —
+don't force a full loop with only bootstrap data to reflect on.
 
-- `money-patron-surfaces` — Surface A only, no Stage 2 UI
-- `affiliation-first-subscribe` — PC9 if subscribe/cash paths touched
-- `honest-mvp-seams` — no fake wallet / redeem UI
-
-**Next evolve due:** ~2026-07-30 or after ≥3 new corrections in ROLLOUT.
+**Next evolve due:** ~2026-07-31, or sooner if 3+ corrections land on the same artifact.

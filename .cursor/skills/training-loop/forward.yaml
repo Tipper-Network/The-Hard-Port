@@ -1,33 +1,36 @@
 ---
 id: training-loop-forward
-trigger: "tipper-ship, tipper-handoff --save, end of session, policy pass or correction"
-confidence: 0.85
+trigger: "end of session, or a moment where a rule/instinct/skill got tested by a real decision"
+confidence: 0.7
 domain: workflow
 scope: project
 status: active
-source: session-2026-07-16-training-loop
-last_evidence: 2026-07-16
+source: session-2026-07-17-training-loop-adapt
+last_evidence: 2026-07-17
 ---
 
 # Training loop — forward pass (stage 2)
 
 ## Action
 
-On **ship** or **handoff --save**, append 0–5 rows to `.cursor/training-loop/ROLLOUT.yaml` when policy artifacts behaved notably:
+At the **end of a session**, or right after a real decision tested a rule/instinct/skill,
+append 0-5 rows to `.cursor/skills/training-loop/ROLLOUT.yaml`.
 
 | Log when | outcome |
 |----------|---------|
-| Instinct/skill cited correctly | `pass` |
-| User had to steer agent on policy | `correction` |
-| Agent violated rule/instinct | `fail` |
+| A rule/instinct/skill was cited and correctly applied | `pass` |
+| The user had to steer the agent away from what a rule/instinct/skill says | `correction` |
+| The agent shipped something that violates a rule/instinct/skill | `fail` |
 
-Fields: `id`, `at`, `task`, `artifact` (instinct id or skill name), `outcome`, `note`, `source` (`ship` | `handoff` | `session`).
+Fields: `id`, `at`, `task`, `artifact` (rule filename, instinct id, or skill name), `outcome`,
+`note`, `source` (usually `session`).
 
-Do **not** log every chat turn. Do **not** edit instincts/skills during forward pass — that is `tipper-evolve` (stages 3–6).
+Do **not** log every chat turn. Do **not** edit rules/instincts/skills during the forward pass —
+that's what the `evolve` skill (stages 3-6) is for.
 
-Law: `.cursor/training-loop/TRAINING-LOOP.md`
+Law: `.cursor/skills/training-loop/TRAINING-LOOP.md`
 
 ## Evidence
 
-- SkillOpt six-stage loop — home: `.cursor/training-loop/`
-- Forward without rollout → evolve has nothing to reflect on
+- SkillOpt six-stage loop — home: `.cursor/skills/training-loop/`
+- Forward without rollout means evolve has nothing to reflect on

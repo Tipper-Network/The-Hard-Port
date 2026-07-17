@@ -1,6 +1,7 @@
 # Context trim — home
 
-**Token economy loop** (Trim Hero → Cursor). Core: don't waste **time, energy, or agent tokens**. Sibling of [evolve](../INDEX.md) (quality).
+**Token economy loop** (Trim Hero -> Cursor). Core: don't waste **time, energy, or agent
+tokens**. Sibling of [evolve](../INDEX.md) (quality).
 
 | File | Step |
 |------|------|
@@ -9,6 +10,7 @@
 | [LAST_TRIM.md](./LAST_TRIM.md) | Last audit + estimated savings |
 | [scripts/inventory.sh](./scripts/inventory.sh) | Fixed per-turn baseline (one proxy) |
 
-**Invoke:** `Run tipper-trim` · Skill: [`tipper-trim/SKILL.md`](../../skills/tipper-trim/SKILL.md)
+**Invoke:** `Run trim` · Skill: [`trim/SKILL.md`](../../trim/SKILL.md)
 
-**Targets:** fixed per-turn ≤ ~20 KB rules (~5k est tokens/turn) · right-sized process per task
+**Targets:** keep always-on rules lean — right now only `00-brand-core.mdc` is
+`alwaysApply: true`; everything else is `globs:`-scoped or invoked on demand.
