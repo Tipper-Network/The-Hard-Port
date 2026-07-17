@@ -2,7 +2,7 @@ import LinkButton from "#/components/link_button";
 
 export function LetterSection() {
   return (
-    <section id="letter" className="relative bg-depth-4 px-6 py-20 lg:px-12 lg:py-28">
+    <section id="letter" className="relative bg-depth-1 px-6 py-20 lg:px-12 lg:py-28">
       <div className="relative mx-auto max-w-150">
         <div className="relative border border-white/10 bg-navy-mid px-6 py-10 shadow-2xl shadow-black/50 sm:px-10 sm:py-14 lg:px-14 lg:py-16">
           <div
