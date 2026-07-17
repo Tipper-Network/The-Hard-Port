@@ -1,4 +1,4 @@
-import { Link } from '@tanstack/react-router'
+import LinkButton from '#/components/link_button'
 
 export function AboutSection() {
   return (
@@ -16,13 +16,15 @@ export function AboutSection() {
           We handle the brand, the strategy, the campaigns &mdash; everything
           that turns attention into growth.
         </p>
-        <Link
-          to="/about"
-          className="mt-6 inline-flex items-center gap-1 text-base font-bold text-accent"
+        <LinkButton
+          href="/about"
+          variant="text"
+          noMargin
+          className="mt-6 inline-flex items-center gap-1 text-base"
         >
           The full story, if you need convincing
           <span aria-hidden="true">&gt;</span>
-        </Link>
+        </LinkButton>
       </div>
     </section>
   )
