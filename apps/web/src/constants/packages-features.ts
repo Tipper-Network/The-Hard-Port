@@ -29,9 +29,9 @@ export const packageCards: readonly PackageCard[] = [
     id: 'port',
     name: 'TO THE PORT',
     price: 0,
-    tagline: 'For people still scared of the water',
+    tagline: 'We pick 2 businesses a month. Not you.',
     bullets: ['Content', 'Reporting', 'Branding'],
-    cta: 'Apply',
+    cta: 'Apply for the free slot',
     ctaLink: '#apply',
   },
   {

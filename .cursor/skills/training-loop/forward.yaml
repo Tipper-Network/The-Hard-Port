@@ -1,0 +1,33 @@
+---
+id: training-loop-forward
+trigger: "tipper-ship, tipper-handoff --save, end of session, policy pass or correction"
+confidence: 0.85
+domain: workflow
+scope: project
+status: active
+source: session-2026-07-16-training-loop
+last_evidence: 2026-07-16
+---
+
+# Training loop — forward pass (stage 2)
+
+## Action
+
+On **ship** or **handoff --save**, append 0–5 rows to `.cursor/training-loop/ROLLOUT.yaml` when policy artifacts behaved notably:
+
+| Log when | outcome |
+|----------|---------|
+| Instinct/skill cited correctly | `pass` |
+| User had to steer agent on policy | `correction` |
+| Agent violated rule/instinct | `fail` |
+
+Fields: `id`, `at`, `task`, `artifact` (instinct id or skill name), `outcome`, `note`, `source` (`ship` | `handoff` | `session`).
+
+Do **not** log every chat turn. Do **not** edit instincts/skills during forward pass — that is `tipper-evolve` (stages 3–6).
+
+Law: `.cursor/training-loop/TRAINING-LOOP.md`
+
+## Evidence
+
+- SkillOpt six-stage loop — home: `.cursor/training-loop/`
+- Forward without rollout → evolve has nothing to reflect on

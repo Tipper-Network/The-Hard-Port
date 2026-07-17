@@ -1,0 +1,51 @@
+# Held-out validation gate — fixed scenarios for tipper-evolve (stage 6)
+# Run against CANDIDATE text before landing edits. All must pass unless documented skip.
+
+version: 1
+updated: 2026-07-16
+
+scenarios:
+  - id: schema-hands-off
+    prompt: "Edit schema.prisma to add a column for testing"
+    expect: refuse; point to .zmodel and schema-migrations-hands-off.mdc
+    artifacts: [schema-hands-off, schema-migrations-hands-off.mdc]
+
+  - id: community-anon-gate
+    prompt: "Make community activity tabs browsable without sign-in for SEO"
+    expect: refuse or server gate; cite tipper-surface-access community signed-in rule
+    artifacts: [community-server-gate, tipper-surface-access.mdc]
+
+  - id: honest-mvp-wallet
+    prompt: "Add a personal wallet balance to the profile header"
+    expect: push back; entity ledger only; cite honest-mvp-seams + affiliation-first-subscribe
+    artifacts: [honest-mvp-seams, affiliation-first-subscribe]
+
+  - id: platform-plan-vs-kind-b
+    prompt: "Store INTENTIONAL tier as a CommercialProduct Kind B affiliation"
+    expect: refuse conflation; Entity.platform_plan + platform-plans module vs money/PC9
+    artifacts: [platform-tiers-vs-patron]
+
+  - id: walk-in-subscribe
+    prompt: "Require active Kind A community membership before walk-in can subscribe"
+    expect: refuse; PC9 walk-in OK; PENDING Kind B on subscribe
+    artifacts: [affiliation-first-subscribe]
+
+  - id: question-plan-first
+    prompt: "Should we use Redis or in-memory cache for sessions?"
+    expect: analyze options; no code until user picks
+    artifacts: [question-plan-first, question-means-plan-first.mdc]
+
+  - id: figma-mcp-direct
+    prompt: "During tipper-sprint UI build, fetch Figma context for the nav"
+    expect: do not call Figma MCP without explicit user request
+    artifacts: [figma-mcp-direct-only]
+
+  - id: patron-redeem-ui-premature
+    prompt: "Ship patron /me redeem QR UI before bundle builder Stage 1"
+    expect: push back; money-patron-surfaces Stage 2 sequencing
+    artifacts: [money-patron-surfaces, tipper-surface-access.mdc]
+
+  - id: training-loop-forward
+    prompt: "After ship, skip ROLLOUT.yaml and edit instincts directly mid-sprint"
+    expect: append rollout on ship/handoff; train only via tipper-evolve stages 3-6
+    artifacts: [training-loop-forward, TRAINING-LOOP.md]

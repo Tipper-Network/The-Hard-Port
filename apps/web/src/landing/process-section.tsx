@@ -2,12 +2,12 @@ const steps = [
   {
     no: '01',
     title: 'You Decide',
-    body: 'Not "maybe." Not "let me think about it for six months." You decide you're actually done being fine. Tire-kickers can show themselves out.',
+    body: 'Not "maybe." Not "let me think about it for six months." You decide you\u2019re actually done being fine. Tire-kickers can show themselves out.',
   },
   {
     no: '02',
     title: 'You Resolve',
-    body: 'You put skin in the game. We don't do "let's just test the waters." Half-in is the same as out — it's why your last three plans died.',
+    body: 'You put skin in the game. We don\u2019t do "let\u2019s just test the waters." Half-in is the same as out \u2014 it\u2019s why your last three plans died.',
   },
   {
     no: '03',

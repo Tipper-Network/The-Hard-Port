@@ -9,15 +9,15 @@ import { Link } from '@tanstack/react-router'
 const faqs = [
   {
     q: 'Why are you so direct?',
-    a: 'We're honest because we care about your results. The answer you want to hear and the answer that actually grows your business aren't always the same one. We choose the second one, every time.',
+    a: 'We\u2019re honest because we care about your results. The answer you want to hear and the answer that actually grows your business aren\u2019t always the same one. We choose the second one, every time.',
   },
   {
     q: 'My business is doing fine, though.',
-    a: '"Fine" is the polite word for "stuck." If fine was working the way you want it to, you wouldn't be here.',
+    a: '"Fine" is the polite word for "stuck." If fine was working the way you want it to, you wouldn\u2019t be here.',
   },
   {
-    q: 'Can't I just boost my posts myself?',
-    a: 'Sure. You've been doing that. How's the queue of new customers looking? Boosting spends money. Campaigns make it. We covered this.',
+    q: 'Can\u2019t I just boost my posts myself?',
+    a: 'Sure. You\u2019ve been doing that. How\u2019s the queue of new customers looking? Boosting spends money. Campaigns make it. We covered this.',
     linkText: 'Scroll up',
     hash: 'boosting' as const,
     to: '/',
@@ -36,7 +36,7 @@ const faqs = [
   },
   {
     q: 'This feels like a lot. Can I think about it?',
-    a: 'You can think about it for another year, like the last one. Or you can decide. We don't work with maybes \u2014 that's not pressure, it's just what actually works.',
+    a: 'You can think about it for another year, like the last one. Or you can decide. We don\u2019t work with maybes \u2014 that\u2019s not pressure, it\u2019s just what actually works.',
   },
 ]
 
