@@ -1,4 +1,4 @@
-import { Link, createFileRoute } from '@tanstack/react-router'
+import { createFileRoute } from '@tanstack/react-router'
 
 import { SiteFooter } from '#/landing/site-footer'
 import { SiteHeader } from '#/landing/site-header'

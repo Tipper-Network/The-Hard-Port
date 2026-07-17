@@ -126,14 +126,18 @@ export function PackagesSection() {
                 ) : null}
               </h3>
 
-              {pkg.price !== 0 && (
-                <p className="mt-4 text-center text-[0.65rem] font-bold tracking-[0.18em] text-white/40 uppercase">
-                  Starting from
-                </p>
-              )}
-              <p className={cn('text-center text-3xl font-extrabold tracking-tight', pkg.price !== 0 ? 'mt-1' : 'mt-4')}>
-                ${pkg.price !== 0 ? formatPrice(pkg.price) : "???"}
-                <span className="text-sm font-medium text-white/60">/mo</span>
+              <p className="mt-4 text-center text-[0.65rem] font-bold tracking-[0.18em] text-white/40 uppercase">
+                {pkg.price !== 0 ? 'Starting from' : 'The catch is we choose'}
+              </p>
+              <p className={cn('text-center text-3xl font-extrabold tracking-tight', pkg.price !== 0 ? 'mt-1' : 'mt-2')}>
+                {pkg.price !== 0 ? (
+                  <>
+                    ${formatPrice(pkg.price)}
+                    <span className="text-sm font-medium text-white/60">/mo</span>
+                  </>
+                ) : (
+                  'FREE'
+                )}
               </p>
 
               <p className="mt-2 text-center text-sm text-white/70">{pkg.tagline}</p>
@@ -169,17 +173,17 @@ export function PackagesSection() {
         <Tabs defaultValue="compare" className="mt-16 w-full gap-6">
           <TabsList variant="line" className={cn(tabListClass, 'mx-auto')}>
             <TabsTrigger value="compare" className={tabTriggerClass}>
-              Compare Features
+              What Changes Per Lane
             </TabsTrigger>
             <TabsTrigger value="details" className={tabTriggerClass}>
-              Detailed Breakdown
+              What You Actually Get
             </TabsTrigger>
           </TabsList>
 
           {/* Tab 1 — accordion per upgrade row */}
           <TabsContent value="compare" className="mt-6 text-white/75">
             <p className="mb-4 text-center text-sm text-white/60">
-              Expand each feature to see how it differs across plans
+              Tap a line to see how it changes as you go further out
             </p>
             <Accordion type="single" collapsible className={accordionShellClass}>
               {upgradeComparisonRows.map((row) => (
@@ -219,7 +223,7 @@ export function PackagesSection() {
           {/* Tab 2 — accordion per capability (full detail bullets) */}
           <TabsContent value="details" className="mt-6 text-white/75">
             <p className="mb-4 text-center text-sm text-white/60">
-              Expand any capability to see exactly what&apos;s included
+              Tap a category to see exactly what&apos;s included
             </p>
             <Accordion type="single" collapsible className={accordionShellClass}>
               {capabilities.map((capability) => {

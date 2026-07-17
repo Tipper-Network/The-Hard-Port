@@ -1,0 +1,68 @@
+# Forward pass — scored trajectories (stage 2)
+# Append on tipper-ship / tipper-handoff --save when notable. Max ~50 rows; evolve may archive.
+
+version: 1
+observations:
+  - id: obs-20260716-001
+    at: 2026-07-16
+    task: "which skill updates processing"
+    artifact: tipper-evolve
+    outcome: pass
+    note: "Routed evolve vs sprint correctly; no premature code"
+    source: session
+
+  - id: obs-20260716-002
+    at: 2026-07-16
+    task: "evolve hygiene audit"
+    artifact: tipper-evolve
+    outcome: pass
+    note: "Honest gap analysis — instincts updated ad hoc, no formal loop"
+    source: session
+
+  - id: obs-20260716-003
+    at: 2026-07-16
+    task: "connect evolve + 15d update"
+    artifact: tipper-evolve
+    outcome: pass
+    note: "Wired ship/handoff/sprint; LAST_EVOLVE bootstrap; new money instincts"
+    source: session
+
+  - id: obs-20260716-004
+    at: 2026-07-16
+    task: "honest-mvp instinct stale wording"
+    artifact: honest-mvp-seams
+    outcome: correction
+    note: "Said don't imply A/B/C split — product truth now Stage 1 FINAL; rewrote instinct"
+    source: evolve
+
+  - id: obs-20260716-005
+    at: 2026-07-16
+    task: "SkillOpt diagram → first principles"
+    artifact: TRAINING-LOOP
+    outcome: pass
+    note: "User wants six-stage loop as canonical evolve model"
+    source: session
+
+  - id: obs-20260716-006
+    at: 2026-07-16
+    task: "continue — finish loop integration"
+    artifact: training-loop-forward
+    outcome: pass
+    note: "Added forward instinct, harness rule, ship/handoff rollout output, HELDOUT scenario"
+    source: session
+
+  - id: obs-20260716-007
+    at: 2026-07-16
+    task: "dedicated training-loop folder"
+    artifact: training-loop
+    outcome: pass
+    note: "Moved loop hub to .cursor/training-loop/; repointed all references"
+    source: session
+
+  - id: obs-20260716-008
+    at: 2026-07-16
+    task: "user invoked tipper-evolve"
+    artifact: tipper-evolve
+    outcome: pass
+    note: "Full loop run 2; pruned orphan instincts/TRAINING-LOOP.md; HELDOUT 9/9 pass"
+    source: evolve

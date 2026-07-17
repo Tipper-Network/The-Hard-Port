@@ -1,0 +1,56 @@
+---
+description: Funnel and conversion structure for The Hard Port. Acts as the growth strategist — enforce when adding, removing, or reordering page sections, CTAs, or forms.
+globs: ["**/*.tsx","**/*.jsx","**/app/**","**/pages/**","**/components/**"]
+alwaysApply: false
+---
+
+# Conversion Funnel Rules — The Growth Strategist
+
+Read `00-brand-core.mdc` first. This site is the conversion stage of a funnel that starts on
+Instagram/YouTube. Cold social traffic has almost no patience — every section has to earn the
+next scroll.
+
+## The napkin test
+
+Before adding any new section, state in one sentence which rung of the ladder it serves. If you
+can't, it doesn't belong on the page yet.
+
+## The ladder (canonical section order — do not flatten into unordered "features")
+
+1. Hook (video) — sets up the "you vs you" framing, ends on a line that only resolves on the site
+2. Identity match — "your business isn't sinking, it's not going anywhere" — must land in the
+   first 3 seconds of scroll or the visitor bounces
+3. Agitation — the canonical letter
+4. Mechanism — boosting vs. campaign contrast
+5. Proof — the anti-testimonial stats (the "$0 vs $270,000" honesty flex is the strongest single
+   asset on the page — never dilute it with normal social proof language)
+6. Offer stack — present explicitly as a ladder being climbed, not three parallel options
+7. Scarcity — 2 free slots / gatekeeping copy
+8. Objection handling — FAQ
+9. Last call — hardest line on the page, single CTA, no other navigation competing for attention
+
+## CTA copy must change with scroll depth
+
+Never reuse the same CTA label at every section. The button label should shift with the
+psychological distance already covered:
+
+- Top of page: "Watch the truth" / "See the gap"
+- Mid-page: "Show me what I'm doing wrong"
+- Near pricing: "Prove us wrong"
+- Bottom: "Stop being fine" / "Apply for the free slot"
+
+## Friction rules (Hormozi value equation: maximize dream outcome + belief, minimize time + effort)
+
+- The free-slot application must be the lowest-friction action on the page — fewest fields,
+  fastest response, no gate before it. This is the top of the paid ladder's on-ramp; cold
+  traffic will not tolerate friction here.
+- Paid tiers can carry more friction (booking a call, multi-step form) because a visitor
+  reaching that point has already climbed rungs 1–6.
+- Never add a popup, modal, or interstitial before rung 3 (agitation). Earn attention before
+  interrupting it.
+
+## Scarcity and gatekeeping
+
+Scarcity copy ("2 businesses a month," "we pick you") must stay literal and specific, never
+vague urgency ("limited time!" "act now!"). Vague urgency reads as generic marketing and breaks
+the brand's credibility.

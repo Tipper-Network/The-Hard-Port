@@ -18,6 +18,8 @@ export function Hero() {
       <video
         className="absolute inset-0 h-full w-full object-cover"
         src="/oceanvid.mp4"
+        poster="/hero-ocean.jpg"
+        preload="metadata"
         autoPlay
         muted
         loop

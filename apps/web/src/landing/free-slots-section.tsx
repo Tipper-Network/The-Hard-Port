@@ -1,3 +1,4 @@
+import { ApplyForm } from '#/landing/apply-form'
 import { freeSlots } from '#/lib/brand'
 
 const criteria = [
@@ -45,26 +46,30 @@ export function FreeSlotsSection() {
             </p>
           </div>
 
-          <div className="border border-white/15 bg-white/5 p-8">
-            <h3 className="text-lg font-extrabold tracking-wide text-white uppercase">
-              Who we actually pick
-            </h3>
-            <p className="mt-2 text-sm text-white/60">
-              Read this before you waste your time (and ours).
-            </p>
-            <ul className="mt-7 space-y-5">
-              {criteria.map((item, i) => (
-                <li key={item} className="flex gap-4">
-                  <span className="shrink-0 text-xl font-extrabold text-accent">
-                    {String(i + 1).padStart(2, '0')}
-                  </span>
-                  <span className="text-sm leading-6 text-white/85">{item}</span>
-                </li>
-              ))}
-            </ul>
-            <p className="mt-8 border-t border-white/10 pt-6 text-sm font-bold text-white">
-              Not picked? You can always just pay us. Funny how that works.
-            </p>
+          <div className="space-y-6">
+            <div className="border border-white/15 bg-white/5 p-8">
+              <h3 className="text-lg font-extrabold tracking-wide text-white uppercase">
+                Who we actually pick
+              </h3>
+              <p className="mt-2 text-sm text-white/60">
+                Read this before you waste your time (and ours).
+              </p>
+              <ul className="mt-7 space-y-5">
+                {criteria.map((item, i) => (
+                  <li key={item} className="flex gap-4">
+                    <span className="shrink-0 text-xl font-extrabold text-accent">
+                      {String(i + 1).padStart(2, '0')}
+                    </span>
+                    <span className="text-sm leading-6 text-white/85">{item}</span>
+                  </li>
+                ))}
+              </ul>
+              <p className="mt-8 border-t border-white/10 pt-6 text-sm font-bold text-white">
+                Not picked? You can always just pay us. Funny how that works.
+              </p>
+            </div>
+
+            <ApplyForm />
           </div>
         </div>
       </div>

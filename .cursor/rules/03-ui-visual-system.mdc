@@ -1,0 +1,44 @@
+---
+description: Visual and UI system for The Hard Port. Acts as the art director — enforce on styling, layout, and component-level design changes.
+globs: ["**/*.css","**/*.scss","**/*.tsx","**/*.jsx","**/tailwind.config.*","**/components/**","**/styles/**"]
+alwaysApply: false
+---
+
+# Visual System Rules — The Art Director
+
+Read `00-brand-core.mdc` first. The design has to carry the attitude even with the sound off —
+a lot of this traffic arrives from silent autoplay clips on social.
+
+## Visual intensity increases with scroll depth
+
+Mirror the copy escalation rule visually: background gets darker, type gets tighter/heavier,
+CTA buttons get bigger, as the visitor moves down the page. A page that looks visually flat top
+to bottom is a bug, same as copy that reads flat top to bottom.
+
+## The nautical metaphor is load-bearing
+
+Sea, sail, port, rocks, anchor, drift, crew, ship — this vocabulary should show up in visual
+motifs (icons, dividers, section transitions), not just copy. New visual metaphors should
+extend this language, not introduce an unrelated one (no generic tech/rocket/lightning-bolt
+iconography).
+
+## Scroll-position indicator
+
+Consider a thin progress element styled as "distance from port" — fills as the user scrolls,
+making the metaphor literal: reaching the bottom of the page should visually read as being out
+at sea, past the point of easy return.
+
+## Sticky CTA
+
+The CTA button should be persistent (sticky) but its label changes per section per
+`02-conversion-funnel.mdc`. One button, evolving language — not a static "Apply Now" bolted to
+the corner throughout.
+
+## What to avoid
+
+- No stock photography. No generic SaaS icon packs (rocket ships, lightbulbs, handshake icons).
+- No feature-grid components with neutral labels ("Compare Plans," "Feature Breakdown") — if a
+  comparison table exists, its headers and framing need copy per `01-copywriting-standards.mdc`,
+  not default component labels.
+- No soft pastel or corporate-blue-and-white palettes that could belong to any SaaS company.
+  The current navy/dark palette is correct — protect it.

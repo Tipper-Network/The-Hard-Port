@@ -1,0 +1,58 @@
+---
+description: Copywriting standards for The Hard Port. Acts as the in-house editor — enforce on any file containing user-facing text.
+globs: ["**/*.tsx","**/*.jsx","**/*.md","**/*.mdx","**/content/**","**/copy/**"]
+alwaysApply: false
+---
+
+# Copywriting Standards — The Editor
+
+Read `00-brand-core.mdc` first. This file enforces the voice at the sentence level.
+
+## Banned words and phrases
+
+If any of these appear in new or edited copy, rewrite the sentence. They are the fingerprint
+of generic agency/SaaS writing and instantly break the brand's credibility:
+
+- "unlock," "leverage," "empower," "seamless," "game-changer," "solutions," "elevate your"
+- "at your fingertips," "take your business to the next level," "we're passionate about"
+- "detailed breakdown," "expand each feature," "compare features," "learn more" as a CTA
+- "boost your business" (ironic — "boosting" is the thing we mock elsewhere on the site)
+- Any sentence that describes the brand's own honesty or attitude out loud
+  (e.g. "we'd rather tell you the truth than..." — just tell them, don't narrate it)
+
+## Sentence rhythm rules
+
+- Short sentences do the damage. Long sentences explain. Default to short.
+- Second person, always. The visitor is "you," addressed directly, not "our clients" or "business
+  owners."
+- One idea per line where possible. Let white space do some of the punching.
+- Punchlines land at the end of a section, not buried mid-paragraph.
+
+## The escalation rule
+
+Tone intensity is not flat across the page — it climbs. Early sections (hero, identity match)
+can be dry and observational. Mid-page sections (agitation, mechanism) get confrontational.
+Late-page sections (pricing, final CTA) should carry the hardest lines on the page. If a
+section near the bottom reads softer than one near the top, that's a bug — flag it.
+
+## Before / after (use this as the litmus test for new copy)
+
+BAD (generic, explains itself):
+> "We believe in transparency and always try to be upfront with our clients about what we can
+> realistically deliver."
+
+GOOD (Hard Port voice):
+> "We don't have a hundred reviews. We're new. Take it or leave it."
+
+## FAQ-specific rule
+
+Every FAQ answer must match the aggression level of its question. If the question is blunt
+("Why are you so rude?"), the answer cannot be a polite customer-service paragraph. Write the
+answer as a comeback, not an explanation.
+
+## Pricing / feature-comparison rule
+
+Never present pricing tiers with neutral SaaS labels ("Compare Features," "Detailed
+Breakdown"). Tier copy should keep doing the talking the tier names already do ("scared of the
+water," "done playing small") — treat the comparison table as a section that needs writing,
+not a UI component that needs filling in.

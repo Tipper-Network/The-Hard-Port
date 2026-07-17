@@ -23,13 +23,13 @@ export function ProofSection() {
     { value: numberOfClients, label: 'Clients who worked with us directly' },
     {
       value: documentedReturn,
-      label: 'their documented return ???',
+      label: 'their documented return to us',
       sign: '$',
       format: (value) => value.toLocaleString(),
     },
     {
       value: ourReturn,
-      label: 'our documented return...',
+      label: 'the return they got instead',
       sign: '$',
       format: (value) => value.toLocaleString(),
     },

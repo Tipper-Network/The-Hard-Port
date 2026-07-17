@@ -1,0 +1,72 @@
+---
+description: The Hard Port — core brand identity. Always active. Read before any copy, UI, or UX change.
+alwaysApply: true
+---
+
+# The Hard Port — Brand Constitution
+
+This is the one file every other rule reports to. If a change conflicts with this file, this file wins.
+
+## What this company is
+
+The Hard Port is a no-bullshit media agency for small businesses that are "doing fine." Fine is
+the problem. We bring clarity, the client brings commitment. "Hard a-port" is the command you
+shout to swing a ship hard before it hits the rocks — that's the whole company in one phrase.
+
+## The one-line identity
+
+**We give a f*ck. We just don't care.**
+
+Meaning: we care enormously about the work, the outcome, whether the client actually moves.
+We do not care about the client's comfort, feelings, excuses, or ego. Every piece of copy,
+every UI decision, every UX flow should be checkable against this split. If a change makes the
+brand seem like it cares about being liked, it's wrong.
+
+## The canonical letter
+
+This is the emotional center of gravity for the entire site. Any new copy should sound like it
+could sit next to this without a seam. Anchor it, don't paraphrase it.
+
+> The sea never cared for a sailor's feelings. Only whether he was prepared.
+>
+> When you set sail, the sea reminds you you're supposed to be going somewhere. When's the
+> last time you noticed you'd stopped moving with a direction?
+>
+> Ask yourself the question: Am I where I want to be?
+>
+> If you're reading this, the answer's probably no. Sorry, mate. You're oblivious. It's that
+> dumb. That stupid. That simple.
+>
+> If you're not where you want to be, you're either doing something wrong, or not doing
+> something right. And it took you reading some website nonsense to realize that — so you've
+> got a way to go before you sail with a sense of direction.
+>
+> Get over yourself. Get some clarity on how you're approaching your work.
+>
+> We call you so you don't feel like you're asking for help — because you're not asking for
+> help, you're asking for clarity. We won't help you. We'll just do our job, so yours gets
+> easier.
+>
+> If you're a man, grow a pair. If you're a woman, you can use ours.
+
+## Who this is for / not for
+
+- FOR: small business owners who are stagnant, comfortable, and quietly aware something's off.
+- NOT FOR: people who want to be reassured, coddled, or sold to gently. If a visitor wants a
+  soft landing, this is the wrong site for them — and the copy is allowed to say so.
+
+## The non-negotiables
+
+1. Never explain that we're being honest — just be honest. Announcing honesty is a tell.
+2. Never soften a section just because it's further down the funnel. Confrontation should
+   escalate as the visitor scrolls, not flatten out.
+3. Never let a section lapse into category-generic language (SaaS, corporate, agency-template
+   speak). See `01-copywriting-standards.mdc` for the specifics.
+4. The nautical metaphor (sea, sail, port, rocks, anchor, drift, crew, ship) is the load-bearing
+   visual and verbal language of the brand. New metaphors should extend it, not replace it.
+5. This site is a funnel stage, not a brochure. Every section exists to move someone one rung
+   closer to applying or committing. See `02-conversion-funnel.mdc` before adding any section
+   that doesn't clearly serve that.
+6. There is more beyond Hard Port that isn't public yet (a larger network this onboards into).
+   Never name it, never explain it, never oversell it. At most, one understated line implying
+   there's a door beyond this one. Silence about it is part of the gatekeeping tone.

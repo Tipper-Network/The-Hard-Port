@@ -27,8 +27,8 @@ function Home() {
         <GapSection />
         <ProofSection />
         <ProcessSection />
-        <FreeSlotsSection />
         <PackagesSection />
+        <FreeSlotsSection />
         <AboutSection />
         <FaqSection />
         <ContactSection />
