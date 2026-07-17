@@ -2,7 +2,7 @@ import { Link } from '@tanstack/react-router'
 
 import WhatsappButton from '#/components/whatsapp'
 
-import { THPLogo } from '#/landing/logo-mark'
+import { THPLogo } from '#/components/logo-mark'
 
 const footerLinks = [
   { to: '/' as const, hash: 'boosting' as const, label: 'The Truth' },

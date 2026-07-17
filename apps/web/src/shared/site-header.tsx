@@ -1,6 +1,6 @@
 import { Link } from '@tanstack/react-router'
 
-import { THPLogo } from '../landing/logo-mark'
+import { THPLogo } from '../components/logo-mark'
 
 export function SiteHeader() {
   return (

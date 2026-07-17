@@ -26,9 +26,13 @@ export function Hero() {
         playsInline
         aria-hidden="true"
       />
-      <div className="absolute inset-0 bg-primary/75" aria-hidden="true" />
+      <div className="absolute inset-0 bg-primary/55" aria-hidden="true" />
       <div
-        className="absolute inset-0 bg-linear-to from-primary via-primary/40 to-transparent"
+        className="absolute inset-0 bg-linear-to from-primary via-primary/35 to-transparent"
+        aria-hidden="true"
+      />
+      <div
+        className="absolute inset-0 bg-[radial-gradient(ellipse_at_35%_50%,transparent_40%,var(--color-primary)_100%)] opacity-60"
         aria-hidden="true"
       />
 
@@ -38,7 +42,7 @@ export function Hero() {
           {slogan}
         </p>
 
-        <h1 className="max-w-4xl font-heading text-4xl font-normal tracking-tight text-secondary uppercase md:text-5xl lg:text-6xl xl:text-[4.5rem]">
+        <h1 className="max-w-4xl font-heading text-5xl font-normal tracking-tight text-secondary uppercase drop-shadow-[0_4px_20px_rgba(0,0,0,0.6)] md:text-6xl lg:text-7xl xl:text-[5rem]">
           Your business isn&apos;t sinking.
           <br />
           <span className="text-accent">It&apos;s just not going anywhere.</span>
@@ -50,7 +54,7 @@ export function Hero() {
         </p>
 
         <div className="mt-10 flex flex-col flex-wrap gap-4 sm:flex-row sm:items-center">
-        <LinkButton text="Get the brutal version" href="/" hash="truth" />
+        <LinkButton text="Watch the truth" href="/" hash="letter" intensity={1} variant="ghost" />
         <LinkButton text="Apply for The free slot" href="/" hash="apply" />
         </div>
 

@@ -11,9 +11,12 @@ export function ContactSection() {
         <h2 className="max-w-2xl font-heading text-3xl font-normal uppercase leading-tight text-secondary md:text-5xl">
           The only thing worse than sinking is staying still.
         </h2>
-        <LinkButton text="Apply for The free slot" href="#apply" hash="apply" />
+        <LinkButton text="Stop being fine" href="/" hash="apply" intensity={4} />
         <p className="mt-4 text-sm text-secondary/50">
           {freeSlots.perMonth} slots a month. We pick.
+        </p>
+        <p className="mt-8 text-xs italic text-secondary/30">
+          This isn&apos;t the only door we open.
         </p>
       </div>
     </section>

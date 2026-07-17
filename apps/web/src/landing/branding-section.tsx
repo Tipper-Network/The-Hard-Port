@@ -1,7 +1,15 @@
+import { whatsappNumber } from '#/lib/brand'
+import { rungPunchlineClass } from '#/lib/rung-weight'
+import { cn } from '#/lib/utils'
+
+const brandingInquiryHref = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(
+  "Branding inquiry: here's what our brand isn't saying —",
+)}`
+
 const brandingProblems = [
   'A logo someone made for a flat fee in 2018',
   'Colours chosen because they "felt right"',
-  'A tagline nobody remembers — including you',
+  'A tagline nobody remembers; including you',
   'The same tone as every other business in your space',
   'No consistency between your Instagram and your shop front',
 ]
@@ -9,7 +17,7 @@ const brandingProblems = [
 const brandingDeliverables = [
   'A messaging framework that sells before you open your mouth',
   'Visual identity built to compound across every touchpoint',
-  'A tone of voice that sounds like you at your best — and can\'t be copied',
+  'A tone of voice that sounds like you at your best and can&apos;t be copied',
   'Brand consistency from a business card to a billboard',
   'Positioning that carves out space in a crowded market',
 ]
@@ -27,7 +35,7 @@ export function BrandingSection() {
           </h2>
           <p className="mt-5 text-base leading-7 text-secondary/70 md:text-lg">
             A brand isn&apos;t a logo. It&apos;s the first decision people make
-            about you — before they read a word. Most businesses have a visual
+            about you; before they read a word. Most businesses have a visual
             presence. Very few have a brand that does any work.
           </p>
         </div>
@@ -68,10 +76,25 @@ export function BrandingSection() {
           </div>
         </div>
 
-        <p className="mx-auto mt-12 max-w-2xl text-center text-lg font-bold text-secondary">
+        <p className={cn('mx-auto mt-12 max-w-2xl text-center text-secondary', rungPunchlineClass('branding'))}>
           A brand that doesn&apos;t stand for something stands for nothing. And
           "nothing" doesn&apos;t convert.
         </p>
+        <p className="mx-auto mt-4 max-w-2xl text-center text-sm text-secondary/50">
+          This is the full rebuild; not the light touch-up that already comes
+          with Sea and Ocean. Priced to the size of the mess, not a card on a
+          shelf.
+        </p>
+        <div className="mt-8 flex justify-center">
+          <a
+            href={brandingInquiryHref}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center justify-center bg-accent px-7 py-4 text-base font-extrabold tracking-wide text-background uppercase transition-transform hover:-translate-y-0.5"
+          >
+            Tell us what&apos;s broken
+          </a>
+        </div>
       </div>
     </section>
   )

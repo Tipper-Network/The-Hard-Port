@@ -15,6 +15,7 @@ individual `SKILL.md` files, to keep each skill file clean.
 | `could-exist-on-any-agency-site` | copy, UI, sections | active | 0.7 | 2026-07-17 |
 | `whos-asking-whom` | copy, UX, positioning | active | 0.7 | 2026-07-17 |
 | `ladder-still-makes-sense` | funnel, sections | active | 0.7 | 2026-07-17 |
+| `mockup-is-reference-not-truth` | copy, UI, design-system | active | 0.7 | 2026-07-17 |
 
 **Confidence baseline:** all instincts start at `0.7` (authored, not yet battle-tested against
 real rollout data). The `evolve` skill adjusts this based on `ROLLOUT.yaml` outcomes:

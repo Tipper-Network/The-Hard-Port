@@ -41,8 +41,8 @@ export function FreeSlotsSection() {
 
 
             <p className="mt-4 text-sm text-white/50">
-              Most applications get a polite no. We&apos;d rather be honest than
-              busy.
+              Most applications get a polite no. Selective beats busy, every
+              time.
             </p>
           </div>
 

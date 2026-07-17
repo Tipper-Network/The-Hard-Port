@@ -9,7 +9,7 @@ import { Link } from '@tanstack/react-router'
 const faqs = [
   {
     q: 'Why are you so direct?',
-    a: 'We\u2019re honest because we care about your results. The answer you want to hear and the answer that actually grows your business aren\u2019t always the same one. We choose the second one, every time.',
+    a: 'The answer you want to hear and the answer that actually grows your business aren\u2019t always the same one. We pick the second, every time. Call it rude if it makes you feel better.',
   },
   {
     q: 'My business is doing fine, though.',
@@ -27,12 +27,12 @@ const faqs = [
     a: 'Because free slots are 2 a month and we pick them. Paying is what makes you actually do it \u2014 skin in the game changes everything.',
   },
   {
-    q: 'What do I actually get?',
-    a: 'Clarity, first. The map between where you are and where you want to be. Then the brand and the campaigns that close that gap. Direction, work, and results you can feel.',
+    q: 'So what do I actually get for my money?',
+    a: 'Clarity, first. The map between where you are and where you want to be. Then the brand and the campaigns that close that gap. Direction, work, and results you can feel; not a content calendar you scroll past.',
   },
   {
-    q: 'Do you guarantee results?',
-    a: 'No. What we guarantee is the truth, the work done properly, and a partner who shows up all the way. We will not waste your money on vanity metrics. The rest is a partnership, not a magic trick.',
+    q: 'Do you guarantee results, or is that a polite way of saying no?',
+    a: 'No. What we guarantee is the work done properly and a partner who shows up all the way. We won\u2019t waste your money on vanity metrics to keep you feeling good. The rest is a partnership, not a magic trick; bring your half.',
   },
   {
     q: 'This feels like a lot. Can I think about it?',
@@ -58,7 +58,7 @@ export function FaqSection() {
               value={faq.q}
               className="border-b border-secondary/15"
             >
-              <AccordionTrigger className="text-left text-base font-bold text-secondary hover:no-underline md:text-lg">
+              <AccordionTrigger className="text-left text-base font-bold text-secondary hover:no-underline md:text-lg **:data-[slot=accordion-trigger-icon]:size-5! **:data-[slot=accordion-trigger-icon]:text-accent!">
                 {faq.q}
               </AccordionTrigger>
               <AccordionContent className="text-base leading-7 text-secondary/70">

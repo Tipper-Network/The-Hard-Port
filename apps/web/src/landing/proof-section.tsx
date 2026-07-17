@@ -1,8 +1,6 @@
 type ProofStat = {
   value: number
   label: string
-  sign?: string
-  format?: (value: number) => string
 }
 
 export function ProofSection() {
@@ -21,18 +19,6 @@ export function ProofSection() {
       label: 'Clients who ran our strategies independently',
     },
     { value: numberOfClients, label: 'Clients who worked with us directly' },
-    {
-      value: documentedReturn,
-      label: 'their documented return to us',
-      sign: '$',
-      format: (value) => value.toLocaleString(),
-    },
-    {
-      value: ourReturn,
-      label: 'the return they got instead',
-      sign: '$',
-      format: (value) => value.toLocaleString(),
-    },
   ]
 
   return (
@@ -54,14 +40,13 @@ export function ProofSection() {
           </p>
           <p className="font-bold text-white">
             We don&apos;t have a hundred case studies. We don&apos;t have 7,000
-            reviews. We&apos;re new, and we&apos;d rather tell you that than fake
-            a number.
+            reviews. We&apos;re new. No padding the numbers to look otherwise.
           </p>
           <p>
             What we do have: we&apos;ve built{' '}
             <span className="font-bold text-accent">{numberOfStrategies} full strategies</span> for
-            real businesses. And here&apos;s the honest, slightly annoying
-            ending; they took the strategies and ran them{' '}
+            real businesses. And here&apos;s the slightly annoying ending;
+            they took the strategies and ran them{' '}
             <span className="italic">themselves</span>.
           </p>
           <p>
@@ -76,21 +61,38 @@ export function ProofSection() {
           </p>
         </div>
 
-        <div className="mt-12 grid gap-4 sm:grid-cols-3">
+        <div className="mt-14 flex items-center justify-center gap-6 sm:gap-12">
+          <div className="text-center">
+            <p className="font-heading text-4xl leading-none text-secondary/30 line-through decoration-2 sm:text-5xl">
+              ${documentedReturn.toLocaleString()}
+            </p>
+            <p className="mt-3 max-w-40 text-xs text-secondary/40 sm:text-sm">
+              Their documented return to us
+            </p>
+          </div>
+
+          <span className="h-16 w-px bg-secondary/15 sm:h-24" aria-hidden="true" />
+
+          <div className="text-center">
+            <p className="font-heading text-6xl leading-none text-accent sm:text-7xl lg:text-8xl">
+              ${ourReturn.toLocaleString()}
+            </p>
+            <p className="mt-3 text-sm text-secondary/70 sm:text-base">
+              The return they got instead
+            </p>
+          </div>
+        </div>
+
+        <div className="mt-12 grid gap-4 sm:grid-cols-4">
           {stats.map((stat) => (
             <div
               key={stat.label}
-              className="border border-secondary/15 bg-secondary/5 p-6 text-center "
-              >
-                <div className="flex items-center justify-center">
-                  {stat.sign ? (
-                    <p className="font-heading text-4xl font-normal text-accent">{stat.sign}</p>
-                  ) : null}
-                  <p className="font-heading text-4xl font-normal text-accent">
-                    {stat.format ? stat.format(stat.value) : stat.value}
-                  </p>
-                </div>
-              <p className="mt-2 text-sm text-secondary/70">{stat.label}</p>
+              className="border border-secondary/15 bg-secondary/5 p-5 text-center"
+            >
+              <p className="font-heading text-[32px] leading-none text-accent/80">
+                {stat.value}
+              </p>
+              <p className="mt-2 text-xs text-secondary/60">{stat.label}</p>
             </div>
           ))}
         </div>

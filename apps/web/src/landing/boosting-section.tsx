@@ -1,3 +1,6 @@
+import { rungPunchlineClass } from '#/lib/rung-weight'
+import { cn } from '#/lib/utils'
+
 const boosting = [
   'You hit the blue "Boost" button.',
   'Instagram decides who sees it. Usually people who already follow you.',
@@ -35,8 +38,8 @@ export function BoostingSection() {
         </div>
 
         <div className="mt-14 grid gap-6 lg:grid-cols-2">
-          <div className="border border-secondary/15 bg-secondary/5 p-8">
-            <h3 className="font-heading text-xl font-normal tracking-wide text-alert uppercase">
+          <div className="border border-secondary/10 bg-secondary/5 p-8 opacity-80">
+            <h3 className="font-heading text-xl font-normal tracking-wide text-alert/70 uppercase">
               Boosting
             </h3>
             <p className="mt-1 text-sm font-semibold text-secondary/40">
@@ -44,9 +47,9 @@ export function BoostingSection() {
             </p>
             <ul className="mt-6 space-y-4">
               {boosting.map((item) => (
-                <li key={item} className="flex gap-3 text-sm leading-6 text-secondary/60">
-                  <span className="mt-0.5 shrink-0 font-bold text-alert">&times;</span>
-                  <span>{item}</span>
+                <li key={item} className="flex gap-3 text-sm leading-6 text-secondary/40">
+                  <span className="mt-0.5 shrink-0 font-bold text-alert/70">&times;</span>
+                  <span className="line-through decoration-secondary/30">{item}</span>
                 </li>
               ))}
             </ul>
@@ -61,7 +64,7 @@ export function BoostingSection() {
             </p>
             <ul className="mt-6 space-y-4">
               {campaign.map((item) => (
-                <li key={item} className="flex gap-3 text-sm leading-6 text-secondary">
+                <li key={item} className="flex gap-3 text-sm leading-6 font-semibold text-secondary">
                   <span className="mt-0.5 shrink-0 font-bold text-accent">&#10003;</span>
                   <span>{item}</span>
                 </li>
@@ -70,7 +73,7 @@ export function BoostingSection() {
           </div>
         </div>
 
-        <p className="mx-auto mt-12 max-w-2xl text-center text-lg font-bold text-secondary">
+        <p className={cn('mx-auto mt-12 max-w-2xl text-center text-secondary', rungPunchlineClass('boosting'))}>
           Boosting spends money. A campaign makes it. If that just landed for the
           first time, that&apos;s exactly the problem we fix.
         </p>

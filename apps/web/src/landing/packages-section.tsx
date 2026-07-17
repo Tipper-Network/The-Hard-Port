@@ -104,20 +104,32 @@ export function PackagesSection() {
             Or skip the whole thing and apply for a free slot. Two a month. We
             pick. Your call.
           </p>
+          <p className="mt-3 text-sm font-semibold text-accent/90">
+            Each one climbs on the last; Sea includes everything in Port,
+            Ocean includes everything in Sea.
+          </p>
         </header>
 
-        <div className="mt-14 grid gap-4 md:grid-cols-3 md:gap-6">
-          {packageCards.map((pkg) => (
+        <div className="mt-14 grid gap-4 md:grid-cols-3 md:gap-6 md:items-start">
+          {packageCards.map((pkg, index) => (
             <article
               key={pkg.id}
               className={cn(
-                'flex flex-col border px-5 py-6 text-white',
+                'relative flex flex-col border px-5 py-6 text-white',
                 pkg.featured
-                  ? 'border-accent shadow-[0_0_0_1px_var(--color-accent)]'
+                  ? 'border-accent shadow-[0_0_0_1px_var(--color-accent),0_25px_50px_-12px_rgba(217,182,118,0.35)] md:-translate-y-3 md:scale-105'
                   : 'border-white/25',
               )}
             >
-              <h3 className="font-heading text-center text-sm font-normal tracking-[0.12em]">
+              {pkg.featured ? (
+                <span className="absolute -top-3 left-1/2 -translate-x-1/2 bg-accent px-3 py-1 text-[0.65rem] font-extrabold tracking-[0.15em] text-background uppercase">
+                  Recommended
+                </span>
+              ) : null}
+              <p className="text-center text-xs font-bold tracking-[0.2em] text-accent/70">
+                RUNG {String(index + 1).padStart(2, '0')}
+              </p>
+              <h3 className="mt-2 font-heading text-center text-sm font-normal tracking-[0.12em]">
                 {pkg.name}
                 {pkg.featured ? (
                   <span className="ml-1 text-accent" aria-label="Recommended plan">
@@ -183,7 +195,7 @@ export function PackagesSection() {
           {/* Tab 1 — accordion per upgrade row */}
           <TabsContent value="compare" className="mt-6 text-white/75">
             <p className="mb-4 text-center text-sm text-white/60">
-              Tap a line to see how it changes as you go further out
+              See exactly what changes the further out you go.
             </p>
             <Accordion type="single" collapsible className={accordionShellClass}>
               {upgradeComparisonRows.map((row) => (
@@ -223,7 +235,7 @@ export function PackagesSection() {
           {/* Tab 2 — accordion per capability (full detail bullets) */}
           <TabsContent value="details" className="mt-6 text-white/75">
             <p className="mb-4 text-center text-sm text-white/60">
-              Tap a category to see exactly what&apos;s included
+              Every category, no fine print.
             </p>
             <Accordion type="single" collapsible className={accordionShellClass}>
               {capabilities.map((capability) => {

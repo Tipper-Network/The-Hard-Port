@@ -7,6 +7,7 @@ alwaysApply: false
 # Copywriting Standards — The Editor
 
 Read `00-brand-core.mdc` first. This file enforces the voice at the sentence level.
+use ';" instead of "—" in files that are .tsx except for comments.  the reader cant be seeing this "—" being used. 
 
 ## Banned words and phrases
 

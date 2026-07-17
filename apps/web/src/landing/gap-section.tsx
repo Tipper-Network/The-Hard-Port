@@ -1,3 +1,6 @@
+import { rungPunchlineClass } from '#/lib/rung-weight'
+import { cn } from '#/lib/utils'
+
 const now = [
   'Posting when you remember to',
   '"Doing fine" (you\u2019re not sure)',
@@ -88,7 +91,7 @@ export function GapSection() {
           </div>
         </div>
 
-        <p className="mx-auto mt-12 max-w-2xl text-center text-lg font-bold text-secondary">
+        <p className={cn('mx-auto mt-12 max-w-2xl text-center text-secondary', rungPunchlineClass('gap'))}>
           Your business doesn&apos;t need more content. It needs a clear direction,
           a strategy that means something, and someone who sees it through.
         </p>

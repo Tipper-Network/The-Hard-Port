@@ -15,12 +15,15 @@ import { ProofSection } from '#/landing/proof-section'
 import { StrategySection } from '#/landing/strategy-section'
 import { SiteFooter } from '#/shared/site-footer'
 import { SiteHeader } from '#/shared/site-header'
+import { DistanceMeter } from '#/components/distance-meter'
+import { StickyCta } from '#/components/sticky-cta'
 
 export const Route = createFileRoute('/')({ component: Home })
 
 function Home() {
   return (
     <>
+      <DistanceMeter />
       <SiteHeader />
       <main>
         <Hero />
@@ -38,6 +41,7 @@ function Home() {
         <ContactSection />
       </main>
       <SiteFooter />
+      <StickyCta />
     </>
   )
 }
