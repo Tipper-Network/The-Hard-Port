@@ -42,26 +42,26 @@ const faqs = [
 
 export function FaqSection() {
   return (
-    <section id="faq" className="bg-secondary px-6 py-20 lg:px-12 lg:py-28">
+    <section id="faq" className="bg-depth-11 px-6 py-20 lg:px-12 lg:py-28">
       <div className="mx-auto max-w-3xl">
         <p className="text-sm font-bold tracking-[0.2em] text-accent uppercase">
           You&apos;ve got questions. We&apos;ve got attitude.
         </p>
-        <h2 className="mt-4 text-3xl font-extrabold leading-tight text-primary md:text-4xl">
+        <h2 className="mt-4 font-heading text-3xl font-normal uppercase leading-tight text-secondary md:text-4xl">
           The stuff you&apos;re too polite to ask
         </h2>
 
-        <Accordion type="single" collapsible className="mt-10 border-t border-primary/15">
+        <Accordion type="single" collapsible className="mt-10 border-t border-secondary/15">
           {faqs.map((faq) => (
             <AccordionItem
               key={faq.q}
               value={faq.q}
-              className="border-b border-primary/15"
+              className="border-b border-secondary/15"
             >
-              <AccordionTrigger className="text-left text-base font-bold text-primary hover:no-underline md:text-lg">
+              <AccordionTrigger className="text-left text-base font-bold text-secondary hover:no-underline md:text-lg">
                 {faq.q}
               </AccordionTrigger>
-              <AccordionContent className="text-base leading-7 text-primary/70">
+              <AccordionContent className="text-base leading-7 text-secondary/70">
                 {faq.a} {faq.linkText && <Link to={faq.to} hash={faq.hash}>{faq.linkText}</Link>}
               </AccordionContent>
             </AccordionItem>

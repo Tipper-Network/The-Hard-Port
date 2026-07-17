@@ -91,13 +91,13 @@ export function PackagesSection() {
   >
 
   return (
-    <section id="packages" className="bg-primary px-6 py-20 lg:px-12 lg:py-28">
+    <section id="packages" className="bg-depth-8 px-6 py-20 lg:px-12 lg:py-28">
       <div className="mx-auto max-w-hero">
         <header className="mx-auto max-w-3xl text-center">
           <p className="text-sm font-bold tracking-[0.2em] text-accent uppercase">
             Priced clearly. Built around where you&apos;re going.
           </p>
-          <h2 className="mt-4 text-3xl font-extrabold leading-tight text-white md:text-4xl lg:text-[2.75rem]">
+          <h2 className="mt-4 font-heading text-3xl font-normal uppercase leading-tight text-secondary md:text-4xl lg:text-[2.75rem]">
             Pick a lane. They&apos;re named after how brave you are.
           </h2>
           <p className="mt-6 text-base leading-7 text-white/80">
@@ -117,7 +117,7 @@ export function PackagesSection() {
                   : 'border-white/25',
               )}
             >
-              <h3 className="text-center text-sm font-bold tracking-[0.12em]">
+              <h3 className="font-heading text-center text-sm font-normal tracking-[0.12em]">
                 {pkg.name}
                 {pkg.featured ? (
                   <span className="ml-1 text-accent" aria-label="Recommended plan">
@@ -129,7 +129,7 @@ export function PackagesSection() {
               <p className="mt-4 text-center text-[0.65rem] font-bold tracking-[0.18em] text-white/40 uppercase">
                 {pkg.price !== 0 ? 'Starting from' : 'The catch is we choose'}
               </p>
-              <p className={cn('text-center text-3xl font-extrabold tracking-tight', pkg.price !== 0 ? 'mt-1' : 'mt-2')}>
+              <p className={cn('font-heading text-center text-3xl font-normal tracking-tight', pkg.price !== 0 ? 'mt-1' : 'mt-2')}>
                 {pkg.price !== 0 ? (
                   <>
                     ${formatPrice(pkg.price)}
@@ -162,7 +162,7 @@ export function PackagesSection() {
 
               <a
                 href={pkg.ctaLink}
-                className="mt-6 inline-flex w-full items-center justify-center rounded-md bg-accent px-4 py-2.5 text-sm font-bold text-white transition-opacity hover:opacity-90"
+                className="mt-6 inline-flex w-full items-center justify-center rounded bg-accent px-4 py-2.5 text-sm font-bold text-background transition-opacity hover:opacity-90"
               >
                 {pkg.cta}
               </a>

@@ -1,0 +1,584 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; }
+  body { margin: 0; }
+  ::selection { background: oklch(0.80 0.14 85); color: oklch(0.14 0.03 250); }
+  a { color: oklch(0.80 0.14 85); text-decoration: none; }
+  a:hover { color: oklch(0.70 0.15 80); text-decoration: underline; }
+</style>
+</helmet>
+
+<div style="background:oklch(0.14 0.03 250); color:oklch(0.97 0.01 250); font-family:'IBM Plex Sans',sans-serif; min-height:100vh;">
+
+  <!-- Cover -->
+  <div style="padding:64px 48px 40px; border-bottom:1px solid oklch(0.30 0.03 250);">
+    <div style="font-size:12px; letter-spacing:0.14em; color:oklch(0.72 0.03 250); text-transform:uppercase; margin-bottom:10px;">Internal Review · thehardport.com</div>
+    <h1 style="font-family:'Anton',sans-serif; font-weight:400; font-size:44px; letter-spacing:0.01em; margin:0 0 14px; text-transform:uppercase;">The Hard Port — Design System &amp; Core Site Wireframes</h1>
+    <p style="max-width:760px; font-size:16px; line-height:1.6; color:oklch(0.80 0.02 250); margin:0;">Four parts, in order: the sitemap against the brief's 9-rung ladder (with live-site flags), the design system tile, low-fi mobile-first wireframes showing scroll-depth escalation, and hi-fi UI for six core sections.</p>
+  </div>
+
+  <!-- Sticky mini nav -->
+  <div style="position:sticky; top:0; z-index:50; display:flex; gap:28px; align-items:center; padding:14px 48px; background:oklch(0.12 0.03 250); border-bottom:1px solid oklch(0.30 0.03 250); font-size:13px; letter-spacing:0.06em; text-transform:uppercase;">
+    <span style="color:oklch(0.55 0.03 250);">Jump to</span>
+    <a href="#ia" style="color:oklch(0.90 0.01 250);">01 Sitemap</a>
+    <a href="#ds" style="color:oklch(0.90 0.01 250);">02 Design System</a>
+    <a href="#wf" style="color:oklch(0.90 0.01 250);">03 Wireframes</a>
+    <a href="#hifi" style="color:oklch(0.90 0.01 250);">04 Hi-Fi UI</a>
+  </div>
+
+  <!-- ================= 01 SITEMAP / IA ================= -->
+  <section id="ia" style="background:oklch(0.20 0.045 250); padding:80px 48px;">
+    <div style="font-size:13px; letter-spacing:0.14em; color:oklch(0.80 0.14 85); text-transform:uppercase; margin-bottom:12px;">01 / Structure</div>
+    <h2 style="font-family:'Anton',sans-serif; font-weight:400; font-size:40px; text-transform:uppercase; margin:0 0 16px;">Sitemap &amp; the 9-rung ladder</h2>
+    <p style="max-width:720px; font-size:16px; line-height:1.6; color:oklch(0.80 0.02 250); margin:0 0 48px;">One page, one continuous descent. The order below is the whole IA — no rung skips ahead of another.</p>
+
+    <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(420px,1fr)); gap:48px;">
+
+      <div>
+        <div style="font-size:13px; letter-spacing:0.1em; text-transform:uppercase; color:oklch(0.72 0.03 250); margin-bottom:16px;">The Ladder</div>
+        <div style="display:flex; flex-direction:column; border:1px solid oklch(0.32 0.03 250);">
+          <div style="display:flex; gap:16px; padding:16px 18px; background:oklch(0.24 0.045 250); border-bottom:1px solid oklch(0.32 0.03 250);">
+            <div style="font-family:'Anton',sans-serif; font-size:20px; color:oklch(0.80 0.14 85); width:28px;">1</div>
+            <div><div style="font-weight:600; font-size:15px;">Hook (video)</div><div style="font-size:13px; color:oklch(0.68 0.02 250); margin-top:2px;">Off-site IG/YT "you vs you." Ends on a line that only resolves on-site.</div></div>
+          </div>
+          <div style="display:flex; gap:16px; padding:16px 18px; background:oklch(0.225 0.045 250); border-bottom:1px solid oklch(0.32 0.03 250);">
+            <div style="font-family:'Anton',sans-serif; font-size:20px; color:oklch(0.80 0.14 85); width:28px;">2</div>
+            <div><div style="font-weight:600; font-size:15px;">Identity Match</div><div style="font-size:13px; color:oklch(0.68 0.02 250); margin-top:2px;">"Your business isn't sinking — it's not going anywhere." Lands in first 3 seconds of scroll.</div></div>
+          </div>
+          <div style="display:flex; gap:16px; padding:16px 18px; background:oklch(0.21 0.045 250); border-bottom:1px solid oklch(0.32 0.03 250);">
+            <div style="font-family:'Anton',sans-serif; font-size:20px; color:oklch(0.80 0.14 85); width:28px;">3</div>
+            <div><div style="font-weight:600; font-size:15px;">Agitation</div><div style="font-size:13px; color:oklch(0.68 0.02 250); margin-top:2px;">The canonical letter — long-form, uninterrupted.</div></div>
+          </div>
+          <div style="display:flex; gap:16px; padding:16px 18px; background:oklch(0.195 0.045 250); border-bottom:1px solid oklch(0.32 0.03 250);">
+            <div style="font-family:'Anton',sans-serif; font-size:20px; color:oklch(0.80 0.14 85); width:28px;">4</div>
+            <div><div style="font-weight:600; font-size:15px;">Mechanism</div><div style="font-size:13px; color:oklch(0.68 0.02 250); margin-top:2px;">Boosting vs. a Campaign, side-by-side contrast.</div></div>
+          </div>
+          <div style="display:flex; gap:16px; padding:16px 18px; background:oklch(0.18 0.045 250); border-bottom:1px solid oklch(0.32 0.03 250);">
+            <div style="font-family:'Anton',sans-serif; font-size:20px; color:oklch(0.80 0.14 85); width:28px;">5</div>
+            <div><div style="font-weight:600; font-size:15px;">Proof</div><div style="font-size:13px; color:oklch(0.68 0.02 250); margin-top:2px;">Anti-testimonial stats — the gap in traditional proof becomes the proof.</div></div>
+          </div>
+          <div style="display:flex; gap:16px; padding:16px 18px; background:oklch(0.165 0.045 250); border-bottom:1px solid oklch(0.32 0.03 250);">
+            <div style="font-family:'Anton',sans-serif; font-size:20px; color:oklch(0.80 0.14 85); width:28px;">6</div>
+            <div><div style="font-weight:600; font-size:15px;">Offer Stack</div><div style="font-size:13px; color:oklch(0.68 0.02 250); margin-top:2px;">Port / Sea / Ocean — a ladder being climbed, named for courage.</div></div>
+          </div>
+          <div style="display:flex; gap:16px; padding:16px 18px; background:oklch(0.15 0.045 250); border-bottom:1px solid oklch(0.32 0.03 250);">
+            <div style="font-family:'Anton',sans-serif; font-size:20px; color:oklch(0.80 0.14 85); width:28px;">7</div>
+            <div><div style="font-weight:600; font-size:15px;">Scarcity</div><div style="font-size:13px; color:oklch(0.68 0.02 250); margin-top:2px;">2 free slots a month. Hard Port picks, not the applicant.</div></div>
+          </div>
+          <div style="display:flex; gap:16px; padding:16px 18px; background:oklch(0.135 0.045 250); border-bottom:1px solid oklch(0.32 0.03 250);">
+            <div style="font-family:'Anton',sans-serif; font-size:20px; color:oklch(0.80 0.14 85); width:28px;">8</div>
+            <div><div style="font-weight:600; font-size:15px;">Objection Handling</div><div style="font-size:13px; color:oklch(0.68 0.02 250); margin-top:2px;">FAQ — every answer matches the aggression of its question.</div></div>
+          </div>
+          <div style="display:flex; gap:16px; padding:16px 18px; background:oklch(0.11 0.04 250);">
+            <div style="font-family:'Anton',sans-serif; font-size:20px; color:oklch(0.80 0.14 85); width:28px;">9</div>
+            <div><div style="font-weight:600; font-size:15px;">Last Call</div><div style="font-size:13px; color:oklch(0.68 0.02 250); margin-top:2px;">Hardest line on the page. Single CTA. Nothing else competing.</div></div>
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <div style="font-size:13px; letter-spacing:0.1em; text-transform:uppercase; color:oklch(0.72 0.03 250); margin-bottom:16px;">Live Site Audit — thehardport.com today</div>
+        <sc-if value="{{ showFlags }}" hint-placeholder-val="{{ true }}">
+        <div style="display:flex; flex-direction:column; gap:14px;">
+          <div style="border-left:3px solid oklch(0.62 0.16 35); background:oklch(0.24 0.045 250); padding:14px 18px;">
+            <div style="font-weight:700; font-size:14px; color:oklch(0.62 0.16 35); margin-bottom:4px;">Flag — Order broken: Scarcity before Offer Stack</div>
+            <div style="font-size:13px; line-height:1.55; color:oklch(0.85 0.02 250);">"2 free slots a month" currently sits <em>before</em> the pricing ladder. The brief's ladder puts Offer Stack (6) ahead of Scarcity (7) — climb the ladder first, then reveal the gate.</div>
+          </div>
+          <div style="border-left:3px solid oklch(0.62 0.16 35); background:oklch(0.24 0.045 250); padding:14px 18px;">
+            <div style="font-weight:700; font-size:14px; color:oklch(0.62 0.16 35); margin-bottom:4px;">Flag — Off-ladder "Who We Are" block before FAQ</div>
+            <div style="font-size:13px; line-height:1.55; color:oklch(0.85 0.02 250);">An About/"Who We Are" section sits between the pricing table and the FAQ. It isn't one of the 9 rungs, and it cools the room right where intensity should be climbing toward objection-handling and last call.</div>
+          </div>
+          <div style="border-left:3px solid oklch(0.62 0.16 35); background:oklch(0.24 0.045 250); padding:14px 18px;">
+            <div style="font-weight:700; font-size:14px; color:oklch(0.62 0.16 35); margin-bottom:4px;">Flag — Banned words in the feature-comparison table</div>
+            <div style="font-size:13px; line-height:1.55; color:oklch(0.85 0.02 250);">"Compare Features," "Detailed Breakdown," and "Expand each feature" all appear verbatim on the live table — all three are explicitly on the brief's banned list.</div>
+          </div>
+          <div style="border-left:3px solid oklch(0.62 0.16 35); background:oklch(0.24 0.045 250); padding:14px 18px;">
+            <div style="font-weight:700; font-size:14px; color:oklch(0.62 0.16 35); margin-bottom:4px;">Flag — Cold nav skips the ladder</div>
+            <div style="font-size:13px; line-height:1.55; color:oklch(0.85 0.02 250);">Top nav exposes "Pricing" and "Who We Are" as jump links from second one. A cold visitor can skip agitation, mechanism, and proof entirely — directly against "nothing mid-page should resolve tension early."</div>
+          </div>
+          <div style="border-left:3px solid oklch(0.55 0.03 250); background:oklch(0.24 0.045 250); padding:14px 18px;">
+            <div style="font-weight:700; font-size:14px; color:oklch(0.75 0.02 250); margin-bottom:4px;">Note — two unlabeled sections need a home</div>
+            <div style="font-size:13px; line-height:1.55; color:oklch(0.85 0.02 250);">A "how it works" 4-step block and a "gap: where you are / where you want to be" block currently float between named rungs. Not wrong content — fold them explicitly into Mechanism (4) and Offer Stack (6) rather than leaving them as unnamed extra sections.</div>
+          </div>
+        </div>
+        </sc-if>
+        <div style="margin-top:20px; border:1px dashed oklch(0.40 0.03 250); padding:16px 18px; font-size:13px; line-height:1.6; color:oklch(0.68 0.02 250);">
+          <strong style="color:oklch(0.85 0.02 250);">Extend later, don't build now —</strong> collapse "Pricing" and "Who We Are" out of the cold top nav into the footer only. Testing-ground, teaching, and Tipper-intro sites aren't designed this pass — this IA keeps nav/footer slots open for them without restructuring the ladder.
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ================= 02 DESIGN SYSTEM ================= -->
+  <section id="ds" style="background:oklch(0.16 0.035 250); padding:80px 48px;">
+    <div style="font-size:13px; letter-spacing:0.14em; color:oklch(0.80 0.14 85); text-transform:uppercase; margin-bottom:12px;">02 / System</div>
+    <h2 style="font-family:'Anton',sans-serif; font-weight:400; font-size:40px; text-transform:uppercase; margin:0 0 48px;">Design system tile</h2>
+
+    <div style="font-size:13px; letter-spacing:0.1em; text-transform:uppercase; color:oklch(0.72 0.03 250); margin-bottom:16px;">Color tokens</div>
+    <div style="display:grid; grid-template-columns:repeat(auto-fill,minmax(160px,1fr)); gap:16px; margin-bottom:56px;">
+      <div><div style="height:110px; background:oklch(0.14 0.03 250); border:1px solid oklch(0.32 0.03 250);"></div><div style="font-size:12px; margin-top:8px; font-weight:600;">Deepest</div><div style="font-size:11px; color:oklch(0.62 0.02 250);">oklch(.14 .03 250) · base bg / trench</div></div>
+      <div><div style="height:110px; background:oklch(0.20 0.045 250);"></div><div style="font-size:12px; margin-top:8px; font-weight:600;">Navy</div><div style="font-size:11px; color:oklch(0.62 0.02 250);">oklch(.20 .045 250) · section bg</div></div>
+      <div><div style="height:110px; background:oklch(0.26 0.05 250);"></div><div style="font-size:12px; margin-top:8px; font-weight:600;">Navy Mid</div><div style="font-size:11px; color:oklch(0.62 0.02 250);">oklch(.26 .05 250) · cards / panels</div></div>
+      <div><div style="height:110px; background:oklch(0.32 0.055 250);"></div><div style="font-size:12px; margin-top:8px; font-weight:600;">Navy Light</div><div style="font-size:11px; color:oklch(0.62 0.02 250);">oklch(.32 .055 250) · surface / hero</div></div>
+      <div><div style="height:110px; background:oklch(0.97 0.01 250);"></div><div style="font-size:12px; margin-top:8px; font-weight:600;">Ink</div><div style="font-size:11px; color:oklch(0.62 0.02 250);">oklch(.97 .01 250) · primary text</div></div>
+      <div><div style="height:110px; background:oklch(0.72 0.03 250);"></div><div style="font-size:12px; margin-top:8px; font-weight:600;">Ink Muted</div><div style="font-size:11px; color:oklch(0.62 0.02 250);">oklch(.72 .03 250) · secondary text</div></div>
+      <div><div style="height:110px; background:oklch(0.80 0.14 85);"></div><div style="font-size:12px; margin-top:8px; font-weight:600; color:oklch(0.97 0.01 250);">Gold</div><div style="font-size:11px; color:oklch(0.62 0.02 250);">oklch(.80 .14 85) · primary CTA</div></div>
+      <div><div style="height:110px; background:oklch(0.62 0.16 35);"></div><div style="font-size:12px; margin-top:8px; font-weight:600;">Rust</div><div style="font-size:11px; color:oklch(0.62 0.02 250);">oklch(.62 .16 35) · alert / scarcity / "wrong"</div></div>
+    </div>
+
+    <div style="font-size:13px; letter-spacing:0.1em; text-transform:uppercase; color:oklch(0.72 0.03 250); margin-bottom:16px;">Type scale</div>
+    <div style="display:flex; flex-direction:column; gap:18px; margin-bottom:56px; border-top:1px solid oklch(0.30 0.03 250); padding-top:20px;">
+      <div style="display:flex; align-items:baseline; gap:24px;"><div style="width:140px; font-size:12px; color:oklch(0.62 0.02 250); flex-shrink:0;">Display / 96</div><div style="font-family:'Anton',sans-serif; font-size:96px; line-height:0.95; text-transform:uppercase;">Hard a-port</div></div>
+      <div style="display:flex; align-items:baseline; gap:24px;"><div style="width:140px; font-size:12px; color:oklch(0.62 0.02 250); flex-shrink:0;">H1 / 64</div><div style="font-family:'Anton',sans-serif; font-size:64px; line-height:1; text-transform:uppercase;">You're not sinking.</div></div>
+      <div style="display:flex; align-items:baseline; gap:24px;"><div style="width:140px; font-size:12px; color:oklch(0.62 0.02 250); flex-shrink:0;">H2 / 40</div><div style="font-family:'Anton',sans-serif; font-size:40px; text-transform:uppercase;">The $20 lie</div></div>
+      <div style="display:flex; align-items:baseline; gap:24px;"><div style="width:140px; font-size:12px; color:oklch(0.62 0.02 250); flex-shrink:0;">H3 / 28</div><div style="font-weight:700; font-size:28px;">Section subhead line</div></div>
+      <div style="display:flex; align-items:baseline; gap:24px;"><div style="width:140px; font-size:12px; color:oklch(0.62 0.02 250); flex-shrink:0;">Body Lg / 20</div><div style="font-size:20px; line-height:1.6; max-width:560px; color:oklch(0.88 0.01 250);">The sea never cared for a sailor's feelings. Only whether he was prepared.</div></div>
+      <div style="display:flex; align-items:baseline; gap:24px;"><div style="width:140px; font-size:12px; color:oklch(0.62 0.02 250); flex-shrink:0;">Body / 16</div><div style="font-size:16px; line-height:1.6; max-width:560px; color:oklch(0.80 0.02 250);">You don't need us. You just can't get where you say you want to go without us.</div></div>
+      <div style="display:flex; align-items:baseline; gap:24px;"><div style="width:140px; font-size:12px; color:oklch(0.62 0.02 250); flex-shrink:0;">Caption / 13</div><div style="font-size:13px; letter-spacing:0.12em; text-transform:uppercase; color:oklch(0.62 0.02 250);">Rung 04 — Mechanism</div></div>
+    </div>
+
+    <div style="font-size:13px; letter-spacing:0.1em; text-transform:uppercase; color:oklch(0.72 0.03 250); margin-bottom:16px;">Spacing scale</div>
+    <div style="display:flex; align-items:flex-end; gap:14px; margin-bottom:56px;">
+      <div style="text-align:center;"><div style="width:4px; height:4px; background:oklch(0.80 0.14 85);"></div><div style="font-size:10px; margin-top:6px; color:oklch(0.62 0.02 250);">4</div></div>
+      <div style="text-align:center;"><div style="width:8px; height:8px; background:oklch(0.80 0.14 85);"></div><div style="font-size:10px; margin-top:6px; color:oklch(0.62 0.02 250);">8</div></div>
+      <div style="text-align:center;"><div style="width:12px; height:12px; background:oklch(0.80 0.14 85);"></div><div style="font-size:10px; margin-top:6px; color:oklch(0.62 0.02 250);">12</div></div>
+      <div style="text-align:center;"><div style="width:16px; height:16px; background:oklch(0.80 0.14 85);"></div><div style="font-size:10px; margin-top:6px; color:oklch(0.62 0.02 250);">16</div></div>
+      <div style="text-align:center;"><div style="width:24px; height:24px; background:oklch(0.80 0.14 85);"></div><div style="font-size:10px; margin-top:6px; color:oklch(0.62 0.02 250);">24</div></div>
+      <div style="text-align:center;"><div style="width:32px; height:32px; background:oklch(0.80 0.14 85);"></div><div style="font-size:10px; margin-top:6px; color:oklch(0.62 0.02 250);">32</div></div>
+      <div style="text-align:center;"><div style="width:48px; height:48px; background:oklch(0.80 0.14 85);"></div><div style="font-size:10px; margin-top:6px; color:oklch(0.62 0.02 250);">48</div></div>
+      <div style="text-align:center;"><div style="width:64px; height:64px; background:oklch(0.80 0.14 85);"></div><div style="font-size:10px; margin-top:6px; color:oklch(0.62 0.02 250);">64</div></div>
+      <div style="text-align:center;"><div style="width:96px; height:96px; background:oklch(0.80 0.14 85);"></div><div style="font-size:10px; margin-top:6px; color:oklch(0.62 0.02 250);">96</div></div>
+      <div style="text-align:center;"><div style="width:128px; height:128px; background:oklch(0.80 0.14 85);"></div><div style="font-size:10px; margin-top:6px; color:oklch(0.62 0.02 250);">128</div></div>
+    </div>
+
+    <div style="font-size:13px; letter-spacing:0.1em; text-transform:uppercase; color:oklch(0.72 0.03 250); margin-bottom:16px;">Buttons &amp; CTA escalation</div>
+    <div style="display:flex; flex-wrap:wrap; gap:16px; margin-bottom:24px;">
+      <button style="background:oklch(0.80 0.14 85); color:oklch(0.14 0.03 250); border:none; border-radius:2px; padding:14px 22px; font-family:'IBM Plex Sans',sans-serif; font-weight:700; font-size:14px; text-transform:uppercase; letter-spacing:0.04em;" style-hover="background:oklch(0.70 0.15 80);">Primary — default</button>
+      <button disabled style="background:oklch(0.40 0.02 250); color:oklch(0.65 0.02 250); border:none; border-radius:2px; padding:14px 22px; font-weight:700; font-size:14px; text-transform:uppercase; letter-spacing:0.04em;">Primary — disabled</button>
+      <button style="background:transparent; color:oklch(0.97 0.01 250); border:1.5px solid oklch(0.97 0.01 250); border-radius:2px; padding:14px 22px; font-weight:700; font-size:14px; text-transform:uppercase; letter-spacing:0.04em;" style-hover="border-color:oklch(0.80 0.14 85); color:oklch(0.80 0.14 85);">Secondary — ghost</button>
+    </div>
+    <div style="display:flex; flex-wrap:wrap; gap:12px; margin-bottom:56px;">
+      <div style="background:oklch(0.80 0.14 85); color:oklch(0.14 0.03 250); padding:10px 16px; font-weight:700; font-size:13px; border-radius:2px;">See the gap</div>
+      <div style="background:oklch(0.80 0.14 85); color:oklch(0.14 0.03 250); padding:11px 18px; font-weight:700; font-size:14px; border-radius:2px;">Show me what I'm doing wrong</div>
+      <div style="background:oklch(0.80 0.14 85); color:oklch(0.14 0.03 250); padding:12px 20px; font-weight:700; font-size:15px; border-radius:2px;">Prove us wrong</div>
+      <div style="background:oklch(0.80 0.14 85); color:oklch(0.14 0.03 250); padding:14px 24px; font-weight:800; font-size:17px; border-radius:2px;">Stop being fine</div>
+    </div>
+
+    <div style="font-size:13px; letter-spacing:0.1em; text-transform:uppercase; color:oklch(0.72 0.03 250); margin-bottom:16px;">Icon / motif direction — nautical only, no rockets, lightbulbs, or handshakes</div>
+    <div style="display:grid; grid-template-columns:repeat(auto-fill,minmax(140px,1fr)); gap:16px; margin-bottom:56px;">
+      <div style="background:oklch(0.24 0.045 250); padding:20px; text-align:center;">
+        <div style="position:relative; width:56px; height:56px; margin:0 auto;">
+          <div style="position:absolute; top:0; left:18px; width:20px; height:20px; border:3px solid oklch(0.80 0.14 85); border-radius:50%;"></div>
+          <div style="position:absolute; top:18px; left:27px; width:3px; height:32px; background:oklch(0.80 0.14 85);"></div>
+          <div style="position:absolute; top:26px; left:13px; width:32px; height:3px; background:oklch(0.80 0.14 85);"></div>
+          <div style="position:absolute; bottom:2px; left:6px; width:3px; height:16px; background:oklch(0.80 0.14 85); transform:rotate(35deg);"></div>
+          <div style="position:absolute; bottom:2px; right:6px; width:3px; height:16px; background:oklch(0.80 0.14 85); transform:rotate(-35deg);"></div>
+        </div>
+        <div style="font-size:12px; font-weight:600; margin-top:12px;">Anchor</div>
+        <div style="font-size:11px; color:oklch(0.62 0.02 250);">grounding, proof, stats</div>
+      </div>
+      <div style="background:oklch(0.24 0.045 250); padding:20px; text-align:center;">
+        <div style="width:0; height:0; margin:0 auto; border-left:28px solid transparent; border-bottom:52px solid oklch(0.80 0.14 85);"></div>
+        <div style="font-size:12px; font-weight:600; margin-top:12px;">Sail</div>
+        <div style="font-size:11px; color:oklch(0.62 0.02 250);">momentum, offer stack</div>
+      </div>
+      <div style="background:oklch(0.24 0.045 250); padding:20px; text-align:center;">
+        <div style="position:relative; width:56px; height:56px; margin:0 auto;">
+          <div style="position:absolute; top:4px; left:0; width:32px; height:32px; border:3px solid oklch(0.80 0.14 85); border-radius:50%;"></div>
+          <div style="position:absolute; bottom:4px; right:0; width:32px; height:32px; border:3px solid oklch(0.62 0.16 35); border-radius:50%;"></div>
+        </div>
+        <div style="font-size:12px; font-weight:600; margin-top:12px;">Rope / knot</div>
+        <div style="font-size:11px; color:oklch(0.62 0.02 250);">commitment, tiers</div>
+      </div>
+      <div style="background:oklch(0.24 0.045 250); padding:20px; text-align:center;">
+        <div style="width:52px; height:44px; margin:0 auto; background:oklch(0.45 0.02 250); clip-path:polygon(10% 90%, 0% 40%, 35% 0%, 80% 10%, 100% 60%, 65% 100%);"></div>
+        <div style="font-size:12px; font-weight:600; margin-top:12px;">Rock</div>
+        <div style="font-size:11px; color:oklch(0.62 0.02 250);">warning, agitation</div>
+      </div>
+      <div style="background:oklch(0.24 0.045 250); padding:20px; text-align:center;">
+        <div style="position:relative; width:56px; height:56px; margin:0 auto;">
+          <div style="position:absolute; inset:0; border:3px solid oklch(0.80 0.14 85); border-radius:50%;"></div>
+          <div style="position:absolute; top:0; left:26px; width:4px; height:10px; background:oklch(0.80 0.14 85);"></div>
+          <div style="position:absolute; bottom:0; left:26px; width:4px; height:10px; background:oklch(0.80 0.14 85);"></div>
+          <div style="position:absolute; left:0; top:26px; height:4px; width:10px; background:oklch(0.80 0.14 85);"></div>
+          <div style="position:absolute; right:0; top:26px; height:4px; width:10px; background:oklch(0.80 0.14 85);"></div>
+          <div style="position:absolute; top:24px; left:24px; width:8px; height:8px; background:oklch(0.80 0.14 85); border-radius:50%;"></div>
+        </div>
+        <div style="font-size:12px; font-weight:600; margin-top:12px;">Compass</div>
+        <div style="font-size:11px; color:oklch(0.62 0.02 250);">direction, identity match</div>
+      </div>
+      <div style="background:oklch(0.24 0.045 250); padding:20px; text-align:center;">
+        <div style="display:flex; flex-direction:column; gap:6px; width:52px; margin:0 auto; padding-top:16px;">
+          <div style="height:3px; width:100%; background:oklch(0.80 0.14 85); border-radius:0 0 50% 50%;"></div>
+          <div style="height:3px; width:80%; margin:0 auto; background:oklch(0.72 0.03 250); border-radius:0 0 50% 50%;"></div>
+          <div style="height:3px; width:60%; margin:0 auto; background:oklch(0.55 0.03 250); border-radius:0 0 50% 50%;"></div>
+        </div>
+        <div style="font-size:12px; font-weight:600; margin-top:12px;">Depth line</div>
+        <div style="font-size:11px; color:oklch(0.62 0.02 250);">scroll progress</div>
+      </div>
+    </div>
+
+    <div style="font-size:13px; letter-spacing:0.1em; text-transform:uppercase; color:oklch(0.72 0.03 250); margin-bottom:16px;">Depth / scroll-intensity tokens</div>
+    <div style="display:grid; grid-template-columns:repeat(4,1fr); gap:0; border:1px solid oklch(0.32 0.03 250);">
+      <div style="background:oklch(0.32 0.055 250); padding:24px 18px;"><div style="font-size:12px; color:oklch(0.62 0.02 250); margin-bottom:10px;">Depth 1 — Surface</div><div style="font-family:'Anton',sans-serif; font-size:22px; font-weight:400;">HOOK</div></div>
+      <div style="background:oklch(0.24 0.05 250); padding:24px 18px;"><div style="font-size:12px; color:oklch(0.62 0.02 250); margin-bottom:10px;">Depth 2 — Mid-water</div><div style="font-family:'Anton',sans-serif; font-size:22px; font-weight:500;">MECHANISM</div></div>
+      <div style="background:oklch(0.17 0.04 250); padding:24px 18px;"><div style="font-size:12px; color:oklch(0.62 0.02 250); margin-bottom:10px;">Depth 3 — Deep</div><div style="font-family:'Anton',sans-serif; font-size:22px; font-weight:700;">OFFER STACK</div></div>
+      <div style="background:oklch(0.10 0.03 250); padding:24px 18px;"><div style="font-size:12px; color:oklch(0.62 0.02 250); margin-bottom:10px;">Depth 4 — Trench</div><div style="font-family:'Anton',sans-serif; font-size:22px; font-weight:800;">LAST CALL</div></div>
+    </div>
+  </section>
+
+  <!-- ================= 03 WIREFRAMES ================= -->
+  <section id="wf" style="background:oklch(0.10 0.03 250); padding:80px 48px;">
+    <div style="font-size:13px; letter-spacing:0.14em; color:oklch(0.80 0.14 85); text-transform:uppercase; margin-bottom:12px;">03 / Wireframes</div>
+    <h2 style="font-family:'Anton',sans-serif; font-weight:400; font-size:40px; text-transform:uppercase; margin:0 0 16px;">Low-fi, mobile-first</h2>
+    <p style="max-width:720px; font-size:16px; line-height:1.6; color:oklch(0.80 0.02 250); margin:0 0 8px;">375px-wide phone frames, one per rung. Background darkens and type weight climbs down the ladder — even at boxes-and-lines stage the descent should be felt. Pricing (rung 6) and FAQ (rung 8) are covered inline.</p>
+    <p style="font-size:13px; color:oklch(0.55 0.03 250); margin:0 0 32px;">Use the Tweaks panel's "escalation intensity" to preview a subtler or steeper depth curve live.</p>
+
+    <div style="display:flex; gap:24px; overflow-x:auto; padding-bottom:20px;">
+
+      <div style="flex:0 0 260px; width:260px; height:540px; border:3px solid oklch(0.40 0.03 250); border-radius:20px; background:{{ heroBg }}; padding:16px; display:flex; flex-direction:column; gap:10px;">
+        <div style="font-size:10px; letter-spacing:0.08em; text-transform:uppercase; color:oklch(0.60 0.02 250); margin-bottom:4px;">Rung 02 — Identity Match</div>
+        <div style="display:flex; justify-content:space-between;"><div style="width:24px; height:10px; background:oklch(0.55 0.02 250);"></div><div style="width:36px; height:10px; background:oklch(0.55 0.02 250);"></div></div>
+        <div style="width:100%; height:120px; background:repeating-linear-gradient(45deg, oklch(0.35 0.02 250), oklch(0.35 0.02 250) 8px, oklch(0.30 0.02 250) 8px, oklch(0.30 0.02 250) 16px); display:flex; align-items:center; justify-content:center; font-size:9px; color:oklch(0.75 0.02 250); font-family:monospace;">VIDEO BG</div>
+        <div style="height:18px; width:92%; background:oklch(0.85 0.01 250); font-weight:{{ heroWeight }};"></div>
+        <div style="height:18px; width:68%; background:oklch(0.85 0.01 250);"></div>
+        <div style="height:8px; width:55%; background:oklch(0.55 0.02 250); margin-top:4px;"></div>
+        <div style="display:flex; gap:8px; margin-top:8px;"><div style="flex:1; height:30px; border:1px solid oklch(0.85 0.01 250); display:flex; align-items:center; justify-content:center; font-size:9px;">CTA</div><div style="flex:1; height:30px; border:1px dashed oklch(0.55 0.02 250); display:flex; align-items:center; justify-content:center; font-size:9px;">CTA</div></div>
+        <div style="height:7px; width:40%; background:oklch(0.45 0.02 250); margin-top:4px;"></div>
+      </div>
+
+      <div style="flex:0 0 260px; width:260px; height:540px; border:3px solid oklch(0.40 0.03 250); border-radius:20px; background:{{ letterBg }}; padding:16px 26px; display:flex; flex-direction:column; gap:10px;">
+        <div style="font-size:10px; letter-spacing:0.08em; text-transform:uppercase; color:oklch(0.60 0.02 250); margin-bottom:4px;">Rung 03 — Agitation</div>
+        <div style="height:9px; width:100%; background:oklch(0.60 0.02 250);"></div>
+        <div style="height:9px; width:95%; background:oklch(0.60 0.02 250);"></div>
+        <div style="height:9px; width:88%; background:oklch(0.60 0.02 250);"></div>
+        <div style="height:9px; width:92%; background:oklch(0.60 0.02 250);"></div>
+        <div style="height:9px; width:80%; background:oklch(0.60 0.02 250);"></div>
+        <div style="height:9px; width:90%; background:oklch(0.60 0.02 250);"></div>
+        <div style="height:9px; width:85%; background:oklch(0.60 0.02 250);"></div>
+        <div style="height:9px; width:60%; background:oklch(0.60 0.02 250);"></div>
+        <div style="height:26px; width:70%; align-self:center; border:1px solid oklch(0.85 0.01 250); margin-top:10px; display:flex; align-items:center; justify-content:center; font-size:9px; font-weight:{{ letterWeight }};">CTA</div>
+      </div>
+
+      <div style="flex:0 0 260px; width:260px; height:540px; border:3px solid oklch(0.40 0.03 250); border-radius:20px; background:{{ mechBg }}; padding:16px; display:flex; flex-direction:column; gap:10px;">
+        <div style="font-size:10px; letter-spacing:0.08em; text-transform:uppercase; color:oklch(0.60 0.02 250); margin-bottom:4px;">Rung 04 — Mechanism</div>
+        <div style="height:14px; width:70%; background:oklch(0.85 0.01 250); font-weight:{{ mechWeight }};"></div>
+        <div style="display:flex; gap:8px; flex:1;">
+          <div style="flex:1; border:1px solid oklch(0.50 0.02 250); padding:8px; display:flex; flex-direction:column; gap:6px;">
+            <div style="font-size:9px; color:oklch(0.62 0.02 250);">Boosting</div>
+            <div style="height:6px; width:90%; background:oklch(0.50 0.02 250);"></div>
+            <div style="height:6px; width:75%; background:oklch(0.50 0.02 250);"></div>
+            <div style="height:6px; width:85%; background:oklch(0.50 0.02 250);"></div>
+            <div style="height:6px; width:60%; background:oklch(0.50 0.02 250);"></div>
+          </div>
+          <div style="flex:1; border:1px solid oklch(0.85 0.01 250); padding:8px; display:flex; flex-direction:column; gap:6px;">
+            <div style="font-size:9px; color:oklch(0.85 0.01 250);">Campaign</div>
+            <div style="height:6px; width:90%; background:oklch(0.85 0.01 250);"></div>
+            <div style="height:6px; width:75%; background:oklch(0.85 0.01 250);"></div>
+            <div style="height:6px; width:85%; background:oklch(0.85 0.01 250);"></div>
+            <div style="height:6px; width:60%; background:oklch(0.85 0.01 250);"></div>
+          </div>
+        </div>
+        <div style="height:8px; width:90%; background:oklch(0.60 0.02 250);"></div>
+      </div>
+
+      <div style="flex:0 0 260px; width:260px; height:540px; border:3px solid oklch(0.40 0.03 250); border-radius:20px; background:{{ proofBg }}; padding:16px; display:flex; flex-direction:column; gap:10px;">
+        <div style="font-size:10px; letter-spacing:0.08em; text-transform:uppercase; color:oklch(0.60 0.02 250); margin-bottom:4px;">Rung 05 — Proof</div>
+        <div style="height:14px; width:75%; background:oklch(0.85 0.01 250); font-weight:{{ proofWeight }};"></div>
+        <div style="display:grid; grid-template-columns:1fr 1fr; gap:10px; flex:1;">
+          <div style="display:flex; flex-direction:column; gap:6px;"><div style="height:26px; width:70%; background:oklch(0.80 0.14 85);"></div><div style="height:6px; width:90%; background:oklch(0.55 0.02 250);"></div></div>
+          <div style="display:flex; flex-direction:column; gap:6px;"><div style="height:26px; width:70%; background:oklch(0.80 0.14 85);"></div><div style="height:6px; width:90%; background:oklch(0.55 0.02 250);"></div></div>
+          <div style="display:flex; flex-direction:column; gap:6px;"><div style="height:26px; width:70%; background:oklch(0.80 0.14 85);"></div><div style="height:6px; width:90%; background:oklch(0.55 0.02 250);"></div></div>
+          <div style="display:flex; flex-direction:column; gap:6px;"><div style="height:26px; width:70%; background:oklch(0.80 0.14 85);"></div><div style="height:6px; width:90%; background:oklch(0.55 0.02 250);"></div></div>
+        </div>
+        <div style="height:8px; width:80%; background:oklch(0.55 0.02 250);"></div>
+      </div>
+
+      <div style="flex:0 0 260px; width:260px; height:540px; border:3px solid oklch(0.40 0.03 250); border-radius:20px; background:{{ offerBg }}; padding:16px; display:flex; flex-direction:column; gap:8px;">
+        <div style="font-size:10px; letter-spacing:0.08em; text-transform:uppercase; color:oklch(0.60 0.02 250); margin-bottom:2px;">Rung 06 — Offer Stack</div>
+        <div style="height:14px; width:60%; background:oklch(0.85 0.01 250); font-weight:{{ offerWeight }};"></div>
+        <div style="flex:1; border:1px solid oklch(0.50 0.02 250); padding:8px; display:flex; flex-direction:column; gap:5px;"><div style="height:7px; width:40%; background:oklch(0.60 0.02 250);"></div><div style="height:12px; width:55%; background:oklch(0.80 0.14 85);"></div><div style="height:5px; width:80%; background:oklch(0.50 0.02 250);"></div><div style="height:5px; width:70%; background:oklch(0.50 0.02 250);"></div><div style="height:18px; width:100%; border:1px solid oklch(0.85 0.01 250); margin-top:4px;"></div></div>
+        <div style="flex:1; border:1px solid oklch(0.50 0.02 250); padding:8px; display:flex; flex-direction:column; gap:5px;"><div style="height:7px; width:40%; background:oklch(0.60 0.02 250);"></div><div style="height:12px; width:55%; background:oklch(0.80 0.14 85);"></div><div style="height:5px; width:80%; background:oklch(0.50 0.02 250);"></div><div style="height:5px; width:70%; background:oklch(0.50 0.02 250);"></div><div style="height:18px; width:100%; border:1px solid oklch(0.85 0.01 250); margin-top:4px;"></div></div>
+        <div style="flex:1; border:1px solid oklch(0.80 0.14 85); padding:8px; display:flex; flex-direction:column; gap:5px;"><div style="height:7px; width:40%; background:oklch(0.60 0.02 250);"></div><div style="height:12px; width:55%; background:oklch(0.80 0.14 85);"></div><div style="height:5px; width:80%; background:oklch(0.50 0.02 250);"></div><div style="height:5px; width:70%; background:oklch(0.50 0.02 250);"></div><div style="height:18px; width:100%; border:1px solid oklch(0.85 0.01 250); margin-top:4px;"></div></div>
+      </div>
+
+      <div style="flex:0 0 260px; width:260px; height:540px; border:3px solid oklch(0.40 0.03 250); border-radius:20px; background:{{ scarcityBg }}; padding:16px; display:flex; flex-direction:column; gap:10px;">
+        <div style="font-size:10px; letter-spacing:0.08em; text-transform:uppercase; color:oklch(0.60 0.02 250); margin-bottom:4px;">Rung 07 — Scarcity</div>
+        <div style="height:16px; width:85%; background:oklch(0.85 0.01 250); font-weight:{{ scarcityWeight }};"></div>
+        <div style="height:16px; width:60%; background:oklch(0.85 0.01 250);"></div>
+        <div style="display:flex; flex-direction:column; gap:8px; margin-top:8px;">
+          <div style="display:flex; gap:8px; align-items:center;"><div style="width:8px; height:8px; background:oklch(0.80 0.14 85);"></div><div style="height:6px; flex:1; background:oklch(0.55 0.02 250);"></div></div>
+          <div style="display:flex; gap:8px; align-items:center;"><div style="width:8px; height:8px; background:oklch(0.80 0.14 85);"></div><div style="height:6px; flex:1; background:oklch(0.55 0.02 250);"></div></div>
+          <div style="display:flex; gap:8px; align-items:center;"><div style="width:8px; height:8px; background:oklch(0.80 0.14 85);"></div><div style="height:6px; flex:1; background:oklch(0.55 0.02 250);"></div></div>
+          <div style="display:flex; gap:8px; align-items:center;"><div style="width:8px; height:8px; background:oklch(0.80 0.14 85);"></div><div style="height:6px; flex:1; background:oklch(0.55 0.02 250);"></div></div>
+        </div>
+        <div style="height:26px; width:65%; border:1px solid oklch(0.85 0.01 250); margin-top:auto; display:flex; align-items:center; justify-content:center; font-size:9px;">CTA</div>
+      </div>
+
+      <div style="flex:0 0 260px; width:260px; height:540px; border:3px solid oklch(0.40 0.03 250); border-radius:20px; background:{{ faqBg }}; padding:16px; display:flex; flex-direction:column; gap:0;">
+        <div style="font-size:10px; letter-spacing:0.08em; text-transform:uppercase; color:oklch(0.60 0.02 250); margin-bottom:10px;">Rung 08 — FAQ</div>
+        <div style="height:14px; width:65%; background:oklch(0.85 0.01 250); margin-bottom:14px; font-weight:{{ faqWeight }};"></div>
+        <div style="display:flex; justify-content:space-between; align-items:center; padding:10px 0; border-bottom:1px solid oklch(0.40 0.02 250);"><div style="height:8px; width:75%; background:oklch(0.60 0.02 250);"></div><div style="font-size:11px; color:oklch(0.60 0.02 250);">▾</div></div>
+        <div style="display:flex; justify-content:space-between; align-items:center; padding:10px 0; border-bottom:1px solid oklch(0.40 0.02 250);"><div style="height:8px; width:60%; background:oklch(0.60 0.02 250);"></div><div style="font-size:11px; color:oklch(0.60 0.02 250);">▾</div></div>
+        <div style="display:flex; justify-content:space-between; align-items:center; padding:10px 0; border-bottom:1px solid oklch(0.40 0.02 250);"><div style="height:8px; width:80%; background:oklch(0.60 0.02 250);"></div><div style="font-size:11px; color:oklch(0.60 0.02 250);">▾</div></div>
+        <div style="display:flex; justify-content:space-between; align-items:center; padding:10px 0; border-bottom:1px solid oklch(0.40 0.02 250);"><div style="height:8px; width:68%; background:oklch(0.60 0.02 250);"></div><div style="font-size:11px; color:oklch(0.60 0.02 250);">▾</div></div>
+        <div style="display:flex; justify-content:space-between; align-items:center; padding:10px 0; border-bottom:1px solid oklch(0.40 0.02 250);"><div style="height:8px; width:72%; background:oklch(0.60 0.02 250);"></div><div style="font-size:11px; color:oklch(0.60 0.02 250);">▾</div></div>
+        <div style="display:flex; justify-content:space-between; align-items:center; padding:10px 0;"><div style="height:8px; width:55%; background:oklch(0.60 0.02 250);"></div><div style="font-size:11px; color:oklch(0.60 0.02 250);">▾</div></div>
+      </div>
+
+      <div style="flex:0 0 260px; width:260px; height:540px; border:3px solid oklch(0.40 0.03 250); border-radius:20px; background:{{ lastcallBg }}; padding:16px; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:24px;">
+        <div style="font-size:10px; letter-spacing:0.08em; text-transform:uppercase; color:oklch(0.50 0.02 250); position:absolute; top:32px;">Rung 09 — Last Call</div>
+        <div style="height:34px; width:88%; background:oklch(0.90 0.01 250); font-weight:{{ lastcallWeight }};"></div>
+        <div style="height:32px; width:60%; border:1px solid oklch(0.90 0.01 250);"></div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ================= 04 HI-FI ================= -->
+  <section id="hifi" style="background:oklch(0.14 0.03 250); padding:80px 48px;">
+    <div style="font-size:13px; letter-spacing:0.14em; color:oklch(0.80 0.14 85); text-transform:uppercase; margin-bottom:12px;">04 / Hi-Fi UI</div>
+    <h2 style="font-family:'Anton',sans-serif; font-weight:400; font-size:40px; text-transform:uppercase; margin:0 0 48px;">Desktop + mobile, six core sections</h2>
+
+    <!-- HERO -->
+    <div style="margin-bottom:72px;">
+      <div style="font-size:13px; letter-spacing:0.1em; text-transform:uppercase; color:oklch(0.72 0.03 250); margin-bottom:16px;">Hero — Identity Match</div>
+      <div style="display:flex; flex-wrap:wrap; gap:32px; align-items:flex-start;">
+        <div style="width:760px; max-width:100%; background:oklch(0.32 0.055 250); position:relative;">
+          <div style="font-size:11px; color:oklch(0.55 0.03 250); text-transform:uppercase; letter-spacing:0.08em; padding:8px 0;">Desktop — 1440</div>
+          <div style="display:flex; justify-content:space-between; align-items:center; padding:20px 32px;">
+            <div style="display:flex; align-items:center; gap:10px;"><div style="width:0;height:0;border-left:10px solid transparent;border-bottom:18px solid oklch(0.80 0.14 85);"></div><span style="font-family:'Anton',sans-serif; font-size:16px; letter-spacing:0.03em;">THE HARD PORT</span></div>
+            <div style="display:flex; gap:24px; align-items:center; font-size:13px; text-transform:uppercase; letter-spacing:0.05em;"><a href="#" style="color:oklch(0.90 0.01 250);">The Truth</a><button style="background:oklch(0.80 0.14 85); color:oklch(0.14 0.03 250); border:none; border-radius:2px; padding:10px 18px; font-weight:700; font-size:13px;">Apply free</button></div>
+          </div>
+          <div style="height:340px; background:repeating-linear-gradient(45deg, oklch(0.24 0.04 250), oklch(0.24 0.04 250) 14px, oklch(0.20 0.04 250) 14px, oklch(0.20 0.04 250) 28px); display:flex; align-items:center; padding:0 48px;">
+            <div style="max-width:520px;">
+              <div style="font-size:12px; letter-spacing:0.12em; text-transform:uppercase; color:oklch(0.80 0.14 85); margin-bottom:14px;">We give a f*ck. We just don't care.</div>
+              <div style="font-family:'Anton',sans-serif; font-size:44px; line-height:1.05; text-transform:uppercase; margin-bottom:16px;">Your business isn't sinking. It's just not going anywhere.</div>
+              <div style="font-size:16px; color:oklch(0.82 0.02 250); margin-bottom:24px;">That's worse. You're comfortable. Comfortable is just sinking politely.</div>
+              <div style="display:flex; gap:14px;"><button style="background:oklch(0.80 0.14 85); color:oklch(0.14 0.03 250); border:none; border-radius:2px; padding:14px 22px; font-weight:700; font-size:14px; text-transform:uppercase;">Watch the truth</button><button style="background:transparent; border:1.5px solid oklch(0.97 0.01 250); border-radius:2px; padding:14px 22px; font-weight:700; font-size:14px; text-transform:uppercase;">Apply for the free slot</button></div>
+              <div style="font-size:12px; color:oklch(0.60 0.02 250); margin-top:14px;">2 slots a month. We pick. Prove us wrong.</div>
+            </div>
+          </div>
+        </div>
+        <div style="width:240px; border:3px solid oklch(0.40 0.03 250); border-radius:24px; background:oklch(0.32 0.055 250); padding:14px; display:flex; flex-direction:column; gap:14px;">
+          <div style="font-size:11px; color:oklch(0.55 0.03 250); text-transform:uppercase; letter-spacing:0.08em;">Mobile — 375</div>
+          <div style="display:flex; justify-content:space-between; align-items:center;"><div style="width:0;height:0;border-left:7px solid transparent;border-bottom:13px solid oklch(0.80 0.14 85);"></div><button style="background:oklch(0.80 0.14 85); color:oklch(0.14 0.03 250); border:none; border-radius:2px; padding:6px 10px; font-weight:700; font-size:10px;">Apply</button></div>
+          <div style="height:140px; background:repeating-linear-gradient(45deg, oklch(0.24 0.04 250), oklch(0.24 0.04 250) 10px, oklch(0.20 0.04 250) 10px, oklch(0.20 0.04 250) 20px);"></div>
+          <div style="font-family:'Anton',sans-serif; font-size:24px; line-height:1.08; text-transform:uppercase;">Your business isn't sinking. It's just not going anywhere.</div>
+          <div style="font-size:12px; color:oklch(0.82 0.02 250);">That's worse. Comfortable is just sinking politely.</div>
+          <button style="background:oklch(0.80 0.14 85); color:oklch(0.14 0.03 250); border:none; border-radius:2px; padding:12px; font-weight:700; font-size:13px; text-transform:uppercase; width:100%;">Watch the truth</button>
+          <button style="background:transparent; border:1.5px solid oklch(0.97 0.01 250); border-radius:2px; padding:12px; font-weight:700; font-size:13px; text-transform:uppercase; width:100%;">Apply for the free slot</button>
+        </div>
+      </div>
+      <div style="font-size:12px; color:oklch(0.55 0.03 250); margin-top:12px; max-width:700px;">Nav trimmed to logo + one link + one button — Pricing/About removed from cold nav, per the IA flag above. They live in the footer only.</div>
+    </div>
+
+    <!-- LETTER -->
+    <div style="margin-bottom:72px;">
+      <div style="font-size:13px; letter-spacing:0.1em; text-transform:uppercase; color:oklch(0.72 0.03 250); margin-bottom:16px;">The Letter — Agitation</div>
+      <div style="display:flex; flex-wrap:wrap; gap:32px; align-items:flex-start;">
+        <div style="width:760px; max-width:100%; background:oklch(0.24 0.05 250); padding:56px 90px;">
+          <div style="font-size:11px; color:oklch(0.55 0.03 250); text-transform:uppercase; letter-spacing:0.08em; margin-bottom:16px;">Desktop — 1440</div>
+          <div style="font-size:12px; letter-spacing:0.12em; text-transform:uppercase; color:oklch(0.80 0.14 85); margin-bottom:16px;">The part nobody says out loud</div>
+          <div style="font-family:'Anton',sans-serif; font-size:32px; text-transform:uppercase; margin-bottom:18px; line-height:1.15;">Dear business owner who thinks they're fine,</div>
+          <p style="font-size:17px; line-height:1.75; color:oklch(0.86 0.02 250); margin:0 0 16px;">The sea never cared for a sailor's feelings. Only whether he was prepared.</p>
+          <p style="font-size:17px; line-height:1.75; color:oklch(0.86 0.02 250); margin:0 0 16px;">Fine doesn't scream. Fine doesn't crash. It just quietly stays exactly where it is while someone hungrier eats your lunch. You're not sinking. You're anchored. And you call it stability.</p>
+          <p style="font-size:17px; line-height:1.75; color:oklch(0.86 0.02 250); margin:0 0 24px;">We give a f*ck about the work. We just don't care about your comfort zone.</p>
+          <button style="background:oklch(0.80 0.14 85); color:oklch(0.14 0.03 250); border:none; border-radius:2px; padding:14px 22px; font-weight:700; font-size:14px; text-transform:uppercase;">Show me what I'm doing wrong</button>
+        </div>
+        <div style="width:240px; border:3px solid oklch(0.40 0.03 250); border-radius:24px; background:oklch(0.24 0.05 250); padding:20px 22px;">
+          <div style="font-size:11px; color:oklch(0.55 0.03 250); text-transform:uppercase; letter-spacing:0.08em; margin-bottom:14px;">Mobile — 375</div>
+          <div style="font-family:'Anton',sans-serif; font-size:22px; text-transform:uppercase; margin-bottom:14px; line-height:1.15;">Dear business owner who thinks they're fine,</div>
+          <p style="font-size:14px; line-height:1.7; color:oklch(0.86 0.02 250); margin:0 0 12px;">Fine doesn't scream. Fine doesn't crash. It just quietly stays where it is.</p>
+          <p style="font-size:14px; line-height:1.7; color:oklch(0.86 0.02 250); margin:0 0 16px;">We give a f*ck about the work. We just don't care about your comfort zone.</p>
+          <button style="background:oklch(0.80 0.14 85); color:oklch(0.14 0.03 250); border:none; border-radius:2px; padding:12px; font-weight:700; font-size:13px; text-transform:uppercase; width:100%;">Show me what I'm doing wrong</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- MECHANISM -->
+    <div style="margin-bottom:72px;">
+      <div style="font-size:13px; letter-spacing:0.1em; text-transform:uppercase; color:oklch(0.72 0.03 250); margin-bottom:16px;">Boosting vs. Campaign — Mechanism</div>
+      <div style="display:flex; flex-wrap:wrap; gap:32px; align-items:flex-start;">
+        <div style="width:760px; max-width:100%; background:oklch(0.20 0.045 250); padding:44px 48px;">
+          <div style="font-size:11px; color:oklch(0.55 0.03 250); text-transform:uppercase; letter-spacing:0.08em; margin-bottom:14px;">Desktop — 1440</div>
+          <div style="font-family:'Anton',sans-serif; font-size:32px; text-transform:uppercase; margin-bottom:24px;">The $20 lie</div>
+          <div style="display:grid; grid-template-columns:1fr 1fr; gap:20px;">
+            <div style="border:1px solid oklch(0.40 0.03 250); padding:22px;">
+              <div style="font-family:'Anton',sans-serif; font-size:17px; text-transform:uppercase; color:oklch(0.62 0.16 35); margin-bottom:14px;">Boosting</div>
+              <div style="display:flex; gap:8px; font-size:14px; color:oklch(0.78 0.02 250); margin-bottom:10px;"><span style="color:oklch(0.62 0.16 35);">✕</span>Instagram decides who sees it.</div>
+              <div style="display:flex; gap:8px; font-size:14px; color:oklch(0.78 0.02 250); margin-bottom:10px;"><span style="color:oklch(0.62 0.16 35);">✕</span>No offer. No funnel. No plan.</div>
+              <div style="display:flex; gap:8px; font-size:14px; color:oklch(0.78 0.02 250);"><span style="color:oklch(0.62 0.16 35);">✕</span>Do it again next month. Call it marketing.</div>
+            </div>
+            <div style="border:1px solid oklch(0.80 0.14 85); padding:22px;">
+              <div style="font-family:'Anton',sans-serif; font-size:17px; text-transform:uppercase; color:oklch(0.80 0.14 85); margin-bottom:14px;">A campaign</div>
+              <div style="display:flex; gap:8px; font-size:14px; color:oklch(0.90 0.01 250); margin-bottom:10px;"><span style="color:oklch(0.80 0.14 85);">✓</span>A real offer, a real audience, a reason to act now.</div>
+              <div style="display:flex; gap:8px; font-size:14px; color:oklch(0.90 0.01 250); margin-bottom:10px;"><span style="color:oklch(0.80 0.14 85);">✓</span>We measure money in vs. money out.</div>
+              <div style="display:flex; gap:8px; font-size:14px; color:oklch(0.90 0.01 250);"><span style="color:oklch(0.80 0.14 85);">✓</span>It compounds. A system, not a slot machine.</div>
+            </div>
+          </div>
+        </div>
+        <div style="width:240px; border:3px solid oklch(0.40 0.03 250); border-radius:24px; background:oklch(0.20 0.045 250); padding:18px;">
+          <div style="font-size:11px; color:oklch(0.55 0.03 250); text-transform:uppercase; letter-spacing:0.08em; margin-bottom:12px;">Mobile — 375</div>
+          <div style="font-family:'Anton',sans-serif; font-size:22px; text-transform:uppercase; margin-bottom:14px;">The $20 lie</div>
+          <div style="border:1px solid oklch(0.40 0.03 250); padding:14px; margin-bottom:12px;">
+            <div style="font-family:'Anton',sans-serif; font-size:13px; text-transform:uppercase; color:oklch(0.62 0.16 35); margin-bottom:8px;">Boosting</div>
+            <div style="font-size:12px; color:oklch(0.78 0.02 250);">✕ No offer. No funnel. No plan.</div>
+          </div>
+          <div style="border:1px solid oklch(0.80 0.14 85); padding:14px;">
+            <div style="font-family:'Anton',sans-serif; font-size:13px; text-transform:uppercase; color:oklch(0.80 0.14 85); margin-bottom:8px;">A campaign</div>
+            <div style="font-size:12px; color:oklch(0.90 0.01 250);">✓ Measures money in vs. money out.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- PROOF -->
+    <div style="margin-bottom:72px;">
+      <div style="font-size:13px; letter-spacing:0.1em; text-transform:uppercase; color:oklch(0.72 0.03 250); margin-bottom:16px;">Proof / Stats</div>
+      <div style="display:flex; flex-wrap:wrap; gap:32px; align-items:flex-start;">
+        <div style="width:760px; max-width:100%; background:oklch(0.11 0.03 250); padding:48px;">
+          <div style="font-size:11px; color:oklch(0.55 0.03 250); text-transform:uppercase; letter-spacing:0.08em; margin-bottom:14px;">Desktop — 1440</div>
+          <div style="font-family:'Anton',sans-serif; font-size:30px; text-transform:uppercase; margin-bottom:8px;">Marketers lie. We won't.</div>
+          <div style="font-size:14px; color:oklch(0.70 0.02 250); margin-bottom:28px;">Not a single five-star review. The gap in traditional proof is the proof.</div>
+          <div style="display:grid; grid-template-columns:repeat(3,1fr); gap:24px;">
+            <div><div style="font-family:'Anton',sans-serif; font-size:48px; color:oklch(0.80 0.14 85);">11</div><div style="font-size:13px; color:oklch(0.78 0.02 250);">Strategies built, start to finish</div></div>
+            <div><div style="font-family:'Anton',sans-serif; font-size:48px; color:oklch(0.80 0.14 85);">5</div><div style="font-size:13px; color:oklch(0.78 0.02 250);">Clients who ran them independently</div></div>
+            <div><div style="font-family:'Anton',sans-serif; font-size:48px; color:oklch(0.80 0.14 85);">$0 / $270K</div><div style="font-size:13px; color:oklch(0.78 0.02 250);">Their return vs. ours, documented</div></div>
+          </div>
+        </div>
+        <div style="width:240px; border:3px solid oklch(0.40 0.03 250); border-radius:24px; background:oklch(0.11 0.03 250); padding:18px;">
+          <div style="font-size:11px; color:oklch(0.55 0.03 250); text-transform:uppercase; letter-spacing:0.08em; margin-bottom:14px;">Mobile — 375</div>
+          <div style="font-family:'Anton',sans-serif; font-size:20px; text-transform:uppercase; margin-bottom:16px;">Marketers lie. We won't.</div>
+          <div style="display:flex; flex-direction:column; gap:16px;">
+            <div><div style="font-family:'Anton',sans-serif; font-size:32px; color:oklch(0.80 0.14 85);">11</div><div style="font-size:11px; color:oklch(0.78 0.02 250);">Strategies built, start to finish</div></div>
+            <div><div style="font-family:'Anton',sans-serif; font-size:32px; color:oklch(0.80 0.14 85);">$0 / $270K</div><div style="font-size:11px; color:oklch(0.78 0.02 250);">Their return vs. ours, documented</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- PRICING -->
+    <div style="margin-bottom:72px;">
+      <div style="font-size:13px; letter-spacing:0.1em; text-transform:uppercase; color:oklch(0.72 0.03 250); margin-bottom:16px;">Pricing — Offer Stack</div>
+      <div style="display:flex; flex-wrap:wrap; gap:32px; align-items:flex-start;">
+        <div style="width:760px; max-width:100%; background:oklch(0.09 0.025 250); padding:44px;">
+          <div style="font-size:11px; color:oklch(0.55 0.03 250); text-transform:uppercase; letter-spacing:0.08em; margin-bottom:20px;">Desktop — 1440</div>
+          <div style="display:grid; grid-template-columns:repeat(3,1fr); gap:18px;">
+            <div style="border:1.5px solid {{ portBorder }}; padding:24px; position:relative;">
+              <sc-if value="{{ isPort }}" hint-placeholder-val="{{ false }}"><div style="position:absolute; top:-11px; left:20px; background:oklch(0.80 0.14 85); color:oklch(0.14 0.03 250); font-size:10px; font-weight:800; padding:3px 8px; letter-spacing:0.06em;">RECOMMENDED</div></sc-if>
+              <div style="font-family:'Anton',sans-serif; font-size:16px; text-transform:uppercase; margin-bottom:10px;">To the Port</div>
+              <div style="font-family:'Anton',sans-serif; font-size:24px; margin-bottom:6px;">Custom</div>
+              <div style="font-size:12px; color:oklch(0.68 0.02 250); margin-bottom:16px;">Still scared of the water</div>
+              <div style="font-size:13px; color:oklch(0.82 0.02 250); line-height:2;">Content<br/>Reporting<br/>Branding</div>
+              <button style="margin-top:16px; width:100%; background:transparent; border:1.5px solid oklch(0.90 0.01 250); border-radius:2px; padding:10px; font-weight:700; font-size:12px; text-transform:uppercase;">Apply</button>
+            </div>
+            <div style="border:1.5px solid {{ seaBorder }}; padding:24px; position:relative;">
+              <sc-if value="{{ isSea }}" hint-placeholder-val="{{ false }}"><div style="position:absolute; top:-11px; left:20px; background:oklch(0.80 0.14 85); color:oklch(0.14 0.03 250); font-size:10px; font-weight:800; padding:3px 8px; letter-spacing:0.06em;">RECOMMENDED</div></sc-if>
+              <div style="font-family:'Anton',sans-serif; font-size:16px; text-transform:uppercase; margin-bottom:10px;">To the Sea</div>
+              <div style="font-family:'Anton',sans-serif; font-size:24px; margin-bottom:6px;">$632/mo</div>
+              <div style="font-size:12px; color:oklch(0.68 0.02 250); margin-bottom:16px;">People who actually want to move</div>
+              <div style="font-size:13px; color:oklch(0.82 0.02 250); line-height:2;">Everything in Port<br/>+ Video Content<br/>+ Growth Testing</div>
+              <button style="margin-top:16px; width:100%; background:transparent; border:1.5px solid oklch(0.90 0.01 250); border-radius:2px; padding:10px; font-weight:700; font-size:12px; text-transform:uppercase;">Commit</button>
+            </div>
+            <div style="border:1.5px solid {{ oceanBorder }}; padding:24px; position:relative;">
+              <sc-if value="{{ isOcean }}" hint-placeholder-val="{{ true }}"><div style="position:absolute; top:-11px; left:20px; background:oklch(0.80 0.14 85); color:oklch(0.14 0.03 250); font-size:10px; font-weight:800; padding:3px 8px; letter-spacing:0.06em;">RECOMMENDED</div></sc-if>
+              <div style="font-family:'Anton',sans-serif; font-size:16px; text-transform:uppercase; margin-bottom:10px;">To the Ocean</div>
+              <div style="font-family:'Anton',sans-serif; font-size:24px; margin-bottom:6px;">$1,723/mo</div>
+              <div style="font-size:12px; color:oklch(0.68 0.02 250); margin-bottom:16px;">Done playing small</div>
+              <div style="font-size:13px; color:oklch(0.82 0.02 250); line-height:2;">Everything in Sea<br/>+ Dedicated Strategy<br/>+ Custom Deliverables</div>
+              <button style="margin-top:16px; width:100%; background:oklch(0.80 0.14 85); color:oklch(0.14 0.03 250); border:none; border-radius:2px; padding:10px; font-weight:700; font-size:12px; text-transform:uppercase;">Let's talk</button>
+            </div>
+          </div>
+        </div>
+        <div style="width:240px; border:3px solid oklch(0.40 0.03 250); border-radius:24px; background:oklch(0.09 0.025 250); padding:16px; display:flex; flex-direction:column; gap:14px;">
+          <div style="font-size:11px; color:oklch(0.55 0.03 250); text-transform:uppercase; letter-spacing:0.08em;">Mobile — 375</div>
+          <div style="border:1.5px solid {{ oceanBorder }}; padding:16px; position:relative;">
+            <sc-if value="{{ isOcean }}" hint-placeholder-val="{{ true }}"><div style="position:absolute; top:-9px; left:14px; background:oklch(0.80 0.14 85); color:oklch(0.14 0.03 250); font-size:9px; font-weight:800; padding:2px 6px;">RECOMMENDED</div></sc-if>
+            <div style="font-family:'Anton',sans-serif; font-size:14px; text-transform:uppercase; margin-bottom:8px;">To the Ocean</div>
+            <div style="font-family:'Anton',sans-serif; font-size:20px; margin-bottom:8px;">$1,723/mo</div>
+            <button style="width:100%; background:oklch(0.80 0.14 85); color:oklch(0.14 0.03 250); border:none; border-radius:2px; padding:9px; font-weight:700; font-size:11px; text-transform:uppercase;">Let's talk</button>
+          </div>
+          <div style="border:1.5px solid {{ seaBorder }}; padding:16px;">
+            <div style="font-family:'Anton',sans-serif; font-size:14px; text-transform:uppercase; margin-bottom:8px;">To the Sea</div>
+            <div style="font-family:'Anton',sans-serif; font-size:20px; margin-bottom:8px;">$632/mo</div>
+            <button style="width:100%; background:transparent; border:1.5px solid oklch(0.90 0.01 250); border-radius:2px; padding:9px; font-weight:700; font-size:11px; text-transform:uppercase;">Commit</button>
+          </div>
+        </div>
+      </div>
+      <div style="font-size:12px; color:oklch(0.55 0.03 250); margin-top:12px;">Which tier gets the "recommended" ribbon is a Tweaks-panel control (default: Ocean).</div>
+    </div>
+
+    <!-- LAST CALL -->
+    <div>
+      <div style="font-size:13px; letter-spacing:0.1em; text-transform:uppercase; color:oklch(0.72 0.03 250); margin-bottom:16px;">Final CTA — Last Call</div>
+      <div style="display:flex; flex-wrap:wrap; gap:32px; align-items:stretch;">
+        <div style="width:760px; max-width:100%; background:oklch(0.08 0.02 250); padding:80px 48px; display:flex; flex-direction:column; align-items:center; text-align:center;">
+          <div style="font-size:11px; color:oklch(0.45 0.02 250); text-transform:uppercase; letter-spacing:0.08em; margin-bottom:24px;">Desktop — 1440</div>
+          <div style="font-family:'Anton',sans-serif; font-size:40px; text-transform:uppercase; line-height:1.1; max-width:640px; margin-bottom:28px;">The only thing worse than sinking is staying still.</div>
+          <button style="background:oklch(0.80 0.14 85); color:oklch(0.14 0.03 250); border:none; border-radius:2px; padding:16px 30px; font-weight:800; font-size:15px; text-transform:uppercase;">Apply for the free slot</button>
+          <div style="font-size:12px; color:oklch(0.45 0.02 250); margin-top:14px;">2 slots a month. We pick.</div>
+        </div>
+        <div style="width:240px; border:3px solid oklch(0.35 0.02 250); border-radius:24px; background:oklch(0.08 0.02 250); padding:32px 20px; display:flex; flex-direction:column; align-items:center; text-align:center;">
+          <div style="font-size:11px; color:oklch(0.45 0.02 250); text-transform:uppercase; letter-spacing:0.08em; margin-bottom:20px;">Mobile — 375</div>
+          <div style="font-family:'Anton',sans-serif; font-size:24px; text-transform:uppercase; line-height:1.15; margin-bottom:20px;">The only thing worse than sinking is staying still.</div>
+          <button style="width:100%; background:oklch(0.80 0.14 85); color:oklch(0.14 0.03 250); border:none; border-radius:2px; padding:14px; font-weight:800; font-size:13px; text-transform:uppercase;">Apply for the free slot</button>
+        </div>
+      </div>
+    </div>
+
+  </section>
+
+</div>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:1400,&quot;height&quot;:1200},&quot;showAuditFlags&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;IA Audit&quot;},&quot;escalationIntensity&quot;:{&quot;editor&quot;:&quot;range&quot;,&quot;default&quot;:2,&quot;min&quot;:1,&quot;max&quot;:3,&quot;step&quot;:1,&quot;tsType&quot;:&quot;number&quot;,&quot;section&quot;:&quot;Wireframes&quot;},&quot;highlightTier&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;default&quot;:&quot;ocean&quot;,&quot;options&quot;:[&quot;port&quot;,&quot;sea&quot;,&quot;ocean&quot;],&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Pricing&quot;}}">
+class Component extends DCLogic {
+  renderVals() {
+    const intensity = this.props.escalationIntensity ?? 2;
+    const showFlags = this.props.showAuditFlags ?? true;
+    const highlightTier = this.props.highlightTier ?? 'ocean';
+    const stepL = 0.018 + 0.012 * intensity;
+    const names = ['hero','letter','mechanism','proof','offer','scarcity','faq','lastcall'];
+    const frames = {};
+    names.forEach((n, i) => {
+      const L = Math.max(0.08, 0.30 - i * stepL);
+      const weight = Math.min(800, 420 + i * Math.round(35 * intensity));
+      frames[n] = { bg: `oklch(${L.toFixed(3)} 0.045 250)`, weight };
+    });
+    const gold = 'oklch(0.80 0.14 85)';
+    const rule = 'oklch(0.40 0.03 250)';
+    return {
+      showFlags,
+      heroBg: frames.hero.bg, heroWeight: frames.hero.weight,
+      letterBg: frames.letter.bg, letterWeight: frames.letter.weight,
+      mechBg: frames.mechanism.bg, mechWeight: frames.mechanism.weight,
+      proofBg: frames.proof.bg, proofWeight: frames.proof.weight,
+      offerBg: frames.offer.bg, offerWeight: frames.offer.weight,
+      scarcityBg: frames.scarcity.bg, scarcityWeight: frames.scarcity.weight,
+      faqBg: frames.faq.bg, faqWeight: frames.faq.weight,
+      lastcallBg: frames.lastcall.bg, lastcallWeight: frames.lastcall.weight,
+      isPort: highlightTier === 'port',
+      isSea: highlightTier === 'sea',
+      isOcean: highlightTier === 'ocean',
+      portBorder: highlightTier === 'port' ? gold : rule,
+      seaBorder: highlightTier === 'sea' ? gold : rule,
+      oceanBorder: highlightTier === 'ocean' ? gold : rule,
+    };
+  }
+}
+</script>
+</body>
+</html>

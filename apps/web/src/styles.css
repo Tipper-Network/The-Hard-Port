@@ -6,17 +6,40 @@
 @config "../tailwind.config.ts";
 
 @theme inline {
-  /* Brand palette */
-  --color-navy: #0a2c75;
-  --color-light-blue: #f3fbff;
-  --color-orange: #ff6b17;
-  --color-primary: var(--color-navy);
-  --color-secondary: var(--color-light-blue);
-  --color-accent: var(--color-orange);
+  /* Brand palette — oklch depth scale (see design-system/02-color-tokens.md) */
+  --color-deepest: oklch(0.14 0.03 250);
+  --color-navy-mid: oklch(0.26 0.05 250);
+  --color-navy-light: oklch(0.32 0.055 250);
+  --color-ink: oklch(0.97 0.01 250);
+  --color-ink-muted: oklch(0.72 0.03 250);
+  --color-gold: oklch(0.80 0.14 85);
+  --color-gold-hover: oklch(0.70 0.15 80);
+  --color-rust: oklch(0.62 0.16 35);
 
+  --color-primary: var(--color-deepest);
+  --color-secondary: var(--color-ink);
+  --color-accent: var(--color-gold);
+  --color-alert: var(--color-rust);
 
-  --font-sans: "Montserrat", "Avenir", "Avenir Next", system-ui, sans-serif;
-  --font-heading: var(--font-sans);
+  /* Scroll-depth backgrounds — one per landing section, in page order.
+     Background darkens as the visitor descends; floors out at the offer
+     stack onward. See design-system/07-depth-scroll-intensity.md. */
+  --color-depth-0: oklch(0.3 0.045 250);
+  --color-depth-1: oklch(0.258 0.045 250);
+  --color-depth-2: oklch(0.216 0.045 250);
+  --color-depth-3: oklch(0.174 0.045 250);
+  --color-depth-4: oklch(0.132 0.045 250);
+  --color-depth-5: oklch(0.09 0.045 250);
+  --color-depth-6: oklch(0.08 0.045 250);
+  --color-depth-7: oklch(0.08 0.045 250);
+  --color-depth-8: oklch(0.08 0.045 250);
+  --color-depth-9: oklch(0.08 0.045 250);
+  --color-depth-10: oklch(0.08 0.045 250);
+  --color-depth-11: oklch(0.08 0.045 250);
+  --color-depth-12: oklch(0.08 0.045 250);
+
+  --font-sans: "IBM Plex Sans", "Avenir", "Avenir Next", system-ui, sans-serif;
+  --font-heading: "Anton", "Avenir Next", system-ui, sans-serif;
 
   --text-hero: 3.4375rem;
   --text-hero--line-height: 1;
@@ -54,22 +77,22 @@
 :root {
   --background: var(--color-primary);
   --foreground: var(--color-secondary);
-  --card: var(--color-primary);
+  --card: var(--color-navy-mid);
   --card-foreground: var(--color-secondary);
-  --popover: var(--color-primary);
+  --popover: var(--color-navy-mid);
   --popover-foreground: var(--color-secondary);
   --primary: var(--color-primary);
   --primary-foreground: var(--color-secondary);
   --secondary: var(--color-secondary);
   --secondary-foreground: var(--color-primary);
-  --muted: var(--color-secondary-muted);
-  --muted-foreground: var(--color-primary-muted);
+  --muted: var(--color-navy-mid);
+  --muted-foreground: var(--color-ink-muted);
   --accent: var(--color-accent);
-  --accent-foreground: #ffffff;
-  --destructive: #dc2626;
-  --destructive-foreground: #ffffff;
-  --border: var(--color-primary-light);
-  --input: var(--color-primary-light);
+  --accent-foreground: var(--color-deepest);
+  --destructive: var(--color-rust);
+  --destructive-foreground: var(--color-ink);
+  --border: var(--color-navy-light);
+  --input: var(--color-navy-light);
   --ring: var(--color-accent);
   --radius: 0.5rem;
 }

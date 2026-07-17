@@ -12,7 +12,7 @@ export function FreeSlotsSection() {
   return (
     <section
       id="apply"
-      className="relative overflow-hidden bg-primary px-6 py-20 lg:px-12 lg:py-28"
+      className="relative overflow-hidden bg-depth-9 px-6 py-20 lg:px-12 lg:py-28"
     >
       <div className="absolute -right-24 top-0 h-80 w-80 rounded-full bg-accent/20 blur-3xl" />
       <div className="relative mx-auto max-w-hero">
@@ -21,7 +21,7 @@ export function FreeSlotsSection() {
             <p className="inline-flex w-fit items-center gap-2 border border-accent/60 bg-accent/10 px-3 py-1.5 text-xs font-bold tracking-[0.18em] text-accent uppercase">
               {freeSlots.perMonth} free slots / month
             </p>
-            <h2 className="mt-5 text-3xl font-extrabold leading-tight text-white md:text-4xl lg:text-[2.75rem]">
+            <h2 className="mt-5 font-heading text-3xl font-normal uppercase leading-tight text-secondary md:text-4xl lg:text-[2.75rem]">
               Every month we pick {freeSlots.perMonth} businesses and work for
               free.
             </h2>
@@ -47,8 +47,8 @@ export function FreeSlotsSection() {
           </div>
 
           <div className="space-y-6">
-            <div className="border border-white/15 bg-white/5 p-8">
-              <h3 className="text-lg font-extrabold tracking-wide text-white uppercase">
+            <div className="border border-secondary/15 bg-secondary/5 p-8">
+              <h3 className="font-heading text-lg font-normal tracking-wide text-secondary uppercase">
                 Who we actually pick
               </h3>
               <p className="mt-2 text-sm text-white/60">

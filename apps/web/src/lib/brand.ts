@@ -1,8 +1,10 @@
-/** Hard Port brand tokens — keep in sync with src/styles.css @theme */
+/** Hard Port brand tokens — keep in sync with src/styles.css @theme.
+ *  Hex approximations of the oklch tokens, for contexts (meta theme-color)
+ *  that need a plain hex/rgb fallback. */
 export const brand = {
-  navy: '#0A2C75',
-  lightBlue: '#F3FBFF',
-  orange: '#FF6B17',
+  deepest: '#12151d',
+  ink: '#f2f3f6',
+  gold: '#d9b676',
 } as const
 
 export const site = {

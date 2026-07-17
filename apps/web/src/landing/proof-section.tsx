@@ -36,12 +36,12 @@ export function ProofSection() {
   ]
 
   return (
-    <section id="proof" className="bg-primary px-6 py-20 lg:px-12 lg:py-28">
+    <section id="proof" className="bg-depth-4 px-6 py-20 lg:px-12 lg:py-28">
       <div className="mx-auto max-w-3xl">
         <p className="text-sm font-bold tracking-[0.2em] text-accent uppercase">
           Marketers lie. We won&apos;t.
         </p>
-        <h2 className="mt-4 text-3xl font-extrabold leading-tight text-white md:text-4xl">
+        <h2 className="mt-4 font-heading text-3xl font-normal uppercase leading-tight text-secondary md:text-4xl">
           Here&apos;s the part where we&apos;re supposed to show off. We can&apos;t.
         </h2>
 
@@ -80,17 +80,17 @@ export function ProofSection() {
           {stats.map((stat) => (
             <div
               key={stat.label}
-              className="border border-white/15 bg-white/5 p-6 text-center "
+              className="border border-secondary/15 bg-secondary/5 p-6 text-center "
               >
                 <div className="flex items-center justify-center">
                   {stat.sign ? (
-                    <p className="text-4xl font-semibold text-accent">{stat.sign}</p>
+                    <p className="font-heading text-4xl font-normal text-accent">{stat.sign}</p>
                   ) : null}
-                  <p className="text-4xl font-extrabold text-accent">
+                  <p className="font-heading text-4xl font-normal text-accent">
                     {stat.format ? stat.format(stat.value) : stat.value}
                   </p>
                 </div>
-              <p className="mt-2 text-sm text-white/70">{stat.label}</p>
+              <p className="mt-2 text-sm text-secondary/70">{stat.label}</p>
             </div>
           ))}
         </div>

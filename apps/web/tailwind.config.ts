@@ -13,7 +13,8 @@ const config = {
     },
     extend: {
       fontFamily: {
-        sans: ['Montserrat', 'Avenir', 'Avenir Next', 'system-ui', 'sans-serif'],
+        sans: ['IBM Plex Sans', 'Avenir', 'Avenir Next', 'system-ui', 'sans-serif'],
+        heading: ['Anton', 'Avenir Next', 'system-ui', 'sans-serif'],
       },
       maxWidth: {
         hero: '90rem',
