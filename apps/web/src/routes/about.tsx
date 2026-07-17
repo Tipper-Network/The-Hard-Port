@@ -1,7 +1,7 @@
 import { createFileRoute } from '@tanstack/react-router'
 
-import { SiteFooter } from '#/landing/site-footer'
-import { SiteHeader } from '#/landing/site-header'
+import { SiteFooter } from '#/shared/site-footer'
+import { SiteHeader } from '#/shared/site-header'
 import { site, slogan } from '#/lib/brand'
 import LinkButton from '#/components/link_button'
 
@@ -44,15 +44,15 @@ function AboutPage() {
     <>
       <SiteHeader />
       <main>
-        <section className="bg-primary px-6 py-20 lg:px-12 lg:py-28">
+        <section className="bg-depth-0 px-6 py-20 lg:px-12 lg:py-28">
           <div className="mx-auto max-w-hero">
             <p className="text-sm font-bold tracking-[0.2em] text-accent uppercase">
               Who we are
             </p>
-            <h1 className="mt-3 max-w-3xl text-4xl font-extrabold text-white uppercase md:text-5xl">
+            <h1 className="mt-3 max-w-3xl font-heading text-4xl font-normal uppercase text-secondary md:text-5xl">
               A port is where ships go to rot.
             </h1>
-            <p className="mt-6 max-w-2xl text-lg leading-8 text-white/80">
+            <p className="mt-6 max-w-2xl text-lg leading-8 text-secondary/80">
               &quot;Hard a-port&quot; is the command you shout to swing the ship
               hard before it hits the rocks. That&apos;s the whole company.
               You&apos;ve been drifting toward the rocks and calling it
@@ -62,30 +62,30 @@ function AboutPage() {
           </div>
         </section>
 
-        <section className="bg-white px-6 py-20 lg:px-12 lg:py-28">
+        <section className="bg-depth-1 px-6 py-20 lg:px-12 lg:py-28">
           <div className="mx-auto grid max-w-hero gap-14 lg:grid-cols-2">
             <div>
-              <h2 className="text-3xl font-extrabold text-primary md:text-4xl">
+              <h2 className="font-heading text-3xl font-normal uppercase text-secondary md:text-4xl">
                 What we&apos;re not
               </h2>
-              <p className="mt-5 text-base leading-7 text-primary/70">
+              <p className="mt-5 text-base leading-7 text-secondary/70">
                 We&apos;re not your friends, your yes-men, or another vendor to
                 tick a box. We&apos;re not going to clap for &quot;fine,&quot;
                 hype your feelings, or sell you a plan we know you won&apos;t
                 run.
               </p>
-              <p className="mt-4 text-base leading-7 text-primary/70">
+              <p className="mt-4 text-base leading-7 text-secondary/70">
                 We&apos;re the people who tell you the truth, charge you so it
                 counts, and then actually do the work. You focus on sailing. We
                 handle the ship, the crew, the identity, the campaigns.
               </p>
             </div>
 
-            <div className="border border-primary/15 bg-secondary p-8">
-              <p className="text-sm font-bold tracking-[0.18em] text-primary/40 uppercase">
+            <div className="border border-secondary/15 bg-secondary/5 p-8">
+              <p className="text-sm font-bold tracking-[0.18em] text-secondary/40 uppercase">
                 The honest disclaimer
               </p>
-              <ul className="mt-6 space-y-4 text-sm leading-6 text-primary/70">
+              <ul className="mt-6 space-y-4 text-sm leading-6 text-secondary/70">
                 <li className="flex gap-3">
                   <span className="font-bold text-accent">&#10003;</span>
                   We&apos;re new. We&apos;re telling you instead of hiding it.
@@ -107,12 +107,12 @@ function AboutPage() {
           </div>
         </section>
 
-        <section className="bg-secondary px-6 py-20 lg:px-12 lg:py-28">
+        <section className="bg-depth-2 px-6 py-20 lg:px-12 lg:py-28">
           <div className="mx-auto max-w-hero">
             <p className="text-sm font-bold tracking-[0.2em] text-accent uppercase">
               How we work
             </p>
-            <h2 className="mt-3 text-3xl font-extrabold text-primary md:text-4xl">
+            <h2 className="mt-3 font-heading text-3xl font-normal uppercase text-secondary md:text-4xl">
               What you&apos;re signing up for
             </h2>
 
@@ -120,12 +120,12 @@ function AboutPage() {
               {values.map((value) => (
                 <article
                   key={value.title}
-                  className="border border-primary/15 bg-white p-8"
+                  className="border border-secondary/15 bg-secondary/5 p-8"
                 >
-                  <h3 className="text-xl font-extrabold text-primary">
+                  <h3 className="text-xl font-extrabold text-secondary">
                     {value.title}
                   </h3>
-                  <p className="mt-3 text-sm leading-6 text-primary/70">
+                  <p className="mt-3 text-sm leading-6 text-secondary/70">
                     {value.description}
                   </p>
                 </article>
@@ -134,12 +134,12 @@ function AboutPage() {
           </div>
         </section>
 
-        <section className="bg-white px-6 py-20 lg:px-12 lg:py-28">
+        <section className="bg-depth-3 px-6 py-20 lg:px-12 lg:py-28">
           <div className="mx-auto max-w-hero text-center">
-            <h2 className="text-3xl font-extrabold text-primary uppercase md:text-4xl">
+            <h2 className="font-heading text-3xl font-normal uppercase text-secondary md:text-4xl">
               Done being fine?
             </h2>
-            <p className="mx-auto mt-4 max-w-xl text-base leading-7 text-primary/70">
+            <p className="mx-auto mt-4 max-w-xl text-base leading-7 text-secondary/70">
               Apply for a free slot, or skip the line and commit. Either way,
               tell us where you actually want to be.
             </p>

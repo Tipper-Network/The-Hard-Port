@@ -14,7 +14,7 @@ const LinkButton = ({
       <Link
         to={href}
         hash={hash}
-        className="mt-9 inline-flex items-center justify-center bg-accent px-7 py-4 text-base font-extrabold tracking-wide text-white uppercase transition-transform hover:-translate-y-0.5"
+        className="mt-9 inline-flex items-center justify-center bg-accent px-7 py-4 text-base font-extrabold tracking-wide text-background uppercase transition-transform hover:-translate-y-0.5 hover:bg-[--color-gold-hover]"
       >
         {text}
       </Link>

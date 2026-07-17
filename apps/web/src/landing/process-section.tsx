@@ -23,16 +23,16 @@ const steps = [
 
 export function ProcessSection() {
   return (
-    <section id="process" className="bg-secondary px-6 py-20 lg:px-12 lg:py-28">
+    <section id="process" className="bg-depth-5 px-6 py-20 lg:px-12 lg:py-28">
       <div className="mx-auto max-w-hero">
         <div className="mx-auto max-w-3xl text-center">
           <p className="text-sm font-bold tracking-[0.2em] text-accent uppercase">
             How this actually works
           </p>
-          <h2 className="mt-4 text-3xl font-extrabold leading-tight text-primary md:text-4xl lg:text-[2.75rem]">
+          <h2 className="mt-4 font-heading text-3xl font-normal uppercase leading-tight text-secondary md:text-4xl lg:text-[2.75rem]">
             We don&apos;t work with maybes.
           </h2>
-          <p className="mt-5 text-base leading-7 text-primary/70 md:text-lg">
+          <p className="mt-5 text-base leading-7 text-secondary/70 md:text-lg">
             This isn&apos;t a vending machine. There&apos;s a reason it goes in
             this exact order — and skipping a step is why nothing&apos;s changed
             for you yet.
@@ -43,18 +43,18 @@ export function ProcessSection() {
           {steps.map((step) => (
             <article
               key={step.no}
-              className="flex flex-col border border-primary/15 bg-white p-7"
+              className="flex flex-col border border-secondary/15 bg-secondary/5 p-7"
             >
-              <span className="text-3xl font-extrabold text-accent">{step.no}</span>
-              <h3 className="mt-4 text-lg font-extrabold tracking-wide text-primary uppercase">
+              <span className="font-heading text-3xl font-normal text-accent">{step.no}</span>
+              <h3 className="mt-4 text-lg font-extrabold tracking-wide text-secondary uppercase">
                 {step.title}
               </h3>
-              <p className="mt-3 text-sm leading-6 text-primary/70">{step.body}</p>
+              <p className="mt-3 text-sm leading-6 text-secondary/70">{step.body}</p>
             </article>
           ))}
         </div>
 
-        <p className="mx-auto mt-12 max-w-2xl text-center text-lg font-bold text-primary">
+        <p className="mx-auto mt-12 max-w-2xl text-center text-lg font-bold text-secondary">
           You don&apos;t pay us for time. You pay us so you finally do the thing
           you keep saying you&apos;ll do.
         </p>

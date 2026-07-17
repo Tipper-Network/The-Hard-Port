@@ -29,7 +29,7 @@ export const packageCards: readonly PackageCard[] = [
     id: 'port',
     name: 'TO THE PORT',
     price: 0,
-    tagline: 'We pick 2 businesses a month. Not you.',
+    tagline: 'Still scared of the water',
     bullets: ['Content', 'Reporting', 'Branding'],
     cta: 'Apply for the free slot',
     ctaLink: '#apply',
@@ -37,7 +37,6 @@ export const packageCards: readonly PackageCard[] = [
   {
     id: 'sea',
     name: 'TO THE SEA',
-    featured: true,
     price: 632,
     tagline: 'For people who actually want to move',
     includesLabel: 'Everything in Port',
@@ -49,6 +48,7 @@ export const packageCards: readonly PackageCard[] = [
   {
     id: 'ocean',
     name: 'TO THE OCEAN',
+    featured: true,
     price: 1723,
     tagline: 'For people who are done playing small',
     includesLabel: 'Everything in Sea',

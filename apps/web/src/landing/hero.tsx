@@ -14,7 +14,7 @@ function HeroSail() {
 
 export function Hero() {
   return (
-    <section className="relative max-h-90vh overflow-hidden bg-primary">
+    <section className="relative max-h-90vh overflow-hidden bg-depth-0">
       <video
         className="absolute inset-0 h-full w-full object-cover"
         src="/oceanvid.mp4"
@@ -38,7 +38,7 @@ export function Hero() {
           {slogan}
         </p>
 
-        <h1 className="max-w-4xl text-4xl md:text-5xl font-extrabold tracking-tight text-white uppercase lg:text-6xl xl:text-[4.5rem]">
+        <h1 className="max-w-4xl font-heading text-4xl font-normal tracking-tight text-secondary uppercase md:text-5xl lg:text-6xl xl:text-[4.5rem]">
           Your business isn&apos;t sinking.
           <br />
           <span className="text-accent">It&apos;s just not going anywhere.</span>
@@ -50,8 +50,8 @@ export function Hero() {
         </p>
 
         <div className="mt-10 flex flex-col flex-wrap gap-4 sm:flex-row sm:items-center">
-        <LinkButton text="Get the brutal version" href="#letter" hash="letter" />
-        <LinkButton text="Apply for The free slot" href="#apply" hash="apply" />
+        <LinkButton text="Get the brutal version" href="/" hash="truth" />
+        <LinkButton text="Apply for The free slot" href="/" hash="apply" />
         </div>
 
         <p className="mt-6 text-sm text-white/60">

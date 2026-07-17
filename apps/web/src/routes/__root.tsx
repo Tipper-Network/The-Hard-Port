@@ -24,11 +24,11 @@ export const Route = createRootRoute({
       },
       {
         name: 'theme-color',
-        content: brand.navy,
+        content: brand.deepest,
       },
       {
         name: 'msapplication-TileColor',
-        content: brand.navy,
+        content: brand.deepest,
       },
       {
         property: 'og:type',
@@ -92,7 +92,7 @@ export const Route = createRootRoute({
       },
       {
         rel: 'stylesheet',
-        href: 'https://fonts.googleapis.com/css2?family=Montserrat:wght@500;700;800&display=swap',
+        href: 'https://fonts.googleapis.com/css2?family=Anton&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap',
       },
     ],
   }),

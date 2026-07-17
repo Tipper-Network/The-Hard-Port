@@ -2,16 +2,16 @@ import LinkButton from "#/components/link_button";
 
 export function LetterSection() {
   return (
-    <section id="letter" className="bg-secondary px-6 py-20 lg:px-12 lg:py-28">
+    <section id="letter" className="bg-depth-1 px-6 py-20 lg:px-12 lg:py-28">
       <div className="mx-auto max-w-3xl">
         <p className="text-sm font-bold tracking-[0.2em] text-accent uppercase">
           The part nobody says out loud
         </p>
-        <h2 className="mt-4 text-3xl font-extrabold leading-tight text-primary md:text-4xl">
+        <h2 className="mt-4 font-heading text-3xl font-normal uppercase leading-tight text-secondary md:text-4xl">
           Dear business owner who thinks they&apos;re fine,
         </h2>
 
-        <div className="mt-8 space-y-5 text-base leading-8 text-primary/80 md:text-lg">
+        <div className="mt-8 space-y-5 text-base leading-8 text-secondary/80 md:text-lg">
           <p>
             The sea never cared for a sailor&apos;s feelings. Only whether he was
             prepared.
@@ -21,7 +21,7 @@ export function LetterSection() {
             going somewhere. When&apos;s the last time you noticed you&apos;d
             stopped moving with a direction?
           </p>
-          <p className="font-bold text-primary">
+          <p className="font-bold text-secondary">
             Ask yourself the question: Am I where I want to be?
           </p>
           <p>
@@ -45,7 +45,7 @@ export function LetterSection() {
             for clarity. We won&apos;t help you. We&apos;ll just do our job, so
             yours gets easier.
           </p>
-          <p className="border-l-4 border-accent pl-5 text-xl font-extrabold text-primary">
+          <p className="border-l-4 border-accent pl-5 text-xl font-extrabold text-secondary">
             If you&apos;re a man, grow a pair. 
             </p>
             <p>

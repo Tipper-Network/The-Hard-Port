@@ -86,9 +86,9 @@ export function ApplyForm() {
     <form
       onSubmit={handleSubmit}
       noValidate
-      className="border border-white/15 bg-white/5 p-8"
+      className="border border-secondary/15 bg-secondary/5 p-8"
     >
-      <h3 className="text-lg font-extrabold tracking-wide text-white uppercase">
+      <h3 className="font-heading text-lg font-normal tracking-wide text-secondary uppercase">
         Apply for the free slot
       </h3>
       <p className="mt-2 text-sm text-white/60">
@@ -156,7 +156,7 @@ export function ApplyForm() {
 
         <button
           type="submit"
-          className="mt-2 inline-flex w-full items-center justify-center bg-accent px-7 py-4 text-base font-extrabold tracking-wide text-white uppercase transition-transform hover:-translate-y-0.5"
+          className="mt-2 inline-flex w-full items-center justify-center bg-accent px-7 py-4 text-base font-extrabold tracking-wide text-background uppercase transition-transform hover:-translate-y-0.5"
         >
           Send it
         </button>
