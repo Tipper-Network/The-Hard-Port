@@ -1,5 +1,4 @@
-import { Link } from '@tanstack/react-router'
-
+import LinkButton from '#/components/link_button'
 import WhatsappButton from '#/components/whatsapp'
 
 import { THPLogo } from '#/components/logo-mark'
@@ -18,19 +17,20 @@ export function SiteFooter() {
     <footer className="border-t border-secondary/10 bg-depth-12 px-6 py-12 lg:px-12">
       <div className="mx-auto flex max-w-hero flex-col gap-10 md:flex-row md:items-start md:justify-between">
         <div>
-          <Link to="/" aria-label="The Hard Port home">
+          <LinkButton href="/" variant="unstyled" aria-label="The Hard Port home" noMargin>
             <THPLogo />
-          </Link>
+          </LinkButton>
           <p className="mt-4 max-w-xs text-sm leading-6 text-secondary/60">
             The Media Agency with no tolerance for nonsense.
           </p>
           <div className="mt-5 flex flex-col gap-3">
-            <a
+            <LinkButton
+              text="setSail@thehardport.com"
               href="mailto:setSail@thehardport.com"
-              className="text-sm font-semibold text-secondary/70 transition-opacity hover:opacity-70"
-            >
-              setSail@thehardport.com
-            </a>
+              variant="text"
+              noMargin
+              className="text-sm font-semibold text-secondary/70 transition-opacity hover:opacity-70 hover:no-underline"
+            />
             <WhatsappButton />
           </div>
         </div>
@@ -38,22 +38,24 @@ export function SiteFooter() {
         <nav className="grid grid-cols-2 gap-x-10 gap-y-3 text-sm font-medium text-secondary">
           {footerLinks.map((link) =>
             'hash' in link ? (
-              <Link
+              <LinkButton
                 key={link.label}
-                to={link.to}
+                text={link.label}
+                href={link.to}
                 hash={link.hash}
-                className="transition-opacity hover:opacity-70"
-              >
-                {link.label}
-              </Link>
+                variant="nav"
+                noMargin
+                className="hover:opacity-70"
+              />
             ) : (
-              <Link
+              <LinkButton
                 key={link.label}
-                to={link.to}
-                className="transition-opacity hover:opacity-70"
-              >
-                {link.label}
-              </Link>
+                text={link.label}
+                href={link.to}
+                variant="nav"
+                noMargin
+                className="hover:opacity-70"
+              />
             ),
           )}
         </nav>

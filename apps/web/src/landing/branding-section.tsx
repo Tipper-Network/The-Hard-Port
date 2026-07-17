@@ -1,4 +1,5 @@
 import { whatsappNumber } from '#/lib/brand'
+import LinkButton from '#/components/link_button'
 import { rungPunchlineClass } from '#/lib/rung-weight'
 import { cn } from '#/lib/utils'
 
@@ -86,14 +87,11 @@ export function BrandingSection() {
           shelf.
         </p>
         <div className="mt-8 flex justify-center">
-          <a
+          <LinkButton
+            text="Tell us what's broken"
             href={brandingInquiryHref}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center justify-center bg-accent px-7 py-4 text-base font-extrabold tracking-wide text-background uppercase transition-transform hover:-translate-y-0.5"
-          >
-            Tell us what&apos;s broken
-          </a>
+            noMargin
+          />
         </div>
       </div>
     </section>

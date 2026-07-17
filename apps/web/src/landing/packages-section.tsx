@@ -15,6 +15,7 @@ import {
   type ComparisonCell,
   type PlanId,
 } from '#/constants/packages-features'
+import LinkButton from '#/components/link_button'
 import { cn } from '#/lib/utils'
 
 const planIds = ['port', 'sea', 'ocean'] as const
@@ -172,12 +173,13 @@ export function PackagesSection() {
                 ))}
               </ul>
 
-              <a
+              <LinkButton
+                text={pkg.cta}
                 href={pkg.ctaLink}
-                className="mt-6 inline-flex w-full items-center justify-center rounded bg-accent px-4 py-2.5 text-sm font-bold text-background transition-opacity hover:opacity-90"
-              >
-                {pkg.cta}
-              </a>
+                fullWidth
+                noMargin
+                className="mt-6 rounded px-4 py-2.5 text-sm hover:opacity-90 hover:translate-y-0"
+              />
             </article>
           ))}
         </div>

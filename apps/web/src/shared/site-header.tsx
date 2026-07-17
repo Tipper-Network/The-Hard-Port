@@ -1,4 +1,4 @@
-import { Link } from '@tanstack/react-router'
+import LinkButton from '#/components/link_button'
 
 import { THPLogo } from '../components/logo-mark'
 
@@ -6,55 +6,50 @@ export function SiteHeader() {
   return (
     <header className="sticky top-0 z-50 border-b border-secondary/10 bg-primary/95 backdrop-blur-sm">
       <div className="mx-auto flex max-w-hero items-center justify-between px-6 py-4 lg:px-12">
-        <Link to="/" aria-label="The Hard Port home">
+        <LinkButton href="/" variant="unstyled" aria-label="The Hard Port home" noMargin>
           <THPLogo />
-        </Link>
-        <nav className="hidden items-center gap-8 text-sm font-semibold text-secondary md:flex">
-          <Link
-            to="/"
+        </LinkButton>
+        <nav className="hidden items-center gap-8 text-sm text-secondary md:flex">
+          <LinkButton
+            text="The Truth"
+            href="/"
             hash="boosting"
-            className="transition-opacity hover:opacity-60"
-          >
-            The Truth
-          </Link>
-          <Link
-            to="/"
-            hash="gap"
-            className="transition-opacity hover:opacity-60"
-          >
-            The Gap
-          </Link>
-          <Link
-            to="/"
+            variant="nav"
+            noMargin
+          />
+          <LinkButton text="The Gap" href="/" hash="gap" variant="nav" noMargin />
+          <LinkButton
+            text="The Packages"
+            href="/"
             hash="packages"
-            className="transition-opacity hover:opacity-60"
-          >
-            The Packages
-          </Link>
-          <Link
-            to="/"
+            variant="nav"
+            noMargin
+          />
+          <LinkButton
+            text="The who we are"
+            href="/"
             hash="about"
-            className="transition-opacity hover:opacity-60"
-          >
-            The who we are
-          </Link>  
-
-          <Link
-            to="/"
+            variant="nav"
+            noMargin
+          />
+          <LinkButton
+            text="Apply free"
+            href="/"
             hash="apply"
-            className="rounded-button bg-accent px-4 py-2 font-bold text-background transition-opacity hover:opacity-90"
-          >
-            Apply free
-          </Link>
+            variant="header"
+            noMargin
+            className="px-4 py-2 text-sm"
+          />
         </nav>
 
-        <Link
-          to="/"
+        <LinkButton
+          text="Apply free"
+          href="/"
           hash="apply"
-          className="rounded-button bg-accent px-3 py-2 text-xs font-bold text-background md:hidden"
-        >
-          Apply free
-        </Link>
+          variant="header"
+          noMargin
+          className="px-3 py-2 text-xs md:hidden"
+        />
       </div>
     </header>
   )

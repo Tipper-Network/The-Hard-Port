@@ -4,7 +4,7 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from '#/components/ui/accordion'
-import { Link } from '@tanstack/react-router'
+import LinkButton from '#/components/link_button'
 
 const faqs = [
   {
@@ -62,7 +62,17 @@ export function FaqSection() {
                 {faq.q}
               </AccordionTrigger>
               <AccordionContent className="text-base leading-7 text-secondary/70">
-                {faq.a} {faq.linkText && <Link to={faq.to} hash={faq.hash}>{faq.linkText}</Link>}
+                {faq.a}{' '}
+                {faq.linkText ? (
+                  <LinkButton
+                    text={faq.linkText}
+                    href={faq.to}
+                    hash={faq.hash}
+                    variant="text"
+                    noMargin
+                    className="inline underline"
+                  />
+                ) : null}
               </AccordionContent>
             </AccordionItem>
           ))}
