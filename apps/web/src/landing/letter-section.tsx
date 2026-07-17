@@ -13,47 +13,44 @@ export function LetterSection() {
 
         <div className="mt-8 space-y-5 text-base leading-8 text-primary/80 md:text-lg">
           <p>
-            You&apos;re doing okay. Bills get paid. A few customers trickle in.
-            Some months are good, some are &quot;eh.&quot; You tell people
-            &quot;business is good&quot; and you mostly believe it.
+            The sea never cared for a sailor&apos;s feelings. Only whether he was
+            prepared.
+          </p>
+          <p>
+            When you set sail, the sea reminds you you&apos;re supposed to be
+            going somewhere. When&apos;s the last time you noticed you&apos;d
+            stopped moving with a direction?
           </p>
           <p className="font-bold text-primary">
-            That&apos;s the problem. &quot;Fine&quot; is the most dangerous place
-            a business can be.
+            Ask yourself the question: Am I where I want to be?
           </p>
           <p>
-            Because fine doesn&apos;t scream. Fine doesn&apos;t crash. Fine just
-            quietly stays exactly where it is while someone hungrier eats your
-            lunch. You&apos;re not sinking. You&apos;re anchored. And you call it
-            stability.
+            If you&apos;re reading this, the answer&apos;s probably no. Sorry,
+            mate. You&apos;re oblivious. It&apos;s that dumb. That stupid. That
+            simple.
           </p>
           <p>
-            Meanwhile you&apos;re &quot;boosting&quot; a post for $20, posting
-            when you remember to, dropping cash on a logo, and refreshing your
-            follower count like it pays rent. You&apos;re busy. You&apos;re just
-            not <span className="italic">moving</span>.
+            If you&apos;re not where you want to be, you&apos;re either doing
+            something wrong, or not doing something right. And it took you
+            reading some website nonsense to realize that &mdash; so you&apos;ve
+            got a way to go before you sail with a sense of direction.
           </p>
           <p>
-            Here&apos;s the honest part:{' '}
-            <span className="font-bold text-primary">you don&apos;t need us.</span>{' '}
-            Nobody <span className="italic">needs</span> a media agency. You
-            could figure it all out yourself. You&apos;ve had years. How&apos;s
-            that going?
+            Get over yourself. Get some clarity on how you&apos;re approaching
+            your work.
           </p>
           <p>
-            You don&apos;t need us. You just can&apos;t get where you say you
-            want to go without us, and that&apos;s a completely different
-            sentence. The day you admit that out loud is the day this starts
-            working.
-          </p>
-          <p>
-            We&apos;re here for your business. Not your feelings about your
-            business. The gap between where you are and where you want to be
-            &mdash; that&apos;s what we show up for.
+            We call you so you don&apos;t feel like you&apos;re asking for help
+            &mdash; because you&apos;re not asking for help, you&apos;re asking
+            for clarity. We won&apos;t help you. We&apos;ll just do our job, so
+            yours gets easier.
           </p>
           <p className="border-l-4 border-accent pl-5 text-xl font-extrabold text-primary">
-            We give a f*ck about the work. We just don&apos;t care about your
-            comfort zone.
+            If you&apos;re a man, grow a pair. 
+            </p>
+            <p>
+            If you&apos;re a woman, you can
+            use ours.
           </p>
         </div>
 
