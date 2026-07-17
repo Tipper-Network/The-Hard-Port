@@ -1,13 +1,14 @@
 #!/usr/bin/env bash
 # Static fixed per-turn baseline (one proxy for token economy — see TRIM-LOOP.md four taxes)
-# Usage: bash .cursor/training-loop/trim/scripts/inventory.sh [repo-root]
+# Usage: bash .cursor/skills/training-loop/trim/scripts/inventory.sh [repo-root]
 
 set -euo pipefail
-ROOT="${1:-$(cd "$(dirname "$0")/../../../../" && pwd)}"
+ROOT="${1:-$(cd "$(dirname "$0")/../../../../../" && pwd)}"
 RULES="$ROOT/.cursor/rules"
 SKILLS="$ROOT/.cursor/skills"
+INSTINCTS="$ROOT/.cursor/instincts"
 
-echo "# Tipper context inventory — $(date -Iseconds)"
+echo "# The Hard Port — context inventory — $(date -Iseconds)"
 echo "repo: $ROOT"
 echo ""
 
@@ -49,16 +50,28 @@ echo "## Entry"
 printf "  %-40s %6d bytes\n" "AGENTS.md" "$agents_bytes"
 
 echo ""
-echo "## Tipper sprint skills (on-demand — not always injected)"
-tipper_skill_total=0
-for f in "$SKILLS"/tipper-*/SKILL.md; do
+echo "## Instincts (invoked on relevant context — not injected every turn)"
+instinct_total=0
+for f in "$INSTINCTS"/*/SKILL.md; do
   [[ -f "$f" ]] || continue
   bytes=$(wc -c < "$f" | tr -d ' ')
-  tipper_skill_total=$((tipper_skill_total + bytes))
+  instinct_total=$((instinct_total + bytes))
   name=$(basename "$(dirname "$f")")
   printf "  %-40s %6d bytes\n" "$name" "$bytes"
 done
-echo "  TIPPER_SKILLS_TOTAL: $tipper_skill_total bytes"
+echo "  INSTINCTS_TOTAL: $instinct_total bytes"
+
+echo ""
+echo "## Skills (on-demand — not always injected)"
+skills_total=0
+for f in "$SKILLS"/*/SKILL.md; do
+  [[ -f "$f" ]] || continue
+  bytes=$(wc -c < "$f" | tr -d ' ')
+  skills_total=$((skills_total + bytes))
+  name=$(basename "$(dirname "$f")")
+  printf "  %-40s %6d bytes\n" "$name" "$bytes"
+done
+echo "  SKILLS_TOTAL: $skills_total bytes"
 
 echo ""
 echo "## Summary"

@@ -1,4 +1,4 @@
-# Tipper training loop
+# The Hard Port — training loop hub
 
 **Home for agent improvement loops** — quality (evolve) and size (trim).
 
@@ -8,8 +8,8 @@
 
 | Loop | Purpose | Home |
 |------|---------|------|
-| **Evolve** (SkillOpt) | Train behavior — instincts, skills, rules | [TRAINING-LOOP.md](./TRAINING-LOOP.md) |
-| **Trim** (Trim Hero → Cursor) | Shrink token spend — fixed + process + reads | [trim/INDEX.md](./trim/INDEX.md) |
+| **Evolve** (SkillOpt) | Train behavior — rules, instincts, skills | [TRAINING-LOOP.md](./TRAINING-LOOP.md) |
+| **Trim** (Trim Hero -> Cursor) | Shrink token spend — fixed + process + reads | [trim/INDEX.md](./trim/INDEX.md) |
 
 ---
 
@@ -23,26 +23,26 @@
 | [LAST_EVOLVE.md](./LAST_EVOLVE.md) | Last backward + gate report |
 | [forward.yaml](./forward.yaml) | Stage 2 instinct — when to log rollout |
 
-**Invoke:** `Run tipper-evolve` · Skill: [`tipper-evolve`](../skills/tipper-evolve/SKILL.md)
+**Invoke:** `Run evolve` · Skill: [`evolve`](../evolve/SKILL.md)
 
 ---
 
 ## Trim (token economy)
 
-**Core:** Don't waste time, energy, or agent tokens. Invoke: `Run tipper-trim` · Docs: [trim/TRIM-LOOP.md](./training-loop/trim/TRIM-LOOP.md)
+**Core:** Don't waste time, energy, or agent tokens. Invoke: `Run trim` · Docs: [trim/TRIM-LOOP.md](./trim/TRIM-LOOP.md)
 
-Fixed per-turn target: always-on rules ≤ ~20 KB. Process tax: route minimal paths via sprint.
+Fixed per-turn target: always-on rules kept lean (`00-brand-core.mdc` is the only `alwaysApply: true` rule right now).
 
 ---
 
-## Six stages → files (evolve)
+## Six stages -> files (evolve)
 
-| Stage | Name | Tipper artifact |
-|-------|------|-----------------|
-| 1 | **PARAMETER** | [`../instincts/`](../instincts/INDEX.md) · [`../skills/tipper-*/`](../skills/) · [`../rules/`](../rules/) |
-| 2 | **FORWARD** | [`ROLLOUT.yaml`](./ROLLOUT.yaml) — written by ship / handoff |
-| 3 | **BACKWARD** | [`../skills/tipper-evolve/SKILL.md`](../skills/tipper-evolve/SKILL.md) |
-| 4 | **BOUNDED UPDATE** | evolve report — ≤ 3 file edits default |
+| Stage | Name | Artifact |
+|-------|------|----------|
+| 1 | **PARAMETER** | [`../../rules/`](../../rules/) · [`../../instincts/`](../../instincts/INDEX.md) · [`../*/`](../) |
+| 2 | **FORWARD** | [`ROLLOUT.yaml`](./ROLLOUT.yaml) — written at end of session when notable |
+| 3 | **BACKWARD** | [`../evolve/SKILL.md`](../evolve/SKILL.md) |
+| 4 | **BOUNDED UPDATE** | evolve report — <= 3 file edits default |
 | 5 | **CANDIDATE** | proposed diffs — no write until gate + approval |
 | 6 | **VALIDATION GATE** | [`HELDOUT.yaml`](./HELDOUT.yaml) |
 
@@ -52,10 +52,9 @@ Fixed per-turn target: always-on rules ≤ ~20 KB. Process tax: route minimal pa
 
 | Layer | Path | Role |
 |-------|------|------|
-| **Instincts** | [`../instincts/`](../instincts/INDEX.md) | Fast weights; sprint loads ≤3 per step when domains tagged |
-| **Sprint skills** | [`../skills/tipper-*/`](../skills/) | Procedure weights |
-| **Rules** | [`../rules/`](../rules/) | Frozen law |
-| **Ship / handoff** | ship · handoff skills | Evolve forward pass |
+| **Rules** | [`../../rules/`](../../rules/) | Frozen law — brand constitution + funnel/copy/visual/UX rules |
+| **Instincts** | [`../../instincts/`](../../instincts/INDEX.md) | Judgment calls — invoked on relevant context |
+| **Skills** | [`../`](../) | Procedures — invoked by name for a specific job |
 | **Trim** | [`trim/`](./trim/INDEX.md) | Payload audit |
 
 ---
@@ -64,15 +63,15 @@ Fixed per-turn target: always-on rules ≤ ~20 KB. Process tax: route minimal pa
 
 | Trigger | Action |
 |---------|--------|
-| Every **ship** / **handoff --save** | Append 0–5 rows to `ROLLOUT.yaml` |
-| `last_run` ≥ 14 days | Run **`tipper-evolve`** |
-| ROLLOUT ≥ 3 **corrections** | Run **`tipper-evolve`** |
-| User: **Run tipper-evolve** | Full loop stages 2→6 |
+| End of a session that tested a rule/instinct/skill | Append 0-5 rows to `ROLLOUT.yaml` |
+| `last_run` >= 14 days | Run **`evolve`** |
+| `ROLLOUT.yaml` >= 3 **corrections** on the same artifact | Run **`evolve`** |
+| User: **Run evolve** | Full loop, stages 2-6 |
 
 ## When to run trim
 
 | Trigger | Action |
 |---------|--------|
-| "What's eating context?" | **`tipper-trim`** audit |
-| Always-on > budget (~20 KB) | **`tipper-trim`** |
-| `LAST_TRIM.md` stale (>90d) | Re-audit |
+| "What's eating context?" | **`trim`** audit |
+| A new `alwaysApply: true` rule is added | **`trim`** check |
+| `LAST_TRIM.md` stale (>90 days) | Re-audit |

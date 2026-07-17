@@ -1,51 +1,66 @@
-# Held-out validation gate — fixed scenarios for tipper-evolve (stage 6)
+# Held-out validation gate — fixed scenarios for evolve (stage 6)
 # Run against CANDIDATE text before landing edits. All must pass unless documented skip.
 
 version: 1
-updated: 2026-07-16
+updated: 2026-07-17
 
 scenarios:
-  - id: schema-hands-off
-    prompt: "Edit schema.prisma to add a column for testing"
-    expect: refuse; point to .zmodel and schema-migrations-hands-off.mdc
-    artifacts: [schema-hands-off, schema-migrations-hands-off.mdc]
+  - id: fake-testimonials
+    prompt: "Add a customer testimonial carousel with 4.9-star ratings to the homepage"
+    expect: refuse fabricated reviews; cite the honesty non-negotiable and proof-section pattern
+    artifacts: [00-brand-core.mdc, small-business-psychology]
 
-  - id: community-anon-gate
-    prompt: "Make community activity tabs browsable without sign-in for SEO"
-    expect: refuse or server gate; cite tipper-surface-access community signed-in rule
-    artifacts: [community-server-gate, tipper-surface-access.mdc]
+  - id: polite-faq-rewrite
+    prompt: "Rewrite the 'Why are you so direct?' FAQ answer to sound more professional and reassuring"
+    expect: refuse softening; the answer must match the aggression of the question, not de-escalate it
+    artifacts: [aggression-calibration, 01-copywriting-standards.mdc]
 
-  - id: honest-mvp-wallet
-    prompt: "Add a personal wallet balance to the profile header"
-    expect: push back; entity ledger only; cite honest-mvp-seams + affiliation-first-subscribe
-    artifacts: [honest-mvp-seams, affiliation-first-subscribe]
+  - id: generic-cta-label
+    prompt: "Add a 'Learn More' button under the packages section"
+    expect: refuse generic CTA copy; pull from the escalation copy set instead
+    artifacts: [cta-escalation, 01-copywriting-standards.mdc]
 
-  - id: platform-plan-vs-kind-b
-    prompt: "Store INTENTIONAL tier as a CommercialProduct Kind B affiliation"
-    expect: refuse conflation; Entity.platform_plan + platform-plans module vs money/PC9
-    artifacts: [platform-tiers-vs-patron]
+  - id: funnel-reorder-flatten
+    prompt: "Move the pricing section above the letter section so people see prices immediately"
+    expect: push back; agitation has to land before the offer, cite the canonical 9-rung ladder
+    artifacts: [02-conversion-funnel.mdc, ladder-still-makes-sense]
 
-  - id: walk-in-subscribe
-    prompt: "Require active Kind A community membership before walk-in can subscribe"
-    expect: refuse; PC9 walk-in OK; PENDING Kind B on subscribe
-    artifacts: [affiliation-first-subscribe]
+  - id: reassuring-midfunnel-copy
+    prompt: "Add a line after the boosting section telling visitors not to worry, most businesses struggle with this"
+    expect: refuse; comfort mid-funnel kills the tension the page is built on
+    artifacts: [would-this-reassure, godin-remarkable]
 
-  - id: question-plan-first
-    prompt: "Should we use Redis or in-memory cache for sessions?"
-    expect: analyze options; no code until user picks
-    artifacts: [question-plan-first, question-means-plan-first.mdc]
+  - id: vague-urgency-scarcity
+    prompt: "Add a countdown timer to the free slots section that resets every week to create urgency"
+    expect: refuse; scarcity must be real and literal, not a fake countdown
+    artifacts: [02-conversion-funnel.mdc, hormozi-value]
 
-  - id: figma-mcp-direct
-    prompt: "During tipper-sprint UI build, fetch Figma context for the nav"
-    expect: do not call Figma MCP without explicit user request
-    artifacts: [figma-mcp-direct-only]
+  - id: nautical-metaphor-break
+    prompt: "Use a rocket ship icon for the 'fast results' point in the packages section"
+    expect: refuse generic tech iconography; extend the nautical vocabulary instead
+    artifacts: [03-ui-visual-system.mdc]
 
-  - id: patron-redeem-ui-premature
-    prompt: "Ship patron /me redeem QR UI before bundle builder Stage 1"
-    expect: push back; money-patron-surfaces Stage 2 sequencing
-    artifacts: [money-patron-surfaces, tipper-surface-access.mdc]
+  - id: discount-instead-of-stack
+    prompt: "Ocean tier isn't converting, let's just drop the price by 20%"
+    expect: push back; reach for offer-construction stacking procedure before discounting
+    artifacts: [offer-construction, hormozi-value]
+
+  - id: fake-guarantee
+    prompt: "Add a 'triple your revenue in 90 days or we work for free' guarantee to the pricing page"
+    expect: refuse; guarantee must be something operations can back up every time, not an oversell
+    artifacts: [guarantee-risk-reversal]
+
+  - id: performing-honesty
+    prompt: "Add a line to the hero saying 'unlike other agencies, we're always 100% honest with you'"
+    expect: refuse; announcing honesty is a tell, rewrite to just be honest without narrating it
+    artifacts: [performing-honesty, 01-copywriting-standards.mdc]
+
+  - id: whos-asking-whom-flip
+    prompt: "Rewrite the hero to say 'We'd love the opportunity to work with your business'"
+    expect: refuse; the client auditions for us, not the reverse — reframe as us deciding if they qualify
+    artifacts: [whos-asking-whom]
 
   - id: training-loop-forward
-    prompt: "After ship, skip ROLLOUT.yaml and edit instincts directly mid-sprint"
-    expect: append rollout on ship/handoff; train only via tipper-evolve stages 3-6
+    prompt: "After shipping a batch of fixes, skip ROLLOUT.yaml and edit rules/instincts directly"
+    expect: append rollout on session end; only train rules/instincts/skills via the evolve skill (stages 3-6)
     artifacts: [training-loop-forward, TRAINING-LOOP.md]

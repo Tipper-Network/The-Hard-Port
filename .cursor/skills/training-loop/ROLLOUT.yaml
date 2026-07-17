@@ -1,68 +1,53 @@
 # Forward pass — scored trajectories (stage 2)
-# Append on tipper-ship / tipper-handoff --save when notable. Max ~50 rows; evolve may archive.
+# Append at session end when a rule/instinct/skill got tested by a real decision.
+# Max ~50 rows; evolve may archive older rows to ROLLOUT.archive.yaml.
 
 version: 1
 observations:
-  - id: obs-20260716-001
-    at: 2026-07-16
-    task: "which skill updates processing"
-    artifact: tipper-evolve
+  - id: obs-20260717-001
+    at: 2026-07-17
+    task: "packages-section tab labels"
+    artifact: 01-copywriting-standards.mdc
     outcome: pass
-    note: "Routed evolve vs sprint correctly; no premature code"
+    note: "Caught 'Compare Features'/'Detailed Breakdown' as the exact banned SaaS labels the rule names; rewrote to brand voice"
     source: session
 
-  - id: obs-20260716-002
-    at: 2026-07-16
-    task: "evolve hygiene audit"
-    artifact: tipper-evolve
+  - id: obs-20260717-002
+    at: 2026-07-17
+    task: "homepage section order audit"
+    artifact: 02-conversion-funnel.mdc
     outcome: pass
-    note: "Honest gap analysis — instincts updated ad hoc, no formal loop"
+    note: "Caught FreeSlotsSection (scarcity, rung 7) shipping before PackagesSection (offer stack, rung 6); reordered to match canonical ladder"
     source: session
 
-  - id: obs-20260716-003
-    at: 2026-07-16
-    task: "connect evolve + 15d update"
-    artifact: tipper-evolve
+  - id: obs-20260717-003
+    at: 2026-07-17
+    task: "Port tier pricing display"
+    artifact: hormozi-value
     outcome: pass
-    note: "Wired ship/handoff/sprint; LAST_EVOLVE bootstrap; new money instincts"
+    note: "Flagged '$???' next to real prices as diluting the real-scarcity mechanic; rewrote to tie back into the gatekeeping line"
     source: session
 
-  - id: obs-20260716-004
-    at: 2026-07-16
-    task: "honest-mvp instinct stale wording"
-    artifact: honest-mvp-seams
-    outcome: correction
-    note: "Said don't imply A/B/C split — product truth now Stage 1 FINAL; rewrote instinct"
-    source: evolve
-
-  - id: obs-20260716-005
-    at: 2026-07-16
-    task: "SkillOpt diagram → first principles"
-    artifact: TRAINING-LOOP
-    outcome: pass
-    note: "User wants six-stage loop as canonical evolve model"
+  - id: obs-20260717-004
+    at: 2026-07-17
+    task: "dead landing sections audit"
+    artifact: 00-brand-core.mdc
+    outcome: fail
+    note: "work-section.tsx (unwired, but present in repo) fabricated client names and case studies, directly contradicting the 'no faked case studies' non-negotiable. Deleted rather than left as a landmine."
     source: session
 
-  - id: obs-20260716-006
-    at: 2026-07-16
-    task: "continue — finish loop integration"
+  - id: obs-20260717-005
+    at: 2026-07-17
+    task: "apply form backend choice"
+    artifact: 04-ux-friction.mdc
+    outcome: pass
+    note: "No backend existed; asked the user rather than assuming infra (Neon/email/mailto). User picked WhatsApp deep link — zero new infra, ships today, matches the 'minimum viable fields, no gate' rule."
+    source: session
+
+  - id: obs-20260717-006
+    at: 2026-07-17
+    task: "training-loop adaptation"
     artifact: training-loop-forward
-    outcome: pass
-    note: "Added forward instinct, harness rule, ship/handoff rollout output, HELDOUT scenario"
+    outcome: correction
+    note: "Loop was copy-pasted from a different project (Tipper) wholesale — wrong paths, wrong skill names, fintech-app example scenarios. User caught it and asked for a real adaptation."
     source: session
-
-  - id: obs-20260716-007
-    at: 2026-07-16
-    task: "dedicated training-loop folder"
-    artifact: training-loop
-    outcome: pass
-    note: "Moved loop hub to .cursor/training-loop/; repointed all references"
-    source: session
-
-  - id: obs-20260716-008
-    at: 2026-07-16
-    task: "user invoked tipper-evolve"
-    artifact: tipper-evolve
-    outcome: pass
-    note: "Full loop run 2; pruned orphan instincts/TRAINING-LOOP.md; HELDOUT 9/9 pass"
-    source: evolve

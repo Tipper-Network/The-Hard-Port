@@ -1,10 +1,15 @@
-# Tipper token economy loop
+# The Hard Port — token economy loop
 
-**Core decision:** Don't waste **time, energy, or agent tokens**. Every turn has a cost — fixed payload, process choice, reads, tools, and session length. Trim exists to keep that cost proportional to the work.
+**Core decision:** Don't waste **time, energy, or agent tokens.** Every turn has a cost — fixed
+payload, process choice, reads, tools, and session length. Trim exists to keep that cost
+proportional to the work.
 
-Adapted from [Trim Hero](https://github.com/kjmagnan1s/trim-hero) for **Cursor** (not Claude Code). Trim Hero measures API payload; we measure **what you pay every turn** and **what you pay per task** — bytes are one proxy, not the whole story.
+Adapted from [Trim Hero](https://github.com/kjmagnan1s/trim-hero) for **Cursor**. Trim Hero
+measures API payload; we measure **what you pay every turn** and **what you pay per task** —
+bytes are one proxy, not the whole story.
 
-**Quality loop (evolve)** — train better behavior. **Economy loop (trim)** — spend fewer tokens getting there. Same approval gate; different question.
+**Quality loop (evolve)** — train better behavior. **Economy loop (trim)** — spend fewer tokens
+getting there. Same approval gate; different question.
 
 ```mermaid
 flowchart LR
@@ -23,53 +28,52 @@ flowchart LR
 
 | Tax | What burns tokens | Trim lever |
 |-----|-------------------|------------|
-| **Fixed per-turn** | `alwaysApply: true` rules + `AGENTS.md` — injected **every message** | `globs:`, relocate prose, slim entry |
-| **Process per-task** | Full sprint for a typo; explore when Grep suffices; evolve/trim when not due | `tipper-sprint` routing; skip gates |
-| **Read & tool** | Reading 14 KB persona when link suffices; MCP servers unused; Figma without ask | On-demand skills; disable MCP; harness policy |
-| **Session** | Long threads; no handoff; re-explaining context; duplicate mirrored law in thread | `handoff --save`; cap handoff load; mirrored instincts stay short |
+| **Fixed per-turn** | `alwaysApply: true` rules — injected **every message** | `globs:`, relocate prose, slim entry |
+| **Process per-task** | Full section-audit for a typo; wrong skill invoked for a small edit | Route to the minimal skill; skip gates that don't apply |
+| **Read & tool** | Reading a whole rule file when a one-line pointer would do; unused MCP servers | On-demand skills; disable unused MCP |
+| **Session** | Long threads; re-explaining context; re-reading files already read this session | Summarize instead of re-reading; keep instincts short |
 
 **Rule:** Optimize the tax that dominates *this* waste — not only the biggest file.
 
-`inventory.sh` measures **fixed per-turn** only. A full trim audit also asks: *did we over-process, over-read, or over-tool for recent tasks?*
+`inventory.sh` measures **fixed per-turn** only. A full trim audit also asks: *did we
+over-process, over-read, or over-tool for recent tasks?*
 
 ---
 
 ## Cursor levers
 
 | Mechanism | Token effect |
-|-----------|--------------|
-| Always-on law | `.cursor/rules/*.mdc` `alwaysApply: true` — **every turn** |
+|-----------|---------------|
+| Always-on law | `.cursor/rules/*.mdc` with `alwaysApply: true` — **every turn** |
 | Path-scoped law | `alwaysApply: false` + `globs:` — pay only when path matches |
-| Entry pointer | Thin `AGENTS.md` — small fixed tax |
 | Skills | Invoked in chat — pay when used, not every turn |
-| Instincts | Handoff loads ≥ 0.7 — bounded session injection |
+| Instincts | Invoked on relevant context — bounded, not injected wholesale |
 | MCP | Each server adds tool schema surface — disable unused in `~/.cursor/mcp.json` |
-| Sprint routing | Wrong pipeline = many turns × fixed tax |
 
 ---
 
-## Seven steps (tipper-trim skill)
+## Seven steps (trim skill)
 
 | Step | Action | Measures |
 |------|--------|----------|
 | 1 Baseline | Run `scripts/inventory.sh` | Fixed per-turn bytes / est tokens |
-| 2 Profile | Review recent session patterns (ROLLOUT, handoff, over-routing) | Process + session tax |
+| 2 Profile | Review recent session patterns (ROLLOUT, over-reading, wrong-skill routing) | Process + session tax |
 | 3 Analyze | Rank all four taxes; update `INVENTORY.yaml` | Combined waste map |
 | 4 Verdicts | **cut** / **keep** / **ask** — grounded in *token cost*, not file size alone | |
 | 5 Gate | STOP — user approves exact edits | |
-| 6 Apply | ≤ **3 file edits**; relocate law, don't erase it | |
+| 6 Apply | <= **3 file edits**; relocate law, don't erase it | |
 | 7 Re-measure | Inventory + note expected turn savings | `LAST_TRIM.md` |
 
-**Verdict threshold:** always-on segments ≥ ~500 bytes **or** segments that caused repeated over-read / over-process in ROLLOUT.
+**Verdict threshold:** always-on segments that are large relative to `00-brand-core.mdc`, or
+segments that caused repeated over-read/over-process noted in `ROLLOUT.yaml`.
 
 ---
 
 ## What NOT to cut
 
-- `schema-migrations-hands-off`, core community gate, `question-means-plan-first`
-- `tipper-agent-harness` Task/subagent guidance (prevents expensive mistakes)
-- Active Stage 2 money surface law without explicit approval
-- Product truth — **relocate** to docs/instincts/skills, don't erase
+- `00-brand-core.mdc` — the one rule everything else in `.cursor/rules/` reports to.
+- Anything the user has explicitly said is load-bearing.
+- Brand/product truth — **relocate** to docs/instincts/skills, don't erase.
 
 Cutting law to save bytes but causing rework burns **more** tokens. Trim is economy, not amnesia.
 
@@ -79,29 +83,18 @@ Cutting law to save bytes but causing rework burns **more** tokens. Trim is econ
 
 | Good trim | Bad trim |
 |-----------|----------|
-| Persona tables → doc link; agent reads on product review only | Delete stocks table; agent guesses wrong |
-| Typo → inline ship, skip product-review | Same pipeline for every task |
-| `globs:` on web rule | Duplicate rule + instinct + long handoff recap |
-| Disable unused MCP | Remove harness; agent role-plays subagents |
+| Long capability table -> doc link; agent reads on demand | Delete the table; agent guesses wrong |
+| Typo fix -> inline edit, skip a full section-audit | Same full pipeline for every task regardless of size |
+| `globs:` on a component-only rule | Duplicate rule + instinct saying the same thing |
+| Disable unused MCP servers | Remove real harness guidance to save bytes |
 
-**Estimate impact:** fixed tax delta × expected turns in session + avoided process turns.
-
-Example: −1,250 est tokens/turn × 20 turns = ~25k tokens saved per session — often more than one file trim.
+**Estimate impact:** fixed-tax delta x expected turns in session + avoided over-processed turns.
 
 ---
 
-## Portable template (future repos)
+## Operator
 
-| Layer | Economy knob |
-|-------|--------------|
-| `AGENTS.md` | Thin pointer — minimal fixed tax |
-| `rules/*.mdc` | Minimal `alwaysApply: true`; rest `globs:` |
-| `instincts/` | Handoff loads high-confidence only; mirrored = short |
-| `skills/` | Invoked, never always-on |
-| `tipper-sprint` | Route minimal paths — process tax |
-| `training-loop/trim/` | Copy this folder + `inventory.sh` |
-
-**Operator:** [`.cursor/skills/tipper-trim/SKILL.md`](../../skills/tipper-trim/SKILL.md)
+**Invoke:** `Run trim` · Skill: [`.cursor/skills/trim/SKILL.md`](../../trim/SKILL.md)
 
 **Sibling:** [evolve loop](../TRAINING-LOOP.md) — quality; trim — economy.
 

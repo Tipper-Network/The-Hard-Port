@@ -1,55 +1,62 @@
 # Last trim report
 
-**last_run:** 2026-07-17  
-**Operator:** tipper-trim (Trim Hero → Cursor adaptation)
+**last_run:** 2026-07-17 (run 1 — first real audit; the loop itself was adapted from a different project and had never been run against this repo before)
+**Operator:** trim
 
 ## Before / after
 
-| Metric | Before | After | Delta |
-|--------|--------|-------|-------|
-| Always-on rules | 28,560 bytes | 25,206 bytes | **-11.7%** |
-| AGENTS.md | 3,055 bytes | 1,403 bytes | **-54.1%** |
-| Per-turn (rules + AGENTS) | 31,615 bytes (~7,903 tok) | 26,609 bytes (~6,652 tok) | **-15.8%** |
-| `tipper-product-persona.mdc` | 14,513 bytes | 11,155 bytes | **-23.1%** |
+There is no "before" — this is the first audit. Baseline for this repo:
 
-**Budget target:** 20,480 bytes always-on rules — **still over by ~4.7 KB** (next trim candidate: surface-access Stage 2 table → skill).
+| Metric | Value |
+|--------|-------|
+| Always-on rules (`alwaysApply: true`) | 3,605 bytes (~901 est tokens) — just `00-brand-core.mdc` |
+| Path-scoped rules (`alwaysApply: false`) | 9,486 bytes — loaded only when globs match |
+| Instincts | 12,164 bytes — invoked on relevant context |
+| Skills | 15,947 bytes — invoked on demand |
+| AGENTS.md | 0 bytes — doesn't exist yet |
+| **Per-turn estimate** | **3,605 bytes (~901 tokens)** |
+| Budget target | 20,480 bytes (~5,120 tokens) |
+
+**Verdict: well under budget.** No trim action needed. The repo only has one `alwaysApply: true`
+rule, and it's a reasonable size. This is a healthy starting point, not a Tipper-style situation
+that needed active trimming.
 
 ---
 
 ## Verdicts (audit)
 
-| Segment | Bytes (after) | Verdict | Mechanism |
-|---------|---------------|---------|-----------|
-| tipper-product-persona | 11,155 | **cut** → landed | Stocks tables → `docs/reference/platform/agent-persona-stocks.md` |
-| AGENTS.md | 1,403 | **cut** → landed | Pointer table; detail in README |
-| tipper-surface-access | 4,001 | keep | Core gate law |
-| tipper-coding-discipline | 3,002 | keep | Discipline law |
-| question-means-plan-first | 2,147 | keep | Plan-first law |
-| tipper-agent-harness | 2,087 | keep | Harness + trim pointer |
-| tipper-enums | 1,494 | keep | Enum law |
-| schema-migrations-hands-off | 1,320 | keep | Schema law |
-| tipper-web-nextjs | 7,544 | keep | Path-scoped (web) |
-| tipper-api-module-structure | 2,594 | keep | Path-scoped (api) |
-| tipper-domain-events | 2,017 | keep | Path-scoped (api) |
-| ~/.cursor/mcp.json | n/a | **ask** | Disable unused MCP servers locally |
+| Segment | Bytes | Verdict | Mechanism |
+|---------|-------|---------|-----------|
+| 00-brand-core.mdc | 3,605 | keep | Only always-on rule; under budget |
+| 01-copywriting-standards.mdc | 2,748 | keep | Path-scoped (tsx/jsx/md/content) |
+| 02-conversion-funnel.mdc | 2,741 | keep | Path-scoped (tsx/jsx/app/pages/components) |
+| 03-ui-visual-system.mdc | 2,103 | keep | Path-scoped (css/tsx/tailwind/components/styles) |
+| 04-ux-friction.mdc | 1,894 | keep | Path-scoped (tsx/jsx/app/pages/forms) |
+| instincts (9 files) | 12,164 | keep | Invoked on context, not injected every turn |
+| skills (10 files incl. evolve/trim) | 15,947 | keep | Invoked by name |
+| AGENTS.md | 0 | n/a | Doesn't exist — nothing to trim |
+| `~/.cursor/mcp.json` | n/a | **ask** | Audit which MCP servers get used for Hard Port work; disable unused ones locally |
 
 ---
 
 ## Landed (this run)
 
-1. `.cursor/training-loop/trim/` — TRIM-LOOP, INDEX, INVENTORY, inventory.sh, LAST_TRIM
-2. `.cursor/skills/tipper-trim/SKILL.md`
-3. `docs/reference/platform/agent-persona-stocks.md` — relocated stocks tables
-4. `.cursor/rules/tipper-product-persona.mdc` — trimmed; links to reference doc
-5. `AGENTS.md` — slim entry pointer
-6. Wired: sprint, handoff, prompts, README, training-loop INDEX, harness
+Nothing landed — no cuts needed. This run's output is the baseline itself:
+
+1. Fixed `inventory.sh` (was hardcoded to a different project's paths and skill-naming
+   convention — pointed at a `tipper-*/SKILL.md` glob that would never match anything here).
+2. Generated real `INVENTORY.yaml` for this repo (previous version was another project's fake
+   audit data, wrong file names, wrong byte counts).
+3. Wrote this report as an honest first baseline instead of a copied one.
 
 ---
 
-## Next trim candidates (not applied)
+## Next trim candidates (not applied — nothing over budget)
 
-1. **surface-access** — move Stage 2 money surface table to `tipper-surface-check` or money instinct (ask)
-2. **MCP** — audit `~/.cursor/mcp.json`; disable Neon/Playwright if unused (global, per dev)
-3. **persona rule** — further shorten persona blurbs to product-persona.json links only (ask — risks review quality)
+1. If a second `alwaysApply: true` rule gets added later, re-check total against the 20,480-byte
+   budget.
+2. **MCP** — audit `~/.cursor/mcp.json` for servers unused on this project (ask, per developer).
+3. If instincts grow past ~15 of them, consider whether any should merge or shrink to a
+   one-line pointer under a rule instead of staying a full instinct.
 
-**Re-audit:** >90 days or when per-turn exceeds ~30 KB again.
+**Re-audit:** >90 days, or whenever per-turn exceeds ~15 KB.
