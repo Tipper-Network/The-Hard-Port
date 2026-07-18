@@ -23,6 +23,7 @@ Supported material may inform research, RFCs, and Canon synthesis. Replaced docu
 ## Documents
 
 - [The Hard Port Charter](./the-hard-port-charter.md) — the broader institutional thesis and identity-transformation model originating in Session 01.
+- [Philosophy and Psychology of Owner Transformation](./owner-transformation-psychology.md) — provisional framing of operator→architect as identity, perception, and participation change.
 
 ## Related Folders
 

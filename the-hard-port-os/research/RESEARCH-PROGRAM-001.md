@@ -96,6 +96,7 @@ This program may influence canonical Intelligence only when:
 ## Related Material
 
 - [`philosophy/the-hard-port-charter.md`](../philosophy/the-hard-port-charter.md)
+- [`philosophy/owner-transformation-psychology.md`](../philosophy/owner-transformation-psychology.md)
 - [`research/CURRENT_RESEARCH_AGENDA.md`](./CURRENT_RESEARCH_AGENDA.md)
 - [`archive/session-01/README.md`](../archive/session-01/README.md)
 

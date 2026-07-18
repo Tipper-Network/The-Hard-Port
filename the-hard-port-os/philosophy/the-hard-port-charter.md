@@ -98,6 +98,7 @@ Before this philosophy can influence canonical Intelligence, it needs:
 
 ## Related Records
 
+- [`philosophy/owner-transformation-psychology.md`](./owner-transformation-psychology.md)
 - [`research/RESEARCH-PROGRAM-001.md`](../research/RESEARCH-PROGRAM-001.md)
 - [`research/hypotheses/HYP-001-external-system-shaping-behavior.md`](../research/hypotheses/HYP-001-external-system-shaping-behavior.md)
 - [`rfcs/RFC-001-tipper-community-infrastructure.md`](../rfcs/RFC-001-tipper-community-infrastructure.md)
