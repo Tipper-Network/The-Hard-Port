@@ -16,6 +16,9 @@ individual `SKILL.md` files, to keep each skill file clean.
 | `whos-asking-whom` | copy, UX, positioning | active | 0.7 | 2026-07-17 |
 | `ladder-still-makes-sense` | funnel, sections | active | 0.7 | 2026-07-17 |
 | `mockup-is-reference-not-truth` | copy, UI, design-system | active | 0.7 | 2026-07-17 |
+| `no-silent-canon-promotion` | os, canon, research | active | 0.7 | 2026-07-18 |
+| `tipper-is-not-the-company` | os, tipper, canon | active | 0.7 | 2026-07-18 |
+| `instruction-layers-stay-separate` | os, process | active | 0.7 | 2026-07-18 |
 
 **Confidence baseline:** all instincts start at `0.7` (authored, not yet battle-tested against
 real rollout data). The `evolve` skill adjusts this based on `ROLLOUT.yaml` outcomes:

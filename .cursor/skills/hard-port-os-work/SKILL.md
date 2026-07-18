@@ -87,7 +87,14 @@ When the assignment is complete:
 
 ## Instincts to apply when relevant
 
+- `no-silent-canon-promotion` — unfinished material must not become doctrine by polish or location.
+- `tipper-is-not-the-company` — Tipper implements and observes; it does not own The Hard Port.
+- `instruction-layers-stay-separate` — permanent rules, milestones, and session tasks stay in different files.
 - Prefer observation before opinion.
 - Prefer bounded claims over universal doctrine.
 - Prefer evidence gates over polish.
 - Prefer human judgment for acceptance and canonicity; software may supply evidence, not final authority.
+
+## Related rule
+
+Path-scoped: `.cursor/rules/05-hard-port-os.mdc`
