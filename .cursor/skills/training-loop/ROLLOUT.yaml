@@ -83,3 +83,27 @@ observations:
     outcome: pass
     note: "navy-mid card + border + shadow against a darker section bg, per explicit user color-token spec — clean execution, no rule gap."
     source: session
+
+  - id: obs-20260718-001
+    at: 2026-07-18
+    task: "hard-port-os canon architecture"
+    artifact: hard-port-os-work
+    outcome: correction
+    note: "User preferred staging/review gate over writing new OS architecture directly into the live tree; also blocked invented Canon doctrine and Tipper=company conflation. Added hard-port-os-work skill + instructions.md activation prompt."
+    source: session
+
+  - id: obs-20260718-002
+    at: 2026-07-18
+    task: "hard-port-os domain guidance gap"
+    artifact: hard-port-os-work
+    outcome: fail
+    note: "Existing skills/instincts were landing-page only; OS/Canon/RFC/decision lifecycle had no agent guidance until hard-port-os-work was added."
+    source: session
+
+  - id: obs-20260718-003
+    at: 2026-07-18
+    task: "os instruction layer split"
+    artifact: hard-port-os-work
+    outcome: correction
+    note: "User split temporary instructions out of a single file into cursor.md (permanent), CURRENT_FOCUS.md (milestone), active/CURRENT_TASK.md (session), archive/session-XX (completed). Skill and activation prompt updated accordingly."
+    source: session

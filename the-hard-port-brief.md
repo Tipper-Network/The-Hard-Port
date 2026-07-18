@@ -139,6 +139,64 @@ limitation.
   marketing creates tension (the "gap") that only resolves through action, so nothing mid-page
   should resolve that tension early.
 
+## The wider ecosystem (internal — not for public site copy)
+
+The Hard Port does not exist alone. Internally, the chain is:
+
+**The Hard Port (testing site) → research facility (separate, undefined layer) → Tipper (the platform)**
+
+- **The Hard Port** is the testing site itself — where content, tonality, and marketing
+  approach get tried against real small-business clients, marketing-driven, client-facing.
+- **The research facility** is a **positioning layer only** — how the middle step of the
+  chain gets talked about externally. It is not a technical entity, has no presence on Tipper,
+  and does not conflict with Hard Port's actual technical status as Entity #1 on Tipper (see
+  knowledge doc). It's narrative framing, not a build target.
+- **Tipper** is where it all eventually gets systematized and scaled. The Hard Port itself is
+  directly on Tipper (its MVP entity) — the "research facility" language is simply how that
+  relationship gets described in public-facing or non-technical contexts.
+
+None of this appears on the public Hard Port site. Per the existing rule below, at most one
+understated line can imply there's a door beyond Hard Port — never named, never explained.
+
+### How Hard Port connects to Tipper
+
+**What Tipper is (as defined for this ecosystem):**
+1. Helps entities build with their communities
+2. Helps entities build strategies from their own data (community, interactions) to grow their
+   brand without paying thousands for outside help
+3. Helps entities build subscription models, and adjust branding/tone
+4. Helps identify communities based on member actions and interests
+5. Helps personal-brand users connect to their industry through partnerships and memberships
+6. Helps people gamify community interactions and gain skills through better physical events
+7. "Digitizes people's presence" rather than "makes their presence digital" — a stated
+   philosophical distinction, not just a feature
+
+**How Hard Port specifically relates to Tipper:**
+- Hard Port is explicitly different from Tipper — not a rebrand, not the same product
+- Hard Port's current strategy (marketing-based: business analysis, strategy, growth work)
+  exists in order to better understand Tipper — client work doubles as product research
+- Hard Port learns and teaches what it learns — a second monetizable layer (courses/lectures/
+  philosophy) beyond the agency work itself
+- Connections Hard Port builds with clients are meant to translate into connections on Tipper
+  (partnerships, community memberships) — client relationships have a planned afterlife on the
+  other platform
+- Hard Port supports small businesses directly now; the long-term plan is to systematize that
+  support through Tipper later
+- As Tipper matures, other businesses will eventually be able to onboard onto Tipper directly,
+  without needing to work with Hard Port first. Hard Port's own role is expected to shift over
+  time from "the only way in" toward being a consultant on how businesses use Tipper (among
+  other things) — see the knowledge doc for the full mechanics of this evolution
+
+### The four future site variants (each maps to a piece of this relationship)
+
+1. **A testing site** — this is The Hard Port itself, for content/tonality success-rate
+   experiments (see funnel structure above)
+2. **An A-to-Z site** — "clueless to sovereign," full-funnel channel
+3. **A teaching site** — videos, lectures, philosophy (the literal expression of "Hard Port
+   teaches what it learns")
+4. **A Tipper-standards intro site** — where people get introduced to Tipper's approach
+   directly; the first place Tipper gets named out loud, per the current roadmap
+
 ## The one thing not to say yet
 
 There's a larger network this eventually onboards businesses into, beyond Hard Port itself.
