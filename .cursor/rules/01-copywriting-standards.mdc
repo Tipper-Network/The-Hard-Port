@@ -1,12 +1,15 @@
 ---
 description: Copywriting standards for The Hard Port. Acts as the in-house editor — enforce on any file containing user-facing text.
-globs: ["**/*.tsx","**/*.jsx","**/*.md","**/*.mdx","**/content/**","**/copy/**"]
+globs: ["apps/web/**/*.tsx","apps/web/**/*.jsx","apps/web/**/*.{md,mdx}","**/content/**","**/copy/**","the-hard-port-brief.md"]
 alwaysApply: false
 ---
 
 # Copywriting Standards — The Editor
 
-Read `00-brand-core.mdc` first. This file enforces the voice at the sentence level.
+Read `00-brand-core.mdc` first. This file enforces the voice at the sentence level for client-facing and site copy.
+
+Do not apply these sentence-level brand-copy constraints to `the-hard-port-os/**`. That repository uses its own OS rules in `05-hard-port-os.mdc`.
+
 use ';" instead of "—" in files that are .tsx except for comments.  the reader cant be seeing this "—" being used. 
 
 ## Banned words and phrases

@@ -1,0 +1,49 @@
+---
+description: Permanent working rules for The Hard Port OS knowledge repository. Applies when editing OS, Canon, research, RFCs, decisions, or systems docs.
+globs: ["the-hard-port-os/**"]
+alwaysApply: false
+---
+
+# Hard Port OS — Working Rules
+
+Read `the-hard-port-os/cursor.md` first. Then `CURRENT_FOCUS.md` and `active/CURRENT_TASK.md`.
+Use `.cursor/skills/hard-port-os-work/SKILL.md` for procedure.
+
+## Instruction layers
+
+- `cursor.md` — permanent assistant rules. Rarely change. Never dump temporary tasks here.
+- `CURRENT_FOCUS.md` — multi-week milestone.
+- `active/CURRENT_TASK.md` — one session assignment. Rewrite each session.
+- `archive/session-XX/` — completed tasks and session notes.
+
+## Authority
+
+- Working layer investigates and operates: research, RFCs, decisions, systems, SOPs, intelligence.
+- Canon synthesizes only after review. Seed/candidate is not doctrine.
+- Do not silently set `canonicality: canonical`.
+- Tipper is an implementation and research instrument. Tipper is not The Hard Port.
+
+## Metadata
+
+Keep these independent:
+
+- `status` — lifecycle maturity
+- `confidence` — epistemic confidence
+- `evidence_level` — available support
+- `canonicality` — whether Canon may treat the claim as authoritative
+
+## Decisions
+
+- Institutional / cross-system → `decisions/`
+- Technical architecture → `adrs/`
+- Proposals → `rfcs/`
+- Current operation → `systems/`
+- Repeatable execution → `sops/`
+
+## Anti-patterns
+
+- Inventing doctrine to fill empty Canon chapters
+- Creating new top-level folders without explicit request
+- Moving sources instead of mapping when maturity is unclear
+- Treating archive raw files as current authority
+- Expanding `cursor.md` with temporary instructions

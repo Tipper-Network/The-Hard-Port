@@ -107,3 +107,11 @@ observations:
     outcome: correction
     note: "User split temporary instructions out of a single file into cursor.md (permanent), CURRENT_FOCUS.md (milestone), active/CURRENT_TASK.md (session), archive/session-XX (completed). Skill and activation prompt updated accordingly."
     source: session
+
+  - id: obs-20260718-004
+    at: 2026-07-18
+    task: "os skills instincts rules pack"
+    artifact: 05-hard-port-os.mdc
+    outcome: pass
+    note: "Added path-scoped OS rule, three OS instincts, wired hard-port-os-work to them, and narrowed copywriting globs so brand-copy rules stop applying to the-hard-port-os docs."
+    source: session
