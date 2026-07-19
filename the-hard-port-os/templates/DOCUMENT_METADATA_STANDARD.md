@@ -121,12 +121,16 @@ These dimensions must not be collapsed. An active system specification can remai
 
 1. Apply this standard to newly created substantive framework documents.
 2. Do not bulk-edit existing documents solely to add metadata.
-3. Preserve legacy evidence scales in existing records until a deliberate migration is approved.
-4. A document becomes canonical only through the lifecycle defined in `KNOWLEDGE_ARCHITECTURE.md`.
+3. Use descriptive `evidence_level` values only in new work ([`DEC-002`](../decisions/DEC-002-descriptive-evidence-vocabulary.md)). Migrate legacy `E0`–`E5` when a document is next substantively edited.
+4. A document becomes canonical when it finishes its designated loop in `KNOWLEDGE_ARCHITECTURE.md`, recorded by an accepted Decision Record ([`DEC-003`](../decisions/DEC-003-canon-requires-decision-record.md)).
 5. Superseded and archived documents remain addressable for citation.
 6. Source documents do not inherit canonical status when cited by the Canon.
 
 ## Revision History
+
+### 0.1.1 — 2026-07-18
+
+- Locked descriptive evidence vocabulary and Canon-via-Decision rule per DEC-002 and DEC-003.
 
 ### 0.1.0 — 2026-07-18
 

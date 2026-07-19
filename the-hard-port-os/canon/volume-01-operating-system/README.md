@@ -48,7 +48,7 @@ Chapters are versioned, challenged through the working layer, and replaced with 
 
 - [`00-preface`](./00-preface.md) — seed; canonicality candidate
 - [`01-purpose-and-scope`](./01-purpose-and-scope.md) — seed; canonicality candidate
-- [`02-knowledge-architecture`](./02-knowledge-architecture.md) — seed; canonicality candidate
+- [`02-knowledge-architecture`](./02-knowledge-architecture.md) — draft v0.3.0; canonicality candidate; DEC-001–003 applied
 - [`03-document-lifecycle`](./03-document-lifecycle.md) — seed; canonicality candidate
 - [`04-system-architecture`](./04-system-architecture.md) — seed; canonicality candidate
 - [`05-decision-and-rfc-model`](./05-decision-and-rfc-model.md) — seed; canonicality candidate

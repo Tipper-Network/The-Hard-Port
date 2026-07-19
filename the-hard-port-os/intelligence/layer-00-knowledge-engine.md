@@ -17,6 +17,9 @@ used_by:
   - CIS-L07
   - CIS-L08
   - CIS-L09
+related_documents:
+  - ../docs/00-foundations/THP-FOUNDATIONAL-PHILOSOPHY.md
+  - ../docs/00-foundations/THP-INSTITUTIONAL-PURPOSE-AND-BOUNDARIES.md
 ---
 
 # The Hard Port Knowledge Engine
@@ -27,9 +30,17 @@ used_by:
 
 The Hard Port is a research institute disguised as a media company.
 
+Philosophical assumptions inherited by this mission are defined in [`../docs/00-foundations/THP-FOUNDATIONAL-PHILOSOPHY.md`](../docs/00-foundations/THP-FOUNDATIONAL-PHILOSOPHY.md). Institutional purpose and boundaries are defined in [`../docs/00-foundations/THP-INSTITUTIONAL-PURPOSE-AND-BOUNDARIES.md`](../docs/00-foundations/THP-INSTITUTIONAL-PURPOSE-AND-BOUNDARIES.md). This layer does not duplicate them.
+
 Media, consulting, frameworks, data, and Tipper are not separate businesses. They are stages of one knowledge engine.
 
-## Institutional Model
+## Institutional Model — People / Customer Journey
+
+This diagram describes how **people and engagements** move through The Hard Port's operating surface. It is not the knowledge lifecycle.
+
+Per [`DEC-001`](../decisions/DEC-001-separate-knowledge-and-people-journeys.md), do not nest or collapse this journey into Question → Hypothesis → RFC → Canon. Those stages describe how knowledge claims move; this journey describes how attention, owners, clients, and Tipper participation move.
+
+Evidence produced here enters the knowledge lifecycle at the appropriate stage (typically Observation, Experiment, Contradiction, or Finding). See [`../KNOWLEDGE_ARCHITECTURE.md`](../KNOWLEDGE_ARCHITECTURE.md).
 
 ```text
 Media
@@ -56,7 +67,7 @@ Behavior and outcomes
 Media, research, and frameworks improve
 ```
 
-The engine compounds only when every stage returns what it learns. A stage that produces output without returning evidence breaks the loop.
+The journey compounds only when every stage returns what it learns into research and frameworks. A stage that produces output without returning evidence breaks the loop.
 
 ## What Each Stage Does
 

@@ -19,6 +19,8 @@ It is an exploratory philosophy, not a replacement for the canonical mission in 
 
 > Understand how small businesses work.
 
+Candidate foundational philosophy is consolidated in [`docs/00-foundations/THP-FOUNDATIONAL-PHILOSOPHY.md`](../docs/00-foundations/THP-FOUNDATIONAL-PHILOSOPHY.md). Candidate institutional purpose and boundaries are in [`docs/00-foundations/THP-INSTITUTIONAL-PURPOSE-AND-BOUNDARIES.md`](../docs/00-foundations/THP-INSTITUTIONAL-PURPOSE-AND-BOUNDARIES.md). This charter preserves Session 01 source material and does not supersede those documents without an explicit decision.
+
 Businesses are the first research laboratory. Any expansion of the canonical mission beyond small businesses requires an RFC and an explicit versioned decision.
 
 ## Why The Hard Port Exists

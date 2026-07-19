@@ -41,7 +41,7 @@ All named chapter files begin as `seed` documents with `canonicality: candidate`
 
 ## Next Review
 
-Review the source mapping, resolve authority and terminology conflicts, then develop `volume-01-operating-system/02-knowledge-architecture.md`.
+`volume-01-operating-system/02-knowledge-architecture.md` is draft v0.3.0 (`canonicality: candidate`). Category A conflicts decided in DEC-001–003. Remaining before canonicity: findings storage, named Canon owners, Layer 07 mapping, challenge test, retrospective review of early `canonical` marks.
 
 ## Status Change Rule
 
