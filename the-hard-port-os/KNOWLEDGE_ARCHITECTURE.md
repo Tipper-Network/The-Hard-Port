@@ -14,8 +14,14 @@ confidence: high
 evidence_level: operational
 canonicality: canonical
 related_documents:
+  - ./docs/knowledge-system/research-methodology.md
+  - ./docs/00-foundations/THP-FOUNDATIONAL-PHILOSOPHY.md
+  - ./docs/00-foundations/THP-INSTITUTIONAL-PURPOSE-AND-BOUNDARIES.md
   - ./templates/DOCUMENT_METADATA_STANDARD.md
   - ./canon/README.md
+  - ./decisions/DEC-001-separate-knowledge-and-people-journeys.md
+  - ./decisions/DEC-002-descriptive-evidence-vocabulary.md
+  - ./decisions/DEC-003-canon-requires-decision-record.md
 supersedes: []
 superseded_by: []
 ---
@@ -26,7 +32,15 @@ superseded_by: []
 
 Define how The Hard Port turns uncertainty into research, decisions, operational systems, repeatable execution, and canonical synthesis.
 
+Philosophical assumptions inherited by this architecture — operational definitions of reality, conscious beings, systems, and their relationship — are defined in [`docs/00-foundations/THP-FOUNDATIONAL-PHILOSOPHY.md`](./docs/00-foundations/THP-FOUNDATIONAL-PHILOSOPHY.md). Institutional purpose and boundaries are defined in [`docs/00-foundations/THP-INSTITUTIONAL-PURPOSE-AND-BOUNDARIES.md`](./docs/00-foundations/THP-INSTITUTIONAL-PURPOSE-AND-BOUNDARIES.md). This file does not duplicate them.
+
 This architecture governs document movement. It does not make the content of a source document true.
+
+How knowledge **operates** through these stages — gates, advancement criteria, return paths, and procedure — is defined in [`docs/knowledge-system/research-methodology.md`](./docs/knowledge-system/research-methodology.md). This file defines lifecycle structure and placement; that document will define operational methodology.
+
+This is the **knowledge lifecycle** — how claims and decisions move. It is not the people/customer journey in [`intelligence/layer-00-knowledge-engine.md`](./intelligence/layer-00-knowledge-engine.md). Those diagrams must remain separate ([`DEC-001`](./decisions/DEC-001-separate-knowledge-and-people-journeys.md)).
+
+Things become canonical when they finish this designated loop ([`DEC-003`](./decisions/DEC-003-canon-requires-decision-record.md)). Canon is completion, not an editorial label.
 
 ## Lifecycle
 

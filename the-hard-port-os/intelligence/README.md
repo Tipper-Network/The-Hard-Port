@@ -115,29 +115,44 @@ IDs are permanent. Rename the display label when language improves; do not recyc
 
 ## Evidence Levels
 
-### E0 — Assumption
+Controlling vocabulary ([`DEC-002`](../decisions/DEC-002-descriptive-evidence-vocabulary.md); [`../templates/DOCUMENT_METADATA_STANDARD.md`](../templates/DOCUMENT_METADATA_STANDARD.md)):
 
-Plausible but unsupported. May guide observation, never a client claim.
+### none
 
-### E1 — Anecdote
+No supporting evidence has been attached. Plausible assumptions may guide observation; they are not client claims.
 
-Observed once or reported by one source. Useful as a hypothesis.
+### anecdotal
 
-### E2 — Repeated Observation
+One or more reported examples. Useful as a hypothesis seed.
 
-Observed multiple times or corroborated by independent sources.
+### observational
 
-### E3 — Measured Relationship
+Structured observations support the claim (including repeated or corroborated observation, and measured relationships without a tested intervention).
 
-A defined relationship appears in baseline and follow-up data.
+### experimental
 
-### E4 — Tested Intervention
+A bounded intervention or experiment produced relevant evidence in a defined context.
 
-An intervention produced a measured result in a defined context.
+### replicated
 
-### E5 — Replicated Pattern
+Comparable evidence has repeated across businesses or contexts.
 
-The intervention produced comparable results across multiple businesses or contexts.
+### operational
+
+The model has demonstrated continued use under operating conditions.
+
+#### Legacy E0–E5 mapping (read-only)
+
+Do not use `E0`–`E5` in new documents.
+
+| Legacy | Use |
+|---|---|
+| E0 | `none` |
+| E1 | `anecdotal` |
+| E2 | `observational` |
+| E3 | `observational` or `experimental` (see DEC-002) |
+| E4 | `experimental` |
+| E5 | `replicated` |
 
 ## Confidence Scale
 

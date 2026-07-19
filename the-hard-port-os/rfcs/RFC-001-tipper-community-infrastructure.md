@@ -25,7 +25,7 @@ Layer 08 already defines Tipper as the operationalization and evidence-return st
 
 ## Evidence
 
-Current evidence level: `E0 — Assumption`
+Current evidence level: `none`
 
 No business observations, community studies, interventions, or software outcomes currently support the expansion.
 

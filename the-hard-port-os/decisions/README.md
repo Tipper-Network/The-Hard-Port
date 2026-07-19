@@ -22,6 +22,14 @@ superseded_by: []
 
 # Decisions
 
+## Accepted Decisions
+
+| ID | Title | Status |
+|---|---|---|
+| [`DEC-001`](./DEC-001-separate-knowledge-and-people-journeys.md) | Separate knowledge lifecycle from people journey | accepted |
+| [`DEC-002`](./DEC-002-descriptive-evidence-vocabulary.md) | Adopt descriptive evidence_level vocabulary | accepted |
+| [`DEC-003`](./DEC-003-canon-requires-decision-record.md) | Canon is completion of the designated loop | accepted |
+
 ## What Belongs Here
 
 Accepted or proposed institutional and cross-system decision records explaining what was decided, why, alternatives, consequences, risks, and validation conditions.

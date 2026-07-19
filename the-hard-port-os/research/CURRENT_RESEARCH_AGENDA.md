@@ -19,6 +19,12 @@
 - Which structures allow evidence to change decisions and behavior?
 - When does a framework improve intelligence rather than merely standardize language?
 
+## Owner Perception and Model Revision
+
+- Is premature certainty a better primary enemy than incompetence?
+- How can perceptual / model plasticity be observed in small-business owners?
+- Working seed: [`concepts/CONCEPT-Perceptual-Plasticity.md`](./concepts/CONCEPT-Perceptual-Plasticity.md)
+
 ## Active Research Programs
 
 - [`RESEARCH-PROGRAM-001 — Systems, Identity, and Self-Authorship`](./RESEARCH-PROGRAM-001.md)

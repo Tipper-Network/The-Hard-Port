@@ -4,6 +4,8 @@ The Hard Port OS is the institutional memory and knowledge-production repository
 
 The Hard Port studies how conscious beings construct, inhabit, transcend, and reconstruct the systems that define their reality. Small businesses are the first bounded research environment.
 
+Philosophical assumptions behind that inquiry are defined in [`docs/00-foundations/THP-FOUNDATIONAL-PHILOSOPHY.md`](./docs/00-foundations/THP-FOUNDATIONAL-PHILOSOPHY.md). Institutional purpose and boundaries are defined in [`docs/00-foundations/THP-INSTITUTIONAL-PURPOSE-AND-BOUNDARIES.md`](./docs/00-foundations/THP-INSTITUTIONAL-PURPOSE-AND-BOUNDARIES.md). This overview does not duplicate those definitions.
+
 ## Core Principle
 
 ```text
@@ -48,6 +50,12 @@ the-hard-port-os/
 ├── active/
 │   └── CURRENT_TASK.md
 ├── KNOWLEDGE_ARCHITECTURE.md
+├── docs/
+│   ├── 00-foundations/
+│   │   ├── THP-FOUNDATIONAL-PHILOSOPHY.md
+│   │   └── THP-INSTITUTIONAL-PURPOSE-AND-BOUNDARIES.md
+│   └── knowledge-system/
+│       └── research-methodology.md
 ├── REPOSITORY_VALIDATION.md
 ├── canon/
 ├── systems/
@@ -90,6 +98,10 @@ the-hard-port-os/
 - [Current Task](./active/CURRENT_TASK.md)
 - [The Hard Port Canon](./canon/README.md)
 - [Knowledge Architecture](./KNOWLEDGE_ARCHITECTURE.md)
+- [Documentation Index](./docs/README.md)
+- [THP Foundational Philosophy](./docs/00-foundations/THP-FOUNDATIONAL-PHILOSOPHY.md) — candidate; philosophical assumptions
+- [THP Institutional Purpose and Boundaries](./docs/00-foundations/THP-INSTITUTIONAL-PURPOSE-AND-BOUNDARIES.md) — candidate; institutional scope
+- [Research Methodology](./docs/knowledge-system/research-methodology.md) — authoritative; placeholder
 - [Research](./research/README.md)
 - [Systems](./systems/README.md)
 - [RFCs](./rfcs/README.md)
@@ -117,7 +129,7 @@ Question
 → Revision or Evolution
 ```
 
-The full purpose, document type, entry conditions, advancement gates, and return paths for each stage are defined in [`KNOWLEDGE_ARCHITECTURE.md`](./KNOWLEDGE_ARCHITECTURE.md).
+The lifecycle structure, document types, folders, and stage placement are defined in [`KNOWLEDGE_ARCHITECTURE.md`](./KNOWLEDGE_ARCHITECTURE.md). How knowledge progresses through those stages — operational methodology — will be defined in [`docs/knowledge-system/research-methodology.md`](./docs/knowledge-system/research-methodology.md).
 
 No source becomes canonical because it exists, is polished, or appears in `intelligence/`.
 

@@ -11,6 +11,11 @@ depends_on:
   - CIS-L02
   - CIS-L06
   - CIS-L08
+related_documents:
+  - ../docs/knowledge-system/research-methodology.md
+  - ../docs/00-foundations/THP-FOUNDATIONAL-PHILOSOPHY.md
+  - ../docs/00-foundations/THP-INSTITUTIONAL-PURPOSE-AND-BOUNDARIES.md
+  - ../KNOWLEDGE_ARCHITECTURE.md
 used_by: []
 ---
 
@@ -28,6 +33,8 @@ Small businesses are more than economic units. They are social infrastructure. T
 
 Rather than distributing generic business advice, The Hard Port observes, documents, questions, tests, and explains how small businesses actually operate.
 
+Philosophical assumptions inherited by this work are defined in [`../docs/00-foundations/THP-FOUNDATIONAL-PHILOSOPHY.md`](../docs/00-foundations/THP-FOUNDATIONAL-PHILOSOPHY.md). Institutional purpose and boundaries are defined in [`../docs/00-foundations/THP-INSTITUTIONAL-PURPOSE-AND-BOUNDARIES.md`](../docs/00-foundations/THP-INSTITUTIONAL-PURPOSE-AND-BOUNDARIES.md). This layer does not duplicate them.
+
 Everything produced through media, research, consulting, frameworks, or Tipper must contribute to that understanding or put supported understanding to work.
 
 ## Mission
@@ -43,6 +50,8 @@ That knowledge should produce:
 - Better software through Tipper
 
 The institutional architecture behind this mission is defined in [The Hard Port Knowledge Engine](./layer-00-knowledge-engine.md).
+
+How knowledge progresses through the repository lifecycle — stage gates, advancement, and return paths — is defined in [`../docs/knowledge-system/research-methodology.md`](../docs/knowledge-system/research-methodology.md). That document is authoritative for operational methodology; this layer describes mission, beliefs, and public-facing research loops.
 
 ## Core Beliefs
 

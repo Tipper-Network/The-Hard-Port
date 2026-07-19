@@ -15,6 +15,8 @@ evidence_level: operational
 canonicality: canonical
 related_documents:
   - ../KNOWLEDGE_ARCHITECTURE.md
+  - ../docs/00-foundations/THP-FOUNDATIONAL-PHILOSOPHY.md
+  - ../docs/00-foundations/THP-INSTITUTIONAL-PURPOSE-AND-BOUNDARIES.md
   - ./CANON_STATUS.md
   - ./CANON_CITATION_STANDARD.md
 supersedes: []
@@ -28,6 +30,8 @@ superseded_by: []
 The Hard Port Canon is the authoritative synthesis layer of The Hard Port. It organizes sufficiently stable, accepted, and source-backed knowledge into eight coherent volumes.
 
 The Hard Port studies how conscious beings construct, inhabit, transcend, and reconstruct the systems that define their reality.
+
+Philosophical assumptions behind that inquiry are defined in [`../docs/00-foundations/THP-FOUNDATIONAL-PHILOSOPHY.md`](../docs/00-foundations/THP-FOUNDATIONAL-PHILOSOPHY.md). Institutional purpose and boundaries are defined in [`../docs/00-foundations/THP-INSTITUTIONAL-PURPOSE-AND-BOUNDARIES.md`](../docs/00-foundations/THP-INSTITUTIONAL-PURPOSE-AND-BOUNDARIES.md). The Canon does not duplicate those definitions here.
 
 Small businesses are the first bounded research environment. The Canon must preserve the difference between that operating focus and broader philosophical questions still under investigation.
 
@@ -65,17 +69,24 @@ Canon chapters cite and synthesize these sources. Source documents remain in the
 
 ## Conditions for Entry
 
+Things become canonical when they finish their designated loop ([`DEC-003`](../decisions/DEC-003-canon-requires-decision-record.md)).
+
+```text
+Research → RFC → Decision → System → Canon
+```
+
 Content may enter the Canon only when:
 
-1. Its source documents are identifiable and cited.
-2. Relevant research and contradictions have been reviewed.
-3. Material decisions are explicit.
-4. Operational claims match current system specifications.
-5. Confidence, evidence, scope, and boundaries are stated.
-6. Conflicting sources are resolved or visibly retained.
-7. The chapter passes review and its status is intentionally changed to `canonical`.
+1. That loop is complete, or a Decision explicitly scopes which stages are not applicable and why.
+2. Its source documents are identifiable and cited.
+3. Relevant research and contradictions have been reviewed (unless scoped out).
+4. Material decisions are explicit in accepted `DEC-*` records.
+5. Operational claims match current system specifications, or the Decision states no system change is required yet.
+6. Confidence, evidence, scope, and boundaries are stated using the descriptive evidence vocabulary ([`DEC-002`](../decisions/DEC-002-descriptive-evidence-vocabulary.md)).
+7. Conflicting sources are resolved or visibly retained.
+8. A named human decision owner accepts that the loop is complete; the chapter's `canonicality` is intentionally set to `canonical`.
 
-Age, polish, repetition, or location in `intelligence/` does not satisfy these conditions.
+Age, polish, repetition, assistant authorship, an incomplete Decision stamp, or location in `intelligence/` or `canon/` does not satisfy these conditions.
 
 ## Challenge, Revision, Supersession, and Removal
 

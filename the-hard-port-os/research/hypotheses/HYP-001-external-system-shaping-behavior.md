@@ -6,7 +6,7 @@ status: active
 owner: The Hard Port
 last_updated: 2026-07-18
 research_program: RESEARCH-PROGRAM-001
-evidence_level: E0
+evidence_level: none
 confidence: 0.10
 source: Session 01
 ---
