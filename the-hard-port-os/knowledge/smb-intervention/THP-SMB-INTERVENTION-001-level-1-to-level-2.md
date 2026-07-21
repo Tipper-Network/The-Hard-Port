@@ -4,9 +4,9 @@ title: Level 1-to-Level 2 Intervention System
 document_type: smb_intervention_definition
 domain: smb_intervention
 status: working
-development_state: ready_for_lifecycle_design
+development_state: pre_content_architecture_complete
 field_validation: pending_first_entity
-version: 1.0.0
+version: 1.0.2
 created: 2026-07-21
 updated: 2026-07-21
 authors:
@@ -32,6 +32,10 @@ related_documents:
   - ../../active/forms/THP-SMB-002-level-1-to-level-2-transition.md
   - ./templates/THP-SMB-TEMPLATE-002-intervention-decision-record.md
   - ./templates/THP-SMB-TEMPLATE-003-institutional-learning-record.md
+  - ../smb-engagement/THP-SMB-ENGAGEMENT-001-client-lifecycle.md
+  - ../smb-service/THP-SMB-SERVICE-001-offer-architecture.md
+  - ../smb-research/THP-SMB-RESEARCH-001-evidence-data-consent-system.md
+  - ../smb-proof/THP-SMB-PROOF-001-case-study-and-proof-system.md
 supersedes: []
 superseded_by: []
 ---
@@ -41,6 +45,31 @@ superseded_by: []
 > **Status:** `working` · `development_state: ready_for_lifecycle_design` · `field_validation: pending_first_entity`  
 > **Not canonical.** Detailed exercises and thresholds validated against first real entity.  
 > **Official phase order:** Business Reality → Evidence Recovery → Viable Core → Constraint Diagnosis → Identity Clarification → Relationship Foundation → Operating Foundation → Level 2 Proof
+
+## Lifecycle Position
+
+The intervention begins only after:
+
+- Qualification
+- Diagnosis
+- Findings presentation
+- Mutual engagement decision
+- Agreement
+- Required consent
+- Initial payment condition
+- Kickoff
+
+See [THP SMB Client Engagement Lifecycle](../smb-engagement/THP-SMB-ENGAGEMENT-001-client-lifecycle.md) — Stages 11–13 (Intervention Execution, Progress Review, Level 2 Reassessment); Stage 14 (Completion and Handoff).
+
+The intervention ends through Level 2 confirmation, partial completion, continuation, pause, referral, withdrawal, or termination.
+
+## Evidence and Data Boundary
+
+Engagement evidence must be classified according to:
+
+[`THP-SMB-RESEARCH-001-evidence-data-consent-system.md`](../smb-research/THP-SMB-RESEARCH-001-evidence-data-consent-system.md)
+
+Institutional Learning Records do not automatically authorize anonymized research, case studies, public content, or Tipper use.
 
 ## 1. Purpose
 
@@ -735,6 +764,8 @@ Phase 7 is complete when:
 
 ## 12. Phase 8 — Level 2 Proof
 
+**Proof system:** [`THP-SMB-PROOF-001`](../smb-proof/THP-SMB-PROOF-001-case-study-and-proof-system.md) · [`THP-SMB-TEMPLATE-006`](../smb-proof/templates/THP-SMB-TEMPLATE-006-proof-record.md). Completion is based on Level 2 gate evidence — not deliverable completion alone.
+
 ## Purpose
 
 Determine whether the business has established the Level 2 foundation.
@@ -1050,6 +1081,16 @@ These should be tested and refined during the first real engagement rather than 
 ---
 
 ## Revision History
+
+### 1.0.2 — 2026-07-21
+
+- Evidence and Data Boundary linked to [`THP-SMB-RESEARCH-001`](../smb-research/THP-SMB-RESEARCH-001-evidence-data-consent-system.md).
+- Phase 8 linked to proof system.
+
+### 1.0.1 — 2026-07-21
+
+- Lifecycle Position added; linked to [`THP-SMB-ENGAGEMENT-001`](../smb-engagement/THP-SMB-ENGAGEMENT-001-client-lifecycle.md).
+- `development_state: ready_for_commercial_design`.
 
 ### 1.0.0 — 2026-07-21
 

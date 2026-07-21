@@ -11,3 +11,5 @@ dist-ssr
 .vinxi
 __unconfig*
 todos.json
+# THP client workspaces — never commit live client data
+the-hard-port-os/clients/THP-CLIENT-*

@@ -1,68 +1,46 @@
 # READ_FROM — Founder Paste Buffer
 
-> **Role:** Paste new founder material here first. Institutional copies live under `knowledge/`, `docs/`, and `active/`.  
-> **Last sync:** 2026-07-21 — Level 1-to-Level 2 Intervention System
+> **Last sync:** 2026-07-21 — Minimum intake operation + pre-content architecture complete
 
 ---
 
-## Current Institutional Boundary
+## Pre-Content Operating Architecture Complete
 
-The qualification system is sufficiently developed until the first real entity is available.
+THP now has working architecture for:
 
-Detailed diagnostic design is deferred for field testing.
+- First-onboarder identification
+- Maturity Levels 1–3
+- Qualification
+- Diagnostic boundaries
+- Level 1-to-Level 2 intervention
+- Client lifecycle
+- Paid offer structure
+- Evidence and consent
+- Manual-first Tipper research
+- Proof and case-study production
 
-The active design problem is now the Level 1-to-Level 2 intervention: what THP actually does after accepting and diagnosing a business.
+## Minimum Intake Operation
 
-**Next design task:** Client Engagement Lifecycle — see [`active/CURRENT_TASK.md`](./active/CURRENT_TASK.md).
+Operational layer before public application CTA:
 
----
+- [`operations/first-client-readiness/`](./operations/first-client-readiness/)
+- Live routes: `/apply` · `/work-with-us` (`apps/web`)
+- Client template: [`clients/_TEMPLATE/`](./clients/_TEMPLATE/)
 
-## Intervention System
+## Architecture documents
 
-THP's Level 1-to-Level 2 intervention now follows:
+- [`THP-SMB-SERVICE-001`](./knowledge/smb-service/THP-SMB-SERVICE-001-offer-architecture.md)
+- [`THP-SMB-RESEARCH-001`](./knowledge/smb-research/THP-SMB-RESEARCH-001-evidence-data-consent-system.md)
+- [`THP-TIPPER-BOUNDARY-001`](./knowledge/tipper-boundary/THP-TIPPER-BOUNDARY-001-manual-first-smb-research.md)
+- [`THP-SMB-PROOF-001`](./knowledge/smb-proof/THP-SMB-PROOF-001-case-study-and-proof-system.md)
 
-1. Business Reality
-2. Evidence Recovery
-3. Viable Core
-4. Constraint Diagnosis
-5. Identity Clarification
-6. Relationship Foundation
-7. Operating Foundation
-8. Level 2 Proof
+## Next active work
 
-The intervention defines the institutional transformation.
-
-Branding, content, communication, research, and operational deliverables are execution instruments inside that transformation.
-
-**Institutional home:** [`knowledge/smb-intervention/THP-SMB-INTERVENTION-001-level-1-to-level-2.md`](./knowledge/smb-intervention/THP-SMB-INTERVENTION-001-level-1-to-level-2.md)
-
-**Templates:**
-
-- [`THP-SMB-TEMPLATE-002`](./knowledge/smb-intervention/templates/THP-SMB-TEMPLATE-002-intervention-decision-record.md) — Intervention Decision Record
-- [`THP-SMB-TEMPLATE-003`](./knowledge/smb-intervention/templates/THP-SMB-TEMPLATE-003-institutional-learning-record.md) — Institutional Learning Record
-
-**Index:** [`knowledge/smb-intervention/README.md`](./knowledge/smb-intervention/README.md)
-
----
-
-## Qualification Gate — synced
-
-The qualification system is structurally complete.
-
-**Instrument:** [`THP-SMB-INSTRUMENT-002`](./knowledge/smb-maturity/instruments/THP-SMB-INSTRUMENT-002-first-onboarder-diagnostic.md) (§1–13)
-
-**Blank record:** [`THP-SMB-TEMPLATE-001`](./knowledge/smb-maturity/instruments/templates/THP-SMB-TEMPLATE-001-qualification-record.md)
-
-### Engagement sequence
-
-Application → Qualification → Diagnostic → Findings → Intervention → Reassessment
-
-### Diagnostic — deferred, not abandoned
-
-A–H diagnostic placeholders remain in INSTRUMENT-002 §14–18. Detailed interview design waits for the first real entity.
+1. Complete intake checklist remainders (webhook, commercial placeholders, legal review, tracker in use)
+2. Script Video 1 — [`operations/youtube-attraction/THP-YOUTUBE-001-attraction-architecture.md`](./operations/youtube-attraction/THP-YOUTUBE-001-attraction-architecture.md)
 
 ---
 
 ## Paste below
 
-New founder material goes below this line. After sync, replace or trim the paste and leave the synthesis above current.
+New founder material goes below this line.

@@ -41,7 +41,7 @@ Evidence Recovery precedes Viable Core so the viable core is identified from rec
 |---|---|
 | Document | [`THP-SMB-INTERVENTION-001`](./THP-SMB-INTERVENTION-001-level-1-to-level-2.md) |
 | `status` | `working` |
-| `development_state` | `ready_for_lifecycle_design` |
+| `development_state` | `pre_content_architecture_complete` |
 | `field_validation` | `pending_first_entity` |
 | `canonicality` | `working` — not canonical |
 
@@ -70,22 +70,30 @@ Every execution deliverable must identify:
 - [`THP-SMB-LEVEL-01`](../smb-maturity/levels/THP-SMB-LEVEL-01-established-but-surviving.md) — origin level
 - [`THP-SMB-LEVEL-02`](../smb-maturity/levels/THP-SMB-LEVEL-02-stable-preparing-for-growth.md) — destination level
 - [`THP-SMB-INSTRUMENT-002`](../smb-maturity/instruments/THP-SMB-INSTRUMENT-002-first-onboarder-diagnostic.md) — qualification and diagnostic
+- [`THP-SMB-ENGAGEMENT-001`](../smb-engagement/THP-SMB-ENGAGEMENT-001-client-lifecycle.md) — client engagement lifecycle
 - [`THP-ENGAGEMENT-READINESS-APPLICATION`](../../docs/03-methods/entity-assessment/THP-ENGAGEMENT-READINESS-APPLICATION.md) — intake
 - [`layer-07-consulting-methodology`](../../intelligence/layer-07-consulting-methodology.md) — reasoning and professional conduct within intervention
-- **Client Engagement Lifecycle** — next design task (not yet created)
 
 ## Templates
 
 - [`THP-SMB-TEMPLATE-002`](./templates/THP-SMB-TEMPLATE-002-intervention-decision-record.md) — Intervention Decision Record
 - [`THP-SMB-TEMPLATE-003`](./templates/THP-SMB-TEMPLATE-003-institutional-learning-record.md) — Institutional Learning Record
 
+## Working Payment Boundary
+
+> **Working recommendation — not confirmed price policy.**
+
+- Discovery and application are currently assumed to be free.
+- Formal diagnosis is a paid professional service.
+- Intervention begins only after agreement and the required initial payment.
+- Additional execution services must be explicitly included or separately priced.
+- Final commercial structure remains pending.
+
 ## Current Development Status
 
-The institutional intervention sequence is defined.
+The institutional intervention sequence is defined. Client engagement lifecycle is defined in [`THP-SMB-ENGAGEMENT-001`](../smb-engagement/THP-SMB-ENGAGEMENT-001-client-lifecycle.md).
 
-Detailed exercises, thresholds, phase durations, and client-facing worksheets will be validated through the first real entity.
-
-The next design task is the Client Engagement Lifecycle.
+The next design task is the **YouTube Attraction Architecture**.
 
 See [`active/CURRENT_TASK.md`](../../active/CURRENT_TASK.md).
 
