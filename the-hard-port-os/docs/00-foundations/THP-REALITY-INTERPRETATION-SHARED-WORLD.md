@@ -5,7 +5,9 @@ document_type: philosophical_position
 status: candidate
 version: 0.1.0
 created: 2026-07-19
-updated: 2026-07-19
+updated: 2026-07-21
+philosophy_phase: frozen_working
+frozen: 2026-07-21
 authors:
   - The Hard Port
 owners:
@@ -17,6 +19,8 @@ source_records:
   - THP-PH-001
   - THP-PH-001B
 related_documents:
+  - ./CANDIDATE-WORKING-PHILOSOPHY.md
+  - ./OPEN-PHILOSOPHICAL-QUESTIONS.md
   - ./THP-FOUNDATIONAL-PHILOSOPHY.md
   - ./THP-EPISTEMOLOGY.md
   - ./THP-INSTITUTIONAL-PURPOSE-AND-BOUNDARIES.md
@@ -28,8 +32,9 @@ superseded_by: []
 
 # Reality, Interpretation, and the Shared World
 
-> **Status:** `candidate`, `non_canonical`  
+> **Status:** `candidate`, `non_canonical`, **frozen working philosophy** (2026-07-21)  
 > **Nature:** Foundational philosophical position — not Canon, not empirical finding.  
+> **Open questions:** [`OPEN-PHILOSOPHICAL-QUESTIONS.md`](./OPEN-PHILOSOPHICAL-QUESTIONS.md)  
 > **Source:** Founder forms THP-PH-001 and THP-PH-001B ([`../../philosophy/PH-001.md`](../../philosophy/PH-001.md)). Institutional position below does **not** treat founder metaphysics as finalized fact.
 
 ## 1. Purpose
@@ -259,34 +264,7 @@ Applied notes: [`THP-SMB-RESEARCH-AND-ASSESSMENT-NOTES.md`](./THP-SMB-RESEARCH-A
 
 ## 16. Open Questions
 
-The following questions remain open:
-
-1. Is consciousness produced by physical processes, fundamental to reality, or something else?
-
-2. Does spirit identify a distinct phenomenon, or does it combine will, meaning, motivation, and consciousness?
-
-3. How can subjective experience be studied without reducing it to external metrics?
-
-4. How should THP evaluate facts that cannot be directly observed?
-
-5. How should legitimacy be evaluated when full consent is impossible?
-
-6. How should voluntary sacrifice be distinguished from normalized or misunderstood harm?
-
-7. How does personal meaning become shared meaning?
-
-8. When does interpretation become sufficiently supported to qualify as knowledge?
-
-### Founder metaphysics — not institutional facts
-
-Raw founder responses in [`PH-001.md`](../../philosophy/PH-001.md) propose positions THP has **not** adopted as institutional knowledge. These remain open or contested:
-
-- **Consciousness as pure energy** — founder language; metaphysical nature unresolved
-- **All existence being created by consciousness** — founder language ("everything is mind"); not THP's institutional position on external existence
-- **Spirit as a metaphysical force** — provisional operational language only; ultimate nature unresolved
-- **Truth as agreement** — rejected as institutional definition; truth requires correspondence within scope
-- **Facts as agreement** — rejected as institutional definition; facts can exist unrecognized
-- **Harm existing only when accepted** — rejected as institutional principle; harm limits apply regardless of acceptance
+Unresolved questions moved to [`OPEN-PHILOSOPHICAL-QUESTIONS.md`](./OPEN-PHILOSOPHICAL-QUESTIONS.md) — including spirit and consciousness, subjective experience, facts beyond observation, legitimacy without full consent, voluntary sacrifice vs normalized harm, and founder metaphysics not adopted institutionally.
 
 **Distinction:** Founder metaphysics and institutional knowledge are separate layers. Testimony informs inquiry; it does not govern conclusions.
 
@@ -298,6 +276,10 @@ Raw founder responses in [`PH-001.md`](../../philosophy/PH-001.md) propose posit
 - [`THP-SMB-RESEARCH-AND-ASSESSMENT-NOTES.md`](./THP-SMB-RESEARCH-AND-ASSESSMENT-NOTES.md) — SMB operating cycle application
 
 ## Revision History
+
+### 0.1.1 — 2026-07-21
+
+- Frozen as candidate working philosophy; open questions consolidated.
 
 ### 0.1.0 — 2026-07-19
 

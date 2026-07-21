@@ -1,389 +1,56 @@
-# Values, Principles, Will, and Responsibility
+# Current Task
 
-**Document ID:** THP-PH-003
-**Document type:** Foundational philosophical position
-**Status:** Candidate
-**Canonicality:** Non-canonical
-**Source:** Founder forms THP-PH-003 and THP-PH-003B
+Milestone: [`CURRENT_FOCUS.md`](../CURRENT_FOCUS.md)  
+Updated: 2026-07-21
 
-## 1. Purpose
+## Assignment
 
-This document defines The Hard Port’s candidate position on beliefs, values, principles, traits, will, resolve, responsibility, and institutional value alignment.
+Design the **Entity Position and Direction Assessment**:
 
-It provides a foundation for assessing how people and entities translate what matters to them into decisions, behavior, organizational structures, and consequences.
+- inputs
+- interview structure
+- independent THP observations
+- Level 1–2 criteria
+- deliverable format
+- first intervention boundary
 
-## 2. Beliefs
+**Do not create additional philosophy forms in this file.**
 
-A belief is a proposition that a person or entity accepts, or operates as though it is true.
+## Context
 
-A belief may be:
+First onboarder definition (complete): [`docs/04-market/first-onboarder/THP-SMB-001-FIRST-ONBOARDER.md`](../docs/04-market/first-onboarder/THP-SMB-001-FIRST-ONBOARDER.md)
 
-* supported or unsupported;
-* accurate or inaccurate;
-* consciously selected or passively inherited;
-* stable or revisable.
+Assessment structure (candidate, questions TBD): [`docs/03-methods/entity-assessment/ENTITY-POSITION-AND-DIRECTION-ASSESSMENT.md`](../docs/03-methods/entity-assessment/ENTITY-POSITION-AND-DIRECTION-ASSESSMENT.md)
 
-A belief is not identical to a desire.
+Maturity model (Levels 1–2 active): [`docs/02-ontology/entity-maturity/ENTITY-MATURITY-MODEL.md`](../docs/02-ontology/entity-maturity/ENTITY-MATURITY-MODEL.md)
 
-A desire concerns what someone wants to experience, avoid, accomplish, preserve, or become. A belief concerns what they presently accept as true about themselves, others, or their conditions.
+Application placeholder: [`docs/03-methods/entity-assessment/THP-ENGAGEMENT-READINESS-APPLICATION.md`](../docs/03-methods/entity-assessment/THP-ENGAGEMENT-READINESS-APPLICATION.md)
 
-Beliefs should not be treated as knowledge merely because they are deeply held.
+## Deliverables
 
-## 3. Values
+1. **Inputs** — what the founder provides, what THP observes independently, what records are required
+2. **Interview structure** — sections, sequence, and boundaries (not a full script yet unless warranted)
+3. **Independent THP observations** — protocol for reviewing operating environment including platforms without making social performance the health definition
+4. **Level 1–2 criteria** — observable conditions and exit criteria usable in assessment
+5. **Deliverable format** — how the five assessment components are presented to the client
+6. **First intervention boundary** — what happens after assessment; what THP will and will not implement in the first engagement cycle
 
-A value is a relatively stable assignment of importance to a quality, condition, relationship, responsibility, or way of participating.
+## Constraints
 
-Values help determine:
+- First engagement remains **diagnostic and directional**, not unlimited implementation
+- Readiness application must **not** require self-condemnation
+- Use **Levels 1–2 only** — Levels 3–7 remain unvalidated
+- Tipper readiness references **observable entity and community conditions**, not aspiration alone
+- Separate founder testimony, THP observation, interpretation, and hypothesis in all records
 
-* what an entity protects;
-* what it prioritizes;
-* what it is prepared to sacrifice;
-* what it considers meaningful;
-* and which outcomes it refuses to pursue through certain methods.
+## Working references
 
-Values may be:
+- Frozen philosophy: [`docs/00-foundations/CANDIDATE-WORKING-PHILOSOPHY.md`](../docs/00-foundations/CANDIDATE-WORKING-PHILOSOPHY.md)
+- Intention dimensions: [`docs/03-methods/entity-assessment/ENTITY-INTENTION-DIMENSIONS.md`](../docs/03-methods/entity-assessment/ENTITY-INTENTION-DIMENSIONS.md)
+- Values loop: [`docs/03-methods/entity-assessment/ENTITY-VALUES-PRINCIPLES-LOOP.md`](../docs/03-methods/entity-assessment/ENTITY-VALUES-PRINCIPLES-LOOP.md)
+- Engagement boundaries: [`docs/03-methods/entity-assessment/ENTITY-ENGAGEMENT-BOUNDARIES.md`](../docs/03-methods/entity-assessment/ENTITY-ENGAGEMENT-BOUNDARIES.md)
+- Consulting gates: [`intelligence/layer-07-consulting-methodology.md`](../intelligence/layer-07-consulting-methodology.md)
 
-* inherited;
-* discovered;
-* consciously selected;
-* adopted from respected people or communities;
-* developed through experience;
-* or revealed through recurring decisions.
+## Output target
 
-A value can be deeply held without being permanently immune to revision.
-
-A person may also act against a value without immediately ceasing to hold it. The contradiction instead becomes a subject for investigation.
-
-## 4. Traits and Styles
-
-A trait is a recurring characteristic visible in behavior, communication, or participation.
-
-A style is a recognizable manner through which behavior or expression is presented.
-
-Traits and styles are distinct from values.
-
-Honesty and sovereignty may function as values because they describe commitments regarding truthfulness and self-direction.
-
-Bluntness, seriousness, and familiarity more commonly describe styles or relational qualities.
-
-Creativity may function as:
-
-* a value;
-* a capability;
-* a trait;
-* or a preferred method,
-
-depending on how the entity defines and enacts it.
-
-THP should not classify a word as a value merely because it appears in branding language.
-
-## 5. Principles
-
-A principle is a rule, criterion, or method used to translate one or more values into conduct.
-
-A principle governs how an entity approaches recurring decisions or situations.
-
-A principle is valid enough to guide action when it is:
-
-* meaningfully connected to an identified value;
-* understandable;
-* actionable;
-* appropriate to its stated context;
-* responsive to responsibilities and foreseeable consequences;
-* and open to review.
-
-A principle may remain valid in one context and fail in another.
-
-Principles should be revised when:
-
-* they repeatedly fail to express the value they were designed to serve;
-* they create consequences incompatible with other responsibilities;
-* their assumptions are contradicted;
-* their scope proves inaccurate;
-* available knowledge changes;
-* or a better method becomes available.
-
-Frequent revision does not automatically prove that the original principle was dishonest. It may show that the entity is learning.
-
-## 6. Measurement and Valuation
-
-Measuring something means observing it according to defined criteria and tracking its condition, change, relationship, or consequence.
-
-Valuing something means assigning importance to it.
-
-Acting according to a value means allowing that value to materially influence:
-
-* decisions;
-* trade-offs;
-* resource allocation;
-* behavior;
-* and the limits placed on acceptable methods.
-
-Measurement may demonstrate attention.
-
-It does not by itself demonstrate that the measured subject is respected, protected, or prioritized.
-
-## 7. Values in Action
-
-Values become institutionally meaningful through their relationship with:
-
-* principles;
-* decisions;
-* repeated actions;
-* resource allocation;
-* governance;
-* and accepted consequences.
-
-Repeated action is stronger evidence than a stated value, but it is not automatically proof of the entity’s deepest commitment.
-
-Repeated action may also result from:
-
-* habit;
-* limited information;
-* constraints;
-* inadequate capability;
-* coercion;
-* misaligned incentives;
-* or a lack of known alternatives.
-
-When stated values and repeated actions conflict, THP should record a contradiction requiring investigation.
-
-It should not immediately conclude either that the stated value is false or that the repeated action reveals the entity’s permanent true value.
-
-## 8. Value Conflict
-
-Two legitimate values may conflict in ways that cannot be perfectly harmonized.
-
-A person or entity may have to accept that protecting one commitment creates a cost for another.
-
-When deciding which value should take priority, the responsible decision-maker should consider:
-
-* foreseeable consequences;
-* existing responsibilities;
-* rights and safety of affected parties;
-* long-term direction;
-* reversibility;
-* severity of sacrifice;
-* available alternatives;
-* and the scope of authority possessed by the decision-maker.
-
-Context informs the trade-off but does not make the decision.
-
-The individual or authorized entity remains responsible for selecting and defending the priority.
-
-## 9. Harmony
-
-Harmony does not mean that tension, sacrifice, contradiction, or discomfort has disappeared.
-
-Within THP, harmony refers to sufficient coherence among:
-
-* values;
-* principles;
-* stated intentions;
-* decisions;
-* actions;
-* responsibilities;
-* and consequences.
-
-A harmonious structure may still contain unresolved tension.
-
-The difference is that the tension is visible, examined, and consciously governed rather than hidden or denied.
-
-## 10. Will
-
-Will is the capacity through which a person initiates or sustains conduct toward a selected possibility.
-
-Will may remain present while the person experiences:
-
-* fear;
-* doubt;
-* discomfort;
-* friction;
-* fatigue;
-* or competing pressures.
-
-Fear may redirect will toward protection or escape.
-
-Doubt may redirect it toward reconsideration.
-
-Will therefore does not guarantee persistence toward the original direction. It describes the capacity involved in translating a possibility into continued engagement, refusal, revision, or action.
-
-## 11. Resolve and Stubbornness
-
-Resolve is a sustained commitment that remains capable of examining evidence, consequences, emotions, and alternative methods.
-
-A resolved person may revise the path while maintaining commitment to the underlying purpose.
-
-Stubbornness is attachment to a position or method that resists relevant evidence, consequences, or reasonable reconsideration.
-
-The distinction is not the intensity of commitment.
-
-It is responsiveness.
-
-Resolve can explain itself, receive contradiction, revise its method, and remain responsible for consequences.
-
-Stubbornness protects the existing position from examination.
-
-## 12. Institutional Values
-
-An entity’s values do not exist independently of all people.
-
-They may nevertheless persist beyond their founders and current leaders when they are institutionalized through:
-
-* governance;
-* policies;
-* principles;
-* decision criteria;
-* hiring;
-* training;
-* incentives;
-* accountability;
-* rituals;
-* mission;
-* institutional memory;
-* and repeated conduct.
-
-A value is meaningfully institutionalized when people inside and outside the entity can consistently observe how it shapes decisions, relationships, and outcomes.
-
-Recognition by the public is evidence of expression, but institutionalization also requires internal structures capable of preserving the commitment when leadership changes.
-
-## 13. THP’s Role
-
-THP helps a person or entity examine:
-
-* which values are stated;
-* which values appear to govern decisions;
-* which principles translate those values;
-* where behavior contradicts declarations;
-* which constraints influence conduct;
-* and which consequences result.
-
-THP may challenge a value when it is materially relevant to:
-
-* the engagement;
-* the desired outcome;
-* an observed contradiction;
-* a responsibility;
-* the rights or safety of affected parties;
-* or THP’s own participation boundaries.
-
-THP may question:
-
-* whether the value is clearly defined;
-* whether the chosen principles actually express it;
-* whether it conflicts with another commitment;
-* whether its consequences are understood;
-* and whether the entity remains willing to accept those consequences.
-
-The authority to retain, revise, reprioritize, or reject a personal value remains with the individual.
-
-For organizations, that authority remains with the stakeholders legitimately authorized to govern the entity.
-
-## 14. Legitimate Authority in an Engagement
-
-THP’s authority within an engagement depends on:
-
-* explicit invitation;
-* informed consent;
-* a defined scope;
-* relevant competence;
-* transparency regarding the process;
-* and the continuing right of the participant to reject, limit, or withdraw.
-
-Access to private information does not independently create authority.
-
-The ability to produce a desired result does not independently create authority.
-
-Both remain subordinate to consent, scope, responsibility, and legitimate governance.
-
-## 15. Rights, Safety, and Sovereignty
-
-When a value appears to conflict with another person’s rights, safety, or sovereignty, THP should investigate:
-
-* how the value is defined;
-* whether it was consciously chosen or passively inherited;
-* which principle translated it into action;
-* who possessed decision authority;
-* which alternatives were considered;
-* what harms were foreseeable;
-* whether affected parties could refuse;
-* and whether the same value could be expressed through a different method.
-
-The harmful result may originate in:
-
-* the value;
-* its interpretation;
-* the chosen principle;
-* the action;
-* the institutional structure;
-* or the absence of adequate constraints.
-
-THP should not declare an entire value structure wrong without completing this distinction.
-
-## 16. Refusal of Engagement
-
-THP may refuse to work with a person or entity without declaring that their entire value structure is invalid.
-
-Reasons may include:
-
-* unwillingness to examine assumptions;
-* refusal to participate honestly in the process;
-* insistence on a predetermined answer;
-* demand for symptom relief without examination of underlying patterns;
-* expectations outside THP’s competence or scope;
-* inability to establish informed consent;
-* foreseeable harm;
-* or fundamental incompatibility with THP’s own values and responsibilities.
-
-The right of an entity to select THP is matched by THP’s right and responsibility to select the engagements in which it participates.
-
-## 17. Operating Definitions
-
-A value determines what an entity considers important enough to prioritize, protect, pursue, or sacrifice for.
-
-A principle governs how that entity translates a value into recurring conduct.
-
-Will enables a person to initiate or sustain engagement with a selected possibility.
-
-Responsibility requires examining one’s participation in an outcome, accepting relevant consequences, and deciding what requires attention or revision.
-
-## 18. Values-to-Revision Loop
-
-THP will use the following candidate loop:
-
-```text
-Beliefs and experience
-↓
-Values
-↓
-Principles
-↓
-Conditions and trade-offs
-↓
-Choice and decision
-↓
-Action or non-action
-↓
-Consequences
-↓
-Responsibility and reflection
-↓
-Revision of belief, priority, principle, or action
-```
-
-The loop is not intended to prove that every action originates consciously from a value.
-
-It is an assessment structure for examining how declared commitments relate to actual conduct.
-
-## 19. Open Questions
-
-1. How should THP distinguish a deeply held value from a habit or inherited norm?
-2. Can an entity possess contradictory governing values without recognizing them?
-3. How much behavioral consistency is necessary before a value is considered institutionalized?
-4. How should unconscious influences be represented in value assessment?
-5. How should values be prioritized when every available decision causes meaningful harm?
-6. Can will be measured without reducing it to persistence or productivity?
-7. How should THP distinguish lack of will from lack of capability or opportunity?
-8. When does principled flexibility become opportunism?
-9. Who has authority to redefine an entity’s values after leadership changes?
-10. What values and participation boundaries must THP itself refuse to compromise?
+Update [`ENTITY-POSITION-AND-DIRECTION-ASSESSMENT.md`](../docs/03-methods/entity-assessment/ENTITY-POSITION-AND-DIRECTION-ASSESSMENT.md) and related method docs — candidate status, not Canon.

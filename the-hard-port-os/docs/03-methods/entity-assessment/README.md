@@ -35,3 +35,5 @@ Philosophical sources:
 - [Four Dimensions of Entity Intention](./ENTITY-INTENTION-DIMENSIONS.md) — `stated_intention`, `governing_intention`, `enacted_intention`, `perceived_intention`
 - [Entity Values, Principles, and Responsibility Loop](./ENTITY-VALUES-PRINCIPLES-LOOP.md) — values-to-revision loop and assessment fields
 - [Entity Assessment and Engagement Boundaries](./ENTITY-ENGAGEMENT-BOUNDARIES.md) — authority, refusal conditions, and rights review
+- [Entity Position and Direction Assessment](./ENTITY-POSITION-AND-DIRECTION-ASSESSMENT.md) — first paid engagement structure (candidate)
+- [THP Engagement Readiness Application](./THP-ENGAGEMENT-READINESS-APPLICATION.md) — application placeholder and non-condemnation boundaries

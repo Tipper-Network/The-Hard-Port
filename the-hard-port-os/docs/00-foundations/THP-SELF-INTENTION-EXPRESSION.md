@@ -5,7 +5,9 @@ document_type: philosophical_position
 status: candidate
 version: 0.1.0
 created: 2026-07-19
-updated: 2026-07-19
+updated: 2026-07-21
+philosophy_phase: frozen_working
+frozen: 2026-07-21
 authors:
   - The Hard Port
 owners:
@@ -18,6 +20,8 @@ source_records:
   - THP-PH-002B
   - THP-PH-002C
 related_documents:
+  - ./CANDIDATE-WORKING-PHILOSOPHY.md
+  - ./OPEN-PHILOSOPHICAL-QUESTIONS.md
   - ./THP-FOUNDATIONAL-PHILOSOPHY.md
   - ./THP-REALITY-INTERPRETATION-SHARED-WORLD.md
   - ./THP-EPISTEMOLOGY.md
@@ -29,7 +33,8 @@ superseded_by: []
 
 # The Self, Intention, and Expression
 
-> **Status:** `candidate`, `non_canonical`  
+> **Status:** `candidate`, `non_canonical`, **frozen working philosophy** (2026-07-21)  
+> **Open questions:** [`OPEN-PHILOSOPHICAL-QUESTIONS.md`](./OPEN-PHILOSOPHICAL-QUESTIONS.md)  
 > **Source:** Founder forms THP-PH-002, THP-PH-002B, and THP-PH-002C ([`../../philosophy/preliminary-questions/PH-002.md`](../../philosophy/preliminary-questions/PH-002.md)). Raw testimony does not govern institutional conclusions.
 
 ## 1. Purpose
@@ -438,16 +443,7 @@ Tipper method boundaries: [`../03-methods/tipper/README.md`](../03-methods/tippe
 
 ## 21. Open Questions
 
-1. What level of continuity is necessary for personal responsibility across major personal change?
-2. How should unconscious and habitual processes be represented in the model of the self?
-3. How should THP distinguish genuine intention from retrospective justification?
-4. Can an organization possess awareness, or only identity and agency?
-5. What evidence could support or falsify organizational consciousness?
-6. How should conflicting stakeholder intentions be reconciled within an entity?
-7. When may Tipper make preference inferences from participation?
-8. How should users inspect, correct, or delete identity-related interpretations?
-9. How should THP assess intention when a person's statements and repeated actions conflict?
-10. What ethical limits should apply to interventions involving personal identity?
+Unresolved questions moved to [`OPEN-PHILOSOPHICAL-QUESTIONS.md`](./OPEN-PHILOSOPHICAL-QUESTIONS.md) — including personal continuity, organizational consciousness, stakeholder intention conflict, and Tipper identity boundaries.
 
 ## Related Documents
 
@@ -456,6 +452,10 @@ Tipper method boundaries: [`../03-methods/tipper/README.md`](../03-methods/tippe
 - [`ENTITY-INTENTION-EXPRESSION-LOOP.md`](../03-methods/entity-assessment/ENTITY-INTENTION-EXPRESSION-LOOP.md) — operational assessment loop
 
 ## Revision History
+
+### 0.1.1 — 2026-07-21
+
+- Frozen as candidate working philosophy; open questions consolidated.
 
 ### 0.1.0 — 2026-07-19
 

@@ -20,6 +20,8 @@ related_documents:
   - ./THP-REALITY-INTERPRETATION-SHARED-WORLD.md
   - ./THP-SELF-INTENTION-EXPRESSION.md
   - ./THP-VALUES-PRINCIPLES-WILL.md
+  - ./CANDIDATE-WORKING-PHILOSOPHY.md
+  - ./OPEN-PHILOSOPHICAL-QUESTIONS.md
   - ./THP-SMB-RESEARCH-AND-ASSESSMENT-NOTES.md
   - ./THP-FOUNDING-QUESTIONS.md
   - ../../README.md
@@ -50,6 +52,12 @@ Philosophical and institutional assumptions that downstream THP documents inheri
 
 - [Values, Principles, Will, and Responsibility](./THP-VALUES-PRINCIPLES-WILL.md)  
   Candidate position on beliefs, values, principles, will, institutional values, authority, and refusal.
+
+- [Candidate Working Philosophy — Freeze Registry](./CANDIDATE-WORKING-PHILOSOPHY.md)  
+  THP-PH-001 through THP-PH-004 frozen as candidate working philosophy.
+
+- [Open Philosophical Questions](./OPEN-PHILOSOPHICAL-QUESTIONS.md)  
+  Consolidated unresolved questions across frozen candidate positions.
 
 - [THP SMB Research and Assessment Notes](./THP-SMB-RESEARCH-AND-ASSESSMENT-NOTES.md)  
   Operating cycle for SMB media, assessment, and consultation work.

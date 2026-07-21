@@ -37,6 +37,29 @@ Philosophical assumptions inherited by this work are defined in [`../docs/00-fou
 
 Everything produced through media, research, consulting, frameworks, or Tipper must contribute to that understanding or put supported understanding to work.
 
+## Primary Audience
+
+The first media and research audience is:
+
+> **Founder-led online microbusinesses** that have already attempted content, branding, promotion, or professional support but remain unable to convert their activity into coherent and repeatable business progress.
+
+### What this audience is
+
+- An **operating microbusiness** — not an untested idea or purely aspirational venture
+- Founder-led, with internet-dependent acquisition, communication, or presence
+- Already producing activity (content, promotion, paid support) without coherent progress
+- Typically at **Level 1** attempting transition toward **Level 2** ([`ENTITY-MATURITY-MODEL.md`](../docs/02-ontology/entity-maturity/ENTITY-MATURITY-MODEL.md))
+
+### What this audience is not
+
+- Defined primarily by social-media metrics, follower count, or posting volume
+- Required to self-condemn or perform incompetence to engage with THP
+- Promised unlimited implementation or transformation through media alone
+
+Full onboarder definition: [`THP-SMB-001-FIRST-ONBOARDER.md`](../docs/04-market/first-onboarder/THP-SMB-001-FIRST-ONBOARDER.md).
+
+Social-media activity is part of the entity's **operating environment** — one signal within a broader system, not the central definition of business health.
+
 ## Mission
 
 Develop a body of knowledge about small businesses through observation, conversation, experimentation, and systems thinking.
@@ -560,6 +583,10 @@ It is a compounding body of knowledge that becomes harder to fool and easier to 
 - What cadence keeps research capture from becoming content administration?
 
 ## Version History
+
+### 0.1.1 — 2026-07-21
+
+- Added primary audience definition for first onboarder path.
 
 ### 0.1.0 — 2026-07-18
 

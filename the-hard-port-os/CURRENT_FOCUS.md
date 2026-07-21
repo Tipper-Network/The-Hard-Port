@@ -1,30 +1,30 @@
 # Current Focus
 
-Updated: 2026-07-18
+Updated: 2026-07-21
 
 ## Milestone
 
-Finish remaining canonicity blockers for Volume I Chapter 02 after Category A decisions (DEC-001–003).
+Design the **Entity Position and Direction Assessment** — inputs, interview structure, independent observations, Level 1–2 criteria, deliverable, and first intervention boundary.
+
+First onboarder definition complete: [`docs/04-market/first-onboarder/THP-SMB-001-FIRST-ONBOARDER.md`](./docs/04-market/first-onboarder/THP-SMB-001-FIRST-ONBOARDER.md).
 
 ## Why This Matters
 
-Category A architecture conflicts are decided. Remaining gaps are operational: findings storage, named Canon owners, Layer 07 mapping, and retrospective review of early `canonical` marks.
+Candidate working philosophy (THP-PH-001 through THP-PH-004) is frozen. Operating the first onboarder path produces evidence that sharpens methods and maturity criteria.
 
 ## In Scope
 
-- Decide `FINDING-*` storage location
-- Name human owners for Canon acceptance
-- Map Layer 07 consulting stages onto knowledge stages without collapsing the people journey
-- Identify early `canonicality: canonical` docs needing retrospective DEC reaffirmation
-- Keep Chapter 02 at `candidate` until canonicity review
+- Entity Position and Direction Assessment design (inputs, interview, observations, criteria, deliverable, intervention boundary)
+- Level 1–2 assessment criteria aligned with [`ENTITY-MATURITY-MODEL.md`](./docs/02-ontology/entity-maturity/ENTITY-MATURITY-MODEL.md)
+- Engagement readiness application design (without self-condemnation requirements)
 
 ## Out of Scope
 
-- Writing other Canon chapters
-- Promoting Chapter 02 to canonical without human Decision owner acceptance
-- Reopening DEC-001–003 without a superseding Decision
-- Client-facing material from unfinished Canon claims
+- New philosophy forms in `active/CURRENT_TASK.md`
+- Activating unvalidated maturity Levels 3–7
+- Tipper product build before assessment evidence gates are defined
+- Treating social-media metrics as primary business health definition
 
 ## Success Condition
 
-Chapter 02 meets its remaining validation criteria (challenge test, named owners, findings home) and is ready for an explicit canonicity Decision.
+The Entity Position and Direction Assessment has enough operational detail to run a first paid engagement with clear boundaries — diagnostic and directional, not unlimited implementation.

@@ -6,6 +6,8 @@ status: candidate
 version: 0.1.0
 created: 2026-07-21
 updated: 2026-07-21
+philosophy_phase: frozen_working
+frozen: 2026-07-21
 authors:
   - The Hard Port
 owners:
@@ -17,6 +19,8 @@ source_records:
   - THP-PH-003
   - THP-PH-003B
 related_documents:
+  - ./CANDIDATE-WORKING-PHILOSOPHY.md
+  - ./OPEN-PHILOSOPHICAL-QUESTIONS.md
   - ./THP-FOUNDATIONAL-PHILOSOPHY.md
   - ./THP-SELF-INTENTION-EXPRESSION.md
   - ./THP-REALITY-INTERPRETATION-SHARED-WORLD.md
@@ -30,8 +34,9 @@ superseded_by: []
 
 # Values, Principles, Will, and Responsibility
 
-> **Status:** `candidate`, `non_canonical`  
-> **Nature:** Foundational philosophical position — not empirical findings, not Canon doctrine.
+> **Status:** `candidate`, `non_canonical`, **frozen working philosophy** (2026-07-21)  
+> **Nature:** Foundational philosophical position — not empirical findings, not Canon doctrine.  
+> **Open questions:** [`OPEN-PHILOSOPHICAL-QUESTIONS.md`](./OPEN-PHILOSOPHICAL-QUESTIONS.md)
 
 ## 1. Purpose
 
@@ -424,18 +429,13 @@ Operational method: [`ENTITY-VALUES-PRINCIPLES-LOOP.md`](../03-methods/entity-as
 
 ## 19. Open Questions
 
-1. How should THP distinguish a deeply held value from a habit or inherited norm?
-2. Can an entity possess contradictory governing values without recognizing them?
-3. How much behavioral consistency is necessary before a value is considered institutionalized?
-4. How should unconscious influences be represented in value assessment?
-5. How should values be prioritized when every available decision causes meaningful harm?
-6. Can will be measured without reducing it to persistence or productivity?
-7. How should THP distinguish lack of will from lack of capability or opportunity?
-8. When does principled flexibility become opportunism?
-9. Who has authority to redefine an entity's values after leadership changes?
-10. What values and participation boundaries must THP itself refuse to compromise?
+Unresolved questions moved to [`OPEN-PHILOSOPHICAL-QUESTIONS.md`](./OPEN-PHILOSOPHICAL-QUESTIONS.md) — including moral responsibility under constraint, will measurement, unconscious influence, value institutionalization, and THP participation boundaries.
 
 ## Revision History
+
+### 0.1.1 — 2026-07-21
+
+- Frozen as candidate working philosophy; open questions consolidated.
 
 ### 0.1.0 — 2026-07-21
 
