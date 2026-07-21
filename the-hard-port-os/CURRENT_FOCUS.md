@@ -4,9 +4,11 @@ Updated: 2026-07-21
 
 ## Milestone
 
-Design the **Entity Position and Direction Assessment** — inputs, interview structure, independent observations, Level 1–2 criteria, deliverable, and first intervention boundary.
+Define **Level 2 — Stable and Preparing for Growth** in the SMB maturity model, then design YouTube series architecture.
 
-First onboarder definition complete: [`docs/04-market/first-onboarder/THP-SMB-001-FIRST-ONBOARDER.md`](./docs/04-market/first-onboarder/THP-SMB-001-FIRST-ONBOARDER.md).
+Level 1 complete: [`knowledge/smb-maturity/levels/THP-SMB-LEVEL-01-established-but-surviving.md`](./knowledge/smb-maturity/levels/THP-SMB-LEVEL-01-established-but-surviving.md).
+
+Maturity model: [`knowledge/smb-maturity/THP-SMB-LEVELS-001-maturity-model.md`](./knowledge/smb-maturity/THP-SMB-LEVELS-001-maturity-model.md) — **not canonical** until founder confirms classification rules and all seven gates.
 
 ## Why This Matters
 

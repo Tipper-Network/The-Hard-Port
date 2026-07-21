@@ -2,7 +2,11 @@
 
 Entity-level maturity definitions for founder-led microbusinesses.
 
-- [Entity Maturity Model](./ENTITY-MATURITY-MODEL.md) — Levels 1–2 active; Levels 3–7 unvalidated
+**Authoritative SMB model:** [`knowledge/smb-maturity/THP-SMB-LEVELS-001-maturity-model.md`](../../knowledge/smb-maturity/THP-SMB-LEVELS-001-maturity-model.md)
+
+- [Level 1 — Established but Surviving](../../knowledge/smb-maturity/levels/THP-SMB-LEVEL-01-established-but-surviving.md)
+
+Prior candidate sketch (superseded): [Entity Maturity Model](./ENTITY-MATURITY-MODEL.md)
 
 Domain-based maturity (separate model): [`../../../intelligence/layer-03-business-maturity-model.md`](../../../intelligence/layer-03-business-maturity-model.md)
 
