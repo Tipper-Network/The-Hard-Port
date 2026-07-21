@@ -59,6 +59,20 @@ If `CURRENT_TASK.md` conflicts with a later user message in the same turn, the l
 | Reviewed authoritative synthesis | `canon/` |
 | Superseded / session provenance | `archive/` |
 | Finished session task brief | `archive/session-XX/` |
+| Founder SMB maturity source edits | `READ_FROM.md` (sync to `knowledge/smb-maturity/`) |
+
+## Procedure for READ_FROM sync (SMB maturity)
+
+When `READ_FROM.md` changes or SMB maturity institutional docs are edited:
+
+1. Read [`READ_FROM.md`](../../the-hard-port-os/READ_FROM.md) first — it is the founder source of truth.
+2. Propagate changes to derived copies:
+   - `knowledge/smb-maturity/THP-SMB-LEVELS-001-maturity-model.md`
+   - `knowledge/smb-maturity/levels/THP-SMB-LEVEL-0X-*.md`
+   - Linked records (`THP-SMB-001`, `THP-SMB-002`, assessment methods) when affected.
+3. Update the sync registry table in `READ_FROM.md` with section names and `Last synced` dates.
+4. Do not treat institutional copies as authoritative over `READ_FROM.md` when they conflict.
+5. Do not mark the model canonical until founder confirms all seven gates.
 
 ## Procedure for Canon chapter work
 

@@ -13,7 +13,7 @@ related_model: THP-SMB-LEVELS-001
 
 > **Not canonical.** Founder input only until Level 1 conditions, Level 2 conditions, transition mechanism, and proof criteria are reviewed and synthesized.  
 > **Depends on:** [`THP-SMB-001`](../../docs/04-market/first-onboarder/THP-SMB-001-FIRST-ONBOARDER.md)  
-> **Maturity model:** [`THP-SMB-LEVELS-001`](../../knowledge/smb-maturity/THP-SMB-LEVELS-001-maturity-model.md) · [`Level 1 detail`](../../knowledge/smb-maturity/levels/THP-SMB-LEVEL-01-established-but-surviving.md)
+> **Maturity model:** [`THP-SMB-LEVELS-001`](../../knowledge/smb-maturity/THP-SMB-LEVELS-001-maturity-model.md) · [`Level 1 detail`](../../knowledge/smb-maturity/levels/THP-SMB-LEVEL-01-established-but-surviving.md) · [`Level 2 destination`](../../knowledge/smb-maturity/levels/THP-SMB-LEVEL-02-stable-preparing-for-growth.md)
 
 # Purpose
 
@@ -76,6 +76,8 @@ Define the observable, emotional, commercial, community, and operational transit
 <!-- Founder input -->
 
 # 3. Level 2 Observable Conditions
+
+Level 2 destination definition: [`THP-SMB-LEVEL-02-stable-preparing-for-growth.md`](../../knowledge/smb-maturity/levels/THP-SMB-LEVEL-02-stable-preparing-for-growth.md#observable-level-2-conditions)
 
 ## Customer understanding
 

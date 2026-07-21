@@ -57,6 +57,7 @@ Do not expand this file with temporary task instructions.
 ## Required Reads by Work Type
 
 - Any OS work: this file, `CURRENT_FOCUS.md`, `active/CURRENT_TASK.md`, `.cursor/skills/hard-port-os-work/SKILL.md`, `.cursor/rules/05-hard-port-os.mdc`
+- SMB maturity model edits: [`READ_FROM.md`](./READ_FROM.md) **before** institutional copies under `knowledge/smb-maturity/`
 - Lifecycle / promotion / canonicity: `KNOWLEDGE_ARCHITECTURE.md`
 - Canon synthesis: `canon/README.md`, `templates/CANON_CHAPTER_TEMPLATE.md`, `templates/DOCUMENT_METADATA_STANDARD.md`
 - Source placement: `archive/session-01/CANON_SOURCE_MAPPING.md` before moving or promoting material

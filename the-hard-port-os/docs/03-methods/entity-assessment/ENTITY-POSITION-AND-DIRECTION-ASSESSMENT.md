@@ -18,7 +18,9 @@ philosophical_sources:
   - THP-PH-003
 related_documents:
   - ../../04-market/first-onboarder/THP-SMB-001-FIRST-ONBOARDER.md
-  - ../../02-ontology/entity-maturity/ENTITY-MATURITY-MODEL.md
+  - ../../../knowledge/smb-maturity/THP-SMB-LEVELS-001-maturity-model.md
+  - ../../../knowledge/smb-maturity/levels/THP-SMB-LEVEL-01-established-but-surviving.md
+  - ../../../knowledge/smb-maturity/levels/THP-SMB-LEVEL-02-stable-preparing-for-growth.md
   - ./ENTITY-INTENTION-DIMENSIONS.md
   - ./ENTITY-VALUES-PRINCIPLES-LOOP.md
   - ./ENTITY-ENGAGEMENT-BOUNDARIES.md
@@ -48,7 +50,7 @@ The assessment produces five deliverable components. Question sets, scoring, and
 |---|---|
 | Founder's role in the entity | Founder interview, observation |
 | Entity operating condition | Observation, records, platform activity |
-| Maturity level (Level 1 or 2 only) | [`ENTITY-MATURITY-MODEL.md`](../../02-ontology/entity-maturity/ENTITY-MATURITY-MODEL.md) |
+| Maturity level (Level 1 or 2 only) | [`THP-SMB-LEVELS-001`](../../../knowledge/smb-maturity/THP-SMB-LEVELS-001-maturity-model.md) |
 | Current offering | Founder testimony, offering artifacts |
 | Customer or community relationship | Observation, founder testimony, customer signals |
 | Decision patterns | Interview, action history |

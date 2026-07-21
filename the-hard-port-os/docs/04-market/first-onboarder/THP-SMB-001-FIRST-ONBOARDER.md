@@ -24,6 +24,7 @@ related_documents:
   - ./README.md
   - ../../../knowledge/smb-maturity/THP-SMB-LEVELS-001-maturity-model.md
   - ../../../knowledge/smb-maturity/levels/THP-SMB-LEVEL-01-established-but-surviving.md
+  - ../../../knowledge/smb-maturity/levels/THP-SMB-LEVEL-02-stable-preparing-for-growth.md
   - ../../../active/forms/THP-SMB-002-level-1-to-level-2-transition.md
   - ../../02-ontology/entity-maturity/ENTITY-MATURITY-MODEL.md
   - ../../03-methods/entity-assessment/ENTITY-POSITION-AND-DIRECTION-ASSESSMENT.md
@@ -50,7 +51,11 @@ It is **not merely an idea**.
 
 The founder remains central to most decisions, communication, production, and problem-solving.
 
-The entity is still operating in survival mode and is attempting to move toward repeatable operational stability.
+The entity is still operating in survival mode and is attempting to move toward Level 2 stability.
+
+The first THP onboarder is expected to enter at **Level 1** and undergo an intervention intended to establish the **Level 2 operating foundation**.
+
+THP does not initially promise growth. It promises to help the business build the clarity, evidence, relationships, and operating stability required to attempt growth responsibly.
 
 **Distinction:** The target is an operating microbusiness with market interaction — not an untested concept, side project without customers, or purely aspirational venture.
 
@@ -68,11 +73,11 @@ Full definition: [`THP-SMB-LEVEL-01`](../../../knowledge/smb-maturity/levels/THP
 
 **ID:** `level_02_stable_preparing_for_growth`
 
-**Status:** Definition in progress — see [`active/CURRENT_TASK.md`](../../../active/CURRENT_TASK.md).
+The business has established a viable operating foundation — clear offer, core customers, repeatable delivery, financial visibility, and an early evidence system. Not necessarily profitable, founder-independent, or ready to scale.
 
-Full definitions: [`THP-SMB-LEVELS-001`](../../../knowledge/smb-maturity/THP-SMB-LEVELS-001-maturity-model.md).
+Full definition: [`THP-SMB-LEVEL-02`](../../../knowledge/smb-maturity/levels/THP-SMB-LEVEL-02-stable-preparing-for-growth.md)
 
-**Next:** Transition detail — [`THP-SMB-002`](../../../active/forms/THP-SMB-002-level-1-to-level-2-transition.md). Not canonical until reviewed and synthesized.
+**Transition form:** [`THP-SMB-002`](../../../active/forms/THP-SMB-002-level-1-to-level-2-transition.md) — not canonical until reviewed and synthesized.
 
 ## 3. What the Founder Has Already Tried
 

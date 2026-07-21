@@ -13,8 +13,11 @@ owners:
 confidence: developing
 evidence_level: founder_hypothesis
 canonicality: non_canonical
+source_document: ../../READ_FROM.md
 related_documents:
+  - ../../READ_FROM.md
   - ./levels/THP-SMB-LEVEL-01-established-but-surviving.md
+  - ./levels/THP-SMB-LEVEL-02-stable-preparing-for-growth.md
   - ../../docs/04-market/first-onboarder/THP-SMB-001-FIRST-ONBOARDER.md
   - ../../active/forms/THP-SMB-002-level-1-to-level-2-transition.md
   - ../../docs/02-ontology/entity-maturity/ENTITY-MATURITY-MODEL.md
@@ -25,6 +28,7 @@ superseded_by: []
 # SMB Maturity Model
 
 > **Status:** `candidate`, `non_canonical` — **not Canon** until the founder confirms classification rules and all seven level gates have been reviewed.  
+> **Source of truth:** [`READ_FROM.md`](../../READ_FROM.md) — founder edits there first; this file is the derived institutional copy.  
 > **First onboarder:** [`THP-SMB-001`](../../docs/04-market/first-onboarder/THP-SMB-001-FIRST-ONBOARDER.md)  
 > **Transition form:** [`THP-SMB-002`](../../active/forms/THP-SMB-002-level-1-to-level-2-transition.md)
 
@@ -109,8 +113,8 @@ Every business is assessed across the same eight dimensions at every level. What
 | Level | Name | Gate status |
 |---|---|---|
 | **1** | Established but Surviving | **Defined** — see below and [`THP-SMB-LEVEL-01`](./levels/THP-SMB-LEVEL-01-established-but-surviving.md) |
-| **2** | Stable and Preparing for Growth | **In progress** — next definition task |
-| **3** | Growth Attempt | Pending founder review |
+| **2** | Stable and Preparing for Growth | **Defined** — see below and [`THP-SMB-LEVEL-02`](./levels/THP-SMB-LEVEL-02-stable-preparing-for-growth.md) |
+| **3** | Attempting Growth but Not Fully Stable | **Next task** — see [`active/CURRENT_TASK.md`](../../active/CURRENT_TASK.md) |
 | **4** | Named Growth | Pending founder review |
 | **5** | Stable Growth | Pending founder review |
 | **6** | Scale Preparation | Pending founder review |
@@ -119,6 +123,14 @@ Every business is assessed across the same eight dimensions at every level. What
 Levels 3–7 retain provisional labels only. Gates must be defined using the eight dimensions without conflating community, brand, growth, and scaling into a single score.
 
 **First onboarder transition:** Level 1 → Level 2.
+
+## Progression distinction
+
+Level 1 proves that the business **exists**.
+
+Level 2 proves that the business has established a **viable operating foundation**.
+
+Level 3 begins when the business deliberately tests how that foundation can produce more demand, customers, participation, revenue, or market reach.
 
 ## Level 1 — Established but Surviving
 
@@ -161,9 +173,33 @@ Full exit criteria, observable conditions, founder experience, primary risk, and
 
 **ID:** `level_02_stable_preparing_for_growth`
 
-**Status:** Not yet defined. See [`active/CURRENT_TASK.md`](../../active/CURRENT_TASK.md).
+### Formal definition
 
-This level will establish the exact destination of THP's first service intervention and the evidence required to prove an onboarded business has moved beyond survival.
+A Level 2 business has moved beyond immediate survival by establishing a sufficiently clear offer, identifiable core customers, repeatable delivery, financial visibility, and an early evidence system.
+
+It is stable enough to protect what works, study what remains uncertain, and prepare deliberate growth experiments without placing the entire business at risk.
+
+It is **not** necessarily highly profitable, independent of its founder, or ready to scale.
+
+### Central question
+
+> Does the business understand what must remain stable before it attempts to grow?
+
+### Entry gate (summary)
+
+Enters Level 2 only after completing the [Level 1 exit gate](./levels/THP-SMB-LEVEL-01-established-but-surviving.md#exit-gate-level-1--level-2): demand clarity, customer clarity, retention/community evidence, financial visibility, operational consistency, reduced founder reactivity, evidence and learning, identity clarity.
+
+### Exit gate (summary)
+
+Exits Level 2 when **actively conducting deliberate growth experiments** on a protected foundation: defined growth objective and constraint, protected viable core, baseline evidence, experiment design, operational readiness, financial risk boundary, learning commitment.
+
+**Planning an experiment remains Level 2.** Level 3 begins when experimentation actually starts.
+
+### Primary risk
+
+**Premature growth** — interpreting early stability as proof of readiness for aggressive expansion before the foundation is protected and baselined.
+
+Full definition: [`THP-SMB-LEVEL-02-stable-preparing-for-growth.md`](./levels/THP-SMB-LEVEL-02-stable-preparing-for-growth.md).
 
 ## Levels 3–7
 
@@ -179,11 +215,25 @@ Working defaults — **require founder confirmation** before this model becomes 
 4. **Community threshold:** Community begins with **identifiable repeat relationships**, not a large audience.
 5. **Founder dependency at Level 2:** Founder dependency may still exist at Level 2, but the business must have begun **externalizing knowledge and routines**.
 6. **Spike exclusion:** A temporary spike **cannot** be used as evidence of progression.
-7. **Stability period:** Stability must persist across a meaningful operating period — provisionally **three months** or **three complete business cycles**.
+7. **Stability period:** Stability must persist across a meaningful operating period — see **Stability-Proof Rule** below.
 
 **Open decision (founder):** Should stability be proven through a fixed period (e.g. three months) or through a number of completed business cycles that varies by business?
 
 **THP recommendation:** Business cycles, with three months as a practical minimum when the business has frequent transactions.
+
+**Status:** `recommended_resolution` — not `resolved` until founder explicitly confirms.
+
+### Stability-Proof Rule
+
+Recommended working rule:
+
+Stability must be demonstrated across at least three complete business cycles and, for frequent-transaction businesses, across a minimum period of approximately ninety days.
+
+Status: founder confirmation pending.
+
+Full rule and cycle definition: [`THP-SMB-LEVEL-02`](./levels/THP-SMB-LEVEL-02-stable-preparing-for-growth.md#stability-proof-rule).
+
+Additional Level 2 validation decisions (financial bar, community threshold, Level 3 entry, regression): [`THP-SMB-LEVEL-02` § Founder validation decisions](./levels/THP-SMB-LEVEL-02-stable-preparing-for-growth.md#founder-validation-decisions).
 
 ## Related documents
 
@@ -192,6 +242,14 @@ Working defaults — **require founder confirmation** before this model becomes 
 - [`ENTITY-MATURITY-MODEL.md`](../../docs/02-ontology/entity-maturity/ENTITY-MATURITY-MODEL.md) — prior candidate sketch; superseded for SMB classification by this model
 
 ## Revision History
+
+### 0.1.2 — 2026-07-21
+
+- Registered [`READ_FROM.md`](../../READ_FROM.md) as founder source of truth; institutional copies cite `source_document`.
+
+### 0.1.1 — 2026-07-21
+
+- Completed Level 2 definition; added progression distinction and stability-proof rule (recommended_resolution pending).
 
 ### 0.1.0 — 2026-07-21
 

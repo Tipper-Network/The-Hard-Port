@@ -6,8 +6,8 @@ Entity-level maturity definitions for founder-led microbusinesses.
 
 - [Level 1 — Established but Surviving](../../knowledge/smb-maturity/levels/THP-SMB-LEVEL-01-established-but-surviving.md)
 
-Prior candidate sketch (superseded): [Entity Maturity Model](./ENTITY-MATURITY-MODEL.md)
+- [Level 2 — Stable and Preparing for Growth](../../knowledge/smb-maturity/levels/THP-SMB-LEVEL-02-stable-preparing-for-growth.md)
 
-Domain-based maturity (separate model): [`../../../intelligence/layer-03-business-maturity-model.md`](../../../intelligence/layer-03-business-maturity-model.md)
+Prior candidate sketch (superseded): [Entity Maturity Model](./ENTITY-MATURITY-MODEL.md) (separate model): [`../../../intelligence/layer-03-business-maturity-model.md`](../../../intelligence/layer-03-business-maturity-model.md)
 
 First onboarder: [`../../04-market/first-onboarder/THP-SMB-001-FIRST-ONBOARDER.md`](../../04-market/first-onboarder/THP-SMB-001-FIRST-ONBOARDER.md)

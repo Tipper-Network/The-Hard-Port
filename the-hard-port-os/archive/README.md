@@ -23,6 +23,8 @@ Archive records remain. They may be referenced for provenance but do not regain 
 ## Sessions
 
 - [`session-01/`](./session-01/) — raw source, migration map, and Canon source mapping from The Hard Port OS Session 01.
+- [`session-02/`](./session-02/) — knowledge architecture and owner transformation psychology task briefs.
+- [`session-03/`](./session-03/) — SMB maturity work; founder source is [`READ_FROM.md`](../READ_FROM.md).
 
 ## Related Folders
 
