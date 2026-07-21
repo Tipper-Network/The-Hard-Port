@@ -448,6 +448,16 @@ Tipper must not:
 - Reuse client-confidential data as an identifiable example.
 - Automate consequential people decisions from weak proxies.
 - Continue recommending a pattern after its eligibility or expiry conditions fail.
+- Infer personal values, intentions, or identity characteristics without informed permission.
+- Declare a user's "true" identity, direction, or psychological profile from behavior alone.
+- Conduct undisclosed psychological profiling or maintain hidden identity models.
+- Apply irreversible inferred identity labels without user visibility and correction.
+
+## Identity and Voluntary Exploration Boundary
+
+Tipper may support voluntary identity and lifestyle exploration, but it must not claim authority over a user's identity or secretly infer personal values and intentions without informed permission.
+
+Method definitions: [`docs/03-methods/tipper/`](../docs/03-methods/tipper/). Philosophical source: [`THP-SELF-INTENTION-EXPRESSION.md`](../docs/00-foundations/THP-SELF-INTENTION-EXPRESSION.md) (`THP-PH-002`).
 
 ## Learning Return Path
 
@@ -487,6 +497,11 @@ No capability is complete unless it returns outcome evidence to the system that 
 - Which candidate capability should be tested first through human consulting?
 
 ## Revision Log
+
+### 0.2.1 — 2026-07-19
+
+- Added identity and voluntary exploration boundary; expanded prohibited automation for hidden inference, true-identity declaration, undisclosed profiling, and irreversible inferred labels.
+- Linked Tipper method definitions and `THP-PH-002`.
 
 ### 0.2.0 — 2026-07-18
 

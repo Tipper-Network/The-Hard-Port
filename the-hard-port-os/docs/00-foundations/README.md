@@ -16,6 +16,12 @@ canonicality: non-canonical
 related_documents:
   - ./THP-FOUNDATIONAL-PHILOSOPHY.md
   - ./THP-INSTITUTIONAL-PURPOSE-AND-BOUNDARIES.md
+  - ./THP-EPISTEMOLOGY.md
+  - ./THP-REALITY-INTERPRETATION-SHARED-WORLD.md
+  - ./THP-SELF-INTENTION-EXPRESSION.md
+  - ./THP-VALUES-PRINCIPLES-WILL.md
+  - ./THP-SMB-RESEARCH-AND-ASSESSMENT-NOTES.md
+  - ./THP-FOUNDING-QUESTIONS.md
   - ../../README.md
 supersedes: []
 superseded_by: []
@@ -33,6 +39,23 @@ Philosophical and institutional assumptions that downstream THP documents inheri
 - [THP Institutional Purpose and Boundaries](./THP-INSTITUTIONAL-PURPOSE-AND-BOUNDARIES.md)  
   Defines what THP is as an institution, what it produces, what it must not become, and where philosophy ends and institutional action begins.
 
-## Planned
+- [THP Epistemology](./THP-EPISTEMOLOGY.md)  
+  Defines how THP understands knowledge — models, confidence, scope, revisability, and institutional skepticism.
 
-- Epistemology — how THP knows what it claims to know
+- [Reality, Interpretation, and the Shared World](./THP-REALITY-INTERPRETATION-SHARED-WORLD.md)  
+  Candidate position on external conditions, experience, interpretation, facts, truth, and expression.
+
+- [The Self, Intention, and Expression](./THP-SELF-INTENTION-EXPRESSION.md)  
+  Candidate position on self, intention, expression, organizational identity, consent, and THP's role.
+
+- [Values, Principles, Will, and Responsibility](./THP-VALUES-PRINCIPLES-WILL.md)  
+  Candidate position on beliefs, values, principles, will, institutional values, authority, and refusal.
+
+- [THP SMB Research and Assessment Notes](./THP-SMB-RESEARCH-AND-ASSESSMENT-NOTES.md)  
+  Operating cycle for SMB media, assessment, and consultation work.
+
+- [THP Founding Questions](./THP-FOUNDING-QUESTIONS.md)  
+  Lists the ten enduring founding questions; links to founder testimony source record.
+
+- [Founding Origin — Source Record](./source-records/THP-FQ-001-FOUNDING-ORIGIN.md)  
+  Founder testimony and institutional synthesis (non-canonical).

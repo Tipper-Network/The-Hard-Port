@@ -172,20 +172,14 @@ understated line can imply there's a door beyond Hard Port — never named, neve
    philosophical distinction, not just a feature
 
 **How Hard Port specifically relates to Tipper:**
+
 - Hard Port is explicitly different from Tipper — not a rebrand, not the same product
-- Hard Port's current strategy (marketing-based: business analysis, strategy, growth work)
-  exists in order to better understand Tipper — client work doubles as product research
-- Hard Port learns and teaches what it learns — a second monetizable layer (courses/lectures/
-  philosophy) beyond the agency work itself
-- Connections Hard Port builds with clients are meant to translate into connections on Tipper
-  (partnerships, community memberships) — client relationships have a planned afterlife on the
-  other platform
-- Hard Port supports small businesses directly now; the long-term plan is to systematize that
-  support through Tipper later
-- As Tipper matures, other businesses will eventually be able to onboard onto Tipper directly,
-  without needing to work with Hard Port first. Hard Port's own role is expected to shift over
-  time from "the only way in" toward being a consultant on how businesses use Tipper (among
-  other things) — see the knowledge doc for the full mechanics of this evolution
+- **THP's purpose** is research and service: observe entities (beginning with SMBs), assist through media, assessments, and consulting, and develop revisable methods
+- **Tipper's purpose** is codification and infrastructure: operationalize **selected** supported methods into a usable network — later, not as THP's causal origin
+- THP is **not** primarily an onboarding funnel into Tipper; client work returns evidence to research, not only to product adoption
+- Hard Port learns and teaches what it learns — a second monetizable layer (courses/lectures/philosophy) beyond the agency work itself
+- Connections Hard Port builds with clients may later translate into Tipper participation where supported — but THP remains capable of challenging Tipper's structures
+- As Tipper matures, other businesses may onboard onto Tipper directly without working with Hard Port first; THP's role is research and service, not gating access to Tipper
 
 ### The four future site variants (each maps to a piece of this relationship)
 
