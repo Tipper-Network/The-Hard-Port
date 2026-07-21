@@ -3,7 +3,7 @@ id: THP-SMB-LEVEL-03
 title: "Level 3 — Attempting Growth, Growth Model Not Yet Stable"
 document_type: maturity_level_definition
 status: candidate
-version: 0.1.0
+version: 0.2.0
 created: 2026-07-21
 updated: 2026-07-21
 authors:
@@ -13,6 +13,7 @@ owners:
 confidence: developing
 evidence_level: founder_hypothesis
 canonicality: non_canonical
+founder_decisions: confirmed
 level_id: level_03_attempting_growth
 parent_model: THP-SMB-LEVELS-001
 source_document: ../../../READ_FROM.md
@@ -32,7 +33,8 @@ next_level: THP-SMB-LEVEL-04
 > **Source of truth:** [`READ_FROM.md`](../../../READ_FROM.md) — § Level 3  
 > **Parent model:** [`THP-SMB-LEVELS-001-maturity-model.md`](../THP-SMB-LEVELS-001-maturity-model.md)  
 > **Prior level:** [`THP-SMB-LEVEL-02-stable-preparing-for-growth.md`](./THP-SMB-LEVEL-02-stable-preparing-for-growth.md)  
-> **Not canonical** until founder confirms classification rules and all seven level gates.
+> **Not canonical** — boundary definition only; full maturity subsystem review pending.  
+> **Founder direction:** confirmed 2026-07-21 (`founder_decisions: confirmed`). Defines the stage immediately following the first intervention; not the active operational scope.
 
 ## Formal definition
 
@@ -55,7 +57,7 @@ At Level 3, the business has a stable core, but the system intended to produce g
 - Level 1 proves that the business exists.
 - Level 2 proves that the business has a viable operating foundation.
 - Level 3 tests whether that foundation can support deliberate growth.
-- Level 4 begins when healthy growth becomes repeatable and produces meaningful recognition — see [`THP-SMB-LEVEL-04`](./THP-SMB-LEVEL-04-recognized-and-growing.md) *(pending)*.
+- Level 4 begins when healthy growth becomes repeatable and produces meaningful recognition — provisional; see [Levels 4–7 (provisional)](../THP-SMB-LEVELS-001-maturity-model.md#levels-47-provisional).
 
 The transition is:
 
@@ -838,21 +840,27 @@ It should be introduced where it makes the relationships and evidence behind gro
 
 ## Level 3 founder decisions
 
-**Status:** `founder_validation_pending` — confirm or revise before this level becomes canonical. See also [`Founder Decisions Pending`](../THP-SMB-LEVELS-001-maturity-model.md#founder-decisions-pending) in the parent model.
+**Status:** `confirmed` — founder approval: **2026-07-21**. See also [`Founder Decisions Confirmed`](../THP-SMB-LEVELS-001-maturity-model.md#founder-decisions-confirmed) in the parent model.
 
 | # | Decision | Status |
 |---|---|---|
-| 1 | **Meaning of instability** — "Not fully stable" refers to the growth mechanism, not the core business. The Level 2 foundation must remain active. | `founder_validation_pending` |
-| 2 | **Entry moment** — Level 3 begins only when a deliberate growth experiment becomes active. Planning remains Level 2. | `founder_validation_pending` |
-| 3 | **Validation threshold** — A growth mechanism requires comparable positive evidence across at least three complete growth cycles or customer cohorts. | `founder_validation_pending` |
-| 4 | **Recognition requirement** — Level 3 completion requires emerging recognition within the relevant customer or community context; not broad public fame. | `founder_validation_pending` |
-| 5 | **Responsible regression** — Returning from Level 3 to Level 2 after an experiment is legitimate consolidation; not automatic failure. | `founder_validation_pending` |
-| 6 | **Level 4 threshold** — Level 4 begins when at least one growth mechanism is repeatable, operationally supported, financially interpretable, and producing recognizable market or community position. | `founder_validation_pending` |
-| 7 | **Multiple mechanisms** — Only one validated growth mechanism is required to enter Level 4. | `founder_validation_pending` |
+| 1 | **Meaning of instability** — "Not fully stable" refers to the growth mechanism, not the core business. The Level 2 foundation must remain active. | `confirmed` |
+| 2 | **Entry moment** — Level 3 begins only when a deliberate growth experiment becomes active. Planning remains Level 2. | `confirmed` |
+| 3 | **Validation threshold** — A growth mechanism requires comparable positive evidence across at least three complete growth cycles or customer cohorts. | `confirmed` |
+| 4 | **Recognition requirement** — Level 3 completion requires emerging recognition within the relevant customer or community context; not broad public fame. | `confirmed` |
+| 5 | **Responsible regression** — Returning from Level 3 to Level 2 after an experiment is legitimate consolidation; not automatic failure. | `confirmed` |
+| 6 | **Level 4 threshold** — Level 4 begins when at least one growth mechanism is repeatable, operationally supported, financially interpretable, and producing recognizable market or community position. | `confirmed` |
+| 7 | **Multiple mechanisms** — Only one validated growth mechanism is required to enter Level 4. | `confirmed` |
+
+Document remains a **candidate** working definition. Do not mark canonical until the full maturity subsystem is formally reviewed.
 
 ## Revision History
+
+### 0.2.0 — 2026-07-21
+
+- Founder confirmed Level 3 direction and working decisions (2026-07-21).
+- Maturity expansion frozen at Level 3; detailed Levels 4–7 deferred.
 
 ### 0.1.0 — 2026-07-21
 
 - Complete working definition from founder source (`READ_FROM.md`).
-- Founder validation pending; not canonical.

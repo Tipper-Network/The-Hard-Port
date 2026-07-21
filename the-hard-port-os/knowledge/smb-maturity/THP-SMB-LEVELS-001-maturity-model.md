@@ -2,8 +2,8 @@
 id: THP-SMB-LEVELS-001
 title: SMB Maturity Model
 document_type: maturity_model
-status: candidate
-version: 0.2.0
+status: operationalization_ready
+version: 0.3.0
 created: 2026-07-21
 updated: 2026-07-21
 authors:
@@ -13,6 +13,8 @@ owners:
 confidence: developing
 evidence_level: founder_hypothesis
 canonicality: non_canonical
+levels_1_3_status: operationalization_ready
+levels_4_7_status: deferred
 source_document: ../../READ_FROM.md
 related_documents:
   - ../../READ_FROM.md
@@ -20,6 +22,7 @@ related_documents:
   - ./levels/THP-SMB-LEVEL-02-stable-preparing-for-growth.md
   - ./levels/THP-SMB-LEVEL-03-attempting-growth.md
   - ./instruments/THP-SMB-INSTRUMENT-001-growth-experiment-record.md
+  - ./instruments/THP-SMB-INSTRUMENT-002-first-onboarder-diagnostic.md
   - ../../docs/04-market/first-onboarder/THP-SMB-001-FIRST-ONBOARDER.md
   - ../../active/forms/THP-SMB-002-level-1-to-level-2-transition.md
   - ../../docs/02-ontology/entity-maturity/ENTITY-MATURITY-MODEL.md
@@ -29,10 +32,11 @@ superseded_by: []
 
 # SMB Maturity Model
 
-> **Status:** `candidate`, `non_canonical` — **not Canon** until the founder confirms classification rules and all seven level gates have been reviewed.  
+> **Status:** `operationalization_ready` (Levels 1–3), **`non_canonical`** — not Canon; full seven-level system not canonical until formally reviewed.  
 > **Source of truth:** [`READ_FROM.md`](../../READ_FROM.md) — founder edits there first; this file is the derived institutional copy.  
 > **First onboarder:** [`THP-SMB-001`](../../docs/04-market/first-onboarder/THP-SMB-001-FIRST-ONBOARDER.md)  
-> **Transition form:** [`THP-SMB-002`](../../active/forms/THP-SMB-002-level-1-to-level-2-transition.md)
+> **Transition form:** [`THP-SMB-002`](../../active/forms/THP-SMB-002-level-1-to-level-2-transition.md)  
+> **Active instrument:** [`THP-SMB-INSTRUMENT-002`](./instruments/THP-SMB-INSTRUMENT-002-first-onboarder-diagnostic.md)
 
 ## Core principle
 
@@ -117,12 +121,12 @@ Every business is assessed across the same eight dimensions at every level. What
 | **1** | Established but Surviving | **Defined** — see below and [`THP-SMB-LEVEL-01`](./levels/THP-SMB-LEVEL-01-established-but-surviving.md) |
 | **2** | Stable and Preparing for Growth | **Defined** — see below and [`THP-SMB-LEVEL-02`](./levels/THP-SMB-LEVEL-02-stable-preparing-for-growth.md) |
 | **3** | Attempting Growth, Growth Model Not Yet Stable | **Defined** — see below and [`THP-SMB-LEVEL-03`](./levels/THP-SMB-LEVEL-03-attempting-growth.md) |
-| **4** | Recognized and Growing | **Next task** — see [`active/CURRENT_TASK.md`](../../active/CURRENT_TASK.md) |
-| **5** | Stable Growth | Provisional label only |
-| **6** | Scale Preparation | Provisional label only |
-| **7** | Scaling | Provisional label only |
+| **4** | Recognized and Growing | **Provisional** — detailed gates deferred |
+| **5** | Stable Growth | **Provisional** — detailed gates deferred |
+| **6** | Preparing to Scale | **Provisional** — detailed gates deferred |
+| **7** | Scaling | **Provisional** — detailed gates deferred |
 
-Levels 4–7 retain provisional labels only. Gates must be defined using the eight dimensions without conflating community, brand, growth, and scaling into a single score.
+Levels 4–7 retain provisional labels only. Detailed gate development is **intentionally deferred** — see [Development Boundary](#development-boundary) and [Levels 4–7](#levels-47-provisional).
 
 **First onboarder transition:** Level 1 → Level 2.
 
@@ -257,11 +261,49 @@ A single successful campaign does not complete Level 3. Level 4 requires repeata
 
 May regress to Level 2 when an active experiment ends and the foundation remains intact (responsible consolidation). Regresses to Level 1 when growth destroys the Level 2 foundation.
 
-Full definition: [`THP-SMB-LEVEL-03-attempting-growth.md`](./levels/THP-SMB-LEVEL-03-attempting-growth.md). Experiment record: [`THP-SMB-INSTRUMENT-001`](./instruments/THP-SMB-INSTRUMENT-001-growth-experiment-record.md).
+Full definition: [`THP-SMB-LEVEL-03-attempting-growth.md`](./levels/THP-SMB-LEVEL-03-attempting-growth.md). Experiment record (deferred): [`THP-SMB-INSTRUMENT-001`](./instruments/THP-SMB-INSTRUMENT-001-growth-experiment-record.md).
 
-## Levels 4–7
+## Development Boundary
 
-Gates pending founder review. Do not use for client classification, media targeting, or Tipper readiness until each level's entry gate, exit gate, and dimensional requirements are defined and confirmed.
+Detailed definitions currently exist for **Levels 1–3**.
+
+Levels 4–7 remain provisional and are **intentionally deferred** until THP has collected evidence from businesses progressing through Levels 1–3.
+
+The current maturity model is sufficient to support:
+
+- First-onboarder identification
+- Level 1 diagnosis
+- Level 1-to-Level 2 service design
+- Progress measurement
+- Early growth-experiment preparation
+
+**Active operational boundary:** Level 1 → Level 2 transition. Level 3 defines the next-stage boundary only.
+
+**Next build:** [`THP-SMB-INSTRUMENT-002`](./instruments/THP-SMB-INSTRUMENT-002-first-onboarder-diagnostic.md) — First-Onboarder Diagnostic.
+
+## Levels 4–7 (provisional)
+
+Detailed gates intentionally deferred.
+
+**Reason:** THP's current first-onboarder work concerns the Level 1 to Level 2 transformation, with Level 3 retained only to define the immediate destination after stability. Levels 4–7 will be developed using evidence from observed businesses rather than speculative maturity requirements.
+
+Do not use Levels 4–7 for client classification, media targeting, or service design until detailed gates exist.
+
+### Level 4 — Recognized and Growing
+
+Provisional. A business with at least one repeatable growth mechanism producing meaningful recognition within its relevant market or community. Detailed gates intentionally deferred.
+
+### Level 5 — Stable Growth
+
+Provisional. Growth mechanisms operate reliably without constant founder rescue or emergency intervention. Detailed gates intentionally deferred.
+
+### Level 6 — Preparing to Scale
+
+Provisional. The business prepares systems, capacity, and economics for scaling without assuming scale is desirable or imminent. Detailed gates intentionally deferred.
+
+### Level 7 — Scaling
+
+Provisional. The business expands reach, capacity, or market presence while preserving core value and operational integrity. Detailed gates intentionally deferred.
 
 ## Founder Decisions Confirmed
 
@@ -281,6 +323,8 @@ Founder approval: **2026-07-21** — Level 2 gate decisions and stability-proof 
 7. **Regression from Level 2:** Can regress to Level 1 when the foundation no longer functions; temporary difficulty does not automatically cause regression.
 8. **Spike exclusion:** A temporary spike **cannot** be used as evidence of progression.
 
+9. **Level 3 direction and working decisions** — confirmed 2026-07-21. See [`THP-SMB-LEVEL-03` § Level 3 founder decisions](./levels/THP-SMB-LEVEL-03-attempting-growth.md#level-3-founder-decisions).
+
 Full stability rule: [`THP-SMB-LEVEL-02` § Stability-proof rule](./levels/THP-SMB-LEVEL-02-stable-preparing-for-growth.md#stability-proof-rule).
 
 ## Founder Decisions Pending
@@ -288,11 +332,10 @@ Full stability rule: [`THP-SMB-LEVEL-02` § Stability-proof rule](./levels/THP-S
 Still require founder confirmation before the **full seven-level model** becomes operational authority:
 
 1. **Level 1 entry:** A business becomes Level 1 after serving multiple unrelated paying customers and repeatedly delivering its offer.
-2. **Level 3 founder decisions** — see [`THP-SMB-LEVEL-03` § Level 3 founder decisions](./levels/THP-SMB-LEVEL-03-attempting-growth.md#level-3-founder-decisions).
-3. **Levels 4–7 gates** — provisional labels only; each gate must be defined and reviewed.
-4. **Full model canonical review** — all seven level gates must be confirmed before `canonicality` changes.
+2. **Levels 4–7 gates** — intentionally deferred; provisional labels only until evidence from observed businesses warrants detailed definition.
+3. **Full model canonical review** — all seven level gates must be confirmed before `canonicality` changes.
 
-Do **not** mark the entire maturity model canonical until all seven level gates have been reviewed.
+Do **not** mark the entire maturity model canonical until the maturity subsystem is formally reviewed.
 
 ## Related documents
 
@@ -301,6 +344,12 @@ Do **not** mark the entire maturity model canonical until all seven level gates 
 - [`ENTITY-MATURITY-MODEL.md`](../../docs/02-ontology/entity-maturity/ENTITY-MATURITY-MODEL.md) — prior candidate sketch; superseded for SMB classification by this model
 
 ## Revision History
+
+### 0.3.0 — 2026-07-21
+
+- Maturity expansion frozen at Level 3; Levels 4–7 detailed development deferred.
+- Levels 1–3 marked `operationalization_ready`; First-Onboarder Diagnostic instrument created.
+- Level 3 founder direction confirmed (2026-07-21).
 
 ### 0.2.0 — 2026-07-21
 

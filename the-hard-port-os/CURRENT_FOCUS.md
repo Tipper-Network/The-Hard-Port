@@ -2,38 +2,35 @@
 
 Updated: 2026-07-21
 
-## Milestone
+## Completed Working Architecture
 
-Define **Level 4 — Recognized and Growing**, then design YouTube series architecture.
+- First onboarder defined ([`THP-SMB-001`](./docs/04-market/first-onboarder/THP-SMB-001-FIRST-ONBOARDER.md))
+- Level 1 defined and approved
+- Level 2 defined and approved
+- Level 3 boundary defined and approved
+- Levels 4–7 intentionally deferred
 
-| Level | Status |
-|---|---|
-| Level 1 — Established but Surviving | Complete working definition |
-| Level 2 — Stable and Preparing for Growth | **Confirmed** — founder decisions approved 2026-07-21 |
-| Level 3 — Attempting Growth, Growth Model Not Yet Stable | **Drafted** — founder validation pending |
-| Level 4 — Recognized and Growing | **Next** |
-
-Maturity model: [`knowledge/smb-maturity/THP-SMB-LEVELS-001-maturity-model.md`](./knowledge/smb-maturity/THP-SMB-LEVELS-001-maturity-model.md) — **not canonical** until all seven gates confirmed.
+Maturity model: [`knowledge/smb-maturity/THP-SMB-LEVELS-001-maturity-model.md`](./knowledge/smb-maturity/THP-SMB-LEVELS-001-maturity-model.md) — Levels 1–3 `operationalization_ready`; **not canonical** as a full seven-level system.
 
 **Founder source:** [`READ_FROM.md`](./READ_FROM.md)
 
-**Instrument:** [`THP-SMB-INSTRUMENT-001`](./knowledge/smb-maturity/instruments/THP-SMB-INSTRUMENT-001-growth-experiment-record.md) — Growth Experiment Record created; not canonical until case-tested.
+## Active Focus
 
-## Why This Matters
+Operationalize the **Level 1-to-Level 2 transition** through the [THP First-Onboarder Diagnostic](./knowledge/smb-maturity/instruments/THP-SMB-INSTRUMENT-002-first-onboarder-diagnostic.md).
 
-Level 2 is confirmed as the first service intervention destination. Level 3 defines active growth experimentation on a protected foundation. Level 4 defines when experimental growth becomes a repeatable, recognized mechanism — required before media can target the full transition arc responsibly.
+See [`active/CURRENT_TASK.md`](./active/CURRENT_TASK.md).
 
-## In Scope
+## Not Yet Active
 
-- Level 4 definition (recognition vs popularity, repeatability, exit gate, THP role)
-- YouTube series architecture (after Level 4 draft)
+- Detailed Levels 4–7
+- YouTube series architecture
+- Large-scale Tipper integration
+- Scaling-stage consulting systems
 
-## Out of Scope
+## Practical Build Order
 
-- Marking the full maturity model canonical before all seven level gates reviewed
-- Activating Levels 5–7 gates
-- New philosophy forms in `active/CURRENT_TASK.md`
+Diagnostic → Level 1-to-2 intervention → service structure → onboarding journey → YouTube attraction system
 
 ## Success Condition
 
-Level 4 has a complete working definition with clear distinction between recognition, popularity, and brand awareness — and between validated growth mechanisms and temporary revenue spikes.
+THP can qualify a first-onboarder candidate, classify maturity across dimensions A–H, identify Level 2 gaps, recommend a first intervention, and define evidence collection — without relying on a vague maturity score.

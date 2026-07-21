@@ -2,7 +2,7 @@
 id: THP-SMB-INSTRUMENT-001
 title: Growth Experiment Record
 document_type: maturity_instrument
-status: candidate
+status: deferred_until_level_3_clients
 version: 0.1.0
 created: 2026-07-21
 updated: 2026-07-21
@@ -25,6 +25,7 @@ superseded_by: []
 # Growth Experiment Record
 
 > **Purpose:** Reusable record for a **deliberate growth experiment** — not a description of one specific experiment.  
+> **Status:** `deferred_until_level_3_clients` — valid infrastructure; **not** part of the immediate first-onboarder workflow.  
 > **Not canonical** until tested against an actual SMB case.  
 > **Used at:** Level 2 preparation and Level 3 active experimentation ([`THP-SMB-LEVEL-03`](../levels/THP-SMB-LEVEL-03-attempting-growth.md)).
 
@@ -152,6 +153,10 @@ Links to prior experiments, strategic choices, or assessment records affected by
 ---
 
 ## Revision History
+
+### 0.1.1 — 2026-07-21
+
+- Status set to `deferred_until_level_3_clients`; preserved for Level 3 operationalization.
 
 ### 0.1.0 — 2026-07-21
 

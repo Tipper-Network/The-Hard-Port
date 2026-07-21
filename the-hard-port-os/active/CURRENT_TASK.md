@@ -5,53 +5,58 @@ Updated: 2026-07-21
 
 ## Assignment
 
-**Define THP-SMB Level 4 — Recognized and Growing.**
+**Build the THP First-Onboarder Diagnostic.**
 
-**Source of truth:** [`READ_FROM.md`](../READ_FROM.md) — add Level 4 founder input there first, then sync to institutional docs.
+**Source of truth for maturity definitions:** [`READ_FROM.md`](../READ_FROM.md)  
+**Working instrument:** [`THP-SMB-INSTRUMENT-002`](../knowledge/smb-maturity/instruments/THP-SMB-INSTRUMENT-002-first-onboarder-diagnostic.md)
 
 **Do not create additional philosophy forms in this file.**
 
 ## Purpose
 
-Establish when a business has moved beyond experimental growth and developed a repeatable growth mechanism that produces meaningful recognition within its relevant market or community.
+Convert the Level 1 and Level 2 maturity definitions into an operational instrument that THP can use to qualify, diagnose, onboard, and measure its first SMB clients.
 
-## Required sections
+## Primary Questions
 
-- Formal definition
-- Level 4 entry gate
-- Meaning of recognition
-- Observable conditions across dimensions A–H
-- Founder experience
-- Primary risks
-- Difference between recognition, popularity, and brand awareness
-- Level 4 operating doctrine
-- Regression conditions
-- Level 4 exit gate
-- Evidence required to enter Level 5
-- THP intervention at Level 4
+1. Does the business meet the Level 1 entry gate?
+2. Does it already meet any Level 2 requirements?
+3. Which maturity dimensions are strongest and weakest?
+4. What evidence supports each conclusion?
+5. Which missing Level 2 gate should THP address first?
+6. Is the owner ready and able to participate in the intervention?
+7. What information should be collected for THP and Tipper research?
+
+## Required Outputs
+
+- Diagnostic structure
+- Evidence requirements
+- Interview questions
+- Business-document requests
+- Dimension-level findings
+- Overall maturity classification
+- Intervention-priority recommendation
+- Readiness and disqualification conditions
+- Reassessment process
 
 ## Context
 
-| Level | Document | Status |
+| Asset | Document | Status |
 |---|---|---|
-| 1 | [`THP-SMB-LEVEL-01`](../knowledge/smb-maturity/levels/THP-SMB-LEVEL-01-established-but-surviving.md) | Complete working definition |
-| 2 | [`THP-SMB-LEVEL-02`](../knowledge/smb-maturity/levels/THP-SMB-LEVEL-02-stable-preparing-for-growth.md) | Founder decisions confirmed (2026-07-21) |
-| 3 | [`THP-SMB-LEVEL-03`](../knowledge/smb-maturity/levels/THP-SMB-LEVEL-03-attempting-growth.md) | Complete working definition; founder validation pending |
-| 4 | *This task* | Not started |
-
-Maturity model: [`THP-SMB-LEVELS-001`](../knowledge/smb-maturity/THP-SMB-LEVELS-001-maturity-model.md) — **not canonical** until all seven level gates reviewed.
-
-Instrument: [`THP-SMB-INSTRUMENT-001`](../knowledge/smb-maturity/instruments/THP-SMB-INSTRUMENT-001-growth-experiment-record.md) — growth experiment record (not canonical until case-tested).
+| Maturity model | [`THP-SMB-LEVELS-001`](../knowledge/smb-maturity/THP-SMB-LEVELS-001-maturity-model.md) | Levels 1–3 `operationalization_ready`; 4–7 deferred |
+| Level 1 | [`THP-SMB-LEVEL-01`](../knowledge/smb-maturity/levels/THP-SMB-LEVEL-01-established-but-surviving.md) | Confirmed |
+| Level 2 | [`THP-SMB-LEVEL-02`](../knowledge/smb-maturity/levels/THP-SMB-LEVEL-02-stable-preparing-for-growth.md) | Confirmed — first intervention destination |
+| Level 3 | [`THP-SMB-LEVEL-03`](../knowledge/smb-maturity/levels/THP-SMB-LEVEL-03-attempting-growth.md) | Boundary confirmed — not active scope |
+| First onboarder | [`THP-SMB-001`](../docs/04-market/first-onboarder/THP-SMB-001-FIRST-ONBOARDER.md) | Candidate profile |
+| Transition form | [`THP-SMB-002`](../active/forms/THP-SMB-002-level-1-to-level-2-transition.md) | Founder input required |
 
 ## Constraints
 
-- Level 4 requires **repeatability and emerging recognition** — not revenue alone, virality, or broad fame
-- Level 3 retains Level 2 foundation; growth mechanism instability ≠ core business instability
-- A planned experiment remains Level 2; an active deliberate experiment qualifies for Level 3
-- A single successful campaign cannot complete Level 3
-- Weakest mandatory gate controls overall level; record per-dimension maturity separately
-- Levels 5–7 remain provisional labels only
+- Diagnostic must use eight dimensions A–H and weakest-gate classification logic
+- Must not produce a vague score without structured findings
+- Levels 4–7 are outside scope — do not design gates for them
+- Growth Experiment Record ([`INSTRUMENT-001`](../knowledge/smb-maturity/instruments/THP-SMB-INSTRUMENT-001-growth-experiment-record.md)) is deferred until Level 3 clients exist
+- Do not mark diagnostic or maturity model canonical until tested and reviewed
 
 ## Output target
 
-Create `knowledge/smb-maturity/levels/THP-SMB-LEVEL-04-recognized-and-growing.md` and update the main maturity model with Level 4 summary + link.
+Complete [`THP-SMB-INSTRUMENT-002-first-onboarder-diagnostic.md`](../knowledge/smb-maturity/instruments/THP-SMB-INSTRUMENT-002-first-onboarder-diagnostic.md).

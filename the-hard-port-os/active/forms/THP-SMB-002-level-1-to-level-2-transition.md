@@ -19,6 +19,14 @@ related_model: THP-SMB-LEVELS-001
 
 Define the observable, emotional, commercial, community, and operational transition experienced by THP's first onboarder when moving from Level 1 survival mode to Level 2 stability.
 
+## Operational Instrument
+
+The maturity transition defined by this form will be assessed through:
+
+[`THP-SMB-INSTRUMENT-002-first-onboarder-diagnostic.md`](../../knowledge/smb-maturity/instruments/THP-SMB-INSTRUMENT-002-first-onboarder-diagnostic.md)
+
+This form remains **not canonical**. It will be synthesized after the diagnostic and intervention system are complete.
+
 # 1. Level 1 Observable Conditions
 
 ## Customer acquisition
