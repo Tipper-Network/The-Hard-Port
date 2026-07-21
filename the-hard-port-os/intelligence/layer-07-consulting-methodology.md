@@ -42,6 +42,33 @@ This methodology begins with the **interpretation and intervention work** that f
 
 **Note:** METHOD-01 Discovery defines engagement scope for an **accepted** client. It is an **intervention progression gate**, not an initial engagement-acceptance gate. Initial acceptance is upstream (application → qualification → diagnostic).
 
+## Relationship to Level 1-to-Level 2 Intervention
+
+The consulting methodology governs the reasoning and professional conduct used within the intervention.
+
+The [Level 1-to-Level 2 Intervention](../knowledge/smb-intervention/THP-SMB-INTERVENTION-001-level-1-to-level-2.md) defines the SMB-specific sequence of work.
+
+Neither document replaces the other.
+
+### Intervention phase → consulting method map
+
+| Intervention phase | Primary consulting methods | Notes |
+|---|---|---|
+| 1. Business Reality | METHOD-01 Discovery · METHOD-02 Observation | Shared current-state map for accepted client |
+| 2. Evidence Recovery | METHOD-02 Observation | Evidence inventory and classification |
+| 3. Viable Core | METHOD-03 Diagnosis · METHOD-04 System Mapping | Core relationship identification |
+| 4. Constraint Diagnosis | METHOD-03 Diagnosis · METHOD-05 Priority Selection | Primary constraint and deferred problems |
+| 5. Identity Clarification | METHOD-06 Intervention Design | Communication foundation — not decoration-first |
+| 6. Relationship Foundation | METHOD-06 Intervention Design · METHOD-07 Implementation | Feedback and relationship systems |
+| 7. Operating Foundation | METHOD-04 System Mapping · METHOD-07 Implementation | Workflow, capacity, decision rhythm |
+| 8. Level 2 Proof | METHOD-08 Measurement · METHOD-09 Iteration | Maturity reassessment — not deliverable review |
+
+**Reported tensions (not silently rewritten):**
+
+1. **Linear lifecycle vs phased intervention** — This document's Engagement Lifecycle presents nine methods in a single linear order. The intervention reorders and repeats method types across eight phases (e.g. Observation before Viable Core diagnosis). The intervention sequence is the SMB operational authority; methods describe *how* to think within each phase.
+2. **Discovery placement** — METHOD-01 Discovery scopes an accepted engagement. Upstream qualification and diagnostic (INSTRUMENT-002) precede intervention entry. Phase 1 Business Reality operationalizes discovery for Level 1→2 without replacing upstream gates.
+3. **Entity Position Assessment** — Listed as first paid engagement in Level 2 docs; may overlap METHOD-03 Diagnosis. Reconcile when Client Engagement Lifecycle is designed — do not merge documents here.
+
 ## Method Principles
 
 1. Begin with the client's desired condition and constraints.

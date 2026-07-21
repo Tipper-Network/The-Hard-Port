@@ -31,6 +31,7 @@ related_documents:
   - ../../../docs/04-market/first-onboarder/THP-SMB-001-FIRST-ONBOARDER.md
   - ../../../businesses/THP-SMB-001.md
   - ../../../active/forms/THP-SMB-002-level-1-to-level-2-transition.md
+  - ../../smb-intervention/THP-SMB-INTERVENTION-001-level-1-to-level-2.md
 supersedes: []
 superseded_by: []
 ---
@@ -49,9 +50,9 @@ Application → Qualification → Diagnostic → Consulting Assessment → Inter
 |---|---|
 | Application | [`THP-ENGAGEMENT-READINESS-APPLICATION`](../../../docs/03-methods/entity-assessment/THP-ENGAGEMENT-READINESS-APPLICATION.md) |
 | Qualification | **This instrument (sections 1–13 below)** |
-| Diagnostic | This instrument (sections 14–18, **next task**) |
+| Diagnostic | This instrument (sections 14–18, **deferred** until first entity) |
 | Consulting Assessment | [`ENTITY-POSITION-AND-DIRECTION-ASSESSMENT`](../../../docs/03-methods/entity-assessment/ENTITY-POSITION-AND-DIRECTION-ASSESSMENT.md) + [`layer-07`](../../../intelligence/layer-07-consulting-methodology.md) |
-| Intervention | Level 1-to-Level 2 (deferred) |
+| Intervention | [`THP-SMB-INTERVENTION-001`](../../smb-intervention/THP-SMB-INTERVENTION-001-level-1-to-level-2.md) — **defined** |
 | Reassessment | Transition evidence (deferred) |
 
 The application gathers **claims**.
@@ -104,9 +105,33 @@ It requires them to examine business assumptions, decisions, evidence, and outco
 | Phase | Sections | Status |
 |---|---|---|
 | Qualification Gate | 1–13 below | **Complete** |
-| Level 1 Diagnostic (A–H) | 14–18 | **Next task** — not yet designed |
+| Level 1 Diagnostic (A–H) | 14–18 | **Deferred** — field-tested against first entity |
+| Intervention | [`THP-SMB-INTERVENTION-001`](../../smb-intervention/THP-SMB-INTERVENTION-001-level-1-to-level-2.md) | **Defined** — `ready_for_lifecycle_design` |
+
+## Downstream Intervention
+
+A qualified and diagnosed Level 1 business may proceed into:
+
+[`THP-SMB-INTERVENTION-001-level-1-to-level-2.md`](../../smb-intervention/THP-SMB-INTERVENTION-001-level-1-to-level-2.md)
+
+The diagnostic identifies the business condition and primary constraint.
+
+The intervention governs the work intended to establish the Level 2 foundation.
+
+## Development Status
+
+The qualification layer is operationally complete.
+
+The detailed diagnostic interview across dimensions A–H is intentionally deferred until the first real entity is available.
+
+Reason:
+
+The first entity will be used to test question usefulness, evidence availability, classification language, and constraint identification before the diagnostic is formalized.
+
+Do not delete the A–H placeholders.
 
 ---
+
 
 # Purpose
 
@@ -956,9 +981,9 @@ Complete one [`THP-SMB-TEMPLATE-001`](./templates/THP-SMB-TEMPLATE-001-qualifica
 
 # 14. Level 1 Diagnostic Interview (deferred)
 
-**Next task:** Build diagnostic questions across dimensions A–H.
+**Status:** Intentionally deferred until the first real entity is available. Placeholder preserved — not abandoned.
 
-Use evidence statuses (`self_reported`, `supported`, `verified`, `contradicted`, `unavailable`, `not_applicable`), dimension findings, mandatory gates, and constraint identification.
+When built, use evidence statuses (`self_reported`, `supported`, `verified`, `contradicted`, `unavailable`, `not_applicable`), dimension findings, mandatory gates, and constraint identification.
 
 **No numeric scoring.**
 
@@ -995,6 +1020,15 @@ Structured conclusion — not a numeric score.
 ---
 
 ## Revision History
+
+### 1.0.2 — 2026-07-21
+
+- Downstream Intervention section added; intervention system defined in [`THP-SMB-INTERVENTION-001`](../../smb-intervention/THP-SMB-INTERVENTION-001-level-1-to-level-2.md).
+
+### 1.0.1 — 2026-07-21
+
+- Development Status added; A–H diagnostic deferred until first entity (placeholders preserved).
+- Intervention linked to [`THP-SMB-INTERVENTION-001`](../../smb-intervention/THP-SMB-INTERVENTION-001-level-1-to-level-2.md).
 
 ### 1.0.0 — 2026-07-21
 

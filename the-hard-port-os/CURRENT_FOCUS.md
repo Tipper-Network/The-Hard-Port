@@ -2,52 +2,49 @@
 
 Updated: 2026-07-21
 
-## Completed
+## Completed Working Architecture
 
-- Level 1 entry gate confirmed
-- Engagement sequence clarified
-- First-Onboarder Qualification Gate designed
-- Qualification evidence statuses defined
-- Qualification outcomes defined
-- Founder-readiness gate defined
+- First-onboarder definition
+- Levels 1–3 maturity boundary
+- Qualification Gate
+- Diagnostic structure
+- Level 1-to-Level 2 Intervention System
 
-## Active
+## Active Focus
 
-Build the complete Level 1 diagnostic interview across dimensions A–H.
+Design the SMB Client Engagement Lifecycle.
 
 See [`active/CURRENT_TASK.md`](./active/CURRENT_TASK.md).
 
-**Instrument:** [`THP-SMB-INSTRUMENT-002`](./knowledge/smb-maturity/instruments/THP-SMB-INSTRUMENT-002-first-onboarder-diagnostic.md) (sections 14–18)
+## Remaining Pre-Content Sequence
+
+1. Client engagement lifecycle
+2. Service and commercial structure
+3. Research, evidence, consent, and data system
+4. Manual Tipper boundary
+5. Proof and case-study system
+6. YouTube attraction architecture
+
+## Operational Decision
+
+The qualification system and diagnostic structure are sufficient until the first real entity is available.
+
+The detailed diagnostic interview will be completed and tested against the first entity rather than developed entirely through speculation.
 
 ## Boundary
 
 Qualification determines whether THP should diagnose the business.
 
-The upcoming diagnostic determines what is happening inside the accepted business.
+The diagnostic determines what is happening inside the accepted business.
 
-## Completed Working Architecture
+Intervention begins after qualification and diagnosis.
 
-- First onboarder defined ([`THP-SMB-001`](./docs/04-market/first-onboarder/THP-SMB-001-FIRST-ONBOARDER.md))
-- Level 1 defined and approved
-- Level 2 defined and approved
-- Level 3 boundary defined and approved
-- Levels 4–7 intentionally deferred
-
-Maturity model: [`knowledge/smb-maturity/THP-SMB-LEVELS-001-maturity-model.md`](./knowledge/smb-maturity/THP-SMB-LEVELS-001-maturity-model.md) — Levels 1–3 `operationalization_ready`; **not canonical** as a full seven-level system.
-
-## Future Work Sequence
-
-1. ~~First-Onboarder Qualification Gate~~ — complete
-2. Diagnostic interview across dimensions A–H — **active**
-3. Evidence classification and maturity conclusion
-4. Level 1-to-Level 2 intervention design
-5. Client onboarding workflow
-6. THP service structure
-7. Research and Tipper data mapping
-8. YouTube attraction architecture
+Intervention completion is based on Level 2 evidence, not deliverable completion alone.
 
 ## Not Yet Active
 
+- Detailed A–H diagnostic interview (deferred until first entity)
 - Detailed Levels 4–7
 - Large-scale Tipper integration
+- Final pricing and YouTube architecture
 - Scaling-stage consulting systems

@@ -23,6 +23,7 @@ related_documents:
   - ./THP-SMB-LEVEL-02-stable-preparing-for-growth.md
   - ../../../docs/04-market/first-onboarder/THP-SMB-001-FIRST-ONBOARDER.md
   - ../../../active/forms/THP-SMB-002-level-1-to-level-2-transition.md
+  - ../../smb-intervention/THP-SMB-INTERVENTION-001-level-1-to-level-2.md
 supersedes: []
 superseded_by: []
 ---
@@ -323,7 +324,17 @@ See transition form [`THP-SMB-002`](../../../active/forms/THP-SMB-002-level-1-to
 
 First paid engagement: [Entity Position and Direction Assessment](../../../docs/03-methods/entity-assessment/ENTITY-POSITION-AND-DIRECTION-ASSESSMENT.md).
 
+## Active transition mechanism
+
+THP's operational path from Level 1 to Level 2 is the [Level 1-to-Level 2 Intervention System](../../smb-intervention/THP-SMB-INTERVENTION-001-level-1-to-level-2.md).
+
+The intervention begins after qualification, diagnostic, findings presentation, and founder agreement. Execution services (branding, content, research, workflows) are instruments inside the intervention — not the transformation by themselves.
+
 ## Revision History
+
+### 0.2.2 — 2026-07-21
+
+- Linked [`THP-SMB-INTERVENTION-001`](../../smb-intervention/THP-SMB-INTERVENTION-001-level-1-to-level-2.md) as active Level 1→2 transition mechanism.
 
 ### 0.2.1 — 2026-07-21
 
