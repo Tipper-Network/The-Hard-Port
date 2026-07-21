@@ -3,7 +3,7 @@ id: THP-SMB-LEVEL-01
 title: "Level 1 — Established but Surviving"
 document_type: maturity_level_definition
 status: candidate
-version: 0.1.0
+version: 0.2.0
 created: 2026-07-21
 updated: 2026-07-21
 authors:
@@ -13,6 +13,7 @@ owners:
 confidence: developing
 evidence_level: founder_hypothesis
 canonicality: non_canonical
+founder_decisions: confirmed
 level_id: level_01_established_but_surviving
 parent_model: THP-SMB-LEVELS-001
 source_document: ../../../READ_FROM.md
@@ -30,7 +31,8 @@ superseded_by: []
 
 > **Source of truth:** [`READ_FROM.md`](../../../READ_FROM.md) — § Level 1  
 > **Parent model:** [`THP-SMB-LEVELS-001-maturity-model.md`](../THP-SMB-LEVELS-001-maturity-model.md)  
-> **Not canonical** until founder confirms classification rules and all seven level gates.
+> **Entry gate:** **Confirmed** 2026-07-21 — see [`Founder Decisions Confirmed`](../THP-SMB-LEVELS-001-maturity-model.md#confirmed-level-1-entry-gate)  
+> **Not canonical** (full seven-level system) until maturity subsystem formally reviewed.
 
 ## Formal definition
 
@@ -40,13 +42,21 @@ The business exists. Its continued existence is not yet dependable.
 
 ## Entry gate
 
-A business enters Level 1 when **all** of the following are true:
+**Status:** `confirmed` (2026-07-21)
 
-- It has a **defined offer**.
-- **Multiple unrelated customers** have paid for that offer.
-- The offer has been **delivered more than once**.
-- The business is **still actively operating**.
-- The founder **intends to continue** operating it as a business.
+A business enters Level 1 when:
+
+1. It has a defined offer.
+2. Multiple unrelated paying customers have purchased the offer.
+3. The offer has been delivered more than once.
+4. The business remains actively operating.
+5. The founder intends to continue building it.
+
+No universal transaction threshold is used beyond the requirement for multiple unrelated customers and repeated delivery.
+
+The business must have enough completed customer cycles to produce meaningful evidence for diagnosis.
+
+At qualification, application claims for these criteria require **verification** — see [`THP-SMB-INSTRUMENT-002` § Application Inputs](../instruments/THP-SMB-INSTRUMENT-002-first-onboarder-diagnostic.md#application-inputs).
 
 ### Excluded (not Level 1 — first onboarder)
 
@@ -314,6 +324,14 @@ See transition form [`THP-SMB-002`](../../../active/forms/THP-SMB-002-level-1-to
 First paid engagement: [Entity Position and Direction Assessment](../../../docs/03-methods/entity-assessment/ENTITY-POSITION-AND-DIRECTION-ASSESSMENT.md).
 
 ## Revision History
+
+### 0.2.1 — 2026-07-21
+
+- Entry gate wording aligned with confirmed founder text (no universal transaction threshold).
+
+### 0.2.0 — 2026-07-21
+
+- Level 1 entry gate confirmed (2026-07-21); verification at qualification documented.
 
 ### 0.1.0 — 2026-07-21
 
