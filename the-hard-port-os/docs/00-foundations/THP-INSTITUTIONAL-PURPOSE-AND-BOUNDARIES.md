@@ -15,6 +15,9 @@ evidence_level: philosophical_foundation
 canonicality: non-canonical
 related_documents:
   - ./THP-FOUNDATIONAL-PHILOSOPHY.md
+  - ./THP-EPISTEMOLOGY.md
+  - ./THP-FOUNDING-QUESTIONS.md
+  - ./source-records/THP-FQ-001-FOUNDING-ORIGIN.md
   - ../../KNOWLEDGE_ARCHITECTURE.md
   - ../../README.md
   - ../../docs/README.md
@@ -28,7 +31,7 @@ superseded_by: []
 # The Hard Port Institutional Purpose and Boundaries
 
 > **Status:** `candidate`, `non-canonical`  
-> **Prerequisite documents still in progress:** foundational philosophy (drafted), epistemology (not yet written), research methodology (placeholder). This document remains candidate until those foundations are complete.
+> **Prerequisite documents still in progress:** foundational philosophy (drafted), epistemology (drafted), research methodology (placeholder). This document remains candidate until those foundations are complete.
 
 ## Purpose of This Document
 
@@ -74,6 +77,41 @@ Institutionally, THP must:
 4. **Return evidence** — ensure every operating surface feeds the knowledge base back
 
 Commercial activity funds the institution. Commercial activity does not define the institution.
+
+## Immediate Operating Direction
+
+THP **studies and assists entities**. Its **first operating surface** is small and medium-sized businesses (SMBs).
+
+Current operating loop:
+
+```text
+Observe entities (beginning with SMBs)
+        ↓
+Publish media examining conditions and methods
+        ↓
+Generate consultations, assessments, and clarifications
+        ↓
+Record observations and convert repeated patterns into improved methods
+        ↓
+Return evidence to research
+        ↓
+Tipper codifies selected methods later (when supported)
+```
+
+Media is not separate from research or service. It is an observation surface, public explanation layer, trust-building mechanism, and acquisition channel for entities that may become research and service participants.
+
+THP's immediate purpose is **not** to force transformation. An entity may understand its conditions and choose not to change. Deliberate non-change can still be a successful outcome.
+
+Tipper is **not** part of why THP had to exist. Tipper codifies selected methods into infrastructure **later**. THP researches, observes, assists, and develops approaches first.
+
+Operating cycle for SMB research and assessment: [`THP-SMB-RESEARCH-AND-ASSESSMENT-NOTES.md`](./THP-SMB-RESEARCH-AND-ASSESSMENT-NOTES.md). Philosophical basis: [`THP-REALITY-INTERPRETATION-SHARED-WORLD.md`](./THP-REALITY-INTERPRETATION-SHARED-WORLD.md).
+
+Per the founding origin synthesis:
+
+> THP develops understanding and methods.  
+> Tipper codifies selected methods into a usable network and operational system.
+
+Source: [`source-records/THP-FQ-001-FOUNDING-ORIGIN.md`](./source-records/THP-FQ-001-FOUNDING-ORIGIN.md)
 
 ## Institutional Responsibilities
 
@@ -149,8 +187,8 @@ Foundational Philosophy
 Institutional Purpose and Boundaries (this document)
   what THP is, produces, and may not become
         ↓
-Epistemology (planned)
-  how THP knows what it claims to know
+Epistemology
+  how THP understands knowledge, confidence, and revision
         ↓
 Research Methodology (placeholder)
   how knowledge progresses through the lifecycle
@@ -210,6 +248,7 @@ THP operates under constraints that protect the institution from becoming its ow
 - a generic marketing agency optimizing for attention without research return
 - a guru factory selling certainty
 - a software company whose research exists to justify a roadmap
+- primarily an onboarding or transition funnel into Tipper
 - Tipper, nor any single product, brand surface, or offer tier
 
 ### Where philosophy ends and institutional action begins
@@ -223,7 +262,9 @@ THP operates under constraints that protect the institution from becoming its ow
 
 ## Relationship Between THP and Tipper
 
-Tipper is a **translation layer** — the operationalization stage of the knowledge engine.
+Tipper is a **translation and codification layer** — not the institution, and not the causal origin of THP.
+
+**Causal order:** THP arose from the need to understand and improve how entities operate, decide, communicate, and take responsibility. Tipper is a later translation that codifies **selected** supported methods into infrastructure.
 
 Per [`layer-08-tipper-intelligence-framework.md`](../../intelligence/layer-08-tipper-intelligence-framework.md):
 
@@ -233,14 +274,15 @@ Per [`layer-08-tipper-intelligence-framework.md`](../../intelligence/layer-08-ti
 
 Tipper is:
 
-- an implementation and observation instrument
-- a scale path for supported patterns
+- a codification and operationalization instrument
+- a scale path for **selected** supported patterns
 - a source of field evidence
 
 Tipper is not:
 
 - The Hard Port
-- the institutional mission
+- the institutional mission or causal reason THP exists
+- primarily what THP exists to onboard people into
 - a substitute for research, diagnosis, human judgment, or Canon authority
 - a justification for promoting unsupported claims into product
 
@@ -263,7 +305,7 @@ Institutional independence means:
 
 - **Laboratory expansion.** Under what decision path does THP expand beyond small businesses as its primary bounded laboratory?
 - **Commercial pressure.** How does THP refuse engagements or offers that would corrupt inquiry without starving the institution?
-- **Epistemology placement.** Where will the epistemology document live relative to this file and [`research-methodology.md`](../knowledge-system/research-methodology.md)?
+- **Epistemology placement.** [`THP-EPISTEMOLOGY.md`](./THP-EPISTEMOLOGY.md) defines how THP understands knowledge. Remaining open questions concern operational scoring and Canon epistemic gates relative to [`research-methodology.md`](../knowledge-system/research-methodology.md).
 - **Charter reconciliation.** How does [`the-hard-port-charter.md`](../../philosophy/the-hard-port-charter.md) relate to this candidate institutional definition?
 - **Success metric authority.** Which institutional metrics become operational targets versus research indicators?
 - **Tipper dependency.** At what point, if any, does Tipper's commercial success create institutional risk — and how is that governed?
@@ -276,7 +318,10 @@ Institutional independence means:
 - [`README.md`](../../README.md) — repository institutional overview
 - [`layer-00-knowledge-engine.md`](../../intelligence/layer-00-knowledge-engine.md) — canonical mission and people journey
 - [`layer-08-tipper-intelligence-framework.md`](../../intelligence/layer-08-tipper-intelligence-framework.md) — Tipper's bounded role
+- [`THP-EPISTEMOLOGY.md`](./THP-EPISTEMOLOGY.md) — how THP understands knowledge
 - [`research-methodology.md`](../knowledge-system/research-methodology.md) — lifecycle operational methodology (placeholder)
+- [`THP-FOUNDING-QUESTIONS.md`](./THP-FOUNDING-QUESTIONS.md) — enduring founding questions
+- [`source-records/THP-FQ-001-FOUNDING-ORIGIN.md`](./source-records/THP-FQ-001-FOUNDING-ORIGIN.md) — founder testimony synthesis (non-canonical)
 - [`the-hard-port-charter.md`](../../philosophy/the-hard-port-charter.md) — Session 01 exploratory institutional thesis
 
 ## Revision History
@@ -286,3 +331,9 @@ Institutional independence means:
 - Created candidate institutional purpose and boundaries document.
 - Distinguished institutional knowledge from outputs and translation layers.
 - Defined Tipper as translation layer, not the institution.
+
+### 0.1.1 — 2026-07-19
+
+- Added immediate operating direction (SMBs, media, assessments, consulting; Tipper codifies later).
+- Clarified THP is not primarily an onboarding funnel into Tipper.
+- Removed Tipper from causal origin of THP.

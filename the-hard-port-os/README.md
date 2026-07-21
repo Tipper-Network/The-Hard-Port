@@ -53,7 +53,8 @@ the-hard-port-os/
 ├── docs/
 │   ├── 00-foundations/
 │   │   ├── THP-FOUNDATIONAL-PHILOSOPHY.md
-│   │   └── THP-INSTITUTIONAL-PURPOSE-AND-BOUNDARIES.md
+│   │   ├── THP-INSTITUTIONAL-PURPOSE-AND-BOUNDARIES.md
+│   │   └── THP-EPISTEMOLOGY.md
 │   └── knowledge-system/
 │       └── research-methodology.md
 ├── REPOSITORY_VALIDATION.md
@@ -101,6 +102,7 @@ the-hard-port-os/
 - [Documentation Index](./docs/README.md)
 - [THP Foundational Philosophy](./docs/00-foundations/THP-FOUNDATIONAL-PHILOSOPHY.md) — candidate; philosophical assumptions
 - [THP Institutional Purpose and Boundaries](./docs/00-foundations/THP-INSTITUTIONAL-PURPOSE-AND-BOUNDARIES.md) — candidate; institutional scope
+- [THP Epistemology](./docs/00-foundations/THP-EPISTEMOLOGY.md) — candidate; how THP understands knowledge
 - [Research Methodology](./docs/knowledge-system/research-methodology.md) — authoritative; placeholder
 - [Research](./research/README.md)
 - [Systems](./systems/README.md)

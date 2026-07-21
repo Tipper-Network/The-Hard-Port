@@ -15,6 +15,13 @@ evidence_level: philosophical_foundation
 canonicality: non-canonical
 related_documents:
   - ./THP-INSTITUTIONAL-PURPOSE-AND-BOUNDARIES.md
+  - ./THP-EPISTEMOLOGY.md
+  - ./THP-REALITY-INTERPRETATION-SHARED-WORLD.md
+  - ./THP-SELF-INTENTION-EXPRESSION.md
+  - ./THP-VALUES-PRINCIPLES-WILL.md
+  - ./THP-SMB-RESEARCH-AND-ASSESSMENT-NOTES.md
+  - ./THP-FOUNDING-QUESTIONS.md
+  - ./source-records/THP-FQ-001-FOUNDING-ORIGIN.md
   - ../../KNOWLEDGE_ARCHITECTURE.md
   - ../../README.md
   - ../../intelligence/layer-00-knowledge-engine.md
@@ -50,23 +57,25 @@ Nothing in this document replaces the canonical mission in [`layer-00-knowledge-
 
 > Understand how small businesses work.
 
-## Position on Reality
+## Reality, Interpretation, and the Shared World
 
-### Operational definition
+Definitions of external existence, personal experience, interpretation, shared reality, facts, truth, expression, legitimacy, sovereignty, and responsibility are defined in [`THP-REALITY-INTERPRETATION-SHARED-WORLD.md`](./THP-REALITY-INTERPRETATION-SHARED-WORLD.md).
 
-For The Hard Port's work, **reality** is what a conscious being can:
+This document does not duplicate them.
 
-- encounter through observation,
-- participate in through action, and
-- represent through models,
+## The Self, Intention, and Expression
 
-including the feedback, constraints, relationships, and outcomes that persist whether or not the being acknowledges them.
+Definitions of the self, personal continuity, awareness, attention, intention, choice, decision, action, non-action, expression, authenticity, organizational identity, entity intention dimensions, consent, and THP's role are defined in [`THP-SELF-INTENTION-EXPRESSION.md`](./THP-SELF-INTENTION-EXPRESSION.md).
 
-### What this is not
+This document does not duplicate them. Operational assessment methods: [`../03-methods/entity-assessment/`](../03-methods/entity-assessment/).
 
-This is a **working definition** for research, diagnosis, and redesign. It is not a claim about the ultimate nature of existence, simulation, materialism, idealism, or any other metaphysical position.
+## Values, Principles, Will, and Responsibility
 
-THP does not require staff, clients, or systems to adopt a metaphysics. It requires them to work with observable, modelable, revisable reality as encountered in practice.
+Definitions of beliefs, values, principles, traits, styles, will, resolve, harmony, institutional values, responsibility, legitimate authority, and refusal of engagement are defined in [`THP-VALUES-PRINCIPLES-WILL.md`](./THP-VALUES-PRINCIPLES-WILL.md).
+
+This document does not duplicate them.
+
+For THP's work at the highest level, **reality** — as oriented here — is what a conscious being can encounter, participate in, and represent through models. See the reality document for the full institutional position.
 
 ## Definition of a Conscious Being
 
@@ -194,18 +203,49 @@ It explicitly does **not** yet define:
 | Topic | Where it belongs |
 |---|---|
 | Institutional purpose and boundaries — what THP is, is not, and must produce | [`THP-INSTITUTIONAL-PURPOSE-AND-BOUNDARIES.md`](./THP-INSTITUTIONAL-PURPOSE-AND-BOUNDARIES.md) |
-| Research methodology, lifecycle gates, and document advancement | [`research-methodology.md`](../knowledge-system/research-methodology.md), [`KNOWLEDGE_ARCHITECTURE.md`](../../KNOWLEDGE_ARCHITECTURE.md) |
-| Evidence scales, confidence scoring, and canonicality rules | [`DOCUMENT_METADATA_STANDARD.md`](../../templates/DOCUMENT_METADATA_STANDARD.md), [`DEC-002`](../../decisions/DEC-002-descriptive-evidence-vocabulary.md) |
+| Research methodology, lifecycle gates, and document advancement | [`THP-EPISTEMOLOGY.md`](./THP-EPISTEMOLOGY.md), [`research-methodology.md`](../knowledge-system/research-methodology.md), [`KNOWLEDGE_ARCHITECTURE.md`](../../KNOWLEDGE_ARCHITECTURE.md) |
+| Evidence scales, confidence scoring, and canonicality rules | [`THP-EPISTEMOLOGY.md`](./THP-EPISTEMOLOGY.md) (epistemic meaning), [`DOCUMENT_METADATA_STANDARD.md`](../../templates/DOCUMENT_METADATA_STANDARD.md), [`DEC-002`](../../decisions/DEC-002-descriptive-evidence-vocabulary.md) (operational vocabulary) |
 | Consulting engagement models | [`layer-07-consulting-methodology.md`](../../intelligence/layer-07-consulting-methodology.md) |
 | Media operating models | [`layer-00-knowledge-engine.md`](../../intelligence/layer-00-knowledge-engine.md) |
 | Tipper product requirements | [`layer-08-tipper-intelligence-framework.md`](../../intelligence/layer-08-tipper-intelligence-framework.md), Volume VI |
-| Ultimate metaphysical truth about consciousness, free will, or existence | Outside THP's current institutional scope |
+| Ultimate metaphysical truth about consciousness, free will, or existence | [`THP-REALITY-INTERPRETATION-SHARED-WORLD.md`](./THP-REALITY-INTERPRETATION-SHARED-WORLD.md), [`THP-SELF-INTENTION-EXPRESSION.md`](./THP-SELF-INTENTION-EXPRESSION.md), [`THP-VALUES-PRINCIPLES-WILL.md`](./THP-VALUES-PRINCIPLES-WILL.md) — open questions |
 | Complete business ontology | Volume V and `systems/` |
 | Accepted Canon synthesis of philosophy | [`canon/volume-02-philosophy/`](../../canon/volume-02-philosophy/) — after review |
 
 ## Open Questions
 
 Conflicting or unresolved language elsewhere must not be silently merged into this document.
+
+Founder testimony in [`source-records/THP-FQ-001-FOUNDING-ORIGIN.md`](./source-records/THP-FQ-001-FOUNDING-ORIGIN.md) and raw responses in [`THP-FQ-001.md`](./THP-FQ-001.md) propose positions on several subjects below. **Those answers are not treated as finalized philosophy.** They remain open until examined through THP's epistemology and research process.
+
+### From reality, interpretation, and the shared world
+
+Addressed as a candidate position in [`THP-REALITY-INTERPRETATION-SHARED-WORLD.md`](./THP-REALITY-INTERPRETATION-SHARED-WORLD.md). Remaining open items — including founder metaphysics not adopted institutionally — are listed there.
+
+### From the self, intention, and expression
+
+Addressed as a candidate position in [`THP-SELF-INTENTION-EXPRESSION.md`](./THP-SELF-INTENTION-EXPRESSION.md). Organizational consciousness remains a [research hypothesis](../../research/hypotheses/HYP-002-organizational-consciousness.md), not institutional fact. Use **organizational identity** operationally until resolved.
+
+### From values, principles, will, and responsibility
+
+Addressed as a candidate position in [`THP-VALUES-PRINCIPLES-WILL.md`](./THP-VALUES-PRINCIPLES-WILL.md). Open questions on will measurement, unconscious influence, and THP's own participation boundaries remain listed there.
+
+### From the founding origin (unresolved)
+- **The self.** What precisely constitutes the self? (Provisional model in reality document §12; metaphysics open.)
+
+- **Attention, effort, motivation, and energy.** What is the difference among them?
+
+- **Responsibility and blame.** Can responsibility always be claimed without becoming misplaced blame? (Distinction from total causal control in reality document §11.)
+
+- **Entity and community.** Is every entity necessarily supported by a community?
+
+- **Identity through interaction.** How does an entity's identity emerge through interaction with that community?
+
+- **Information through wisdom.** What distinguishes information, understanding, knowledge, and wisdom?
+
+- **Subjective experience and measurement.** Is subjective human experience measurable without reducing it to commercial performance?
+
+### From existing institutional tension
 
 - **Broad inquiry vs bounded mission.** The foundational question spans conscious beings and systems generally. The canonical mission in Layer 00 remains small-business focused. How expansion beyond that laboratory is authorized remains unresolved.
 
@@ -219,12 +259,18 @@ Conflicting or unresolved language elsewhere must not be silently merged into th
 
 ## Related Documents
 
+- [`THP-REALITY-INTERPRETATION-SHARED-WORLD.md`](./THP-REALITY-INTERPRETATION-SHARED-WORLD.md) — reality, interpretation, facts, truth, expression
+- [`THP-SELF-INTENTION-EXPRESSION.md`](./THP-SELF-INTENTION-EXPRESSION.md) — self, intention, expression, organizational identity
+- [`THP-VALUES-PRINCIPLES-WILL.md`](./THP-VALUES-PRINCIPLES-WILL.md) — values, principles, will, responsibility, engagement authority
 - [`THP-INSTITUTIONAL-PURPOSE-AND-BOUNDARIES.md`](./THP-INSTITUTIONAL-PURPOSE-AND-BOUNDARIES.md) — institutional purpose and boundaries
+- [`THP-EPISTEMOLOGY.md`](./THP-EPISTEMOLOGY.md) — how THP understands knowledge
 - [`KNOWLEDGE_ARCHITECTURE.md`](../../KNOWLEDGE_ARCHITECTURE.md) — knowledge lifecycle structure; references this document for philosophical assumptions
 - [`README.md`](../../README.md) — institutional overview
 - [`layer-00-knowledge-engine.md`](../../intelligence/layer-00-knowledge-engine.md) — canonical mission and people journey
 - [`layer-09-research-initiative.md`](../../intelligence/layer-09-research-initiative.md) — research mission and public research orientation
 - [`the-hard-port-charter.md`](../../philosophy/the-hard-port-charter.md) — exploratory Session 01 institutional thesis
+- [`THP-FOUNDING-QUESTIONS.md`](./THP-FOUNDING-QUESTIONS.md) — enduring founding questions
+- [`source-records/THP-FQ-001-FOUNDING-ORIGIN.md`](./source-records/THP-FQ-001-FOUNDING-ORIGIN.md) — founder testimony synthesis (non-canonical)
 - [`RESEARCH-PROGRAM-001.md`](../../research/RESEARCH-PROGRAM-001.md) — coordinated inquiry into systems, identity, and self-authorship
 
 ## Revision History
@@ -238,3 +284,20 @@ Conflicting or unresolved language elsewhere must not be silently merged into th
 
 - Relocated to `docs/00-foundations/`.
 - Linked institutional purpose and boundaries document.
+
+### 0.1.2 — 2026-07-19
+
+- Added unresolved founding-origin questions under Open Questions.
+- Linked founding questions and source record; founder answers not treated as finalized philosophy.
+
+### 0.1.3 — 2026-07-19
+
+- Delegated reality, interpretation, and shared-world definitions to `THP-REALITY-INTERPRETATION-SHARED-WORLD.md`.
+
+### 0.1.4 — 2026-07-19
+
+- Delegated self, intention, and expression to `THP-SELF-INTENTION-EXPRESSION.md`.
+
+### 0.1.5 — 2026-07-21
+
+- Delegated values, principles, will, and responsibility to `THP-VALUES-PRINCIPLES-WILL.md`.

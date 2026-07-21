@@ -7,3 +7,4 @@ Every hypothesis must state its context, mechanism, expected observations, disco
 ## Active
 
 - [`HYP-001 — External Systems Shape Behavior Without Conscious Self-Authorship`](./HYP-001-external-system-shaping-behavior.md)
+- [`HYP-002 — Organizational Consciousness`](./HYP-002-organizational-consciousness.md) — exploratory only; use **organizational identity** operationally until resolved

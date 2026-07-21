@@ -536,6 +536,36 @@ No claimed result before the expected delay.
 No reusable pattern without context and counterexamples.
 ```
 
+## Engagement Refusal
+
+THP may refuse an engagement without declaring that the client's entire value system is wrong.
+
+Refusal means THP will not participate under current conditions — not that the participant lacks legitimate values, identity, or worth.
+
+### Refusal conditions
+
+Proceeding requires, at minimum:
+
+- explicit invitation and informed consent;
+- a defined scope within THP competence;
+- honest participation in the gated process;
+- and absence of foreseeable harm or fundamental incompatibility with THP's values and responsibilities.
+
+THP may refuse when:
+
+- the client is unwilling to examine assumptions relevant to scope;
+- the client refuses to participate honestly in the process;
+- the client insists on a predetermined answer;
+- the client demands symptom relief without examining underlying patterns;
+- expectations exceed THP competence or defined scope;
+- informed consent cannot be established;
+- foreseeable harm to affected parties or THP personnel is likely;
+- or the engagement is incompatible with THP's own values and responsibilities.
+
+Access to private information does not independently create authority to proceed beyond defined scope.
+
+Full boundary definitions: [`docs/03-methods/entity-assessment/ENTITY-ENGAGEMENT-BOUNDARIES.md`](../docs/03-methods/entity-assessment/ENTITY-ENGAGEMENT-BOUNDARIES.md). Philosophical source: [`THP-VALUES-PRINCIPLES-WILL.md`](../docs/00-foundations/THP-VALUES-PRINCIPLES-WILL.md) (`THP-PH-003`).
+
 ## Engagement Closure
 
 An engagement closes with:
@@ -558,6 +588,10 @@ An engagement closes with:
 - When should a failed intervention trigger remapping rather than modification?
 
 ## Revision Log
+
+### 0.1.1 — 2026-07-21
+
+- Added engagement refusal conditions and links to THP-PH-003 engagement boundaries.
 
 ### 0.1.0 — 2026-07-18
 
