@@ -69,6 +69,32 @@ Neither document replaces the other.
 2. **Discovery placement** — METHOD-01 Discovery scopes an accepted engagement. Upstream qualification and diagnostic (INSTRUMENT-002) precede intervention entry. Phase 1 Business Reality operationalizes discovery for Level 1→2 without replacing upstream gates.
 3. **Entity Position Assessment** — Listed as first paid engagement in Level 2 docs; may overlap METHOD-03 Diagnosis. Reconcile when Client Engagement Lifecycle is designed — do not merge documents here.
 
+## Client Lifecycle Relationship
+
+The consulting methodology governs professional reasoning within the diagnostic, findings, intervention, progress-review, and reassessment stages.
+
+The [SMB Client Engagement Lifecycle](../knowledge/smb-engagement/THP-SMB-ENGAGEMENT-001-client-lifecycle.md) governs the client relationship and stage transitions.
+
+The lifecycle does not replace the methodology, and the methodology does not replace the lifecycle.
+
+### Lifecycle stage → consulting method map
+
+| Lifecycle stage | Primary consulting methods | Notes |
+|---|---|---|
+| 6. Diagnostic | METHOD-02 Observation · METHOD-03 Diagnosis | Evidence review and maturity interpretation |
+| 7. Findings Presentation | METHOD-03 Diagnosis | Structured presentation of supported findings |
+| 11. Intervention Execution | METHOD-01–07 (per intervention phase) | See intervention phase map above |
+| 12. Progress Review | METHOD-08 Measurement · METHOD-05 Priority Selection | Scope and constraint revalidation |
+| 13. Level 2 Reassessment | METHOD-08 Measurement · METHOD-09 Iteration | Maturity conclusion — not deliverable review |
+| 14. Completion and Handoff | METHOD-09 Iteration | Formal close and learning capture |
+
+**Reported lifecycle ↔ methodology conflicts (not silently rewritten):**
+
+1. **Nine-method linear lifecycle vs fourteen client stages** — This document's Engagement Lifecycle compresses professional work into nine methods. The SMB Client Engagement Lifecycle adds commercial, consent, payment, and handoff stages (Stages 1–5, 8–10, 14) that are outside the nine-method abstraction.
+2. **Discovery naming** — METHOD-01 Discovery and Lifecycle Stage 1 Discovery both use "Discovery" but serve different scopes (accepted-client scope vs public/marketing discovery).
+3. **Application and qualification absent from methodology** — Stages 2–4 are relationship gates, not consulting methods.
+4. **Entity Position Assessment** — Still referenced in Level 2 docs as first paid engagement; lifecycle places paid diagnostic at Stage 6 and intervention agreement at Stages 8–9. Reconcile in service and commercial structure design.
+
 ## Method Principles
 
 1. Begin with the client's desired condition and constraints.

@@ -69,6 +69,8 @@ Additional fields may be defined by a document-type template. They must not chan
 
 ## Lifecycle Statuses
 
+Document lifecycle statuses describe the **document's** editorial and Canon state — not a client's position in an SMB engagement.
+
 - `seed`: Structure or initial idea exists; substantive work is incomplete.
 - `draft`: Content is being developed.
 - `active`: In current use but not necessarily accepted or canonical.
@@ -78,6 +80,27 @@ Additional fields may be defined by a document-type template. They must not chan
 - `superseded`: Replaced by a named document.
 - `deprecated`: Still present but should not be used for new work.
 - `archived`: Retained only for provenance or history.
+
+## Client Engagement Lifecycle Statuses
+
+Client engagement lifecycle statuses describe a **business's** position in the [THP SMB Client Engagement Lifecycle](../knowledge/smb-engagement/THP-SMB-ENGAGEMENT-001-client-lifecycle.md). Use the field name **`engagement_lifecycle_status`** (or equivalent namespaced field) — do not overload document `status` or maturity level.
+
+**Namespace:** `engagement_lifecycle_status` — distinct from:
+
+| Dimension | Field / vocabulary |
+|---|---|
+| Document editorial state | `status` (seed, draft, … above) |
+| Maturity classification | Level 1–7 (weakest mandatory gate) |
+| Qualification result | `qualified`, `conditionally_qualified`, `too_early`, … |
+| Evidence status (claim-level) | `self_reported`, `supported`, `verified`, … |
+| Experiment status | `planned`, `active`, `completed`, `failed`, … |
+| Engagement outcome (reassessment) | `level_2_confirmed`, `completed_partial`, … |
+
+Recommended `engagement_lifecycle_status` values (authoritative list: [`THP-SMB-ENGAGEMENT-001` §4](../knowledge/smb-engagement/THP-SMB-ENGAGEMENT-001-client-lifecycle.md#4-lifecycle-statuses)):
+
+`discovered` · `application_started` · `application_submitted` · `application_under_review` · `qualification_invited` · `qualification_active` · `conditionally_qualified` · `qualified` · `too_early` · `outside_current_scope` · `not_ready_for_thp` · `diagnostic_preparation` · `diagnostic_active` · `findings_ready` · `findings_presented` · `engagement_proposed` · `agreement_pending` · `payment_pending` · `intervention_ready` · `intervention_active` · `intervention_paused` · `referred` · `reassessment_active` · `completed_level_2` · `completed_partial` · `terminated` · `withdrawn`
+
+**Note:** Qualification outcomes (`qualified`, `too_early`, …) also appear as lifecycle statuses during qualification stages. Record both **`qualification_result`** (decision at gate) and **`engagement_lifecycle_status`** (current stage) when both apply — they serve different purposes.
 
 ## Confidence Values
 
@@ -127,6 +150,10 @@ These dimensions must not be collapsed. An active system specification can remai
 6. Source documents do not inherit canonical status when cited by the Canon.
 
 ## Revision History
+
+### 0.1.2 — 2026-07-21
+
+- Added **Client Engagement Lifecycle Statuses** (`engagement_lifecycle_status`) — distinct from document lifecycle statuses in the section above.
 
 ### 0.1.1 — 2026-07-18
 

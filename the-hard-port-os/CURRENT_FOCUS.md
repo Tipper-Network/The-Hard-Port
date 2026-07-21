@@ -2,49 +2,39 @@
 
 Updated: 2026-07-21
 
-## Completed Working Architecture
+## Pre-Content Architecture
 
-- First-onboarder definition
-- Levels 1–3 maturity boundary
-- Qualification Gate
-- Diagnostic structure
-- Level 1-to-Level 2 Intervention System
+Status: complete working system; pending first-entity validation.
+
+## Minimum Intake Operation
+
+Build the minimum functioning intake operation **alongside** YouTube design — not instead of it.
+
+See [`operations/first-client-readiness/`](./operations/first-client-readiness/) and [`active/CURRENT_TASK.md`](./active/CURRENT_TASK.md) § Minimum Intake Operation Prerequisite.
+
+Publish application CTA only when the five-item readiness gate is satisfied.
 
 ## Active Focus
 
-Design the SMB Client Engagement Lifecycle.
+YouTube Attraction Architecture — **designed** in [`operations/youtube-attraction/THP-YOUTUBE-001-attraction-architecture.md`](./operations/youtube-attraction/THP-YOUTUBE-001-attraction-architecture.md).
 
-See [`active/CURRENT_TASK.md`](./active/CURRENT_TASK.md).
+**Execute next:** intake webhook + commercial placeholders, then script Video 1.
 
-## Remaining Pre-Content Sequence
+## Content-System Requirements
 
-1. Client engagement lifecycle
-2. Service and commercial structure
-3. Research, evidence, consent, and data system
-4. Manual Tipper boundary
-5. Proof and case-study system
-6. YouTube attraction architecture
+The media system must:
 
-## Operational Decision
-
-The qualification system and diagnostic structure are sufficient until the first real entity is available.
-
-The detailed diagnostic interview will be completed and tested against the first entity rather than developed entirely through speculation.
-
-## Boundary
-
-Qualification determines whether THP should diagnose the business.
-
-The diagnostic determines what is happening inside the accepted business.
-
-Intervention begins after qualification and diagnosis.
-
-Intervention completion is based on Level 2 evidence, not deliverable completion alone.
+1. Attract established online or online-dependent microbusinesses in Level 1.
+2. Help owners recognize survival-mode patterns.
+3. Replace false marketing explanations with structural interpretations.
+4. Explain the Level 1-to-Level 2 transition.
+5. Establish THP's authority without giving away the full intervention.
+6. Route qualified owners toward the Engagement Readiness Application (`/apply`).
+7. Generate evidence about owner language, objections, and readiness.
+8. Produce institutional learning for THP and future Tipper development.
 
 ## Not Yet Active
 
-- Detailed A–H diagnostic interview (deferred until first entity)
-- Detailed Levels 4–7
-- Large-scale Tipper integration
-- Final pricing and YouTube architecture
-- Scaling-stage consulting systems
+- Final prices and signed legal documents (drafts exist — legal review required)
+- Client portal / custom CRM
+- Tipper product development

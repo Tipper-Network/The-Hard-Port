@@ -1,49 +1,64 @@
 # Current Task
 
-Design the THP SMB Client Engagement Lifecycle.
+Design the THP YouTube Attraction Architecture.
 
 ## Purpose
 
-Define how a business moves through application, qualification, diagnosis, commercial agreement, intervention, reassessment, and completion.
+Create the media system that attracts THP's first Level 1 SMB onboarders and moves suitable viewers from recognition to application.
 
 ## Central Question
 
-What exact relationship, decision, payment, and responsibility sequence takes a prospective SMB from initial application to the completion of a THP engagement?
-
-## Required Stages
-
-1. Discovery and application
-2. Application review
-3. Qualification
-4. Diagnostic preparation
-5. Diagnostic
-6. Findings presentation
-7. Engagement decision
-8. Proposal, agreement, and payment
-9. Intervention kickoff
-10. Intervention execution
-11. Progress review
-12. Level 2 reassessment
-13. Completion, continuation, referral, or termination
+What should THP publish so the correct business owner recognizes their real condition, trusts THP's interpretation, and chooses to enter the application and qualification process?
 
 ## Required Outputs
 
-- Entry and exit condition for each stage
-- Client actions
-- THP actions
-- Documents produced
-- Decision owner
-- Payment boundary
-- Consent and privacy boundary
-- Pause and termination rules
-- Handoff between stages
-- Client-facing lifecycle summary
+Delivered in [`operations/youtube-attraction/THP-YOUTUBE-001-attraction-architecture.md`](../operations/youtube-attraction/THP-YOUTUBE-001-attraction-architecture.md):
+
+- Channel thesis
+- Target viewer definition
+- Viewer psychological progression
+- Core series architecture
+- Focus-video formats
+- Institutional thesis videos
+- Calls to action
+- Viewer-to-application journey
+- Content evidence standards
+- Publishing and review rhythm
+- First 12-video test
+- Metrics and learning questions
+
+**Next:** Script and record Video 1 after intake webhook + commercial placeholders are set.
+
+## Content Categories
+
+1. Recognition
+2. Interpretation
+3. Transition
+4. Institutional thesis
+5. Proof and field learning
+
+## Minimum Intake Operation Prerequisite
+
+Before publishing a direct application CTA, establish:
+
+1. A usable Engagement Readiness Application — `/apply`
+2. A public THP service explanation — `/work-with-us`
+3. A first-client folder template — [`clients/_TEMPLATE/`](../clients/_TEMPLATE/)
+4. A lifecycle pipeline tracker — [`operations/first-client-readiness/templates/THP-LIFECYCLE-PIPELINE-TRACKER.csv`](../operations/first-client-readiness/templates/THP-LIFECYCLE-PIPELINE-TRACKER.csv)
+5. Minimum commercial and privacy documents — [`operations/first-client-readiness/`](../operations/first-client-readiness/)
+6. A one-active-client field-validation limit
+7. A field-validation record — [`THP-FIRST-CLIENT-FIELD-VALIDATION.md`](../operations/first-client-readiness/templates/THP-FIRST-CLIENT-FIELD-VALIDATION.md)
+
+This prerequisite should be built **alongside** the YouTube architecture, not as another extended institutional-design phase.
+
+Checklist: [`THP-FIRST-CLIENT-READINESS-CHECKLIST.md`](../operations/first-client-readiness/THP-FIRST-CLIENT-READINESS-CHECKLIST.md)
 
 ## Explicitly Deferred
 
-- Final pricing
-- Contract language
-- Detailed intervention worksheets
-- Complete content architecture
-- Large Tipper implementation
-- Levels 4–7
+- Daily posting calendar
+- High-volume short-form production
+- Paid media
+- Broad founder-brand content
+- Levels 4–7 media
+- Tipper product promotion without field evidence
+- Client portal and custom CRM

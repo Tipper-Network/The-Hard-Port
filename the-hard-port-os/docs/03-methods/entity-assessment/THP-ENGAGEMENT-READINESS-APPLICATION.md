@@ -3,7 +3,7 @@ id: METHOD-EPDA-APP-001
 title: THP Engagement Readiness Application
 document_type: method_definition
 status: candidate
-version: 0.3.0
+version: 0.5.0
 created: 2026-07-21
 updated: 2026-07-21
 authors:
@@ -16,18 +16,21 @@ canonicality: non_canonical
 role: intake_only
 feeds_into:
   - THP-SMB-INSTRUMENT-002
+  - THP-SMB-ENGAGEMENT-001
 related_documents:
   - ../../04-market/first-onboarder/THP-SMB-001-FIRST-ONBOARDER.md
   - ./ENTITY-ENGAGEMENT-BOUNDARIES.md
   - ./ENTITY-POSITION-AND-DIRECTION-ASSESSMENT.md
   - ../../../knowledge/smb-maturity/instruments/THP-SMB-INSTRUMENT-002-first-onboarder-diagnostic.md
+  - ../../../knowledge/smb-engagement/THP-SMB-ENGAGEMENT-001-client-lifecycle.md
 supersedes: []
 superseded_by: []
 ---
 
 # THP Engagement Readiness Application
 
-> **Status:** `candidate`, `non_canonical` — intake only (`role: intake_only`). Form fields not yet designed.  
+> **Status:** `candidate`, `non_canonical` — intake only (`role: intake_only`).  
+> **Live form:** [`/apply`](../../../apps/web/src/routes/apply.tsx) · setup [`operations/first-client-readiness/intake/SUBMISSION-SETUP.md`](../../../operations/first-client-readiness/intake/SUBMISSION-SETUP.md)  
 > **Authority:** Self-reported preliminary information (`evidence_level: self_reported`).  
 > **Does not** make the final qualification or acceptance decision — see [`THP-SMB-INSTRUMENT-002`](../../knowledge/smb-maturity/instruments/THP-SMB-INSTRUMENT-002-first-onboarder-diagnostic.md).
 
@@ -50,9 +53,17 @@ The application collects self-reported information. The qualification gate deter
 
 Application answers remain self-reported until reviewed through the qualification gate.
 
+## Lifecycle Position
+
+This application is **Stage 2** of the [THP SMB Client Engagement Lifecycle](../../../knowledge/smb-engagement/THP-SMB-ENGAGEMENT-001-client-lifecycle.md).
+
+It follows public discovery and precedes application review and qualification.
+
+Completion does not guarantee qualification, diagnosis, or commercial acceptance.
+
 ## Qualification field mapping
 
-Form fields are **not yet designed**. When designed, each field must map to a qualification use without duplicating the full instrument ([`THP-SMB-INSTRUMENT-002`](../../knowledge/smb-maturity/instruments/THP-SMB-INSTRUMENT-002-first-onboarder-diagnostic.md) §1–13).
+Operational form implemented in `apps/web/src/landing/engagement-readiness-form.tsx`. Fields map to qualification uses below.
 
 | Planned application field | Qualification use | Instrument section |
 |---|---|---|
@@ -142,12 +153,21 @@ See [`ENTITY-ENGAGEMENT-BOUNDARIES.md`](./ENTITY-ENGAGEMENT-BOUNDARIES.md).
 
 | Component | Status |
 |---|---|
-| Form fields | **Not designed** — qualification use mapping defined |
+| Form fields | **Implemented** — `/apply` |
+| Webhook / review location | **Configure** — `VITE_THP_INTAKE_WEBHOOK_URL` |
 | Scoring | **Not designed** — no numeric scoring |
-| Routing thresholds | **Not designed** |
-| Integration with qualification gate | **Mapped** — see Qualification field mapping above and INSTRUMENT-002 § Application Inputs |
+| Routing thresholds | **At qualification** — INSTRUMENT-002 |
+| Integration with qualification gate | **Mapped** — see Qualification field mapping |
 
 ## Revision History
+
+### 0.5.0 — 2026-07-21
+
+- Operational form at `/apply`; intake setup in `operations/first-client-readiness/`.
+
+### 0.4.0 — 2026-07-21
+
+- Lifecycle Position added (Stage 2); linked to [`THP-SMB-ENGAGEMENT-001`](../../../knowledge/smb-engagement/THP-SMB-ENGAGEMENT-001-client-lifecycle.md).
 
 ### 0.3.0 — 2026-07-21
 

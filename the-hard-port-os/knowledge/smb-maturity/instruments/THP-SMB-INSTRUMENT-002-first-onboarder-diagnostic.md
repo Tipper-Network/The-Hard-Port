@@ -32,6 +32,7 @@ related_documents:
   - ../../../businesses/THP-SMB-001.md
   - ../../../active/forms/THP-SMB-002-level-1-to-level-2-transition.md
   - ../../smb-intervention/THP-SMB-INTERVENTION-001-level-1-to-level-2.md
+  - ../../smb-engagement/THP-SMB-ENGAGEMENT-001-client-lifecycle.md
 supersedes: []
 superseded_by: []
 ---
@@ -117,6 +118,19 @@ A qualified and diagnosed Level 1 business may proceed into:
 The diagnostic identifies the business condition and primary constraint.
 
 The intervention governs the work intended to establish the Level 2 foundation.
+
+## Lifecycle Position
+
+Qualification and diagnosis are separate stages in the [THP SMB Client Engagement Lifecycle](../../smb-engagement/THP-SMB-ENGAGEMENT-001-client-lifecycle.md).
+
+| Instrument section | Lifecycle stage |
+|---|---|
+| §1–13 Qualification Gate | Stage 4 — First-Onboarder Qualification |
+| §14–18 Diagnostic (A–H) | Stage 6 — Level 1 Diagnostic |
+
+Qualification determines whether THP should diagnose the business.
+
+Diagnosis determines the maturity condition, Level 2 gaps, and suspected primary constraint.
 
 ## Development Status
 
@@ -1020,6 +1034,10 @@ Structured conclusion — not a numeric score.
 ---
 
 ## Revision History
+
+### 1.0.3 — 2026-07-21
+
+- Lifecycle Position added; linked to [`THP-SMB-ENGAGEMENT-001`](../../smb-engagement/THP-SMB-ENGAGEMENT-001-client-lifecycle.md).
 
 ### 1.0.2 — 2026-07-21
 

@@ -11,8 +11,10 @@ Seven-level SMB maturity model with eight assessment dimensions and weakest-gate
 2. [First-Onboarder Qualification Gate](./instruments/THP-SMB-INSTRUMENT-002-first-onboarder-diagnostic.md) — authoritative accept/defer/reject
 3. Level 1 Diagnostic Across Dimensions A–H — post-qualification (INSTRUMENT-002 §14–18, **deferred** until first entity)
 4. [Consulting Assessment and Interpretation](../docs/03-methods/entity-assessment/ENTITY-POSITION-AND-DIRECTION-ASSESSMENT.md) + [`layer-07-consulting-methodology`](../intelligence/layer-07-consulting-methodology.md)
-5. [Level 1-to-Level 2 Intervention](../smb-intervention/THP-SMB-INTERVENTION-001-level-1-to-level-2.md) — **defined** (`ready_for_lifecycle_design`)
+5. [Level 1-to-Level 2 Intervention](../smb-intervention/THP-SMB-INTERVENTION-001-level-1-to-level-2.md) — **defined**
 6. Reassessment and Transition Evidence
+
+Full client relationship: [`THP-SMB-ENGAGEMENT-001`](../smb-engagement/THP-SMB-ENGAGEMENT-001-client-lifecycle.md) — fourteen stages including commercial agreement, consent, and handoff.
 
 The **application** collects self-reported information.
 
@@ -32,7 +34,7 @@ Determine whether a business and founder should proceed into the full Level 1 di
 **Status:**  
 Structurally complete — see [`THP-SMB-INSTRUMENT-002`](./instruments/THP-SMB-INSTRUMENT-002-first-onboarder-diagnostic.md) §1–13.
 
-**Next task:** Client Engagement Lifecycle — [`active/CURRENT_TASK.md`](../../active/CURRENT_TASK.md). Intervention defined; A–H diagnostic deferred until first entity.
+**Next task:** YouTube Attraction Architecture — [`active/CURRENT_TASK.md`](../../active/CURRENT_TASK.md).
 
 **Outputs:**
 
@@ -50,7 +52,12 @@ Structurally complete — see [`THP-SMB-INSTRUMENT-002`](./instruments/THP-SMB-I
 |---|---|---|
 | THP-SMB-LEVELS-001 | [Maturity Model](./THP-SMB-LEVELS-001-maturity-model.md) | Levels 1–3 defined; L1 entry gate **confirmed** |
 | THP-SMB-INSTRUMENT-002 | [First-Onboarder Diagnostic](./instruments/THP-SMB-INSTRUMENT-002-first-onboarder-diagnostic.md) | Qualification gate — **complete**; A–H diagnostic deferred |
-| THP-SMB-INTERVENTION-001 | [Level 1-to-Level 2 Intervention](../smb-intervention/THP-SMB-INTERVENTION-001-level-1-to-level-2.md) | **Defined** — lifecycle design next |
+| THP-SMB-INTERVENTION-001 | [Level 1-to-Level 2 Intervention](../smb-intervention/THP-SMB-INTERVENTION-001-level-1-to-level-2.md) | **Defined** |
+| THP-SMB-SERVICE-001 | [Offer Architecture](../smb-service/THP-SMB-SERVICE-001-offer-architecture.md) | **Defined** — working commercial defaults |
+| THP-SMB-ENGAGEMENT-001 | [Client Engagement Lifecycle](../smb-engagement/THP-SMB-ENGAGEMENT-001-client-lifecycle.md) | **Defined** |
+| THP-SMB-RESEARCH-001 | [Evidence & Consent](../smb-research/THP-SMB-RESEARCH-001-evidence-data-consent-system.md) | **Defined** |
+| THP-SMB-PROOF-001 | [Proof System](../smb-proof/THP-SMB-PROOF-001-case-study-and-proof-system.md) | **Defined** |
+| THP-TIPPER-BOUNDARY-001 | [Manual Tipper Boundary](../tipper-boundary/THP-TIPPER-BOUNDARY-001-manual-first-smb-research.md) | **Defined** |
 | THP-APP | [Engagement Readiness Application](../docs/03-methods/entity-assessment/THP-ENGAGEMENT-READINESS-APPLICATION.md) | Intake only — feeds qualification |
 | THP-SMB-TEMPLATE-001 | [Qualification Record](./instruments/templates/THP-SMB-TEMPLATE-001-qualification-record.md) | Working blank template |
 | THP-SMB-INSTRUMENT-001 | [Growth Experiment Record](./instruments/THP-SMB-INSTRUMENT-001-growth-experiment-record.md) | Deferred until Level 3 clients |
@@ -77,7 +84,7 @@ Structurally complete — see [`THP-SMB-INSTRUMENT-002`](./instruments/THP-SMB-I
 
 The active maturity work concerns the **Level 1 to Level 2 transition**.
 
-**Immediate step:** Client Engagement Lifecycle — see [`smb-intervention/`](../smb-intervention/README.md) and [`active/CURRENT_TASK.md`](../../active/CURRENT_TASK.md).  
+**Immediate step:** YouTube Attraction Architecture — see [`active/CURRENT_TASK.md`](../../active/CURRENT_TASK.md).  
 Level 3 establishes the next-stage boundary only. Levels 4–7 are outside current operational scope.
 
 ## Linked records
