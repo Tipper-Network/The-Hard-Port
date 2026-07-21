@@ -15,8 +15,11 @@ evidence_level: founder_hypothesis
 canonicality: non_canonical
 level_id: level_01_established_but_surviving
 parent_model: THP-SMB-LEVELS-001
+source_document: ../../../READ_FROM.md
 related_documents:
+  - ../../../READ_FROM.md
   - ../THP-SMB-LEVELS-001-maturity-model.md
+  - ./THP-SMB-LEVEL-02-stable-preparing-for-growth.md
   - ../../../docs/04-market/first-onboarder/THP-SMB-001-FIRST-ONBOARDER.md
   - ../../../active/forms/THP-SMB-002-level-1-to-level-2-transition.md
 supersedes: []
@@ -25,6 +28,7 @@ superseded_by: []
 
 # Level 1 — Established but Surviving
 
+> **Source of truth:** [`READ_FROM.md`](../../../READ_FROM.md) — § Level 1  
 > **Parent model:** [`THP-SMB-LEVELS-001-maturity-model.md`](../THP-SMB-LEVELS-001-maturity-model.md)  
 > **Not canonical** until founder confirms classification rules and all seven level gates.
 
@@ -257,6 +261,8 @@ Does not necessarily mean high profitability — means the financial condition i
 - Communication is becoming consistent.
 - Identity based on observed value, not only founder aspiration.
 - Customers can begin recognizing what the business stands for.
+
+**Destination:** [`THP-SMB-LEVEL-02-stable-preparing-for-growth.md`](./THP-SMB-LEVEL-02-stable-preparing-for-growth.md) — full Level 2 definition; not duplicated here.
 
 ## Proof that Level 1 has been completed
 

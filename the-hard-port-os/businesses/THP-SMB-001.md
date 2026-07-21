@@ -1,6 +1,7 @@
 > **Classification:** Raw founder testimony — **non-canonical**, preserved for provenance.  
 > **Institutional definition:** [`../docs/04-market/first-onboarder/THP-SMB-001-FIRST-ONBOARDER.md`](../docs/04-market/first-onboarder/THP-SMB-001-FIRST-ONBOARDER.md)  
-> Founder answer to Q6 (requiring owners to admit they are "not doing a good job") is **superseded** by the institutional definition — readiness tests openness and responsibility, not self-condemnation.
+> Founder answer to Q6 (requiring owners to admit they are "not doing a good job") is **superseded** by the institutional definition — readiness tests openness and responsibility, not self-condemnation.  
+> Founder raw Level 2 note ("community is stable") is **superseded** by [`THP-SMB-LEVEL-02`](../knowledge/smb-maturity/levels/THP-SMB-LEVEL-02-stable-preparing-for-growth.md) — community stability is one dimension of Level 2, not the entire definition.
 
 FORM ID: THP-SMB-001
 TOPIC: The first THP onboarder

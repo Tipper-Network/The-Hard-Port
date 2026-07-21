@@ -5,62 +5,46 @@ Updated: 2026-07-21
 
 ## Assignment
 
-**Define THP-SMB Level 2: Stable and Preparing for Growth.**
+**Define THP-SMB Level 3 — Attempting Growth but Not Fully Stable.**
+
+**Source of truth:** [`READ_FROM.md`](../READ_FROM.md) — add Level 3 founder input there first, then sync to institutional docs.
 
 **Do not create additional philosophy forms in this file.**
 
-The Level 2 definition must establish the **exact destination of THP's first service intervention** and the **evidence required to prove** that an onboarded business has moved beyond survival.
+## Purpose
 
-Use the same structure as Level 1:
+Establish what qualifies as a deliberate growth experiment, how growth can destabilize a Level 2 business, and what evidence proves that the business has developed a repeatable growth mechanism.
 
-- Entry gate
-- Observable conditions (across eight dimensions A–H)
+## Required sections
+
+- Formal definition
+- Level 3 entry gate
+- Observable conditions across dimensions A–H
 - Founder experience
-- Primary risk
-- Exit gate
-- Required evidence
-- THP's intervention at that level
+- Primary growth risks
+- Growth-experiment requirements
+- Level 3 failure and regression conditions
+- Level 3 exit gate
+- Evidence required to enter Level 4
+- THP intervention at Level 3
 
-## Reason
+## Context
 
-Level 1 is defined. Level 2 completes the first onboarder transition (Level 1 → Level 2) and unblocks:
+| Level | Document | Status |
+|---|---|---|
+| 1 | [`THP-SMB-LEVEL-01`](../knowledge/smb-maturity/levels/THP-SMB-LEVEL-01-established-but-surviving.md) | Complete working definition |
+| 2 | [`THP-SMB-LEVEL-02`](../knowledge/smb-maturity/levels/THP-SMB-LEVEL-02-stable-preparing-for-growth.md) | Complete working definition; founder validation pending |
+| 3 | *This task* | Not started |
 
-- YouTube series architecture (attract businesses in this specific transition)
-- Entity Position and Direction Assessment Level 1–2 criteria
-- THP-SMB-002 synthesis
-
-## Maturity model (in progress)
-
-| Document | Status |
-|---|---|
-| [THP-SMB-LEVELS-001 — Maturity Model](../knowledge/smb-maturity/THP-SMB-LEVELS-001-maturity-model.md) | Classification logic + Level 1 summary; **not canonical** |
-| [THP-SMB-LEVEL-01 — Established but Surviving](../knowledge/smb-maturity/levels/THP-SMB-LEVEL-01-established-but-surviving.md) | **Complete** |
-| THP-SMB-LEVEL-02 — Stable and Preparing for Growth | **This task** |
-
-## Linked records
-
-- [THP-SMB-001 — First Onboarder](../docs/04-market/first-onboarder/THP-SMB-001-FIRST-ONBOARDER.md)
-- [THP-SMB-002 — Transition form](./forms/THP-SMB-002-level-1-to-level-2-transition.md)
-
-## Founder decisions pending
-
-Confirm in [`THP-SMB-LEVELS-001`](../knowledge/smb-maturity/THP-SMB-LEVELS-001-maturity-model.md#founder-decisions-pending):
-
-- Weakest-gate classification rule
-- Seven working defaults
-- Stability proof: fixed period vs business cycles
-
-Do **not** mark the maturity model canonical until classification rules and all seven level gates are reviewed.
+Maturity model: [`THP-SMB-LEVELS-001`](../knowledge/smb-maturity/THP-SMB-LEVELS-001-maturity-model.md) — **not canonical** until seven founder decisions confirmed.
 
 ## Constraints
 
-- Overall level = highest stage whose **required gate is fully completed**; weakest mandatory gate controls progression
-- Record **per-dimension maturity** separately from overall institutional level
-- Eight dimensions (A–H) consistent across all levels
-- A single sale ≠ operating business; Level 1 requires multiple unrelated paying customers with repeated delivery
-- Social-media activity is operating environment — not central health definition
-- Frozen philosophy: [`docs/00-foundations/CANDIDATE-WORKING-PHILOSOPHY.md`](../docs/00-foundations/CANDIDATE-WORKING-PHILOSOPHY.md)
+- Level 3 begins with **active experimentation**, not preparation (planning remains Level 2)
+- Weakest mandatory gate controls overall level; record per-dimension maturity separately
+- Do not conflate community stability, brand awareness, growth, and scaling into one score
+- Levels 4–7 remain provisional labels only
 
 ## Output target
 
-Create `knowledge/smb-maturity/levels/THP-SMB-LEVEL-02-stable-preparing-for-growth.md` and update the main maturity model with Level 2 summary + link.
+Create `knowledge/smb-maturity/levels/THP-SMB-LEVEL-03-attempting-growth-not-fully-stable.md` and update the main maturity model with Level 3 summary + link.

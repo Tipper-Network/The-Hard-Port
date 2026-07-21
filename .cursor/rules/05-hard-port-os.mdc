@@ -19,6 +19,7 @@ Use `.cursor/skills/hard-port-os-work/SKILL.md` for procedure.
 ## Authority
 
 - Working layer investigates and operates: research, RFCs, decisions, systems, SOPs, intelligence.
+- **SMB maturity founder source:** `READ_FROM.md` at repo root of `the-hard-port-os/` — edit there first; `knowledge/smb-maturity/` holds derived institutional copies.
 - Canon synthesizes only after review. Seed/candidate is not doctrine.
 - Do not silently set `canonicality: canonical`.
 - Tipper is an implementation and research instrument. Tipper is not The Hard Port.
