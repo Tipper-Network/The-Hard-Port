@@ -5,12 +5,53 @@ Seven-level SMB maturity model with eight assessment dimensions and weakest-gate
 > **Not canonical** (full seven-level system). **Levels 1–3:** `operationalization_ready`.  
 > **Source of truth:** [`READ_FROM.md`](../../READ_FROM.md) — founder edits there first; files in this folder are derived institutional copies.
 
+## THP SMB Engagement Sequence
+
+1. [Engagement Readiness Application](../docs/03-methods/entity-assessment/THP-ENGAGEMENT-READINESS-APPLICATION.md) — self-reported intake
+2. [First-Onboarder Qualification Gate](./instruments/THP-SMB-INSTRUMENT-002-first-onboarder-diagnostic.md) — authoritative accept/defer/reject
+3. Level 1 Diagnostic Across Dimensions A–H — post-qualification (INSTRUMENT-002 §4–8, deferred)
+4. [Consulting Assessment and Interpretation](../docs/03-methods/entity-assessment/ENTITY-POSITION-AND-DIRECTION-ASSESSMENT.md) + [`layer-07-consulting-methodology`](../intelligence/layer-07-consulting-methodology.md)
+5. Level 1-to-Level 2 Intervention
+6. Reassessment and Transition Evidence
+
+The **application** collects self-reported information.
+
+The **qualification gate** determines whether THP should accept the business into the diagnostic process.
+
+The **diagnostic** determines the business's actual maturity condition.
+
+The **consulting methodology** governs how THP investigates and intervenes after qualification and diagnosis.
+
+## Active Operationalization
+
+### First-Onboarder Qualification Gate
+
+**Purpose:**  
+Determine whether a business and founder should proceed into the full Level 1 diagnostic.
+
+**Status:**  
+Structurally complete — see [`THP-SMB-INSTRUMENT-002`](./instruments/THP-SMB-INSTRUMENT-002-first-onboarder-diagnostic.md) §1–13.
+
+**Next task:** Level 1 diagnostic interview across dimensions A–H — [`active/CURRENT_TASK.md`](../../active/CURRENT_TASK.md).
+
+**Outputs:**
+
+- Qualification principles, evidence statuses, gate types
+- Business-existence, first-onboarder fit, and founder-readiness interviews
+- Minimum evidence, customer-cycle definition, scope/referral review
+- Critical failures vs remediable concerns
+- Decision rules, priority, and qualification record template
+
+**Instrument:** [`THP-SMB-INSTRUMENT-002`](./instruments/THP-SMB-INSTRUMENT-002-first-onboarder-diagnostic.md) (qualification complete; A–H diagnostic deferred)
+
 ## Documents
 
 | ID | Document | Status |
 |---|---|---|
-| THP-SMB-LEVELS-001 | [Maturity Model](./THP-SMB-LEVELS-001-maturity-model.md) | Levels 1–3 defined; 4–7 deferred |
-| THP-SMB-INSTRUMENT-002 | [First-Onboarder Diagnostic](./instruments/THP-SMB-INSTRUMENT-002-first-onboarder-diagnostic.md) | **Active build** — founder input required |
+| THP-SMB-LEVELS-001 | [Maturity Model](./THP-SMB-LEVELS-001-maturity-model.md) | Levels 1–3 defined; L1 entry gate **confirmed** |
+| THP-SMB-INSTRUMENT-002 | [First-Onboarder Diagnostic](./instruments/THP-SMB-INSTRUMENT-002-first-onboarder-diagnostic.md) | Qualification gate — **complete**; A–H diagnostic next |
+| THP-APP | [Engagement Readiness Application](../docs/03-methods/entity-assessment/THP-ENGAGEMENT-READINESS-APPLICATION.md) | Intake only — feeds qualification |
+| THP-SMB-TEMPLATE-001 | [Qualification Record](./instruments/templates/THP-SMB-TEMPLATE-001-qualification-record.md) | Working blank template |
 | THP-SMB-INSTRUMENT-001 | [Growth Experiment Record](./instruments/THP-SMB-INSTRUMENT-001-growth-experiment-record.md) | Deferred until Level 3 clients |
 
 ## Levels
@@ -35,7 +76,8 @@ Seven-level SMB maturity model with eight assessment dimensions and weakest-gate
 
 The active maturity work concerns the **Level 1 to Level 2 transition**.
 
-Level 3 is defined to establish the next-stage boundary. Levels 4–7 are outside the current operational scope.
+**Immediate step:** Level 1 diagnostic interview (A–H) — post-qualification.  
+Level 3 establishes the next-stage boundary only. Levels 4–7 are outside current operational scope.
 
 ## Linked records
 

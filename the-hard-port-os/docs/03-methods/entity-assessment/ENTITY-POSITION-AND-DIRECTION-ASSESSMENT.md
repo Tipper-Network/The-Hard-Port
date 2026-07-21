@@ -24,7 +24,9 @@ related_documents:
   - ./ENTITY-INTENTION-DIMENSIONS.md
   - ./ENTITY-VALUES-PRINCIPLES-LOOP.md
   - ./ENTITY-ENGAGEMENT-BOUNDARIES.md
+  - ./THP-ENGAGEMENT-READINESS-APPLICATION.md
   - ../../../intelligence/layer-07-consulting-methodology.md
+  - ../../../knowledge/smb-maturity/instruments/THP-SMB-INSTRUMENT-002-first-onboarder-diagnostic.md
 supersedes: []
 superseded_by: []
 ---
@@ -130,12 +132,20 @@ Each assessment record must distinguish:
 
 ## Engagement Gates
 
-Before assessment proceeds:
+**Upstream (before this assessment):**
+
+1. [`THP-ENGAGEMENT-READINESS-APPLICATION.md`](./THP-ENGAGEMENT-READINESS-APPLICATION.md) — self-reported intake; routing signals only
+2. [`THP-SMB-INSTRUMENT-002`](../../knowledge/smb-maturity/instruments/THP-SMB-INSTRUMENT-002-first-onboarder-diagnostic.md) — **authoritative** qualification gate; must pass before full diagnostic and this assessment
+3. Level 1 diagnostic (A–H) — maturity classification within [`THP-SMB-INSTRUMENT-002`](../../knowledge/smb-maturity/instruments/THP-SMB-INSTRUMENT-002-first-onboarder-diagnostic.md)
+
+**Before this assessment proceeds** (consulting / intervention progression — not initial acceptance):
 
 - informed consent and defined scope ([`ENTITY-ENGAGEMENT-BOUNDARIES.md`](./ENTITY-ENGAGEMENT-BOUNDARIES.md));
-- readiness confirmed via application — openness and responsibility, not self-condemnation;
-- sufficient operating activity for meaningful assessment;
-- consulting gates from [`layer-07-consulting-methodology.md`](../../../intelligence/layer-07-consulting-methodology.md) where applicable.
+- qualification outcome **`qualified`** or equivalent verified acceptance — not application completion alone;
+- sufficient operating activity for meaningful assessment (verified at qualification, not self-reported only);
+- consulting stage gates from [`layer-07-consulting-methodology.md`](../../../intelligence/layer-07-consulting-methodology.md) — **intervention progression gates** (Discovery, Observation, Diagnosis, etc.), **not** initial engagement-acceptance gates.
+
+**Ambiguity note:** Entity Position assessment was previously documented as requiring "readiness confirmed via application." That requirement is **superseded for SMB first-onboarder path** by the application → qualification → diagnostic sequence. Application readiness is a **preliminary signal**; qualification is authoritative.
 
 ## What This Assessment Is Not
 
@@ -156,6 +166,10 @@ Before assessment proceeds:
 These are the subject of the next active assignment.
 
 ## Revision History
+
+### 0.1.1 — 2026-07-21
+
+- Engagement gates clarified: upstream qualification vs consulting intervention progression gates.
 
 ### 0.1.0 — 2026-07-21
 

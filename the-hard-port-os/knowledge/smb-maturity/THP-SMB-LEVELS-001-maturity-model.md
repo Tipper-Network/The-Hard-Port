@@ -23,8 +23,10 @@ related_documents:
   - ./levels/THP-SMB-LEVEL-03-attempting-growth.md
   - ./instruments/THP-SMB-INSTRUMENT-001-growth-experiment-record.md
   - ./instruments/THP-SMB-INSTRUMENT-002-first-onboarder-diagnostic.md
+  - ./instruments/templates/THP-SMB-TEMPLATE-001-qualification-record.md
   - ../../docs/04-market/first-onboarder/THP-SMB-001-FIRST-ONBOARDER.md
   - ../../active/forms/THP-SMB-002-level-1-to-level-2-transition.md
+  - ../../docs/03-methods/entity-assessment/THP-ENGAGEMENT-READINESS-APPLICATION.md
   - ../../docs/02-ontology/entity-maturity/ENTITY-MATURITY-MODEL.md
 supersedes: []
 superseded_by: []
@@ -279,7 +281,7 @@ The current maturity model is sufficient to support:
 
 **Active operational boundary:** Level 1 → Level 2 transition. Level 3 defines the next-stage boundary only.
 
-**Next build:** [`THP-SMB-INSTRUMENT-002`](./instruments/THP-SMB-INSTRUMENT-002-first-onboarder-diagnostic.md) — First-Onboarder Diagnostic.
+**Next build:** [`THP-SMB-INSTRUMENT-002`](./instruments/THP-SMB-INSTRUMENT-002-first-onboarder-diagnostic.md) — First-Onboarder Qualification Gate (active session).
 
 ## Levels 4–7 (provisional)
 
@@ -325,15 +327,32 @@ Founder approval: **2026-07-21** — Level 2 gate decisions and stability-proof 
 
 9. **Level 3 direction and working decisions** — confirmed 2026-07-21. See [`THP-SMB-LEVEL-03` § Level 3 founder decisions](./levels/THP-SMB-LEVEL-03-attempting-growth.md#level-3-founder-decisions).
 
+10. **Level 1 entry gate** — confirmed 2026-07-21 during qualification-system boundary resolution. See [Confirmed Level 1 Entry Gate](#confirmed-level-1-entry-gate) below.
+
 Full stability rule: [`THP-SMB-LEVEL-02` § Stability-proof rule](./levels/THP-SMB-LEVEL-02-stable-preparing-for-growth.md#stability-proof-rule).
+
+### Confirmed Level 1 Entry Gate
+
+A business enters Level 1 when:
+
+1. It has a defined offer.
+2. Multiple unrelated paying customers have purchased the offer.
+3. The offer has been delivered more than once.
+4. The business remains actively operating.
+5. The founder intends to continue building it.
+
+No universal transaction threshold is used beyond the requirement for multiple unrelated customers and repeated delivery.
+
+The business must have enough completed customer cycles to produce meaningful evidence for diagnosis.
+
+Detail: [`THP-SMB-LEVEL-01` § Entry gate](./levels/THP-SMB-LEVEL-01-established-but-surviving.md#entry-gate).
 
 ## Founder Decisions Pending
 
 Still require founder confirmation before the **full seven-level model** becomes operational authority:
 
-1. **Level 1 entry:** A business becomes Level 1 after serving multiple unrelated paying customers and repeatedly delivering its offer.
-2. **Levels 4–7 gates** — intentionally deferred; provisional labels only until evidence from observed businesses warrants detailed definition.
-3. **Full model canonical review** — all seven level gates must be confirmed before `canonicality` changes.
+1. **Levels 4–7 gates** — intentionally deferred; provisional labels only until evidence from observed businesses warrants detailed definition.
+2. **Full model canonical review** — all seven level gates must be confirmed before `canonicality` changes.
 
 Do **not** mark the entire maturity model canonical until the maturity subsystem is formally reviewed.
 
@@ -344,6 +363,22 @@ Do **not** mark the entire maturity model canonical until the maturity subsystem
 - [`ENTITY-MATURITY-MODEL.md`](../../docs/02-ontology/entity-maturity/ENTITY-MATURITY-MODEL.md) — prior candidate sketch; superseded for SMB classification by this model
 
 ## Revision History
+
+### 0.3.3 — 2026-07-21
+
+- First-Onboarder Qualification Gate structurally complete (INSTRUMENT-002 §1–13).
+- Entry gate wording aligned with confirmed founder text.
+- Next task: Level 1 diagnostic interview A–H.
+
+### 0.3.2 — 2026-07-21
+
+- Level 1 entry gate confirmed; engagement sequence (application → qualification → diagnostic → consulting) documented.
+- Application reframed as intake only; qualification gate authoritative.
+
+### 0.3.1 — 2026-07-21
+
+- Level 1 entry gate moved under qualification-gate task; recommended resolution pending founder confirmation.
+- First-Onboarder Qualification Gate set as active operationalization session.
 
 ### 0.3.0 — 2026-07-21
 

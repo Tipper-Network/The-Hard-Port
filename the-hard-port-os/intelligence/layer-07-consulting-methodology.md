@@ -26,6 +26,22 @@ Define the gated process through which The Hard Port observes, diagnoses, change
 
 The methodology protects the quality of reasoning. It prevents a preferred service, tool, or idea from becoming the answer before the business is understood.
 
+## Engagement Boundary
+
+This methodology applies **after** a business has passed the [First-Onboarder Qualification Gate](../knowledge/smb-maturity/instruments/THP-SMB-INSTRUMENT-002-first-onboarder-diagnostic.md).
+
+It does **not** determine whether the business should be accepted into the THP diagnostic process.
+
+**Upstream sequence:**
+
+1. [Engagement Readiness Application](../docs/03-methods/entity-assessment/THP-ENGAGEMENT-READINESS-APPLICATION.md) — self-reported intake
+2. [First-Onboarder Qualification Gate](../knowledge/smb-maturity/instruments/THP-SMB-INSTRUMENT-002-first-onboarder-diagnostic.md) — accept into diagnostic or not
+3. [Level 1 Diagnostic](../knowledge/smb-maturity/instruments/THP-SMB-INSTRUMENT-002-first-onboarder-diagnostic.md) (A–H) — maturity condition
+
+This methodology begins with the **interpretation and intervention work** that follows those stages — including Entity Position and Direction Assessment and the gated lifecycle below.
+
+**Note:** METHOD-01 Discovery defines engagement scope for an **accepted** client. It is an **intervention progression gate**, not an initial engagement-acceptance gate. Initial acceptance is upstream (application → qualification → diagnostic).
+
 ## Method Principles
 
 1. Begin with the client's desired condition and constraints.
@@ -588,6 +604,10 @@ An engagement closes with:
 - When should a failed intervention trigger remapping rather than modification?
 
 ## Revision Log
+
+### 0.1.2 — 2026-07-21
+
+- Engagement boundary added; upstream sequence (application → qualification → diagnostic) documented.
 
 ### 0.1.1 — 2026-07-21
 
