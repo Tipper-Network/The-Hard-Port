@@ -5,6 +5,7 @@
 The current session assignment only.
 
 - [`CURRENT_TASK.md`](./CURRENT_TASK.md) — one actionable assignment for Cursor, rewritten each work session.
+- [`forms/`](./forms/) — founder input forms awaiting synthesis (`canonicality: working`, not Canon).
 
 ## What Does Not Belong Here
 

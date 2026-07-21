@@ -6,6 +6,8 @@ Initial SMB customer profile for THP's first operating path.
 
 Raw founder form: [`../../../businesses/THP-SMB-001.md`](../../../businesses/THP-SMB-001.md)
 
+Next form (founder input): [`../../../active/forms/THP-SMB-002-level-1-to-level-2-transition.md`](../../../active/forms/THP-SMB-002-level-1-to-level-2-transition.md)
+
 Maturity model: [`../../02-ontology/entity-maturity/ENTITY-MATURITY-MODEL.md`](../../02-ontology/entity-maturity/ENTITY-MATURITY-MODEL.md)
 
 Media audience: [`../../../intelligence/layer-09-research-initiative.md`](../../../intelligence/layer-09-research-initiative.md)
