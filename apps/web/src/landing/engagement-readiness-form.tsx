@@ -5,8 +5,8 @@ import { useState, type FormEvent } from 'react'
 import { Input } from '#/components/ui/input'
 import { Label } from '#/components/ui/label'
 import { Textarea } from '#/components/ui/textarea'
-
-const WEBHOOK = import.meta.env.VITE_THP_INTAKE_WEBHOOK_URL as string | undefined
+import type { IntakePayload } from '#/lib/intake-payload'
+import { submitIntake } from '#/lib/submit-intake'
 
 type FormState = {
   founderName: string
@@ -52,7 +52,7 @@ const initialState: FormState = {
 
 type FieldErrors = Partial<Record<keyof FormState, boolean>>
 
-function buildPayload(form: FormState) {
+function buildPayload(form: FormState): IntakePayload {
   return {
     submittedAt: new Date().toISOString(),
     form: 'THP-ENGAGEMENT-READINESS-APPLICATION',
@@ -99,25 +99,26 @@ export function EngagementReadinessForm() {
     const payload = buildPayload(form)
     setStatus('submitting')
 
-    if (WEBHOOK) {
-      try {
-        const res = await fetch(WEBHOOK, {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify(payload),
-        })
-        if (!res.ok) throw new Error('Submission failed')
+    try {
+      const result = await submitIntake({ data: payload })
+
+      if (result.ok) {
         setStatus('success')
         return
-      } catch {
+      }
+
+      if (result.manual) {
         setManualJson(JSON.stringify(payload, null, 2))
         setStatus('manual')
         return
       }
-    }
 
-    setManualJson(JSON.stringify(payload, null, 2))
-    setStatus('manual')
+      alert(result.error)
+      setStatus('idle')
+    } catch {
+      setManualJson(JSON.stringify(payload, null, 2))
+      setStatus('manual')
+    }
   }
 
   if (status === 'success') {
@@ -136,11 +137,13 @@ export function EngagementReadinessForm() {
     return (
       <div className="border border-secondary/15 bg-secondary/5 p-8">
         <p className="font-heading text-lg text-secondary uppercase">
-          Webhook not configured — manual handoff
+          Intake not configured — manual handoff
         </p>
         <p className="mt-2 text-sm text-white/70">
-          Email this JSON to your intake address, or configure{' '}
-          <code className="text-accent">VITE_THP_INTAKE_WEBHOOK_URL</code>.
+          Email this JSON to your intake address, or start the API with{' '}
+          <code className="text-accent">THP_API_URL</code> in{' '}
+          <code className="text-accent">apps/web/.env</code> (see{' '}
+          <code className="text-accent">pnpm dev:api</code>).
         </p>
         <pre className="mt-4 max-h-64 overflow-auto border border-white/10 bg-black/40 p-4 text-left text-xs text-white/80">
           {manualJson}

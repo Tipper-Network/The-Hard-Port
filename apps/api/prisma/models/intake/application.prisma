@@ -1,0 +1,36 @@
+/// Engagement Readiness Application — Stage 2 intake
+model Application {
+  id          String   @id @default(cuid())
+  submittedAt DateTime @map("submitted_at")
+  form        String
+  version     String
+
+  founderName         String  @map("founder_name")
+  businessName        String  @map("business_name")
+  email               String
+  contactPhone        String? @map("contact_phone")
+  coreOffer           String  @map("core_offer")
+  payingCustomers     String  @map("paying_customers")
+  deliveryHistory     String  @map("delivery_history")
+  operatingStatus     String  @map("operating_status")
+  founderContinuation String  @map("founder_continuation")
+  onlineActivity      String? @map("online_activity")
+  primaryProblems     String? @map("primary_problems")
+  availableRecords    String? @map("available_records")
+  discoverySource     String  @map("discovery_source")
+  willingnessExamine  Boolean @map("willingness_examine")
+  willingnessEvidence Boolean @map("willingness_evidence")
+  willingnessFeedback Boolean @map("willingness_feedback")
+  crisisIndicators    String? @map("crisis_indicators")
+  privacyAck          Boolean @map("privacy_ack")
+
+  clientId        String? @map("client_id")
+  lifecycleStatus String  @default("application_submitted") @map("lifecycle_status")
+
+  createdAt DateTime @default(now()) @map("created_at")
+  updatedAt DateTime @updatedAt @map("updated_at")
+
+  @@index([email])
+  @@index([lifecycleStatus])
+  @@map("applications")
+}

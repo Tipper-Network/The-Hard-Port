@@ -36,8 +36,10 @@ Operational layer before public application CTA:
 
 ## Next active work
 
-1. Complete intake checklist remainders (webhook, commercial placeholders, legal review, tracker in use)
+1. Complete intake checklist remainders (commercial placeholders, legal review)
 2. Script Video 1 — [`operations/youtube-attraction/THP-YOUTUBE-001-attraction-architecture.md`](./operations/youtube-attraction/THP-YOUTUBE-001-attraction-architecture.md)
+
+Intake stack: `apps/api` (Nest + Prisma + Neon) · `pnpm dev`
 
 ---
 
