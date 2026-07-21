@@ -1,65 +1,65 @@
 # READ_FROM — Founder Paste Buffer
 
 > **Role:** Paste new founder material here first. Institutional copies live under `knowledge/`, `docs/`, and `active/`.  
-> **Last sync:** 2026-07-21 — First-Onboarder Qualification Gate
+> **Last sync:** 2026-07-21 — Level 1-to-Level 2 Intervention System
 
 ---
 
-## First-Onboarder Qualification Gate — synced
+## Current Institutional Boundary
 
-The qualification system is now structurally complete.
+The qualification system is sufficiently developed until the first real entity is available.
 
-**Institutional home:** [`knowledge/smb-maturity/instruments/THP-SMB-INSTRUMENT-002-first-onboarder-diagnostic.md`](./knowledge/smb-maturity/instruments/THP-SMB-INSTRUMENT-002-first-onboarder-diagnostic.md) (sections 1–13)
+Detailed diagnostic design is deferred for field testing.
 
-**Blank record:** [`knowledge/smb-maturity/instruments/templates/THP-SMB-TEMPLATE-001-qualification-record.md`](./knowledge/smb-maturity/instruments/templates/THP-SMB-TEMPLATE-001-qualification-record.md)
+The active design problem is now the Level 1-to-Level 2 intervention: what THP actually does after accepting and diagnosing a business.
 
-**Intake (feeds qualification):** [`docs/03-methods/entity-assessment/THP-ENGAGEMENT-READINESS-APPLICATION.md`](./docs/03-methods/entity-assessment/THP-ENGAGEMENT-READINESS-APPLICATION.md)
+**Next design task:** Client Engagement Lifecycle — see [`active/CURRENT_TASK.md`](./active/CURRENT_TASK.md).
+
+---
+
+## Intervention System
+
+THP's Level 1-to-Level 2 intervention now follows:
+
+1. Business Reality
+2. Evidence Recovery
+3. Viable Core
+4. Constraint Diagnosis
+5. Identity Clarification
+6. Relationship Foundation
+7. Operating Foundation
+8. Level 2 Proof
+
+The intervention defines the institutional transformation.
+
+Branding, content, communication, research, and operational deliverables are execution instruments inside that transformation.
+
+**Institutional home:** [`knowledge/smb-intervention/THP-SMB-INTERVENTION-001-level-1-to-level-2.md`](./knowledge/smb-intervention/THP-SMB-INTERVENTION-001-level-1-to-level-2.md)
+
+**Templates:**
+
+- [`THP-SMB-TEMPLATE-002`](./knowledge/smb-intervention/templates/THP-SMB-TEMPLATE-002-intervention-decision-record.md) — Intervention Decision Record
+- [`THP-SMB-TEMPLATE-003`](./knowledge/smb-intervention/templates/THP-SMB-TEMPLATE-003-institutional-learning-record.md) — Institutional Learning Record
+
+**Index:** [`knowledge/smb-intervention/README.md`](./knowledge/smb-intervention/README.md)
+
+---
+
+## Qualification Gate — synced
+
+The qualification system is structurally complete.
+
+**Instrument:** [`THP-SMB-INSTRUMENT-002`](./knowledge/smb-maturity/instruments/THP-SMB-INSTRUMENT-002-first-onboarder-diagnostic.md) (§1–13)
+
+**Blank record:** [`THP-SMB-TEMPLATE-001`](./knowledge/smb-maturity/instruments/templates/THP-SMB-TEMPLATE-001-qualification-record.md)
 
 ### Engagement sequence
 
-Application → Qualification → Diagnostic → Consulting Assessment → Intervention → Reassessment
+Application → Qualification → Diagnostic → Findings → Intervention → Reassessment
 
-The application gathers claims.
+### Diagnostic — deferred, not abandoned
 
-The qualification gate verifies whether the business should enter diagnosis.
-
-The diagnostic determines maturity conditions and Level 2 gaps.
-
-### Qualification outcomes (not maturity levels)
-
-`qualified` · `conditionally_qualified` · `too_early` · `outside_current_scope` · `not_ready_for_thp`
-
-### Evidence statuses (qualification, claim-level)
-
-`self_reported` · `supported` · `verified` · `contradicted` · `unavailable` · `not_applicable`
-
-### Level 1 entry gate — confirmed
-
-A business enters Level 1 when:
-
-1. It has a defined offer.
-2. Multiple unrelated paying customers have purchased the offer.
-3. The offer has been delivered more than once.
-4. The business remains actively operating.
-5. The founder intends to continue building it.
-
-No universal transaction threshold is used beyond the requirement for multiple unrelated customers and repeated delivery.
-
-The business must have enough completed customer cycles to produce meaningful evidence for diagnosis.
-
-Recorded in [`THP-SMB-LEVELS-001`](./knowledge/smb-maturity/THP-SMB-LEVELS-001-maturity-model.md#confirmed-level-1-entry-gate) and [`THP-SMB-LEVEL-01`](./knowledge/smb-maturity/levels/THP-SMB-LEVEL-01-established-but-surviving.md#entry-gate).
-
----
-
-## Next task
-
-Build the Level 1 diagnostic interview across dimensions A–H (INSTRUMENT-002 §14–18).
-
-Do not introduce numeric scoring during the next task.
-
-Use evidence statuses, dimension findings, mandatory gates, and constraint identification.
-
-See [`active/CURRENT_TASK.md`](./active/CURRENT_TASK.md).
+A–H diagnostic placeholders remain in INSTRUMENT-002 §14–18. Detailed interview design waits for the first real entity.
 
 ---
 

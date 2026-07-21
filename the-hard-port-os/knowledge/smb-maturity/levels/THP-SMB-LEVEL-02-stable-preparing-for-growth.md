@@ -24,6 +24,7 @@ related_documents:
   - ../instruments/THP-SMB-INSTRUMENT-001-growth-experiment-record.md
   - ../../../docs/04-market/first-onboarder/THP-SMB-001-FIRST-ONBOARDER.md
   - ../../../active/forms/THP-SMB-002-level-1-to-level-2-transition.md
+  - ../../smb-intervention/THP-SMB-INTERVENTION-001-level-1-to-level-2.md
 supersedes: []
 superseded_by: []
 next_level: THP-SMB-LEVEL-03
@@ -67,6 +68,8 @@ Level 2 is a **consolidation and preparation** stage. It is not a passive waitin
 ## Entry gate
 
 A business enters Level 2 only after completing the [Level 1 exit gate](./THP-SMB-LEVEL-01-established-but-surviving.md#exit-gate-level-1--level-2).
+
+**Working proof mechanism:** [`THP-SMB-INTERVENTION-001` Phase 8 — Level 2 Proof](../../smb-intervention/THP-SMB-INTERVENTION-001-level-1-to-level-2.md#12-phase-8--level-2-proof) — evidence-based reassessment across all Level 2 gates. Level 2 entry is confirmed by supported evidence and stability across required business cycles — not by deliverable completion alone.
 
 The following conditions must be sufficiently demonstrated.
 
@@ -437,7 +440,7 @@ Level 2 is a **demonstrated system condition** — not a collection of business 
 
 ## THP's role at Level 2
 
-THP's first intervention helps a Level 1 business establish the Level 2 foundation.
+THP's first intervention helps a Level 1 business establish the Level 2 foundation — see [`THP-SMB-INTERVENTION-001`](../../smb-intervention/THP-SMB-INTERVENTION-001-level-1-to-level-2.md).
 
 Once the business reaches Level 2, THP helps the business:
 
@@ -468,6 +471,10 @@ Confirmed by founder: **2026-07-21**. See also [`Founder Decisions Confirmed`](.
 Level 2 gate decisions are confirmed. The **seven-level maturity model** remains `non_canonical` until all level gates have been reviewed.
 
 ## Revision History
+
+### 0.2.1 — 2026-07-21
+
+- Phase 8 Level 2 Proof linked as working proof mechanism for Level 2 entry.
 
 ### 0.2.0 — 2026-07-21
 
