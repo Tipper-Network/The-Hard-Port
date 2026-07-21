@@ -21,6 +21,8 @@ related_documents:
   - ./00-foundations/THP-REALITY-INTERPRETATION-SHARED-WORLD.md
   - ./00-foundations/THP-SELF-INTENTION-EXPRESSION.md
   - ./00-foundations/THP-VALUES-PRINCIPLES-WILL.md
+  - ./00-foundations/CANDIDATE-WORKING-PHILOSOPHY.md
+  - ./00-foundations/OPEN-PHILOSOPHICAL-QUESTIONS.md
   - ./03-methods/entity-assessment/README.md
   - ./03-methods/tipper/README.md
   - ./knowledge-system/README.md
@@ -36,8 +38,10 @@ Operational and methodological documentation for The Hard Port OS.
 
 | Section | Purpose |
 |---|---|
+| [Ontology](./02-ontology/README.md) | Entity maturity and structured definitions |
 | [Foundations](./00-foundations/README.md) | Philosophical assumptions and institutional foundations |
 | [Methods](./03-methods/README.md) | Operational methods for entity assessment and Tipper |
+| [Market](./04-market/README.md) | Target entities and onboarder profiles |
 | [Knowledge System](./knowledge-system/README.md) | How knowledge is produced, moved, and synthesized |
 
 ## Foundations
@@ -60,12 +64,22 @@ Operational and methodological documentation for The Hard Port OS.
 - [Values, Principles, Will, and Responsibility](./00-foundations/THP-VALUES-PRINCIPLES-WILL.md)  
   Candidate position on beliefs, values, principles, will, institutional values, authority, and refusal.
 
+- [Candidate Working Philosophy — Freeze Registry](./00-foundations/CANDIDATE-WORKING-PHILOSOPHY.md)  
+  THP-PH-001 through THP-PH-004 frozen as candidate working philosophy (2026-07-21).
+
+- [Open Philosophical Questions](./00-foundations/OPEN-PHILOSOPHICAL-QUESTIONS.md)  
+  Consolidated unresolved questions; operating evidence may sharpen answers.
+
 - [THP Founding Questions](./00-foundations/THP-FOUNDING-QUESTIONS.md)  
   Lists the ten enduring founding questions produced by the founding origin.
 
+## Market
+
+- [First Onboarder](./04-market/first-onboarder/THP-SMB-001-FIRST-ONBOARDER.md) — candidate definition of the first THP SMB onboarder (Level 1 → 2)
+
 ## Methods
 
-- [Entity Assessment](./03-methods/entity-assessment/README.md) — intention/expression loop, values/principles loop, engagement boundaries
+- [Entity Assessment](./03-methods/entity-assessment/README.md) — intention/expression loop, values/principles loop, position assessment, engagement boundaries
 - [Tipper Methods](./03-methods/tipper/README.md) — user profile, interests, recommendations, participation boundaries
 
 ## Primary Architecture References

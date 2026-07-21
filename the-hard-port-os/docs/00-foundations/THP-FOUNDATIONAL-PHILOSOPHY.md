@@ -19,6 +19,8 @@ related_documents:
   - ./THP-REALITY-INTERPRETATION-SHARED-WORLD.md
   - ./THP-SELF-INTENTION-EXPRESSION.md
   - ./THP-VALUES-PRINCIPLES-WILL.md
+  - ./CANDIDATE-WORKING-PHILOSOPHY.md
+  - ./OPEN-PHILOSOPHICAL-QUESTIONS.md
   - ./THP-SMB-RESEARCH-AND-ASSESSMENT-NOTES.md
   - ./THP-FOUNDING-QUESTIONS.md
   - ./source-records/THP-FQ-001-FOUNDING-ORIGIN.md
@@ -74,6 +76,12 @@ This document does not duplicate them. Operational assessment methods: [`../03-m
 Definitions of beliefs, values, principles, traits, styles, will, resolve, harmony, institutional values, responsibility, legitimate authority, and refusal of engagement are defined in [`THP-VALUES-PRINCIPLES-WILL.md`](./THP-VALUES-PRINCIPLES-WILL.md).
 
 This document does not duplicate them.
+
+Agency, accountability, and ownership distinctions beyond THP-PH-003 remain open — see [`OPEN-PHILOSOPHICAL-QUESTIONS.md`](./OPEN-PHILOSOPHICAL-QUESTIONS.md) (PH-004 testimony deferred).
+
+## Candidate Working Philosophy — Frozen
+
+THP-PH-001 through THP-PH-004 are [frozen candidate working philosophy](./CANDIDATE-WORKING-PHILOSOPHY.md) as of 2026-07-21. Unresolved questions: [`OPEN-PHILOSOPHICAL-QUESTIONS.md`](./OPEN-PHILOSOPHICAL-QUESTIONS.md). Operating evidence from SMB work may sharpen positions; do not add new philosophy forms to `active/CURRENT_TASK.md`.
 
 For THP's work at the highest level, **reality** — as oriented here — is what a conscious being can encounter, participate in, and represent through models. See the reality document for the full institutional position.
 
@@ -214,54 +222,32 @@ It explicitly does **not** yet define:
 
 ## Open Questions
 
+All unresolved philosophical questions are consolidated in [`OPEN-PHILOSOPHICAL-QUESTIONS.md`](./OPEN-PHILOSOPHICAL-QUESTIONS.md).
+
 Conflicting or unresolved language elsewhere must not be silently merged into this document.
 
-Founder testimony in [`source-records/THP-FQ-001-FOUNDING-ORIGIN.md`](./source-records/THP-FQ-001-FOUNDING-ORIGIN.md) and raw responses in [`THP-FQ-001.md`](./THP-FQ-001.md) propose positions on several subjects below. **Those answers are not treated as finalized philosophy.** They remain open until examined through THP's epistemology and research process.
+Founder testimony in [`source-records/THP-FQ-001-FOUNDING-ORIGIN.md`](./source-records/THP-FQ-001-FOUNDING-ORIGIN.md) and raw responses in [`THP-FQ-001.md`](./THP-FQ-001.md) propose positions on several subjects. **Those answers are not treated as finalized philosophy.**
 
-### From reality, interpretation, and the shared world
+### Frozen candidate positions
 
-Addressed as a candidate position in [`THP-REALITY-INTERPRETATION-SHARED-WORLD.md`](./THP-REALITY-INTERPRETATION-SHARED-WORLD.md). Remaining open items — including founder metaphysics not adopted institutionally — are listed there.
+| ID | Document | Status |
+|---|---|---|
+| THP-PH-001 | [`THP-REALITY-INTERPRETATION-SHARED-WORLD.md`](./THP-REALITY-INTERPRETATION-SHARED-WORLD.md) | Frozen — candidate institutional position |
+| THP-PH-002 | [`THP-SELF-INTENTION-EXPRESSION.md`](./THP-SELF-INTENTION-EXPRESSION.md) | Frozen — candidate institutional position |
+| THP-PH-003 | [`THP-VALUES-PRINCIPLES-WILL.md`](./THP-VALUES-PRINCIPLES-WILL.md) | Frozen — candidate institutional position |
+| THP-PH-004 | [`PH-004.md`](../../philosophy/preliminary-questions/PH-004.md) testimony | Frozen — institutional synthesis deferred |
 
-### From the self, intention, and expression
+Registry: [`CANDIDATE-WORKING-PHILOSOPHY.md`](./CANDIDATE-WORKING-PHILOSOPHY.md).
 
-Addressed as a candidate position in [`THP-SELF-INTENTION-EXPRESSION.md`](./THP-SELF-INTENTION-EXPRESSION.md). Organizational consciousness remains a [research hypothesis](../../research/hypotheses/HYP-002-organizational-consciousness.md), not institutional fact. Use **organizational identity** operationally until resolved.
-
-### From values, principles, will, and responsibility
-
-Addressed as a candidate position in [`THP-VALUES-PRINCIPLES-WILL.md`](./THP-VALUES-PRINCIPLES-WILL.md). Open questions on will measurement, unconscious influence, and THP's own participation boundaries remain listed there.
-
-### From the founding origin (unresolved)
-- **The self.** What precisely constitutes the self? (Provisional model in reality document §12; metaphysics open.)
-
-- **Attention, effort, motivation, and energy.** What is the difference among them?
-
-- **Responsibility and blame.** Can responsibility always be claimed without becoming misplaced blame? (Distinction from total causal control in reality document §11.)
-
-- **Entity and community.** Is every entity necessarily supported by a community?
-
-- **Identity through interaction.** How does an entity's identity emerge through interaction with that community?
-
-- **Information through wisdom.** What distinguishes information, understanding, knowledge, and wisdom?
-
-- **Subjective experience and measurement.** Is subjective human experience measurable without reducing it to commercial performance?
-
-### From existing institutional tension
-
-- **Broad inquiry vs bounded mission.** The foundational question spans conscious beings and systems generally. The canonical mission in Layer 00 remains small-business focused. How expansion beyond that laboratory is authorized remains unresolved.
-
-- **Identity transformation vs capability transformation.** The identity loop described here differs from the business-capability transformation in Layer 01. Whether they are nested, parallel, or competing models is unresolved.
-
-- **Charter vs this document.** [`the-hard-port-charter.md`](../../philosophy/the-hard-port-charter.md) preserves Session 01 institutional thesis and an identity-transformation cycle. This document is the candidate foundational philosophy. Which supersedes which, or how they relate, is unresolved.
-
-- **Entity scope.** Whether organizations, communities, or non-human agents count as conscious beings for specific THP work is undefined here.
-
-- **Technology and Tipper.** Charter language treats technology as a scaling medium. Institutional rules treat Tipper as implementation, not the company. The precise boundary is defined in [`THP-INSTITUTIONAL-PURPOSE-AND-BOUNDARIES.md`](./THP-INSTITUTIONAL-PURPOSE-AND-BOUNDARIES.md); remaining governance questions stay open.
+Priority open themes include organizational consciousness, spirit and consciousness, degrees of agency, personal continuity, moral responsibility under severe constraint, and limits of institutional accountability.
 
 ## Related Documents
 
 - [`THP-REALITY-INTERPRETATION-SHARED-WORLD.md`](./THP-REALITY-INTERPRETATION-SHARED-WORLD.md) — reality, interpretation, facts, truth, expression
 - [`THP-SELF-INTENTION-EXPRESSION.md`](./THP-SELF-INTENTION-EXPRESSION.md) — self, intention, expression, organizational identity
 - [`THP-VALUES-PRINCIPLES-WILL.md`](./THP-VALUES-PRINCIPLES-WILL.md) — values, principles, will, responsibility, engagement authority
+- [`CANDIDATE-WORKING-PHILOSOPHY.md`](./CANDIDATE-WORKING-PHILOSOPHY.md) — freeze registry for THP-PH-001–004
+- [`OPEN-PHILOSOPHICAL-QUESTIONS.md`](./OPEN-PHILOSOPHICAL-QUESTIONS.md) — consolidated unresolved questions
 - [`THP-INSTITUTIONAL-PURPOSE-AND-BOUNDARIES.md`](./THP-INSTITUTIONAL-PURPOSE-AND-BOUNDARIES.md) — institutional purpose and boundaries
 - [`THP-EPISTEMOLOGY.md`](./THP-EPISTEMOLOGY.md) — how THP understands knowledge
 - [`KNOWLEDGE_ARCHITECTURE.md`](../../KNOWLEDGE_ARCHITECTURE.md) — knowledge lifecycle structure; references this document for philosophical assumptions
@@ -301,3 +287,7 @@ Addressed as a candidate position in [`THP-VALUES-PRINCIPLES-WILL.md`](./THP-VAL
 ### 0.1.5 — 2026-07-21
 
 - Delegated values, principles, will, and responsibility to `THP-VALUES-PRINCIPLES-WILL.md`.
+
+### 0.1.6 — 2026-07-21
+
+- Froze THP-PH-001–004 as candidate working philosophy; consolidated open questions to `OPEN-PHILOSOPHICAL-QUESTIONS.md`.
