@@ -8,16 +8,17 @@ This is **not** another institutional-design phase. Build only what is necessary
 
 ## Required Before Public Application CTA
 
-- [ ] Usable application form — [`intake/`](./intake/) · live route `/apply` in `apps/web`
-- [ ] Public service explanation — [`public/thp-service-explanation.md`](./public/thp-service-explanation.md) · live route `/work-with-us`
-- [ ] Client workspace template — [`../../clients/_TEMPLATE/`](../../clients/_TEMPLATE/)
-- [ ] Lifecycle tracker — [`templates/THP-LIFECYCLE-PIPELINE-TRACKER.csv`](./templates/THP-LIFECYCLE-PIPELINE-TRACKER.csv)
-- [ ] Diagnostic offer summary — [`THP-MINIMUM-COMMERCIAL-READINESS.md`](./THP-MINIMUM-COMMERCIAL-READINESS.md)
+- [x] Usable application form — [`intake/`](./intake/) · live route `/apply` in `apps/web`
+- [x] Public service explanation — [`public/thp-service-explanation.md`](./public/thp-service-explanation.md) · live route `/work-with-us`
+- [x] Client workspace template — [`../../clients/_TEMPLATE/`](../../clients/_TEMPLATE/)
+- [x] Lifecycle tracker — [`templates/THP-LIFECYCLE-PIPELINE-TRACKER.csv`](./templates/THP-LIFECYCLE-PIPELINE-TRACKER.csv) · DB source: `applications` table
+- [x] Diagnostic offer summary — [`THP-MINIMUM-COMMERCIAL-READINESS.md`](./THP-MINIMUM-COMMERCIAL-READINESS.md)
 - [ ] Payment process documented
-- [ ] Minimum privacy and service documents — [`templates/legal/`](./templates/legal/)
-- [ ] Evidence-storage rule — [`THP-EVIDENCE-STORAGE-RULE.md`](./THP-EVIDENCE-STORAGE-RULE.md)
-- [ ] One-active-client capacity limit — see below
-- [ ] Field-validation record — [`templates/THP-FIRST-CLIENT-FIELD-VALIDATION.md`](./templates/THP-FIRST-CLIENT-FIELD-VALIDATION.md)
+- [x] Minimum privacy and service documents — [`templates/legal/`](./templates/legal/)
+- [x] Evidence-storage rule — [`THP-EVIDENCE-STORAGE-RULE.md`](./THP-EVIDENCE-STORAGE-RULE.md)
+- [x] One-active-client capacity limit — see below
+- [x] Field-validation record — [`templates/THP-FIRST-CLIENT-FIELD-VALIDATION.md`](./templates/THP-FIRST-CLIENT-FIELD-VALIDATION.md)
+- [x] Intake API — `apps/api` (Nest + Prisma + Neon)
 
 Full checklist: [`THP-FIRST-CLIENT-READINESS-CHECKLIST.md`](./THP-FIRST-CLIENT-READINESS-CHECKLIST.md)
 

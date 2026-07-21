@@ -1,3 +1,5 @@
+# syntax=docker/dockerfile:1
+
 FROM node:22-alpine AS build
 
 RUN corepack enable
@@ -11,7 +13,10 @@ RUN pnpm install --frozen-lockfile
 
 COPY apps/web apps/web
 
-RUN pnpm --filter web build
+ARG VITE_THP_API_URL=http://localhost:3001
+ENV VITE_THP_API_URL=$VITE_THP_API_URL
+
+RUN pnpm --filter web generate-routes && pnpm --filter web build
 
 FROM node:22-alpine AS runner
 

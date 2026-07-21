@@ -154,7 +154,7 @@ See [`ENTITY-ENGAGEMENT-BOUNDARIES.md`](./ENTITY-ENGAGEMENT-BOUNDARIES.md).
 | Component | Status |
 |---|---|
 | Form fields | **Implemented** — `/apply` |
-| Webhook / review location | **Configure** — `VITE_THP_INTAKE_WEBHOOK_URL` |
+| Webhook / review location | **Nest API + Neon** — `apps/api` · [`SUBMISSION-SETUP`](../../../operations/first-client-readiness/intake/SUBMISSION-SETUP.md) |
 | Scoring | **Not designed** — no numeric scoring |
 | Routing thresholds | **At qualification** — INSTRUMENT-002 |
 | Integration with qualification gate | **Mapped** — see Qualification field mapping |

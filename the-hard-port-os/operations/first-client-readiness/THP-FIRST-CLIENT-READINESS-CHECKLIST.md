@@ -10,7 +10,7 @@
 - [x] States that applying does not guarantee acceptance
 - [x] Includes basic privacy notice
 - [x] Records how applicant discovered THP
-- [ ] Submissions route to one controlled review location ([`intake/SUBMISSION-SETUP.md`](./intake/SUBMISSION-SETUP.md)) — configure `VITE_THP_INTAKE_WEBHOOK_URL`
+- [x] Submissions route to one controlled review location — Nest API + Neon `applications` table ([`intake/SUBMISSION-SETUP.md`](./intake/SUBMISSION-SETUP.md))
 
 ## 2. Public service explanation
 
