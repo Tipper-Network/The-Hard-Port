@@ -1,9 +1,12 @@
-import 'dotenv/config'
+import { config } from 'dotenv'
+
+// .env.local overrides .env for local dev (DBeaver, pnpm db:migrate)
+config()
+config({ path: '.env.local', override: true })
 
 import { defineConfig, env } from 'prisma/config'
 
 export default defineConfig({
-  // Directory — loads schema.prisma + all prisma/models/**/*.prisma
   schema: 'prisma',
   migrations: {
     path: 'prisma/migrations',
