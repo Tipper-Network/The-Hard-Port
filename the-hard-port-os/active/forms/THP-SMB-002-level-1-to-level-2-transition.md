@@ -6,12 +6,14 @@ status: founder_input_required
 canonicality: working
 depends_on:
   - THP-SMB-001
+related_model: THP-SMB-LEVELS-001
 ---
 
 # The Level 1 to Level 2 Transition
 
 > **Not canonical.** Founder input only until Level 1 conditions, Level 2 conditions, transition mechanism, and proof criteria are reviewed and synthesized.  
-> **Depends on:** [`THP-SMB-001`](../../docs/04-market/first-onboarder/THP-SMB-001-FIRST-ONBOARDER.md)
+> **Depends on:** [`THP-SMB-001`](../../docs/04-market/first-onboarder/THP-SMB-001-FIRST-ONBOARDER.md)  
+> **Maturity model:** [`THP-SMB-LEVELS-001`](../../knowledge/smb-maturity/THP-SMB-LEVELS-001-maturity-model.md) · [`Level 1 detail`](../../knowledge/smb-maturity/levels/THP-SMB-LEVEL-01-established-but-surviving.md)
 
 # Purpose
 

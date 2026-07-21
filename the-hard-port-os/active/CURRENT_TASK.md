@@ -5,40 +5,62 @@ Updated: 2026-07-21
 
 ## Assignment
 
-**Complete [`THP-SMB-002`](./forms/THP-SMB-002-level-1-to-level-2-transition.md) before designing the YouTube series architecture.**
+**Define THP-SMB Level 2: Stable and Preparing for Growth.**
 
 **Do not create additional philosophy forms in this file.**
 
+The Level 2 definition must establish the **exact destination of THP's first service intervention** and the **evidence required to prove** that an onboarded business has moved beyond survival.
+
+Use the same structure as Level 1:
+
+- Entry gate
+- Observable conditions (across eight dimensions A–H)
+- Founder experience
+- Primary risk
+- Exit gate
+- Required evidence
+- THP's intervention at that level
+
 ## Reason
 
-The media system must attract businesses experiencing the **specific Level 1 to Level 2 transition**, rather than addressing small businesses generically.
+Level 1 is defined. Level 2 completes the first onboarder transition (Level 1 → Level 2) and unblocks:
 
-## Active forms
+- YouTube series architecture (attract businesses in this specific transition)
+- Entity Position and Direction Assessment Level 1–2 criteria
+- THP-SMB-002 synthesis
 
-| Form | Status |
+## Maturity model (in progress)
+
+| Document | Status |
 |---|---|
-| [THP-SMB-002 — Level 1 to Level 2 Transition](./forms/THP-SMB-002-level-1-to-level-2-transition.md) | `founder_input_required` |
+| [THP-SMB-LEVELS-001 — Maturity Model](../knowledge/smb-maturity/THP-SMB-LEVELS-001-maturity-model.md) | Classification logic + Level 1 summary; **not canonical** |
+| [THP-SMB-LEVEL-01 — Established but Surviving](../knowledge/smb-maturity/levels/THP-SMB-LEVEL-01-established-but-surviving.md) | **Complete** |
+| THP-SMB-LEVEL-02 — Stable and Preparing for Growth | **This task** |
 
-Form index: [`active/forms/README.md`](./forms/README.md)
-
-## Prerequisite (complete)
+## Linked records
 
 - [THP-SMB-001 — First Onboarder](../docs/04-market/first-onboarder/THP-SMB-001-FIRST-ONBOARDER.md)
-- [Entity Maturity Model — Levels 1–2](../docs/02-ontology/entity-maturity/ENTITY-MATURITY-MODEL.md)
+- [THP-SMB-002 — Transition form](./forms/THP-SMB-002-level-1-to-level-2-transition.md)
 
-## Blocked until THP-SMB-002 is complete
+## Founder decisions pending
 
-- YouTube series architecture
-- Entity Position and Direction Assessment detail (Level 1–2 criteria refinement may consume SMB-002 synthesis)
+Confirm in [`THP-SMB-LEVELS-001`](../knowledge/smb-maturity/THP-SMB-LEVELS-001-maturity-model.md#founder-decisions-pending):
+
+- Weakest-gate classification rule
+- Seven working defaults
+- Stability proof: fixed period vs business cycles
+
+Do **not** mark the maturity model canonical until classification rules and all seven level gates are reviewed.
 
 ## Constraints
 
-- THP-SMB-002 is **not canonical** until founder input is reviewed and synthesized
-- Use **Levels 1–2 only** — Levels 3–7 remain unvalidated
-- Separate observable conditions from founder experience from THP role from proof criteria
-- Social-media activity is operating environment — not the central definition of business health
+- Overall level = highest stage whose **required gate is fully completed**; weakest mandatory gate controls progression
+- Record **per-dimension maturity** separately from overall institutional level
+- Eight dimensions (A–H) consistent across all levels
+- A single sale ≠ operating business; Level 1 requires multiple unrelated paying customers with repeated delivery
+- Social-media activity is operating environment — not central health definition
 - Frozen philosophy: [`docs/00-foundations/CANDIDATE-WORKING-PHILOSOPHY.md`](../docs/00-foundations/CANDIDATE-WORKING-PHILOSOPHY.md)
 
-## After THP-SMB-002
+## Output target
 
-Synthesize into operational docs under `docs/04-market/` or `docs/02-ontology/` as appropriate — then proceed to YouTube series architecture design.
+Create `knowledge/smb-maturity/levels/THP-SMB-LEVEL-02-stable-preparing-for-growth.md` and update the main maturity model with Level 2 summary + link.

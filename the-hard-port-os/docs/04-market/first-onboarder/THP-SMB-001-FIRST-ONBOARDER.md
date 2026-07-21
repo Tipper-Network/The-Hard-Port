@@ -14,14 +14,16 @@ confidence: developing
 evidence_level: founder_hypothesis
 canonicality: non_canonical
 target_transition:
-  from: level_1_founder_dependent_survival
-  to: level_2_repeatable_operational_stability
+  from: level_01_established_but_surviving
+  to: level_02_stable_preparing_for_growth
 source_records:
   - THP-SMB-001
 next_document:
   - THP-SMB-002
 related_documents:
   - ./README.md
+  - ../../../knowledge/smb-maturity/THP-SMB-LEVELS-001-maturity-model.md
+  - ../../../knowledge/smb-maturity/levels/THP-SMB-LEVEL-01-established-but-surviving.md
   - ../../../active/forms/THP-SMB-002-level-1-to-level-2-transition.md
   - ../../02-ontology/entity-maturity/ENTITY-MATURITY-MODEL.md
   - ../../03-methods/entity-assessment/ENTITY-POSITION-AND-DIRECTION-ASSESSMENT.md
@@ -36,7 +38,7 @@ superseded_by: []
 # The First THP Onboarder
 
 > **Status:** `candidate`, `non_canonical`, `founder_hypothesis`  
-> **Primary transition:** Level 1 → Level 2 ([`ENTITY-MATURITY-MODEL.md`](../../02-ontology/entity-maturity/ENTITY-MATURITY-MODEL.md))
+> **Primary transition:** Level 1 → Level 2 ([`THP-SMB-LEVELS-001`](../../../knowledge/smb-maturity/THP-SMB-LEVELS-001-maturity-model.md))
 
 ## 1. Target Entity
 
@@ -54,41 +56,23 @@ The entity is still operating in survival mode and is attempting to move toward 
 
 ## 2. Current Maturity Position
 
-### Level 1 — Founder-Dependent Survival
+### Level 1 — Established but Surviving
 
-The business exists and performs real activity, but its continuation depends heavily on the founder's daily intervention.
+**ID:** `level_01_established_but_surviving`
 
-Typical characteristics include:
+The business has demonstrated that real customers will pay for and receive its offer, but has not yet established the demand, retention, financial, operational, or learning systems needed for stability.
 
-- unclear or changing priorities;
-- inconsistent customer acquisition;
-- reactive decision-making;
-- limited operational documentation;
-- weak separation between founder and entity;
-- irregular content and communication;
-- limited understanding of which actions produce results;
-- repeated experimentation without consolidated learning;
-- and pressure to generate immediate revenue.
+Full definition: [`THP-SMB-LEVEL-01`](../../../knowledge/smb-maturity/levels/THP-SMB-LEVEL-01-established-but-surviving.md)
 
-### Level 2 — Repeatable Operational Stability
+### Level 2 — Stable and Preparing for Growth
 
-The business has established enough coherence to operate beyond immediate survival.
+**ID:** `level_02_stable_preparing_for_growth`
 
-It possesses:
+**Status:** Definition in progress — see [`active/CURRENT_TASK.md`](../../../active/CURRENT_TASK.md).
 
-- a defined offering;
-- a clearer customer or community relationship;
-- repeatable operating routines;
-- measurable priorities;
-- a more coherent narrative;
-- defined responsibilities;
-- and an ability to learn from recurring activity.
+Full definitions: [`THP-SMB-LEVELS-001`](../../../knowledge/smb-maturity/THP-SMB-LEVELS-001-maturity-model.md).
 
-Level 2 does **not** mean the business is ready to scale. It means the entity has developed a stable enough base from which intentional growth can begin.
-
-Full definitions: [`ENTITY-MATURITY-MODEL.md`](../../02-ontology/entity-maturity/ENTITY-MATURITY-MODEL.md).
-
-**Next:** Transition detail (founder input) — [`THP-SMB-002`](../../../active/forms/THP-SMB-002-level-1-to-level-2-transition.md). Not canonical until reviewed and synthesized.
+**Next:** Transition detail — [`THP-SMB-002`](../../../active/forms/THP-SMB-002-level-1-to-level-2-transition.md). Not canonical until reviewed and synthesized.
 
 ## 3. What the Founder Has Already Tried
 
