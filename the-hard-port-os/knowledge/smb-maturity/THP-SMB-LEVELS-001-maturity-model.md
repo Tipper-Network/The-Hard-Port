@@ -3,7 +3,7 @@ id: THP-SMB-LEVELS-001
 title: SMB Maturity Model
 document_type: maturity_model
 status: candidate
-version: 0.1.0
+version: 0.2.0
 created: 2026-07-21
 updated: 2026-07-21
 authors:
@@ -18,6 +18,8 @@ related_documents:
   - ../../READ_FROM.md
   - ./levels/THP-SMB-LEVEL-01-established-but-surviving.md
   - ./levels/THP-SMB-LEVEL-02-stable-preparing-for-growth.md
+  - ./levels/THP-SMB-LEVEL-03-attempting-growth.md
+  - ./instruments/THP-SMB-INSTRUMENT-001-growth-experiment-record.md
   - ../../docs/04-market/first-onboarder/THP-SMB-001-FIRST-ONBOARDER.md
   - ../../active/forms/THP-SMB-002-level-1-to-level-2-transition.md
   - ../../docs/02-ontology/entity-maturity/ENTITY-MATURITY-MODEL.md
@@ -114,13 +116,13 @@ Every business is assessed across the same eight dimensions at every level. What
 |---|---|---|
 | **1** | Established but Surviving | **Defined** — see below and [`THP-SMB-LEVEL-01`](./levels/THP-SMB-LEVEL-01-established-but-surviving.md) |
 | **2** | Stable and Preparing for Growth | **Defined** — see below and [`THP-SMB-LEVEL-02`](./levels/THP-SMB-LEVEL-02-stable-preparing-for-growth.md) |
-| **3** | Attempting Growth but Not Fully Stable | **Next task** — see [`active/CURRENT_TASK.md`](../../active/CURRENT_TASK.md) |
-| **4** | Named Growth | Pending founder review |
-| **5** | Stable Growth | Pending founder review |
-| **6** | Scale Preparation | Pending founder review |
-| **7** | Scaling | Pending founder review |
+| **3** | Attempting Growth, Growth Model Not Yet Stable | **Defined** — see below and [`THP-SMB-LEVEL-03`](./levels/THP-SMB-LEVEL-03-attempting-growth.md) |
+| **4** | Recognized and Growing | **Next task** — see [`active/CURRENT_TASK.md`](../../active/CURRENT_TASK.md) |
+| **5** | Stable Growth | Provisional label only |
+| **6** | Scale Preparation | Provisional label only |
+| **7** | Scaling | Provisional label only |
 
-Levels 3–7 retain provisional labels only. Gates must be defined using the eight dimensions without conflating community, brand, growth, and scaling into a single score.
+Levels 4–7 retain provisional labels only. Gates must be defined using the eight dimensions without conflating community, brand, growth, and scaling into a single score.
 
 **First onboarder transition:** Level 1 → Level 2.
 
@@ -131,6 +133,20 @@ Level 1 proves that the business **exists**.
 Level 2 proves that the business has established a **viable operating foundation**.
 
 Level 3 begins when the business deliberately tests how that foundation can produce more demand, customers, participation, revenue, or market reach.
+
+**Level 3 begins when a deliberate growth experiment becomes active.**
+
+A business remains Level 2 while the experiment is only being prepared.
+
+A Level 3 business retains a stable core while testing an unproven growth mechanism.
+
+### Instability distinction
+
+Level 1 instability concerns the **viability of the core business**.
+
+Level 3 instability concerns the **repeatability and supportability of the growth mechanism**. A Level 3 business must retain the Level 2 foundation.
+
+Increased revenue alone does not qualify a business for Level 3 or Level 4.
 
 ## Level 1 — Established but Surviving
 
@@ -201,39 +217,82 @@ Exits Level 2 when **actively conducting deliberate growth experiments** on a pr
 
 Full definition: [`THP-SMB-LEVEL-02-stable-preparing-for-growth.md`](./levels/THP-SMB-LEVEL-02-stable-preparing-for-growth.md).
 
-## Levels 3–7
+## Level 3 — Attempting Growth, Growth Model Not Yet Stable
+
+**ID:** `level_03_attempting_growth`
+
+### Formal definition
+
+A Level 3 business has established the Level 2 operating foundation and is actively conducting deliberate experiments intended to increase demand, customers, participation, revenue, capacity, partnerships, or market reach.
+
+Its core business remains viable, but its growth mechanism is not yet proven to be repeatable, financially responsible, operationally supportable, or compatible with the business's identity and community.
+
+### Central question
+
+> Can the business produce growth repeatedly without destabilizing the value, relationships, operations, and identity responsible for its existing stability?
+
+### Entry gate (summary)
+
+Enters Level 3 when:
+
+- the [Level 2 foundation](./levels/THP-SMB-LEVEL-02-stable-preparing-for-growth.md) remains active;
+- a specific growth objective and constraint are defined;
+- a deliberate experiment is **active** (not merely planned);
+- the viable core is protected; and
+- baseline evidence exists.
+
+**Planning an experiment remains Level 2.** Level 3 begins when experimentation actually starts.
+
+### Exit gate (summary)
+
+Exits Level 3 when at least one growth mechanism is **validated** — repeatable across at least three complete growth cycles or customer cohorts, with core stability preserved, interpretable growth economics, operational support, retention/community health, emerging recognition, and institutional learning.
+
+A single successful campaign does not complete Level 3. Level 4 requires repeatability and emerging recognition — not revenue alone or broad fame.
+
+### Primary risk
+
+**Confusing activity with growth** — more customers, revenue, posts, or workload without a proven, repeatable growth mechanism; destabilizing the viable core in pursuit of momentum.
+
+### Regression distinction
+
+May regress to Level 2 when an active experiment ends and the foundation remains intact (responsible consolidation). Regresses to Level 1 when growth destroys the Level 2 foundation.
+
+Full definition: [`THP-SMB-LEVEL-03-attempting-growth.md`](./levels/THP-SMB-LEVEL-03-attempting-growth.md). Experiment record: [`THP-SMB-INSTRUMENT-001`](./instruments/THP-SMB-INSTRUMENT-001-growth-experiment-record.md).
+
+## Levels 4–7
 
 Gates pending founder review. Do not use for client classification, media targeting, or Tipper readiness until each level's entry gate, exit gate, and dimensional requirements are defined and confirmed.
 
+## Founder Decisions Confirmed
+
+Founder approval: **2026-07-21** — Level 2 gate decisions and stability-proof rule. Source: [`READ_FROM.md`](../../READ_FROM.md) and [`THP-SMB-LEVEL-02`](./levels/THP-SMB-LEVEL-02-stable-preparing-for-growth.md#founder-decisions-confirmed).
+
+1. **Level 2 financial bar:** Level 2 does not require large profits; it **does** require financial visibility and reduced survival pressure.
+2. **Community threshold:** Community begins with **identifiable repeat relationships**, not a large audience.
+3. **Founder dependency at Level 2:** Founder dependency may still exist at Level 2, but the business must have begun **externalizing knowledge and routines**.
+4. **Stability-proof rule** — **resolved** (2026-07-21):
+
+   > Stability must be demonstrated across at least three complete business cycles and, for frequent-transaction businesses, across approximately ninety days.
+   >
+   > For low-frequency businesses, three complete cycles may require longer than ninety days. Completed cycles take precedence over the fixed period.
+
+5. **Entry into Level 3:** Remains Level 2 while preparing; becomes Level 3 only when a deliberate growth experiment is **active**.
+6. **Weakest gate rule:** A business's overall level is controlled by the **lowest mandatory gate**, not its strongest visible achievement.
+7. **Regression from Level 2:** Can regress to Level 1 when the foundation no longer functions; temporary difficulty does not automatically cause regression.
+8. **Spike exclusion:** A temporary spike **cannot** be used as evidence of progression.
+
+Full stability rule: [`THP-SMB-LEVEL-02` § Stability-proof rule](./levels/THP-SMB-LEVEL-02-stable-preparing-for-growth.md#stability-proof-rule).
+
 ## Founder Decisions Pending
 
-Working defaults — **require founder confirmation** before this model becomes operational authority:
+Still require founder confirmation before the **full seven-level model** becomes operational authority:
 
 1. **Level 1 entry:** A business becomes Level 1 after serving multiple unrelated paying customers and repeatedly delivering its offer.
-2. **Weakest gate rule:** A business's overall level is controlled by the **lowest mandatory gate**, not its strongest visible achievement.
-3. **Level 2 financial bar:** Level 2 does not require large profits, but it **does** require financial visibility and reduced survival pressure.
-4. **Community threshold:** Community begins with **identifiable repeat relationships**, not a large audience.
-5. **Founder dependency at Level 2:** Founder dependency may still exist at Level 2, but the business must have begun **externalizing knowledge and routines**.
-6. **Spike exclusion:** A temporary spike **cannot** be used as evidence of progression.
-7. **Stability period:** Stability must persist across a meaningful operating period — see **Stability-Proof Rule** below.
+2. **Level 3 founder decisions** — see [`THP-SMB-LEVEL-03` § Level 3 founder decisions](./levels/THP-SMB-LEVEL-03-attempting-growth.md#level-3-founder-decisions).
+3. **Levels 4–7 gates** — provisional labels only; each gate must be defined and reviewed.
+4. **Full model canonical review** — all seven level gates must be confirmed before `canonicality` changes.
 
-**Open decision (founder):** Should stability be proven through a fixed period (e.g. three months) or through a number of completed business cycles that varies by business?
-
-**THP recommendation:** Business cycles, with three months as a practical minimum when the business has frequent transactions.
-
-**Status:** `recommended_resolution` — not `resolved` until founder explicitly confirms.
-
-### Stability-Proof Rule
-
-Recommended working rule:
-
-Stability must be demonstrated across at least three complete business cycles and, for frequent-transaction businesses, across a minimum period of approximately ninety days.
-
-Status: founder confirmation pending.
-
-Full rule and cycle definition: [`THP-SMB-LEVEL-02`](./levels/THP-SMB-LEVEL-02-stable-preparing-for-growth.md#stability-proof-rule).
-
-Additional Level 2 validation decisions (financial bar, community threshold, Level 3 entry, regression): [`THP-SMB-LEVEL-02` § Founder validation decisions](./levels/THP-SMB-LEVEL-02-stable-preparing-for-growth.md#founder-validation-decisions).
+Do **not** mark the entire maturity model canonical until all seven level gates have been reviewed.
 
 ## Related documents
 
@@ -242,6 +301,12 @@ Additional Level 2 validation decisions (financial bar, community threshold, Lev
 - [`ENTITY-MATURITY-MODEL.md`](../../docs/02-ontology/entity-maturity/ENTITY-MATURITY-MODEL.md) — prior candidate sketch; superseded for SMB classification by this model
 
 ## Revision History
+
+### 0.2.0 — 2026-07-21
+
+- Founder confirmed Level 2 decisions and stability-proof rule (2026-07-21).
+- Completed Level 3 working definition; added Growth Experiment Record instrument.
+- Level 4 renamed **Recognized and Growing**; next definition task.
 
 ### 0.1.2 — 2026-07-21
 

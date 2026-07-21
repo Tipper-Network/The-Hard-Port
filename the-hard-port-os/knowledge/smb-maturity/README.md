@@ -9,23 +9,28 @@ Seven-level SMB maturity model with eight assessment dimensions and weakest-gate
 
 | ID | Document | Status |
 |---|---|---|
-| THP-SMB-LEVELS-001 | [Maturity Model](./THP-SMB-LEVELS-001-maturity-model.md) | Levels 1–2 defined; 3–7 pending |
+| THP-SMB-LEVELS-001 | [Maturity Model](./THP-SMB-LEVELS-001-maturity-model.md) | Levels 1–3 defined; 4–7 pending |
+| THP-SMB-INSTRUMENT-001 | [Growth Experiment Record](./instruments/THP-SMB-INSTRUMENT-001-growth-experiment-record.md) | Working instrument; not canonical until tested on case |
 
 ## Levels
 
 - **Level 1 — Established but Surviving**  
-  Status: complete working definition  
+  Complete working definition  
   Detail: [`THP-SMB-LEVEL-01-established-but-surviving.md`](./levels/THP-SMB-LEVEL-01-established-but-surviving.md)
 
 - **Level 2 — Stable and Preparing for Growth**  
-  Status: complete working definition; founder validation pending  
+  Founder decisions confirmed  
   Detail: [`THP-SMB-LEVEL-02-stable-preparing-for-growth.md`](./levels/THP-SMB-LEVEL-02-stable-preparing-for-growth.md)
 
-- **Level 3 — Attempting Growth but Not Fully Stable**  
-  Status: next task — see [`active/CURRENT_TASK.md`](../../active/CURRENT_TASK.md)
+- **Level 3 — Attempting Growth, Growth Model Not Yet Stable**  
+  Complete working definition; founder validation pending  
+  Detail: [`THP-SMB-LEVEL-03-attempting-growth.md`](./levels/THP-SMB-LEVEL-03-attempting-growth.md)
 
-- **Levels 4–7**  
-  Status: provisional labels only (see [maturity model](./THP-SMB-LEVELS-001-maturity-model.md#seven-level-progression))
+- **Level 4 — Recognized and Growing**  
+  Next task — see [`active/CURRENT_TASK.md`](../../active/CURRENT_TASK.md)
+
+- **Levels 5–7**  
+  Provisional labels only (see [maturity model](./THP-SMB-LEVELS-001-maturity-model.md#seven-level-progression))
 
 ## Linked records
 

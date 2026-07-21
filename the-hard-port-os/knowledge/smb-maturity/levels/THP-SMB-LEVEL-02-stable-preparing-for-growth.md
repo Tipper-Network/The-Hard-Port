@@ -3,7 +3,7 @@ id: THP-SMB-LEVEL-02
 title: "Level 2 — Stable and Preparing for Growth"
 document_type: maturity_level_definition
 status: candidate
-version: 0.1.0
+version: 0.2.0
 created: 2026-07-21
 updated: 2026-07-21
 authors:
@@ -20,6 +20,8 @@ related_documents:
   - ../../../READ_FROM.md
   - ../THP-SMB-LEVELS-001-maturity-model.md
   - ./THP-SMB-LEVEL-01-established-but-surviving.md
+  - ./THP-SMB-LEVEL-03-attempting-growth.md
+  - ../instruments/THP-SMB-INSTRUMENT-001-growth-experiment-record.md
   - ../../../docs/04-market/first-onboarder/THP-SMB-001-FIRST-ONBOARDER.md
   - ../../../active/forms/THP-SMB-002-level-1-to-level-2-transition.md
 supersedes: []
@@ -362,6 +364,8 @@ Required demonstrations:
 - **Financial risk boundary** — experiment cannot threaten immediate survival.
 - **Learning commitment** — willing to stop, adjust, or reverse based on evidence.
 
+**Destination:** [`THP-SMB-LEVEL-03-attempting-growth.md`](./THP-SMB-LEVEL-03-attempting-growth.md) — full Level 3 definition; not duplicated here. Use [`THP-SMB-INSTRUMENT-001`](../instruments/THP-SMB-INSTRUMENT-001-growth-experiment-record.md) to record each experiment.
+
 ## Proof that Level 2 has been completed
 
 ### Demand evidence
@@ -400,17 +404,17 @@ Stable statement of value; defined core customer; consistent communication; cust
 
 Stability should not be proven by a temporary good month.
 
-**Recommended working rule:**
+**Confirmed rule** (founder approval: 2026-07-21):
 
-> Stability must be demonstrated across at least three complete business cycles and, for frequent-transaction businesses, across a minimum period of approximately ninety days.
+> Stability must be demonstrated across at least three complete business cycles and, for frequent-transaction businesses, across approximately ninety days.
+>
+> For low-frequency businesses, three complete cycles may require longer than ninety days. Completed cycles take precedence over the fixed period.
 
 A complete business cycle includes: customer acquisition or demand generation → purchase or commitment → delivery → payment or revenue collection → customer response or feedback → repeat/referral/disengagement → business review and decision.
 
 For frequent-transaction businesses, three cycles may happen too quickly — the ninety-day minimum prevents a temporary spike from being classified as maturity.
 
-For low-frequency businesses, three complete cycles may require more than ninety days. Completed cycles are more important than the fixed period.
-
-**Status:** founder confirmation pending.
+**Status:** `confirmed`
 
 ## What Level 2 is not
 
@@ -447,19 +451,28 @@ THP does **not** promise growth simply because the business has become stable. T
 
 First paid engagement (Level 1 → 2): [Entity Position and Direction Assessment](../../../docs/03-methods/entity-assessment/ENTITY-POSITION-AND-DIRECTION-ASSESSMENT.md).
 
-## Founder validation decisions
+## Founder decisions confirmed
 
-Confirm or revise before this level becomes canonical — see also [`Founder Decisions Pending`](../THP-SMB-LEVELS-001-maturity-model.md#founder-decisions-pending) in the parent model.
+Confirmed by founder: **2026-07-21**. See also [`Founder Decisions Confirmed`](../THP-SMB-LEVELS-001-maturity-model.md#founder-decisions-confirmed) in the parent model.
 
-1. **Financial requirement** — Level 2 does not require consistent profitability; requires visible costs/margins, known survival threshold, reduced cash chaos, credible continuation path.
-2. **Community requirement** — identifiable repeat relationships and stable feedback mechanism; not formal community or Tipper adoption.
-3. **Founder dependency** — founder may remain central; some knowledge, routines, and responsibilities must exist outside the founder's head.
-4. **Stability duration** — three complete business cycles, with ninety-day minimum for frequent-transaction businesses (`recommended_resolution`, pending confirmation).
-5. **Entry into Level 3** — remains Level 2 while preparing; becomes Level 3 only when deliberate growth experiment is actively underway.
-6. **Overall classification** — weakest mandatory dimension controls overall level.
-7. **Regression** — can regress to Level 1 when foundation no longer functions; temporary difficulty does not automatically cause regression.
+| # | Decision | Status |
+|---|---|---|
+| 1 | **Financial requirement** — Level 2 does not require consistent profitability; requires visible costs/margins, known survival threshold, reduced cash chaos, credible continuation path. | `confirmed` |
+| 2 | **Community requirement** — identifiable repeat relationships and stable feedback mechanism; not formal community or Tipper adoption. | `confirmed` |
+| 3 | **Founder dependency** — founder may remain central; some knowledge, routines, and responsibilities must exist outside the founder's head. | `confirmed` |
+| 4 | **Stability duration** — three complete business cycles, with ninety-day minimum for frequent-transaction businesses; completed cycles take precedence for low-frequency businesses. | `confirmed` |
+| 5 | **Entry into Level 3** — remains Level 2 while preparing; becomes Level 3 only when deliberate growth experiment is actively underway. | `confirmed` |
+| 6 | **Overall classification** — weakest mandatory dimension controls overall level. | `confirmed` |
+| 7 | **Regression** — can regress to Level 1 when foundation no longer functions; temporary difficulty does not automatically cause regression. | `confirmed` |
+
+Level 2 gate decisions are confirmed. The **seven-level maturity model** remains `non_canonical` until all level gates have been reviewed.
 
 ## Revision History
+
+### 0.2.0 — 2026-07-21
+
+- Founder confirmed seven Level 2 decisions and stability-proof rule (2026-07-21).
+- Exit gate links to [`THP-SMB-LEVEL-03`](./THP-SMB-LEVEL-03-attempting-growth.md).
 
 ### 0.1.0 — 2026-07-21
 
