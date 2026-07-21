@@ -18,8 +18,11 @@ target_transition:
   to: level_2_repeatable_operational_stability
 source_records:
   - THP-SMB-001
+next_document:
+  - THP-SMB-002
 related_documents:
   - ./README.md
+  - ../../../active/forms/THP-SMB-002-level-1-to-level-2-transition.md
   - ../../02-ontology/entity-maturity/ENTITY-MATURITY-MODEL.md
   - ../../03-methods/entity-assessment/ENTITY-POSITION-AND-DIRECTION-ASSESSMENT.md
   - ../../03-methods/entity-assessment/THP-ENGAGEMENT-READINESS-APPLICATION.md
@@ -84,6 +87,8 @@ It possesses:
 Level 2 does **not** mean the business is ready to scale. It means the entity has developed a stable enough base from which intentional growth can begin.
 
 Full definitions: [`ENTITY-MATURITY-MODEL.md`](../../02-ontology/entity-maturity/ENTITY-MATURITY-MODEL.md).
+
+**Next:** Transition detail (founder input) — [`THP-SMB-002`](../../../active/forms/THP-SMB-002-level-1-to-level-2-transition.md). Not canonical until reviewed and synthesized.
 
 ## 3. What the Founder Has Already Tried
 
