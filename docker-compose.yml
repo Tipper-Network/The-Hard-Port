@@ -11,8 +11,8 @@ services:
       NODE_ENV: production
       PORT: 3001
       RUN_MIGRATIONS: ${RUN_MIGRATIONS:-true}
-      DATABASE_URL: ${DATABASE_URL:?DATABASE_URL is required}
-      JWT_SECRET: ${JWT_SECRET:?JWT_SECRET is required}
+      DATABASE_URL: ${DATABASE_URL:-}
+      JWT_SECRET: ${JWT_SECRET:-}
       CORS_ORIGIN: ${CORS_ORIGIN:-http://localhost:3000}
       WEB_APP_URL: ${WEB_APP_URL:-http://localhost:3000}
       JWT_EXPIRES_IN: ${JWT_EXPIRES_IN:-7d}
