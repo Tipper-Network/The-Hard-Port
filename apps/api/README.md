@@ -17,7 +17,7 @@ prisma/
     intake/application.prisma
   migrations/
 prisma.config.ts         # DATABASE_URL, schema directory
-generated/prisma/        # prisma generate output (gitignored)
+src/generated/prisma/    # prisma generate output (gitignored)
 ```
 
 ## Development

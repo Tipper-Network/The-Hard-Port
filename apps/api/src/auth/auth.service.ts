@@ -5,7 +5,7 @@ import {
 } from '@nestjs/common'
 import { ConfigService } from '@nestjs/config'
 import { JwtService } from '@nestjs/jwt'
-import { OAuthProvider, UserRole } from '../../generated/prisma/client'
+import { OAuthProvider, UserRole } from '../generated/prisma/client'
 
 import type { AuthenticatedUser, JwtPayload, OAuthProfile } from './auth.types'
 import { PrismaService } from '../prisma/prisma.service'
