@@ -1,14 +1,15 @@
-import { createFileRoute } from '@tanstack/react-router'
+import type { Metadata } from 'next'
 
-import LinkButton from '#/components/link_button'
-import { SiteFooter } from '#/shared/site-footer'
-import { SiteHeader } from '#/shared/site-header'
+import LinkButton from '@/components/link_button'
+import { SiteFooter } from '@/shared/site-footer'
+import { SiteHeader } from '@/shared/site-header'
 
-export const Route = createFileRoute('/work-with-us')({
-  component: WorkWithUsPage,
-})
+export const metadata: Metadata = {
+  title: 'Work With Us — The Hard Port',
+  description: 'How The Hard Port works with Level 1 businesses.',
+}
 
-function WorkWithUsPage() {
+export default function WorkWithUsPage() {
   return (
     <>
       <SiteHeader />
@@ -39,7 +40,7 @@ function WorkWithUsPage() {
             </li>
             <li>Findings — what the evidence supports</li>
             <li>
-              Intervention (optional, separate agreement) — Level 1-to-Level 2 stability
+              Intervention (optional, separate agreement) — Level 1-to-Level-2 stability
               work
             </li>
           </ol>

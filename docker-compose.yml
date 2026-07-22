@@ -35,7 +35,7 @@ services:
       context: .
       dockerfile: apps/web/Dockerfile
       args:
-        VITE_THP_API_URL: ${VITE_THP_API_URL:-http://localhost:3001}
+        NEXT_PUBLIC_THP_API_URL: ${NEXT_PUBLIC_THP_API_URL:-http://localhost:3001}
     ports:
       - "3000:3000"
     environment:

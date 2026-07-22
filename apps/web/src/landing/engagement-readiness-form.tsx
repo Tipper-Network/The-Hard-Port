@@ -100,7 +100,7 @@ export function EngagementReadinessForm() {
     setStatus('submitting')
 
     try {
-      const result = await submitIntake({ data: payload })
+      const result = await submitIntake(payload)
 
       if (result.ok) {
         setStatus('success')

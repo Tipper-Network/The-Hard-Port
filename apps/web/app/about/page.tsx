@@ -1,25 +1,15 @@
-import { createFileRoute } from '@tanstack/react-router'
+import type { Metadata } from 'next'
 
-import { SiteFooter } from '#/shared/site-footer'
-import { SiteHeader } from '#/shared/site-header'
-import { site, slogan, freeSlots } from '#/lib/brand'
-import LinkButton from '#/components/link_button'
+import LinkButton from '@/components/link_button'
+import { freeSlots, site, slogan } from '@/lib/brand'
+import { SiteFooter } from '@/shared/site-footer'
+import { SiteHeader } from '@/shared/site-header'
 
-export const Route = createFileRoute('/about')({
-  head: () => ({
-    meta: [
-      {
-        title: `Who We Are; ${site.name}`,
-      },
-      {
-        name: 'description',
-        content:
-          'The Hard Port is a no-bullshit media agency. We tell you the truth, charge you for it, and do the work. We give a f*ck. We just don\u2019t care.',
-      },
-    ],
-  }),
-  component: AboutPage,
-})
+export const metadata: Metadata = {
+  title: `Who We Are — ${site.name}`,
+  description:
+    'The Hard Port is a no-bullshit media agency. We tell you the truth, charge you for it, and do the work. We give a f*ck. We just don\u2019t care.',
+}
 
 const values = [
   {
@@ -39,7 +29,7 @@ const values = [
   },
 ] as const
 
-function AboutPage() {
+export default function AboutPage() {
   return (
     <>
       <SiteHeader />
@@ -141,10 +131,12 @@ function AboutPage() {
               Done being fine?
             </h2>
             <p className="mx-auto mt-4 max-w-xl text-base leading-7 text-secondary/70">
-              Apply for a free slot, or skip the line and commit. Either way,
-              tell us where you actually want to be.
+              Read how THP works, then apply if you are ready to be examined honestly.
             </p>
-            <LinkButton text="Apply for The free slot" href="/" hash="apply" />
+            <div className="mt-8 flex flex-wrap items-center justify-center gap-4">
+              <LinkButton text="How THP works" href="/work-with-us" intensity={3} />
+              <LinkButton text="Apply" href="/apply" intensity={4} />
+            </div>
           </div>
         </section>
       </main>

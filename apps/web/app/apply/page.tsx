@@ -1,14 +1,15 @@
-import { createFileRoute } from '@tanstack/react-router'
+import type { Metadata } from 'next'
 
-import { EngagementReadinessForm } from '#/landing/engagement-readiness-form'
-import { SiteFooter } from '#/shared/site-footer'
-import { SiteHeader } from '#/shared/site-header'
+import { EngagementReadinessForm } from '@/landing/engagement-readiness-form'
+import { SiteFooter } from '@/shared/site-footer'
+import { SiteHeader } from '@/shared/site-header'
 
-export const Route = createFileRoute('/apply')({
-  component: ApplyPage,
-})
+export const metadata: Metadata = {
+  title: 'Apply — The Hard Port',
+  description: 'Engagement Readiness Application for The Hard Port.',
+}
 
-function ApplyPage() {
+export default function ApplyPage() {
   return (
     <>
       <SiteHeader />

@@ -1,4 +1,4 @@
-import LinkButton from '#/components/link_button'
+import LinkButton from '@/components/link_button'
 
 import { THPLogo } from '../components/logo-mark'
 
@@ -11,6 +11,12 @@ export function SiteHeader() {
         </LinkButton>
         <nav className="hidden items-center gap-8 text-sm text-secondary md:flex">
           <LinkButton
+            text="How it works"
+            href="/work-with-us"
+            variant="nav"
+            noMargin
+          />
+          <LinkButton
             text="The Truth"
             href="/"
             hash="boosting"
@@ -19,23 +25,14 @@ export function SiteHeader() {
           />
           <LinkButton text="The Gap" href="/" hash="gap" variant="nav" noMargin />
           <LinkButton
-            text="The Packages"
-            href="/"
-            hash="packages"
+            text="Who we are"
+            href="/about"
             variant="nav"
             noMargin
           />
           <LinkButton
-            text="The who we are"
-            href="/"
-            hash="about"
-            variant="nav"
-            noMargin
-          />
-          <LinkButton
-            text="Apply free"
-            href="/"
-            hash="apply"
+            text="Apply"
+            href="/apply"
             variant="header"
             noMargin
             className="px-4 py-2 text-sm"
@@ -43,9 +40,8 @@ export function SiteHeader() {
         </nav>
 
         <LinkButton
-          text="Apply free"
-          href="/"
-          hash="apply"
+          text="Apply"
+          href="/apply"
           variant="header"
           noMargin
           className="px-3 py-2 text-xs md:hidden"

@@ -1,6 +1,6 @@
-import { createServerFn } from '@tanstack/react-start'
+'use server'
 
-import { validateIntakePayload, type IntakePayload } from '#/lib/intake-payload'
+import { validateIntakePayload, type IntakePayload } from '@/lib/intake-payload'
 
 export type SubmitIntakeResult =
   | { ok: true; id?: string }
@@ -53,12 +53,11 @@ async function submitToApi(payload: IntakePayload): Promise<SubmitIntakeResult> 
   }
 }
 
-export const submitIntake = createServerFn({ method: 'POST' })
-  .validator((data: unknown) => {
-    const validated = validateIntakePayload(data)
-    if (!validated.ok) {
-      throw new Error(validated.error)
-    }
-    return validated.payload
-  })
-  .handler(async ({ data }) => submitToApi(data))
+export async function submitIntake(data: unknown): Promise<SubmitIntakeResult> {
+  const validated = validateIntakePayload(data)
+  if (!validated.ok) {
+    return { ok: false, error: validated.error }
+  }
+
+  return submitToApi(validated.payload)
+}

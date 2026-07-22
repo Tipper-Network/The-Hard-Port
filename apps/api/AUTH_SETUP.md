@@ -61,7 +61,7 @@ OAuth providers are **optional at startup**. Routes return `503` until credentia
 Web env:
 
 ```env
-VITE_THP_API_URL=http://localhost:3001
+NEXT_PUBLIC_THP_API_URL=http://localhost:3001
 ```
 
 ## Roles
