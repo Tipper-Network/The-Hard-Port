@@ -37,3 +37,6 @@ Read `.cursor/rules/06-web-platform-architecture.mdc` first.
 ## API pairing
 
 Nest intake: `apps/api/src/intake/`. Auth: `apps/api/src/auth/`. See `apps/api/AUTH_SETUP.md`.
+
+**Database:** edit Prisma models only — never `migrations/**/migration.sql`. Human migrates.
+See `.cursor/rules/07-prisma-database.mdc`.

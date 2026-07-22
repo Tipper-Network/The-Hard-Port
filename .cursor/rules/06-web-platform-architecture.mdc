@@ -45,8 +45,14 @@ TanStack Start is retired. Do not add TanStack Router/Start dependencies back to
 |---|---|---|---|
 | POST | `/intake/applications` | Public | Submit Engagement Readiness form |
 | GET | `/intake/applications` | Bearer JWT | List applications (reviewers) |
+| GET | `/intake/applications/:id` | Bearer JWT | Application detail |
+| PATCH | `/intake/applications/:id` | Bearer JWT | Pipeline tracker updates |
 
 Web submit: server action in `apps/web/src/lib/submit-intake.ts` → `THP_API_URL` (server-side).
+
+**Schema changes:** update Prisma models only — never hand-edit `migrations/**/migration.sql`.
+Human runs `pnpm db:migrate`. Destructive migrations require discussion first.
+See `07-prisma-database.mdc`.
 
 ## Environment variables
 

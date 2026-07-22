@@ -1,6 +1,8 @@
-import { BadRequestException, Injectable } from '@nestjs/common'
+import { BadRequestException, Injectable, NotFoundException } from '@nestjs/common'
 
 import { CreateApplicationDto } from './dto/create-application.dto'
+import { UpdateApplicationPipelineDto } from './dto/update-application-pipeline.dto'
+import { applicationSelect } from './pipeline.constants'
 import { PrismaService } from '../prisma/prisma.service'
 
 @Injectable()
@@ -40,6 +42,7 @@ export class IntakeService {
         crisisIndicators: dto.crisisIndicators?.trim() || null,
         privacyAck: dto.privacyAck,
         lifecycleStatus: 'application_submitted',
+        nextAction: 'Review application within 48h',
       },
     })
 
@@ -62,10 +65,69 @@ export class IntakeService {
         discoverySource: true,
         clientId: true,
         lifecycleStatus: true,
+        qualificationResult: true,
+        nextAction: true,
+        activeCapacitySlot: true,
+        assignedReviewer: true,
         createdAt: true,
       },
     })
 
     return { ok: true as const, applications }
+  }
+
+  async getApplication(id: string) {
+    const application = await this.prisma.application.findUnique({
+      where: { id },
+      select: applicationSelect,
+    })
+
+    if (!application) {
+      throw new NotFoundException('Application not found')
+    }
+
+    return { ok: true as const, application }
+  }
+
+  async updateApplicationPipeline(id: string, dto: UpdateApplicationPipelineDto) {
+    const existing = await this.prisma.application.findUnique({ where: { id } })
+    if (!existing) {
+      throw new NotFoundException('Application not found')
+    }
+
+    if (dto.activeCapacitySlot === true) {
+      const otherActive = await this.prisma.application.findFirst({
+        where: {
+          activeCapacitySlot: true,
+          id: { not: id },
+        },
+      })
+      if (otherActive) {
+        throw new BadRequestException(
+          `Capacity slot already held by ${otherActive.businessName}. Clear it first.`,
+        )
+      }
+    }
+
+    const data: Record<string, unknown> = {}
+
+    if (dto.lifecycleStatus !== undefined) data.lifecycleStatus = dto.lifecycleStatus
+    if (dto.qualificationResult !== undefined) data.qualificationResult = dto.qualificationResult
+    if (dto.maturityClassification !== undefined) data.maturityClassification = dto.maturityClassification
+    if (dto.assignedReviewer !== undefined) data.assignedReviewer = dto.assignedReviewer
+    if (dto.missingEvidence !== undefined) data.missingEvidence = dto.missingEvidence
+    if (dto.nextAction !== undefined) data.nextAction = dto.nextAction
+    if (dto.paymentStatus !== undefined) data.paymentStatus = dto.paymentStatus
+    if (dto.activeCapacitySlot !== undefined) data.activeCapacitySlot = dto.activeCapacitySlot
+    if (dto.notes !== undefined) data.notes = dto.notes
+    if (dto.clientId !== undefined) data.clientId = dto.clientId
+
+    const application = await this.prisma.application.update({
+      where: { id },
+      data,
+      select: applicationSelect,
+    })
+
+    return { ok: true as const, application }
   }
 }

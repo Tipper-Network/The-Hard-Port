@@ -1,0 +1,92 @@
+# UX onboarding feedback loop — test cases
+# Run manually while walking ONBOARDING-FLOW.md, or partially via run-flow-checks.mjs
+# Log outcomes to ROLLOUT.yaml (see ux-onboarding-flow SKILL.md)
+
+version: 1
+updated: 2026-07-22
+
+applicant_path:
+  - id: AP-01
+    name: Homepage first paint
+    check: Hero and letter render; no applicant sign-in prompt; primary CTA not free-slot
+    routes: ["/"]
+    fail_if:
+      - CTA href contains hash apply as primary conversion
+      - text matches /free slot|apply free/i
+
+  - id: AP-02
+    name: Lazy below-fold
+    check: Homepage page.tsx only eager-imports Hero + LetterSection; other sections in lazy-home-sections
+    files:
+      - apps/web/app/page.tsx
+      - apps/web/src/landing/lazy-home-sections.tsx
+
+  - id: AP-03
+    name: Work-with-us path
+    check: Explains SERVICE-001 ladder; CTA to /apply
+    routes: ["/work-with-us"]
+
+  - id: AP-04
+    name: Apply without auth
+    check: /apply has EngagementReadinessForm; no OAuth; submitIntake server action
+    routes: ["/apply"]
+    files:
+      - apps/web/app/apply/page.tsx
+      - apps/web/src/lib/submit-intake.ts
+    fail_if:
+      - sign-in required before submit
+      - links to /sign-in in main apply content
+
+  - id: AP-05
+    name: Submit confirmation
+    check: Form shows success or manual fallback after POST; no infinite spinner
+    files:
+      - apps/web/src/landing/engagement-readiness-form.tsx
+
+operator_path:
+  - id: OP-01
+    name: Sign-in separation
+    check: /sign-in states operators only; footer is only applicant-path sign-in link
+    routes: ["/sign-in"]
+
+  - id: OP-02
+    name: Callback destination
+    check: auth/callback redirects to /review after token
+    files:
+      - apps/web/app/auth/callback/page.tsx
+    fail_if:
+      - redirect target is /apply
+
+  - id: OP-03
+    name: Review list
+    check: /review lists applications with Open link to /review/[id]
+    routes: ["/review"]
+    files:
+      - apps/web/src/components/review-dashboard.tsx
+
+  - id: OP-04
+    name: Pipeline update
+    check: Detail page PATCHes lifecycle, next_action, capacity slot
+    files:
+      - apps/web/app/review/[id]/page.tsx
+      - apps/web/src/components/application-pipeline-form.tsx
+      - apps/api/src/intake/intake.controller.ts
+
+  - id: OP-05
+    name: One capacity slot
+    check: API rejects second active_capacity_slot
+    files:
+      - apps/api/src/intake/intake.service.ts
+
+platform:
+  - id: PL-01
+    name: Env vars
+    check: NEXT_PUBLIC_THP_API_URL documented; VITE_THP_API_URL not used in web
+    fail_if:
+      - VITE_THP_API_URL in apps/web source
+
+  - id: PL-02
+    name: Pipeline export
+    check: pnpm --filter api pipeline:export script exists
+    files:
+      - apps/api/scripts/export-pipeline-tracker.mjs

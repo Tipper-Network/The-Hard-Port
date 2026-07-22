@@ -1,7 +1,8 @@
-import { Body, Controller, Get, Post, UseGuards } from '@nestjs/common'
+import { Body, Controller, Get, Param, Patch, Post, UseGuards } from '@nestjs/common'
 
 import { JwtAuthGuard } from '../auth/guards/auth.guards'
 import { CreateApplicationDto } from './dto/create-application.dto'
+import { UpdateApplicationPipelineDto } from './dto/update-application-pipeline.dto'
 import { IntakeService } from './intake.service'
 
 @Controller('intake')
@@ -22,5 +23,20 @@ export class IntakeController {
   @UseGuards(JwtAuthGuard)
   listApplications() {
     return this.intakeService.listApplications()
+  }
+
+  @Get('applications/:id')
+  @UseGuards(JwtAuthGuard)
+  getApplication(@Param('id') id: string) {
+    return this.intakeService.getApplication(id)
+  }
+
+  @Patch('applications/:id')
+  @UseGuards(JwtAuthGuard)
+  updateApplicationPipeline(
+    @Param('id') id: string,
+    @Body() dto: UpdateApplicationPipelineDto,
+  ) {
+    return this.intakeService.updateApplicationPipeline(id, dto)
   }
 }
