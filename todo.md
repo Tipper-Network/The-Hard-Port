@@ -24,8 +24,8 @@
 
 ## Docs / rules (after site alignment)
 
-- [ ] Update skills/rules/instincts for backend, intake, auth boundaries, business analysis
-- [ ] Resolve homepage vs `THP-SMB-SERVICE-001` positioning conflict in copy rules
+- [x] Update skills/rules/instincts for backend, intake, auth boundaries, business analysis
+- [x] Resolve homepage vs `THP-SMB-SERVICE-001` positioning conflict in copy rules
 
 ## Already done (context)
 
@@ -42,3 +42,12 @@
 ## Legacy files (unused, safe to delete later)
 
 - `src/landing/packages-section.tsx`, `free-slots-section.tsx`, `apply-form.tsx`, `boosting-section.tsx`, `branding-section.tsx`, `strategy-section.tsx`, `process-section.tsx`, `gap-section.tsx`, `about-section.tsx`
+
+## Cursor layers updated (2026-07-22)
+
+- **Rule:** `.cursor/rules/06-web-platform-architecture.mdc` (new)
+- **Rules updated:** `01-copywriting-standards`, `02-conversion-funnel`, `04-ux-friction`
+- **Skills updated:** funnel-launch, cta-escalation, section-audit, component-conversion, offer-construction, positioning-audience
+- **Skill new:** `web-platform`
+- **Instinct new:** `applicant-not-operator`
+- **Instincts updated:** ladder-still-makes-sense, hormozi-value, could-exist-on-any-agency-site, whos-asking-whom

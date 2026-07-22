@@ -6,7 +6,7 @@ alwaysApply: false
 
 # UX / Friction Rules — The Conversion Engineer
 
-Read `00-brand-core.mdc` and `02-conversion-funnel.mdc` first.
+Read `00-brand-core.mdc`, `02-conversion-funnel.mdc`, and `06-web-platform-architecture.mdc` first.
 
 ## Mobile-first, always
 
@@ -16,27 +16,36 @@ patience. Any layout decision gets tested at mobile width first, not as an after
 ## Load speed is a conversion feature
 
 Cold social traffic bounces within seconds if the page stalls. Treat load time as part of the
-"Effort & Sacrifice" side of the value equation — heavy media (hero video especially) needs to
-feel instant, even if that means an aggressive poster-frame + lazy-load strategy.
+"Effort & Sacrifice" side of the value equation.
 
-## The apply form
+**Next.js homepage pattern (required):**
+- Hero + letter: eager load
+- All other homepage sections: `LazySection` + `next/dynamic` — do not revert to monolithic imports
+- Hero video: `preload="metadata"`, poster frame, no blocking below-fold JS
 
-- Minimum viable fields only. Every extra field is friction the funnel can't afford at this
-  entry point.
-- Immediate confirmation, no dead air. The copy already says "we call you" — the UX has to
-  make that feel true and fast.
-- Do not gate the free-slot application behind a login, account creation, or multi-step wizard.
+## The apply form (`/apply`)
+
+- **Engagement Readiness Application** — server action to Nest `POST /intake/applications`
+- Minimum viable fields only. Every extra field is friction the funnel can't afford.
+- Immediate confirmation on submit — no dead air after POST.
+- **No login, no OAuth, no account creation** before or during apply. Applicants are public.
+- Do not embed the legacy homepage `apply-form` or WhatsApp-only free-slot flow.
+
+## Operator UX (`/sign-in`, `/review`)
+
+- Separate from applicant flow. OAuth via Nest; token in localStorage; list at `/review`.
+- After OAuth callback, land on `/review` — never `/apply`.
+- Review UI is utilitarian; brand voice applies lightly. Clarity over persuasion.
 
 ## Navigation discipline
 
-- No competing exits near the bottom of the page. By the "last call" section, the only real
-  action available should be the CTA — don't surface footer links, secondary nav, or unrelated
-  offers in the same viewport.
-- Popups/modals are earned, not default. Nothing interrupts the visitor before the agitation
-  section (rung 3 of the funnel).
+- Primary applicant CTAs: `/work-with-us` and `/apply` — not `#apply`, not homepage hash anchors
+  as the main conversion path.
+- No competing exits near the last-call section. Dual CTA (read + apply) is the exception —
+  both serve the same commitment ramp.
+- Popups/modals are earned, not default. Nothing interrupts before the letter (agitation rung).
 
 ## Testing discipline
 
-Any UX change that touches the apply flow or CTA copy should be treated as testable — note
-what rung of the funnel it affects and what it's meant to move (click-through, form starts,
-form completions) so results can be compared, not just shipped on vibes.
+Any UX change that touches apply flow, auth boundaries, or CTA copy should note which funnel rung
+it affects and what it moves (click-through, form starts, form completions, reviewer load time).

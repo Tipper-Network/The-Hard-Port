@@ -1,0 +1,81 @@
+---
+description: Web stack, routes, intake, and auth boundaries for The Hard Port. Enforce when editing apps/web, apps/api intake/auth, Docker web env, or operator vs applicant flows.
+globs: ["apps/web/**","apps/api/src/intake/**","apps/api/src/auth/**","docker-compose.yml","**/DOCKER.md","apps/web/Dockerfile"]
+alwaysApply: false
+---
+
+# Web Platform Architecture
+
+Read `00-brand-core.mdc` first. Commercial positioning for public copy comes from
+`THP-SMB-SERVICE-001` (`the-hard-port-os/knowledge/smb-service/THP-SMB-SERVICE-001-offer-architecture.md`).
+
+## Stack (decided — do not re-litigate without explicit human request)
+
+| Layer | Choice |
+|---|---|
+| Web | **Next.js 15** App Router (`apps/web/app/`) |
+| API | **NestJS** + Prisma + Postgres (`apps/api/`) |
+| Deploy | Docker Compose / Dokploy; web uses Next `output: 'standalone'` |
+
+TanStack Start is retired. Do not add TanStack Router/Start dependencies back to `apps/web`.
+
+## Route map
+
+| Route | Audience | Auth |
+|---|---|---|
+| `/` | Public applicants | None |
+| `/work-with-us` | Public — full service explanation | None |
+| `/apply` | Public — Engagement Readiness Application | None |
+| `/about` | Public | None |
+| `/sign-in` | THP operators/reviewers only | OAuth entry |
+| `/review` | THP operators — application list | JWT (client-side) |
+| `/auth/callback` | OAuth handoff | Stores token → `/review` |
+| `/auth/error` | OAuth failure | None |
+
+## Auth boundary (non-negotiable)
+
+- **Applicants apply without sign-in.** Never gate `/apply` behind OAuth, accounts, or JWT.
+- **OAuth is for THP operators/reviewers only** — Google/Meta via Nest `/auth/google`, `/auth/meta`.
+- Do not conflate **application** (public intake), **qualification** (operator decision), and
+  **diagnostic** (paid engagement). Different objects, different routes, different copy.
+
+## Intake API
+
+| Method | Path | Auth | Purpose |
+|---|---|---|---|
+| POST | `/intake/applications` | Public | Submit Engagement Readiness form |
+| GET | `/intake/applications` | Bearer JWT | List applications (reviewers) |
+
+Web submit: server action in `apps/web/src/lib/submit-intake.ts` → `THP_API_URL` (server-side).
+
+## Environment variables
+
+| Variable | Where | Purpose |
+|---|---|---|
+| `THP_API_URL` | web server | Server-side intake POST (Docker: `http://api:3001`) |
+| `NEXT_PUBLIC_THP_API_URL` | web browser | OAuth login URLs, reviewer fetch |
+| `DATABASE_URL` | api | Postgres |
+| `JWT_SECRET` | api | Operator sessions |
+| `AUTH_ALLOWLIST` | api | Optional comma-separated reviewer emails |
+
+Legacy `VITE_THP_API_URL` is dead — use `NEXT_PUBLIC_THP_API_URL`.
+
+## Homepage performance
+
+Cold traffic from YouTube/Instagram must not download the full page at once.
+
+- **Eager:** Hero + canonical letter only (`app/page.tsx`).
+- **Lazy:** Below-fold sections via `LazySection` (viewport) + `next/dynamic` (code split) in
+  `src/landing/lazy-home-sections.tsx`.
+- Do not eagerly import heavy sections (accordion packages, multi-tab grids) into the homepage shell.
+
+## Public funnel destinations
+
+YouTube and campaign CTAs route: **`/work-with-us` → `/apply`**, not `#apply`, not legacy
+homepage anchors, not operator sign-in.
+
+## Legacy code
+
+These files are retired from the live homepage — do not wire them back without explicit request:
+`packages-section`, `free-slots-section`, `apply-form`, `boosting-section`, `branding-section`,
+`strategy-section`, `process-section`, `gap-section`, `about-section` (homepage variant).
