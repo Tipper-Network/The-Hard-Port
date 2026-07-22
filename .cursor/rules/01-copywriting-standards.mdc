@@ -12,6 +12,20 @@ Do not apply these sentence-level brand-copy constraints to `the-hard-port-os/**
 
 use ';" instead of "—" in files that are .tsx except for comments.  the reader cant be seeing this "—" being used. 
 
+## Positioning anchor (SERVICE-001)
+
+Public site copy describes **THP SMB service**, not the legacy media-agency package funnel.
+
+| Say | Don't say (on public funnel) |
+|---|---|
+| Level 1 business, stability, constraint | "Content calendar," "rebrand," "ad-buying service" as the offer |
+| Business Reality Diagnostic | "Marketing audit," "free strategy call," "social-media fix" |
+| Application → qualification → diagnostic | "Free slot," "we pick 2 a month" (legacy — retired) |
+| One active client (capacity) | Fake scarcity, countdown timers |
+| THP decides acceptance | "We'd love to work with you" (audition dynamic reversed) |
+
+Canonical commercial reference: `THP-SMB-SERVICE-001-offer-architecture.md`.
+
 ## Banned words and phrases
 
 If any of these appear in new or edited copy, rewrite the sentence. They are the fingerprint
@@ -20,7 +34,8 @@ of generic agency/SaaS writing and instantly break the brand's credibility:
 - "unlock," "leverage," "empower," "seamless," "game-changer," "solutions," "elevate your"
 - "at your fingertips," "take your business to the next level," "we're passionate about"
 - "detailed breakdown," "expand each feature," "compare features," "learn more" as a CTA
-- "boost your business" (ironic — "boosting" is the thing we mock elsewhere on the site)
+- "boost your business" (ironic — legacy boosting section is retired)
+- "free slot," "apply free," "2 businesses a month" (legacy agency scarcity — unless Canon changes)
 - Any sentence that describes the brand's own honesty or attitude out loud
   (e.g. "we'd rather tell you the truth than..." — just tell them, don't narrate it)
 
@@ -34,10 +49,10 @@ of generic agency/SaaS writing and instantly break the brand's credibility:
 
 ## The escalation rule
 
-Tone intensity is not flat across the page — it climbs. Early sections (hero, identity match)
-can be dry and observational. Mid-page sections (agitation, mechanism) get confrontational.
-Late-page sections (pricing, final CTA) should carry the hardest lines on the page. If a
-section near the bottom reads softer than one near the top, that's a bug — flag it.
+Tone intensity is not flat across the page — it climbs. Early sections (hero, letter) can be dry
+and observational. Mid-page (condition, mechanism, proof) get confrontational. Late sections
+(boundaries, capacity, last call) carry the hardest lines. If a section near the bottom reads
+softer than one near the top, that's a bug — flag it.
 
 ## Before / after (use this as the litmus test for new copy)
 
@@ -48,15 +63,23 @@ BAD (generic, explains itself):
 GOOD (Hard Port voice):
 > "We don't have a hundred reviews. We're new. Take it or leave it."
 
+BAD (legacy agency):
+> "Choose the package that fits your growth stage — Port, Sea, or Ocean."
+
+GOOD (SERVICE-001):
+> "Application is free. The diagnostic is paid. Not everyone gets in."
+
 ## FAQ-specific rule
 
 Every FAQ answer must match the aggression level of its question. If the question is blunt
 ("Why are you so rude?"), the answer cannot be a polite customer-service paragraph. Write the
 answer as a comeback, not an explanation.
 
-## Pricing / feature-comparison rule
+FAQ must address SERVICE-001 objections: marketing audit confusion, guarantees, acceptance,
+diagnostic cost — not legacy free-slot or package questions.
 
-Never present pricing tiers with neutral SaaS labels ("Compare Features," "Detailed
-Breakdown"). Tier copy should keep doing the talking the tier names already do ("scared of the
-water," "done playing small") — treat the comparison table as a section that needs writing,
-not a UI component that needs filling in.
+## Service ladder / comparison rule
+
+Never present Port/Sea/Ocean pricing grids or neutral SaaS tier comparisons on the public funnel.
+If comparison UI is needed, it compares **business condition** (where you are vs where stability
+requires), not feature checklists. Run `offer-construction` before adding any new commercial tier UI.
