@@ -1,15 +1,15 @@
-import LinkButton from '#/components/link_button'
-import WhatsappButton from '#/components/whatsapp'
+import LinkButton from '@/components/link_button'
+import WhatsappButton from '@/components/whatsapp'
 
-import { THPLogo } from '#/components/logo-mark'
+import { THPLogo } from '@/components/logo-mark'
 
 const footerLinks = [
-  { to: '/' as const, hash: 'boosting' as const, label: 'The Truth' },
-  { to: '/' as const, hash: 'gap' as const, label: 'The Gap' },
-  { to: '/' as const, hash: 'packages' as const, label: 'Pricing' },
-  { to: '/' as const, hash: 'apply' as const, label: 'Apply free' },
-  { to: '/about' as const, label: 'Who We Are' },
-  { to: '/' as const, hash: 'contact' as const, label: 'Contact' },
+  { href: '/work-with-us', label: 'How it works' },
+  { href: '/', hash: 'boosting', label: 'The Truth' },
+  { href: '/', hash: 'gap', label: 'The Gap' },
+  { href: '/apply', label: 'Apply' },
+  { href: '/about', label: 'Who We Are' },
+  { href: '/', hash: 'contact', label: 'Contact' },
 ] as const
 
 export function SiteFooter() {
@@ -36,28 +36,17 @@ export function SiteFooter() {
         </div>
 
         <nav className="grid grid-cols-2 gap-x-10 gap-y-3 text-sm font-medium text-secondary">
-          {footerLinks.map((link) =>
-            'hash' in link ? (
-              <LinkButton
-                key={link.label}
-                text={link.label}
-                href={link.to}
-                hash={link.hash}
-                variant="nav"
-                noMargin
-                className="hover:opacity-70"
-              />
-            ) : (
-              <LinkButton
-                key={link.label}
-                text={link.label}
-                href={link.to}
-                variant="nav"
-                noMargin
-                className="hover:opacity-70"
-              />
-            ),
-          )}
+          {footerLinks.map((link) => (
+            <LinkButton
+              key={link.label}
+              text={link.label}
+              href={link.href}
+              hash={'hash' in link ? link.hash : undefined}
+              variant="nav"
+              noMargin
+              className="hover:opacity-70"
+            />
+          ))}
         </nav>
       </div>
 

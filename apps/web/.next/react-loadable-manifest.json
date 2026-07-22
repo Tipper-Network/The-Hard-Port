@@ -1,0 +1,71 @@
+{
+  "src/landing/lazy-home-sections.tsx -> @/landing/about-section": {
+    "id": 9891,
+    "files": [
+      "static/chunks/891.8c0f33daaeb35734.js"
+    ]
+  },
+  "src/landing/lazy-home-sections.tsx -> @/landing/boosting-section": {
+    "id": 115,
+    "files": [
+      "static/chunks/115.7302574b2257df12.js"
+    ]
+  },
+  "src/landing/lazy-home-sections.tsx -> @/landing/branding-section": {
+    "id": 7957,
+    "files": [
+      "static/chunks/957.70c71ab3d2e46cad.js"
+    ]
+  },
+  "src/landing/lazy-home-sections.tsx -> @/landing/contact-section": {
+    "id": 9860,
+    "files": [
+      "static/chunks/860.6ea2bb303d676ff3.js"
+    ]
+  },
+  "src/landing/lazy-home-sections.tsx -> @/landing/faq-section": {
+    "id": 9496,
+    "files": [
+      "static/chunks/234.1a5b67b8604230b7.js",
+      "static/chunks/496.88f4042ee53ad2ca.js"
+    ]
+  },
+  "src/landing/lazy-home-sections.tsx -> @/landing/free-slots-section": {
+    "id": 23,
+    "files": [
+      "static/chunks/23.b0ed85975fdf2459.js"
+    ]
+  },
+  "src/landing/lazy-home-sections.tsx -> @/landing/gap-section": {
+    "id": 6948,
+    "files": [
+      "static/chunks/948.48ba6d0a9778b19d.js"
+    ]
+  },
+  "src/landing/lazy-home-sections.tsx -> @/landing/packages-section": {
+    "id": 9504,
+    "files": [
+      "static/chunks/234.1a5b67b8604230b7.js",
+      "static/chunks/276.727facd3c83a0130.js",
+      "static/chunks/504.ccf6c5628f4c0d48.js"
+    ]
+  },
+  "src/landing/lazy-home-sections.tsx -> @/landing/process-section": {
+    "id": 9699,
+    "files": [
+      "static/chunks/699.aece6b73e76171a7.js"
+    ]
+  },
+  "src/landing/lazy-home-sections.tsx -> @/landing/proof-section": {
+    "id": 2861,
+    "files": [
+      "static/chunks/242.fdb8987e434291d7.js"
+    ]
+  },
+  "src/landing/lazy-home-sections.tsx -> @/landing/strategy-section": {
+    "id": 2259,
+    "files": [
+      "static/chunks/259.c493219dc716be36.js"
+    ]
+  }
+}

@@ -2,7 +2,7 @@ import typography from '@tailwindcss/typography'
 import type { Config } from 'tailwindcss'
 
 const config = {
-  content: ['./src/**/*.{ts,tsx}', './index.html'],
+  content: ['./app/**/*.{ts,tsx}', './src/**/*.{ts,tsx}'],
   theme: {
     container: {
       center: true,

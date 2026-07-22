@@ -1,8 +1,7 @@
 import type { ReactNode } from 'react'
+import Link from 'next/link'
 
-import { Link } from '@tanstack/react-router'
-
-import { cn } from '#/lib/utils'
+import { cn } from '@/lib/utils'
 
 /** Escalation ramp: later-funnel CTAs render bigger/bolder, never smaller. */
 const INTENSITY_CLASSES = {
@@ -29,12 +28,16 @@ function isExternalHref(href: string) {
   return /^(https?:|mailto:|tel:)/.test(href)
 }
 
-function resolveInternalTarget(href: string, hash?: string) {
+function resolveHref(href: string, hash?: string) {
   if (href.startsWith('#')) {
-    return { to: '/' as const, hash: href.slice(1) }
+    return `/#${href.slice(1)}`
   }
 
-  return { to: href, hash }
+  if (hash) {
+    return `${href}#${hash}`
+  }
+
+  return href
 }
 
 type LinkButtonProps = {
@@ -78,33 +81,21 @@ const LinkButton = ({
     className,
   )
 
-  const link =
-    isExternal ? (
-      <a
-        href={href}
-        aria-label={ariaLabel}
-        target={opensInNewTab ? '_blank' : undefined}
-        rel={opensInNewTab ? 'noopener noreferrer' : undefined}
-        className={classes}
-      >
-        {content}
-      </a>
-    ) : (
-      (() => {
-        const { to, hash: resolvedHash } = resolveInternalTarget(href, hash)
-
-        return (
-          <Link
-            to={to}
-            hash={resolvedHash}
-            aria-label={ariaLabel}
-            className={classes}
-          >
-            {content}
-          </Link>
-        )
-      })()
-    )
+  const link = isExternal ? (
+    <a
+      href={href}
+      aria-label={ariaLabel}
+      target={opensInNewTab ? '_blank' : undefined}
+      rel={opensInNewTab ? 'noopener noreferrer' : undefined}
+      className={classes}
+    >
+      {content}
+    </a>
+  ) : (
+    <Link href={resolveHref(href, hash)} aria-label={ariaLabel} className={classes}>
+      {content}
+    </Link>
+  )
 
   if (noMargin || variant === 'unstyled' || variant === 'text' || variant === 'nav') {
     return link

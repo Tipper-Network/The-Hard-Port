@@ -14,7 +14,7 @@ export function clearAccessToken() {
 }
 
 export function getApiUrl() {
-  return import.meta.env.VITE_THP_API_URL ?? 'http://localhost:3001'
+  return process.env.NEXT_PUBLIC_THP_API_URL ?? 'http://localhost:3001'
 }
 
 export function getGoogleLoginUrl() {
