@@ -9,10 +9,10 @@ WORKDIR /app
 COPY package.json pnpm-workspace.yaml pnpm-lock.yaml ./
 COPY apps/api/package.json apps/api/
 
-# Prisma generate runs on postinstall — placeholder URL for build only
+# Prisma generate runs on postinstall locally — skip during install; build runs it after schema is copied
 ENV DATABASE_URL="postgresql://build:build@localhost:5432/build?sslmode=disable"
 
-RUN pnpm install --frozen-lockfile
+RUN pnpm install --frozen-lockfile --ignore-scripts
 
 COPY apps/api apps/api
 
