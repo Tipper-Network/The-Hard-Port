@@ -4,9 +4,9 @@
   "/auth/error/page": "/auth/error",
   "/page": "/",
   "/apply/page": "/apply",
-  "/review/page": "/review",
-  "/about/page": "/about",
   "/review/[id]/page": "/review/[id]",
   "/sign-in/page": "/sign-in",
+  "/about/page": "/about",
+  "/review/page": "/review",
   "/work-with-us/page": "/work-with-us"
 }

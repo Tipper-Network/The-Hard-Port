@@ -4,9 +4,9 @@
   "/auth/error/page": "app/auth/error/page.js",
   "/page": "app/page.js",
   "/apply/page": "app/apply/page.js",
-  "/review/page": "app/review/page.js",
-  "/about/page": "app/about/page.js",
   "/review/[id]/page": "app/review/[id]/page.js",
   "/sign-in/page": "app/sign-in/page.js",
+  "/about/page": "app/about/page.js",
+  "/review/page": "app/review/page.js",
   "/work-with-us/page": "app/work-with-us/page.js"
 }
