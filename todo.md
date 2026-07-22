@@ -11,15 +11,15 @@
 ## Public applicant path
 
 - [x] Point header/footer CTAs to `/work-with-us` and `/apply`
-- [ ] Retire legacy homepage sections (packages, free slots, old apply form) — still lazy-loaded for now
-- [ ] Align homepage copy with SERVICE-001 (not branding/packages agency funnel)
+- [x] Retire legacy homepage sections (packages, free slots, old apply form)
+- [x] Align homepage copy with SERVICE-001 (condition → ladder → proof → capacity → apply)
 - [ ] YouTube CTAs → `/work-with-us` then `/apply` (per YouTube architecture doc)
 
 ## Operator / reviewer path
 
-- [ ] Add `/sign-in` (or `/review`) with Google + Meta OAuth links
-- [ ] After OAuth callback, land operators on a **review surface** — not `/apply` (callback currently → `/`)
-- [ ] Build minimal reviewer view: list applications from `GET /intake/applications` (JWT)
+- [x] Add `/sign-in` with Google + Meta OAuth links
+- [x] After OAuth callback, land operators on `/review`
+- [x] Build minimal reviewer view: list applications from `GET /intake/applications` (JWT)
 - [ ] Optional: `AUTH_ALLOWLIST` in production
 
 ## Docs / rules (after site alignment)
@@ -38,3 +38,7 @@
 
 - `THP_API_URL` — server-side intake submit (Docker: `http://api:3001`)
 - `NEXT_PUBLIC_THP_API_URL` — browser OAuth login links (was `VITE_THP_API_URL`)
+
+## Legacy files (unused, safe to delete later)
+
+- `src/landing/packages-section.tsx`, `free-slots-section.tsx`, `apply-form.tsx`, `boosting-section.tsx`, `branding-section.tsx`, `strategy-section.tsx`, `process-section.tsx`, `gap-section.tsx`, `about-section.tsx`

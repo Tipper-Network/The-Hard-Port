@@ -3,52 +3,49 @@ import {
   AccordionContent,
   AccordionItem,
   AccordionTrigger,
-} from '#/components/ui/accordion'
-import LinkButton from '#/components/link_button'
+} from '@/components/ui/accordion'
+import LinkButton from '@/components/link_button'
 
 const faqs = [
   {
     q: 'Why are you so direct?',
-    a: 'The answer you want to hear and the answer that actually grows your business aren\u2019t always the same one. We pick the second, every time. Call it rude if it makes you feel better.',
+    a: 'The answer you want to hear and the answer that actually moves your business are not always the same one. We pick the second.',
   },
   {
     q: 'My business is doing fine, though.',
-    a: '"Fine" is the polite word for "stuck." If fine was working the way you want it to, you wouldn\u2019t be here.',
+    a: '"Fine" is the polite word for stuck. If fine was working the way you want it to, you would not be here.',
   },
   {
-    q: 'Can\u2019t I just boost my posts myself?',
-    a: 'Sure. You\u2019ve been doing that. How\u2019s the queue of new customers looking? Boosting spends money. Campaigns make it. We covered this.',
-    linkText: 'Scroll up',
-    hash: 'boosting' as const,
-    to: '/',
+    q: 'Is this a marketing audit?',
+    a: 'No. A marketing audit reviews ads and content. The Business Reality Diagnostic reviews business condition across eight dimensions, identifies the primary constraint to stability, and is valuable even if you do not continue.',
   },
   {
-    q: 'Why do I have to pay if you offer free slots?',
-    a: 'Because free slots are 2 a month and we pick them. Paying is what makes you actually do it \u2014 skin in the game changes everything.',
+    q: 'What does applying cost?',
+    a: 'Discovery and application are free. Qualification review is free during our first field-validation cycle. The diagnostic is a paid, fixed-scope professional engagement.',
   },
   {
-    q: 'So what do I actually get for my money?',
-    a: 'Clarity, first. The map between where you are and where you want to be. Then the brand and the campaigns that close that gap. Direction, work, and results you can feel; not a content calendar you scroll past.',
+    q: 'Do you guarantee results?',
+    a: 'No. We promise a disciplined evidence-based process, honest interpretation, and clear decisions. We do not promise sales, profit, virality, or that every client reaches Level 2.',
   },
   {
-    q: 'Do you guarantee results, or is that a polite way of saying no?',
-    a: 'No. What we guarantee is the work done properly and a partner who shows up all the way. We won\u2019t waste your money on vanity metrics to keep you feeling good. The rest is a partnership, not a magic trick; bring your half.',
+    q: 'What if I am not accepted?',
+    a: 'Then THP is not the right move for you right now. That is a professional judgment, not a character assessment.',
   },
   {
-    q: 'This feels like a lot. Can I think about it?',
-    a: 'You can think about it for another year, like the last one. Or you can decide. We don\u2019t work with maybes \u2014 that\u2019s not pressure, it\u2019s just what actually works.',
+    q: 'Can I think about it?',
+    a: 'You can think about it for another year, like the last one. Or you can decide. We do not work with maybes.',
   },
 ]
 
 export function FaqSection() {
   return (
-    <section id="faq" className="bg-depth-11 px-6 py-20 lg:px-12 lg:py-28">
+    <section id="faq" className="bg-depth-10 px-6 py-20 lg:px-12 lg:py-28">
       <div className="mx-auto max-w-3xl">
         <p className="text-sm font-bold tracking-[0.2em] text-accent uppercase">
-          You&apos;ve got questions. We&apos;ve got attitude.
+          Objections
         </p>
         <h2 className="mt-4 font-heading text-3xl font-normal uppercase leading-tight text-secondary md:text-4xl">
-          The stuff you&apos;re too polite to ask
+          The stuff you are too polite to ask
         </h2>
 
         <Accordion type="single" collapsible className="mt-10 border-t border-secondary/15">
@@ -62,21 +59,15 @@ export function FaqSection() {
                 {faq.q}
               </AccordionTrigger>
               <AccordionContent className="text-base leading-7 text-secondary/70">
-                {faq.a}{' '}
-                {faq.linkText ? (
-                  <LinkButton
-                    text={faq.linkText}
-                    href={faq.to}
-                    hash={faq.hash}
-                    variant="text"
-                    noMargin
-                    className="inline underline"
-                  />
-                ) : null}
+                {faq.a}
               </AccordionContent>
             </AccordionItem>
           ))}
         </Accordion>
+
+        <div className="mt-10 flex justify-center">
+          <LinkButton text="Read the full picture" href="/work-with-us" variant="text" noMargin />
+        </div>
       </div>
     </section>
   )

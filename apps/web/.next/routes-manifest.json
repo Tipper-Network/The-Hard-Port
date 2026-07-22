@@ -57,6 +57,18 @@
       "namedRegex": "^/auth/error(?:/)?$"
     },
     {
+      "page": "/review",
+      "regex": "^/review(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/review(?:/)?$"
+    },
+    {
+      "page": "/sign-in",
+      "regex": "^/sign\\-in(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/sign\\-in(?:/)?$"
+    },
+    {
       "page": "/work-with-us",
       "regex": "^/work\\-with\\-us(?:/)?$",
       "routeKeys": {},
