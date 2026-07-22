@@ -1,11 +1,12 @@
 {
   "/_not-found/page": "/_not-found",
+  "/auth/callback/page": "/auth/callback",
   "/auth/error/page": "/auth/error",
   "/page": "/",
-  "/auth/callback/page": "/auth/callback",
   "/apply/page": "/apply",
-  "/about/page": "/about",
   "/review/page": "/review",
+  "/about/page": "/about",
+  "/review/[id]/page": "/review/[id]",
   "/sign-in/page": "/sign-in",
   "/work-with-us/page": "/work-with-us"
 }

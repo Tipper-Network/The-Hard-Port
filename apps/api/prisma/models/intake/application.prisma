@@ -27,6 +27,15 @@ model Application {
   clientId        String? @map("client_id")
   lifecycleStatus String  @default("application_submitted") @map("lifecycle_status")
 
+  qualificationResult    String? @map("qualification_result")
+  maturityClassification String? @map("maturity_classification")
+  assignedReviewer       String? @map("assigned_reviewer")
+  missingEvidence        String? @map("missing_evidence")
+  nextAction             String? @map("next_action")
+  paymentStatus          String? @map("payment_status")
+  activeCapacitySlot     Boolean @default(false) @map("active_capacity_slot")
+  notes                  String?
+
   createdAt DateTime @default(now()) @map("created_at")
   updatedAt DateTime @updatedAt @map("updated_at")
 

@@ -48,4 +48,4 @@ or merge it into a skill if it's really a step in an existing procedure. See
 - Funnel ladder updated to SERVICE-001 in `02-conversion-funnel.mdc`
 - Web stack/auth in `06-web-platform-architecture.mdc`
 - New instinct: `applicant-not-operator`
-- New skill: `web-platform`
+- New skills: `web-platform`, `ux-onboarding-flow`

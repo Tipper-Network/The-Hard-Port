@@ -30,7 +30,8 @@
 ## 4. Pipeline tracker
 
 - [x] [`THP-LIFECYCLE-PIPELINE-TRACKER.csv`](./templates/THP-LIFECYCLE-PIPELINE-TRACKER.csv) created
-- [ ] In active use (spreadsheet, Notion, or Airtable) as single source of truth
+- [x] In active use — Postgres `applications` + `/review` UI + [`PIPELINE-TRACKER.md`](./PIPELINE-TRACKER.md)
+- [ ] First real application processed end-to-end through operator flow
 
 ## 5. Minimum commercial readiness
 
@@ -66,7 +67,7 @@
 ## Readiness gate (all must be true to publish CTA)
 
 - [x] Viewer has somewhere to apply
-- [ ] THP can decide whether to accept them — tracker in use + qualification workflow
+- [ ] THP can decide whether to accept them — tracker in use; qualification workflow in `/review` (first entity pending)
 - [x] THP can explain the paid diagnostic
 - [x] Client evidence can be stored responsibly
 - [ ] THP can process one entity application → conclusion — pending first entity

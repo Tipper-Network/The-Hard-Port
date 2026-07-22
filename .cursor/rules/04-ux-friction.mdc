@@ -49,3 +49,6 @@ Cold social traffic bounces within seconds if the page stalls. Treat load time a
 
 Any UX change that touches apply flow, auth boundaries, or CTA copy should note which funnel rung
 it affects and what it moves (click-through, form starts, form completions, reviewer load time).
+
+Run the **`ux-onboarding-flow`** skill (walk + `scripts/run-flow-checks.mjs`) before shipping
+onboarding or review UI changes. Log outcomes to `.cursor/skills/ux-onboarding-flow/ROLLOUT.yaml`.
