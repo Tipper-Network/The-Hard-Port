@@ -4,32 +4,20 @@ import dynamic from 'next/dynamic'
 
 import { LazySection } from '@/components/lazy-section'
 
-const BoostingSection = dynamic(() =>
-  import('@/landing/boosting-section').then((m) => ({ default: m.BoostingSection })),
+const ConditionSection = dynamic(() =>
+  import('@/landing/condition-section').then((m) => ({ default: m.ConditionSection })),
 )
-const GapSection = dynamic(() =>
-  import('@/landing/gap-section').then((m) => ({ default: m.GapSection })),
+const HowItWorksSection = dynamic(() =>
+  import('@/landing/how-it-works-section').then((m) => ({ default: m.HowItWorksSection })),
 )
 const ProofSection = dynamic(() =>
   import('@/landing/proof-section').then((m) => ({ default: m.ProofSection })),
 )
-const ProcessSection = dynamic(() =>
-  import('@/landing/process-section').then((m) => ({ default: m.ProcessSection })),
+const NotPromiseSection = dynamic(() =>
+  import('@/landing/not-promise-section').then((m) => ({ default: m.NotPromiseSection })),
 )
-const BrandingSection = dynamic(() =>
-  import('@/landing/branding-section').then((m) => ({ default: m.BrandingSection })),
-)
-const StrategySection = dynamic(() =>
-  import('@/landing/strategy-section').then((m) => ({ default: m.StrategySection })),
-)
-const PackagesSection = dynamic(() =>
-  import('@/landing/packages-section').then((m) => ({ default: m.PackagesSection })),
-)
-const FreeSlotsSection = dynamic(() =>
-  import('@/landing/free-slots-section').then((m) => ({ default: m.FreeSlotsSection })),
-)
-const AboutSection = dynamic(() =>
-  import('@/landing/about-section').then((m) => ({ default: m.AboutSection })),
+const CapacitySection = dynamic(() =>
+  import('@/landing/capacity-section').then((m) => ({ default: m.CapacitySection })),
 )
 const FaqSection = dynamic(() =>
   import('@/landing/faq-section').then((m) => ({ default: m.FaqSection })),
@@ -42,31 +30,19 @@ export function LazyHomeSections() {
   return (
     <>
       <LazySection minHeight="28rem">
-        <BoostingSection />
+        <ConditionSection />
+      </LazySection>
+      <LazySection minHeight="32rem">
+        <HowItWorksSection />
       </LazySection>
       <LazySection minHeight="24rem">
-        <GapSection />
-      </LazySection>
-      <LazySection minHeight="20rem">
         <ProofSection />
       </LazySection>
       <LazySection minHeight="24rem">
-        <ProcessSection />
-      </LazySection>
-      <LazySection minHeight="24rem">
-        <BrandingSection />
-      </LazySection>
-      <LazySection minHeight="24rem">
-        <StrategySection />
-      </LazySection>
-      <LazySection minHeight="32rem">
-        <PackagesSection />
+        <NotPromiseSection />
       </LazySection>
       <LazySection minHeight="20rem">
-        <FreeSlotsSection />
-      </LazySection>
-      <LazySection minHeight="24rem">
-        <AboutSection />
+        <CapacitySection />
       </LazySection>
       <LazySection minHeight="24rem">
         <FaqSection />

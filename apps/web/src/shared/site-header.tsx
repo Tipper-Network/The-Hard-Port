@@ -17,13 +17,12 @@ export function SiteHeader() {
             noMargin
           />
           <LinkButton
-            text="The Truth"
+            text="The ladder"
             href="/"
-            hash="boosting"
+            hash="how-it-works"
             variant="nav"
             noMargin
           />
-          <LinkButton text="The Gap" href="/" hash="gap" variant="nav" noMargin />
           <LinkButton
             text="Who we are"
             href="/about"

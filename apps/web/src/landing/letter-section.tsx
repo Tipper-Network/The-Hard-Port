@@ -88,8 +88,8 @@ export function LetterSection() {
             </p>
 
             <div className="mt-6 flex flex-wrap gap-4">
-              <LinkButton text="Show me what I'm doing wrong" href="/" hash="boosting" />
-              <LinkButton text="Apply for The free slot" href="/" hash="apply" />
+              <LinkButton text="See how it works" href="/" hash="how-it-works" intensity={2} variant="ghost" />
+              <LinkButton text="Apply" href="/apply" intensity={3} />
             </div>
           </div>
         </div>

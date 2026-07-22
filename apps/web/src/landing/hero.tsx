@@ -1,5 +1,5 @@
-import LinkButton from '#/components/link_button'
-import { slogan } from '#/lib/brand'
+import LinkButton from '@/components/link_button'
+import { slogan } from '@/lib/brand'
 
 function HeroSail() {
   return (
@@ -54,13 +54,13 @@ export function Hero() {
         </p>
 
         <div className="mt-10 flex flex-col flex-wrap gap-4 sm:flex-row sm:items-center">
-        <LinkButton text="Watch the truth" href="/" hash="letter" intensity={1} variant="ghost" />
-        <LinkButton text="Apply for The free slot" href="/" hash="apply" />
+          <LinkButton text="Read the letter" href="/" hash="letter" intensity={1} variant="ghost" />
+          <LinkButton text="How THP works" href="/work-with-us" intensity={2} />
         </div>
 
         <p className="mt-6 text-sm text-white/60">
-          2 businesses a month get our work for free. We pick them. It&apos;s
-          probably not you... but prove us wrong.
+          Level 1 businesses with paying customers. Application is free. Diagnostic is
+          paid. Not everyone gets in.
         </p>
       </div>
 

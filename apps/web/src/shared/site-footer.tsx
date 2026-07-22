@@ -5,11 +5,12 @@ import { THPLogo } from '@/components/logo-mark'
 
 const footerLinks = [
   { href: '/work-with-us', label: 'How it works' },
-  { href: '/', hash: 'boosting', label: 'The Truth' },
-  { href: '/', hash: 'gap', label: 'The Gap' },
+  { href: '/', hash: 'how-it-works', label: 'The ladder' },
+  { href: '/', hash: 'proof', label: 'Proof' },
   { href: '/apply', label: 'Apply' },
   { href: '/about', label: 'Who We Are' },
   { href: '/', hash: 'contact', label: 'Contact' },
+  { href: '/sign-in', label: 'Team sign-in' },
 ] as const
 
 export function SiteFooter() {

@@ -13,7 +13,7 @@ function AuthCallbackInner() {
   useEffect(() => {
     if (token) {
       setAccessToken(token)
-      router.replace('/')
+      router.replace('/review')
       return
     }
 

@@ -1,0 +1,35 @@
+import type { Metadata } from 'next'
+
+import { ReviewDashboard } from '@/components/review-dashboard'
+import { SiteFooter } from '@/shared/site-footer'
+import { SiteHeader } from '@/shared/site-header'
+
+export const metadata: Metadata = {
+  title: 'Review Applications — The Hard Port',
+  robots: { index: false, follow: false },
+}
+
+export default function ReviewPage() {
+  return (
+    <>
+      <SiteHeader />
+      <main className="bg-depth-9 px-6 py-16 lg:px-12 lg:py-24">
+        <div className="mx-auto max-w-6xl">
+          <p className="text-xs font-bold tracking-[0.18em] text-accent uppercase">
+            THP operators
+          </p>
+          <h1 className="mt-3 font-heading text-3xl font-normal uppercase leading-tight text-secondary">
+            Applications
+          </h1>
+          <p className="mt-4 max-w-2xl text-base leading-7 text-white/70">
+            Submitted Engagement Readiness applications. Qualification workflow comes next.
+          </p>
+          <div className="mt-10">
+            <ReviewDashboard />
+          </div>
+        </div>
+      </main>
+      <SiteFooter />
+    </>
+  )
+}
