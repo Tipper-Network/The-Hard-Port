@@ -10,7 +10,10 @@ import { LetterSection } from './sections/letter-section'
 export function HomePage() {
   return (
     <>
+    <div className="h-2 ">
+
       <DistanceMeter />
+    </div>
       <SiteHeader />
       <main>
         <Hero />

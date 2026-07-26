@@ -12,11 +12,11 @@ export function CapacitySection() {
         </h2>
         <p className="mt-6 text-base leading-7 text-secondary/70 md:text-lg">
           During our first field-validation cycle, THP accepts one active diagnostic or
-          intervention client at a time. That is not scarcity theatre — it is how we keep
+          intervention client at a time. That is not scarcity theatre; it is how we keep
           the work honest while we prove the process in the field.
         </p>
         <p className="mt-4 text-base leading-7 text-secondary/70">
-          If you are not selected, that is a decision — not a rejection letter padded
+          If you are not selected, that is a decision; not a rejection letter padded
           with compliments.
         </p>
         <div className="mt-10 flex flex-wrap justify-center gap-4">

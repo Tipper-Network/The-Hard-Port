@@ -4,7 +4,10 @@ export const HOME_SECTION_IDS = [
   'hero',
   'letter',
   'condition',
+  'misdiagnosis',
+  'gap',
   'how-it-works',
+  'execution',
   'proof',
   'not-promise',
   'capacity',
@@ -25,7 +28,7 @@ export type StickyCtaConfig = {
 export type HomeSectionConfig = {
   id: HomeSectionId
   rung: number
-  /** Loaded in the initial bundle — above the fold */
+  /** Loaded in the initial bundle; above the fold */
   eager?: boolean
   /** Min-height placeholder while IntersectionObserver defers mount */
   minHeight?: string
@@ -47,36 +50,54 @@ export const HOME_SECTIONS: HomeSectionConfig[] = [
     stickyCta: { text: 'See how it works', href: '/work-with-us' },
   },
   {
-    id: 'how-it-works',
+    id: 'misdiagnosis',
     rung: 4,
+    minHeight: '32rem',
+    stickyCta: { text: 'See how it works', href: '/work-with-us' },
+  },
+  {
+    id: 'gap',
+    rung: 5,
+    minHeight: '32rem',
+    stickyCta: { text: 'See how it works', href: '/work-with-us' },
+  },
+  {
+    id: 'how-it-works',
+    rung: 6,
     minHeight: '32rem',
     stickyCta: { text: 'Read the full picture', href: '/work-with-us' },
   },
   {
+    id: 'execution',
+    rung: 7,
+    minHeight: '36rem',
+    stickyCta: { text: 'Read the full picture', href: '/work-with-us' },
+  },
+  {
     id: 'proof',
-    rung: 5,
+    rung: 8,
     minHeight: '24rem',
     stickyCta: { text: 'Read the full picture', href: '/work-with-us' },
   },
   {
     id: 'not-promise',
-    rung: 6,
+    rung: 9,
     minHeight: '24rem',
     stickyCta: { text: 'Apply', href: '/apply' },
   },
   {
     id: 'capacity',
-    rung: 7,
+    rung: 10,
     minHeight: '20rem',
     stickyCta: { text: 'Apply', href: '/apply' },
   },
   {
     id: 'faq',
-    rung: 8,
+    rung: 11,
     minHeight: '24rem',
     stickyCta: { text: 'Apply', href: '/apply' },
   },
-  { id: 'contact', rung: 9, minHeight: '20rem' },
+  { id: 'contact', rung: 12, minHeight: '20rem' },
 ]
 
 export const LAZY_HOME_SECTIONS = HOME_SECTIONS.filter(

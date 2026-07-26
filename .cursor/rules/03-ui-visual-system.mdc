@@ -54,3 +54,20 @@ New sections add an entry to `LABEL_BY_SECTION` in that file, not a second stick
   not default component labels.
 - No soft pastel or corporate-blue-and-white palettes that could belong to any SaaS company.
   The current navy/dark palette is correct — protect it.
+
+## Color tokens: why `oklch()` in `styles.css`
+
+Tokens use **oklch** (lightness, chroma, hue), not hex, because:
+
+1. **Perceptually even steps** — the `--color-depth-0` … `--color-depth-12` scroll ramp changes
+   lightness without hue drift; hex/navy tweaks shift color unpredictably.
+2. **Load-bearing depth mechanic** — scroll escalation depends on 13 distinct navy steps; oklch
+   makes that scale maintainable (see `design-system/07-depth-scroll-intensity.md`).
+3. **Functional split** — gold (`oklch(0.80 0.14 85)`) for CTAs vs rust (`oklch(0.62 0.16 35)`)
+   for wrong-state / agitation; separate hues in a uniform space, not one orange for everything.
+4. **Modern stack** — Tailwind 4 + `@theme inline` expect CSS color functions; oklch is the
+   current standard for design-system tokens in browser CSS.
+
+Do not revert depth tokens to flat hex navy without an explicit human decision. See
+`design-system/02-color-tokens.md` for the full token table.
+

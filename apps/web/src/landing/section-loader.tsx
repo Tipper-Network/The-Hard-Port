@@ -11,9 +11,24 @@ const LAZY_SECTIONS: Record<LazyHomeSectionId, ComponentType> = {
       default: m.ConditionSection,
     })),
   ),
+  misdiagnosis: dynamic(() =>
+    import('./sections/misdiagnosis-section').then((m) => ({
+      default: m.MisdiagnosisSection,
+    })),
+  ),
+  gap: dynamic(() =>
+    import('./sections/gap-section').then((m) => ({
+      default: m.GapSection,
+    })),
+  ),
   'how-it-works': dynamic(() =>
     import('./sections/how-it-works-section').then((m) => ({
       default: m.HowItWorksSection,
+    })),
+  ),
+  execution: dynamic(() =>
+    import('./sections/execution-section').then((m) => ({
+      default: m.ExecutionSection,
     })),
   ),
   proof: dynamic(() =>

@@ -18,8 +18,7 @@ export function SiteHeader() {
           />
           <LinkButton
             text="The ladder"
-            href="/"
-            hash="how-it-works"
+            href="/business-levels"
             variant="nav"
             noMargin
           />

@@ -1,6 +1,32 @@
 # The Hard Port — Full Business & Architecture Report
 **Prepared:** 2026-07-22  
+**Revised:** 2026-07-26 — homepage funnel expanded; alignment table corrected  
 **Scope:** Backend coherence, frontend coherence, OS-to-product harmony, skills/goals fit, and senior BA advice on user flow and design.
+
+---
+
+## Revision note (2026-07-26)
+
+**Homepage funnel** now has **12 rungs** in `sections.config.ts` (was 9). Added SERVICE-001-aligned sections that replace the deleted legacy agency blocks without reviving Port/Sea/Ocean pricing:
+
+| Rung | Section | Role |
+|------|---------|------|
+| 4 | `misdiagnosis-section` | Boosting vs scoped work — misdiagnosis, not a campaign upsell |
+| 5 | `gap-section` | Here → diagnostic/constraint → stability (visual three-column map) |
+| 7 | `execution-section` | Branding, strategy, campaigns as **instruments inside intervention** — not advertised menu |
+
+Visual spec for rung 7 diagram: `apps/web/src/landing/execution-instruments-visual-brief.md`
+
+**Report corrections vs 2026-07-22 draft:**
+
+| Claim in original report | Actual state (Jul 26) |
+|--------------------------|------------------------|
+| Port / Sea / Ocean on live site | **Removed** — SERVICE-001; no pricing tiers shipped |
+| Capacity = "2 slots/month" | **Wrong** — `capacity-section.tsx` says one active client |
+| OS `01-ia-sitemap.md` matches live funnel | **Stale OS doc** — still references offer stack + free slots; live site follows `02-conversion-funnel.mdc` + expanded rungs above |
+| Operator dashboard read-only | **Fixed** — `/review/[id]` + PATCH pipeline form ships |
+| Contact section has email + WhatsApp | **Fixed** — dual path: ghost `/work-with-us` + primary Apply |
+| Cold nav exposes Pricing jump link | **Partially fixed** — nav is How it works / The ladder / Who we are / Apply (Who we are still skips ladder) |
 
 ---
 
@@ -18,12 +44,12 @@ The business is ready to receive applications. It is not ready to process them e
 
 | Area | Backend | Frontend | OS |
 |------|---------|----------|----|
-| 9-rung funnel structure | — | `sections.config.ts` maps rungs 1–9 exactly | `01-ia-sitemap.md` defines identical 9-rung ladder |
+| Homepage funnel | — | `sections.config.ts` — 12 rungs; lazy-loaded below letter | `02-conversion-funnel.mdc` (SERVICE-001); OS `01-ia-sitemap.md` **still stale** on offer stack |
 | Application lifecycle | 27 `lifecycleStatus` values in Prisma schema | `pipeline-constants.ts` mirrors same values | OS describes multi-stage qualification → diagnostic → intervention journey |
-| Scarcity mechanic | `activeCapacitySlot: Boolean` on Application model | `capacity-section.tsx` renders "2 slots/month, we pick" | CURRENT_FOCUS.md confirms 2 free slots per month as the capacity model |
+| Scarcity mechanic | `activeCapacitySlot: Boolean` on Application model | `capacity-section.tsx` — **one active client** during field validation | Align `CURRENT_FOCUS.md` if it still says 2 free slots |
 | Qualification gatekeeping | `willingnessExamine`, `willingnessEvidence`, `willingnessFeedback` booleans required | Form blocks submission until all three are checked | OS defines readiness as requiring owner willingness to examine evidence and receive feedback |
-| Brand voice rules | — | No banned words found in copy | OS design-system/RULES.md documents banned words with `✅ Fixed` on pricing tabs |
-| Pricing names | — | Port / Sea / Ocean tier structure | OS brief establishes "named for courage, not budget" |
+| Brand voice rules | — | No banned words found in active funnel copy | OS design-system/RULES.md — some flags reference deleted `packages-section.tsx` |
+| Commercial model on site | Diagnostic + intervention in `/work-with-us` | No Port/Sea/Ocean grid; execution instruments section explains scoped work | SERVICE-001 offer architecture |
 | Auth architecture | Google OAuth + Meta OAuth + JWT; role-based (reviewer/admin) | `/sign-in` → OAuth → `/auth/callback` → JWT in localStorage → `/review` (protected) | OS mentions operator workflow; AUTH_SETUP.md documents the full pattern |
 | Tech stack maturity | NestJS + Prisma + PostgreSQL + Docker | Next.js 15 App Router + Tailwind 4 + shadcn | Stack choices are internally coherent and production-capable |
 
@@ -35,16 +61,15 @@ The business is ready to receive applications. It is not ready to process them e
 
 These are not opinions. These are concrete gaps between what the OS specifies and what the product ships.
 
-#### Gap 1 — Cold Nav Undermines the 9-Rung Ladder (High Impact)
-**OS says:** "One page, one continuous descent. Nothing mid-page should resolve tension early."  
-**OS says (explicitly):** Collapse "Pricing" and "Who We Are" out of the cold top nav into the footer only. Nav should be logo + one link + one button.  
-**Live site:** `site-header.tsx` exposes Pricing and Who We Are as jump links reachable from second one on the page. A cold visitor can skip agitation, mechanism, and proof entirely.  
-**Impact:** Undermines the entire conversion architecture. The funnel is designed to earn the apply click through a specific emotional descent. A shortcut to pricing before the visitor has been agitated by the letter section is a trust-budget leak.
+#### Gap 1 — Cold Nav Still Allows Ladder Skip (Medium Impact)
+**OS says:** "One page, one continuous descent." Footer-only for secondary destinations.  
+**Live site:** `site-header.tsx` — How it works, The ladder (`/#how-it-works`), Who we are, Apply. No Pricing jump link (fixed). **Who we are → `/about` still skips agitation.**  
+**Impact:** Better than the old Pricing shortcut; `/about` legacy tone remains a leak.
 
-#### Gap 2 — Last Call Section Has 3 Competing CTAs (High Impact)
-**OS says (RULES.md rule 4):** "The Last Call rung gets a single CTA. Nothing else competing."  
-**Live site:** `contact-section.tsx` ships an apply CTA, an email link, and a WhatsApp button.  
-**Impact:** The last rung of the funnel, which should be the hardest and most singular moment, diffuses the reader's attention across three exits. This is a direct violation of the rung-9 specification.
+#### Gap 2 — Last Call Has Dual CTAs (Low Impact — intentional)
+**OS says (strict):** Single CTA on last rung.  
+**Funnel rule (`02-conversion-funnel.mdc`):** Dual path — ghost "How THP works" + primary "Apply".  
+**Live site:** `contact-section.tsx` matches the funnel rule, not the older OS single-CTA line. **Decide which spec wins** and update OS or code once.
 
 #### Gap 3 — Scroll-Depth Darkening Not Implemented (Medium Impact)
 **OS says:** Background darkens and type weight climbs as the visitor scrolls down the ladder.  
@@ -101,7 +126,7 @@ The knowledge architecture in `the-hard-port-os/` is not decoration. It is doing
 
 **The OS is ahead of the product in two critical areas:**
 
-**1. Operator tooling.** The OS describes a multi-stage qualification workflow with maturity classification, missing evidence notes, next-action planning, and pipeline advancement. The operator dashboard (`/review`) currently shows a read-only list. There is no accept/reject/qualify action in the UI. Reviewers can see applications but cannot act on them through the interface — they would have to hit the API directly. This is the largest operational gap.
+**1. Operator tooling.** Pipeline PATCH + `/review/[id]` form ships (qualification, lifecycle, notes, next action). **Still missing:** submission email notification, applicant post-submit page, structured maturity enum.
 
 **2. The design system is aspirational, not implemented.** The `design-system/` folder in the OS contains a full specification: 4-step oklch depth scale, scroll-intensity formula, button variants with ghost/secondary, CTA size escalation, nautical icon system, hi-fi wireframe patterns. None of it is implemented. The live site is a first pass — coherent and functional, but missing the experiential depth the design system was built to deliver.
 

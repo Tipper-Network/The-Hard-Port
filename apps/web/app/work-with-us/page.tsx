@@ -20,7 +20,9 @@ export default function WorkWithUsPage() {
           <h2>Who we help</h2>
           <p>
             Online or online-dependent microbusinesses with a defined offer and paying
-            customers — operating in Level 1 (established but surviving), not pre-launch.
+            customers; operating in Level 1 (established but surviving), not pre-launch.
+            See <LinkButton text="business levels" href="/business-levels" variant="text" noMargin className="text-accent" /> for
+            the full Level 0 to 3 map.
           </p>
 
           <h2>What condition you are probably in</h2>
