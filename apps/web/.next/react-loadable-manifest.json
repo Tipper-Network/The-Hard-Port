@@ -1,45 +1,62 @@
 {
   "src/landing/section-loader.tsx -> ./sections/capacity-section": {
-    "id": 3915,
+    "id": "src/landing/section-loader.tsx -> ./sections/capacity-section",
     "files": [
-      "static/chunks/915.976a8bcf90baae14.js"
+      "static/chunks/_app-pages-browser_src_landing_sections_capacity-section_tsx.js"
     ]
   },
   "src/landing/section-loader.tsx -> ./sections/condition-section": {
-    "id": 4046,
+    "id": "src/landing/section-loader.tsx -> ./sections/condition-section",
     "files": [
-      "static/chunks/46.6f6545ff754ccd11.js"
+      "static/chunks/_app-pages-browser_src_landing_sections_condition-section_tsx.js"
+    ]
+  },
+  "src/landing/section-loader.tsx -> ./sections/execution-section": {
+    "id": "src/landing/section-loader.tsx -> ./sections/execution-section",
+    "files": [
+      "static/chunks/_app-pages-browser_src_landing_sections_execution-section_tsx.js"
     ]
   },
   "src/landing/section-loader.tsx -> ./sections/faq-section": {
-    "id": 815,
+    "id": "src/landing/section-loader.tsx -> ./sections/faq-section",
     "files": [
-      "static/chunks/771.144200c51cde2a73.js",
-      "static/chunks/815.c7b39363879457d0.js"
+      "static/chunks/_app-pages-browser_src_landing_sections_faq-section_tsx.js"
+    ]
+  },
+  "src/landing/section-loader.tsx -> ./sections/gap-section": {
+    "id": "src/landing/section-loader.tsx -> ./sections/gap-section",
+    "files": [
+      "static/chunks/_app-pages-browser_src_landing_sections_gap-section_tsx.js"
     ]
   },
   "src/landing/section-loader.tsx -> ./sections/how-it-works-section": {
-    "id": 2938,
+    "id": "src/landing/section-loader.tsx -> ./sections/how-it-works-section",
     "files": [
-      "static/chunks/938.13e9fd5bc92f3db5.js"
+      "static/chunks/_app-pages-browser_src_landing_sections_how-it-works-section_tsx.js"
+    ]
+  },
+  "src/landing/section-loader.tsx -> ./sections/misdiagnosis-section": {
+    "id": "src/landing/section-loader.tsx -> ./sections/misdiagnosis-section",
+    "files": [
+      "static/chunks/_app-pages-browser_src_landing_sections_misdiagnosis-section_tsx.js"
     ]
   },
   "src/landing/section-loader.tsx -> ./sections/not-promise-section": {
-    "id": 1026,
+    "id": "src/landing/section-loader.tsx -> ./sections/not-promise-section",
     "files": [
-      "static/chunks/26.360dc2b33d290b3e.js"
+      "static/chunks/_app-pages-browser_src_landing_sections_not-promise-section_tsx.js"
     ]
   },
   "src/landing/section-loader.tsx -> ./sections/proof-section": {
-    "id": 5963,
+    "id": "src/landing/section-loader.tsx -> ./sections/proof-section",
     "files": [
-      "static/chunks/963.fe339b4ac955bf16.js"
+      "static/chunks/_app-pages-browser_src_landing_sections_proof-section_tsx.js"
     ]
   },
   "src/landing/section-loader.tsx -> @/forms/contact-section": {
-    "id": 1248,
+    "id": "src/landing/section-loader.tsx -> @/forms/contact-section",
     "files": [
-      "static/chunks/248.f7e5d047ef5ccd18.js"
+      "static/chunks/_app-pages-browser_src_forms_contact-section_tsx.js"
     ]
   }
 }

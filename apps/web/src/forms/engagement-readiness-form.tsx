@@ -137,7 +137,7 @@ export function EngagementReadinessForm() {
     return (
       <div className="border border-secondary/15 bg-secondary/5 p-8">
         <p className="font-heading text-lg text-secondary uppercase">
-          Intake not configured — manual handoff
+          Intake not configured; manual handoff
         </p>
         <p className="mt-2 text-sm text-white/70">
           Email this JSON to your intake address, or start the API with{' '}
@@ -185,11 +185,11 @@ export function EngagementReadinessForm() {
           </Field>
         </div>
 
-        <Field label="What do you sell — in one clear sentence?" id="core-offer" error={errors.coreOffer}>
+        <Field label="What do you sell; in one clear sentence?" id="core-offer" error={errors.coreOffer}>
           <Textarea id="core-offer" rows={2} value={form.coreOffer} onChange={updateText('coreOffer')} className={inputClass} />
         </Field>
 
-        <Field label="Paying customers — how many unrelated buyers, with examples?" id="paying" error={errors.payingCustomers}>
+        <Field label="Paying customers; how many unrelated buyers, with examples?" id="paying" error={errors.payingCustomers}>
           <Textarea id="paying" rows={2} value={form.payingCustomers} onChange={updateText('payingCustomers')} className={inputClass} />
         </Field>
 
@@ -209,7 +209,7 @@ export function EngagementReadinessForm() {
           <Textarea id="online" rows={2} value={form.onlineActivity} onChange={updateText('onlineActivity')} className={inputClass} />
         </Field>
 
-        <Field label="What is not working — and what have you already tried?" id="problems">
+        <Field label="What is not working; and what have you already tried?" id="problems">
           <Textarea id="problems" rows={3} value={form.primaryProblems} onChange={updateText('primaryProblems')} className={inputClass} />
         </Field>
 
@@ -233,7 +233,7 @@ export function EngagementReadinessForm() {
         </div>
 
         <div className="space-y-2 border-t border-white/10 pt-5">
-          <Check id="privacy" checked={form.privacyAck} onChange={(v) => setForm((p) => ({ ...p, privacyAck: v }))} label="I understand this application is self-reported, does not guarantee acceptance, and that THP will use my information only to evaluate fit and contact me. (Privacy notice — full text pending legal review.)" error={errors.privacyAck} />
+          <Check id="privacy" checked={form.privacyAck} onChange={(v) => setForm((p) => ({ ...p, privacyAck: v }))} label="I understand this application is self-reported, does not guarantee acceptance, and that THP will use my information only to evaluate fit and contact me. (Privacy notice; full text pending legal review.)" error={errors.privacyAck} />
         </div>
 
         {Object.values(errors).some(Boolean) && (

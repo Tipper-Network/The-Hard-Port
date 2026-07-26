@@ -10,7 +10,23 @@ Read `00-brand-core.mdc` first. This file enforces the voice at the sentence lev
 
 Do not apply these sentence-level brand-copy constraints to `the-hard-port-os/**`. That repository uses its own OS rules in `05-hard-port-os.mdc`.
 
-use ';" instead of "—" in files that are .tsx except for comments.  the reader cant be seeing this "—" being used. 
+## Punctuation in TSX (`apps/web/**/*.tsx`)
+
+In **user-facing strings** inside `.tsx` files, use a **semicolon (`;`)** where you would
+otherwise use an em dash (`—` or `&mdash;`). Em dashes in rendered UI copy read wrong on this site.
+
+| Do | Don't |
+|---|---|
+| `not whether you flatter us.` preceded by `;` | `— not whether you flatter us.` |
+| `Application; you describe honestly` | `Application — you describe honestly` |
+
+**Exceptions:**
+
+- **Comments and JSDoc** in `.tsx` — em dashes are fine (not rendered).
+- **`.md`, `.mdc`, OS docs, Canon** — unchanged; this rule is TSX user-facing copy only.
+- **Empty-state UI placeholders** (tables, selects) — use `-`, `None`, or `Empty`, not `—`.
+
+When editing TSX, grep string literals for `—` and `&mdash;` and replace with `;` (or rephrase).
 
 ## Positioning anchor (SERVICE-001)
 

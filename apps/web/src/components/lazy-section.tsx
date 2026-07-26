@@ -8,7 +8,7 @@ type LazySectionProps = {
   rootMargin?: string
 }
 
-/** Mount children only when the section nears the viewport — pairs with dynamic imports for code splitting. */
+/** Mount children only when the section nears the viewport; pairs with dynamic imports for code splitting. */
 export function LazySection({
   children,
   minHeight = '24rem',

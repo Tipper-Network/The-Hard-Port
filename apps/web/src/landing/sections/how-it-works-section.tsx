@@ -9,7 +9,7 @@ const steps = [
   {
     no: '02',
     title: 'Qualification',
-    body: 'We decide whether a diagnostic is appropriate — not every applicant gets one.',
+    body: 'We decide whether a diagnostic is appropriate; not every applicant gets one.',
   },
   {
     no: '03',
@@ -24,7 +24,7 @@ const steps = [
   {
     no: '05',
     title: 'Intervention',
-    body: 'Optional, separate agreement — Level 1-to-Level 2 stability work when warranted.',
+    body: 'Optional, separate agreement; Level 1-to-Level 2 stability work when warranted.',
   },
 ]
 
@@ -34,7 +34,7 @@ export function HowItWorksSection() {
       <div className="mx-auto max-w-hero">
         <div className="mx-auto max-w-3xl text-center">
           <p className="text-sm font-bold tracking-[0.2em] text-accent uppercase">
-            The ladder
+            How you move through THP
           </p>
           <h2 className="mt-4 font-heading text-3xl font-normal uppercase leading-tight text-secondary md:text-4xl">
             One rung at a time. No skipping.

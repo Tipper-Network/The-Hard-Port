@@ -41,7 +41,7 @@ export function DistanceMeter() {
   const label = [...THRESHOLDS].reverse().find((t) => progress >= t.min)?.label
 
   return (
-    <div className="fixed inset-x-0 top-0 z-60 h-0.75 bg-white/10" aria-hidden="true">
+    <div className="fixed inset-x-0 top-0 z-60 h-1 bg-white/10" aria-hidden="true">
       <div
         className="h-full bg-accent transition-[width] duration-150 ease-out"
         style={{ width: `${progress * 100}%` }}

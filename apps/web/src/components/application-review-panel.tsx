@@ -128,7 +128,7 @@ export function ApplicationReviewPanel({ id }: ApplicationReviewPanelProps) {
           Pipeline tracker
         </h3>
         <p className="mt-2 text-sm text-white/60">
-          Updates sync to Postgres — export CSV with{' '}
+          Updates sync to Postgres; export CSV with{' '}
           <code className="text-white/80">pnpm --filter api pipeline:export</code>
         </p>
         <div className="mt-6">

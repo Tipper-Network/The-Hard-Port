@@ -5,7 +5,7 @@ import { THPLogo } from '@/components/logo-mark'
 
 const footerLinks = [
   { href: '/work-with-us', label: 'How it works' },
-  { href: '/', hash: 'how-it-works', label: 'The ladder' },
+  { href: '/business-levels', label: 'The ladder' },
   { href: '/', hash: 'proof', label: 'Proof' },
   { href: '/apply', label: 'Apply' },
   { href: '/about', label: 'Who We Are' },
