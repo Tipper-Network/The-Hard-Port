@@ -1,6 +1,6 @@
 import type { Metadata } from 'next'
 
-import { EngagementReadinessForm } from '@/landing/engagement-readiness-form'
+import { EngagementReadinessForm } from '@/forms/engagement-readiness-form'
 import { SiteFooter } from '@/shared/site-footer'
 import { SiteHeader } from '@/shared/site-header'
 

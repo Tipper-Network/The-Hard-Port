@@ -1,34 +1,16 @@
 'use client'
 
 import LinkButton from '@/components/link_button'
+import {
+  STICKY_CTA_BY_SECTION,
+  STICKY_CTA_SECTION_IDS,
+  type HomeSectionId,
+} from '@/landing/sections.config'
 import { useActiveSection } from '@/lib/use-active-section'
 
-const SECTION_IDS = [
-  'letter',
-  'condition',
-  'how-it-works',
-  'proof',
-  'not-promise',
-  'capacity',
-  'faq',
-  'contact',
-] as const
-
-const LABEL_BY_SECTION: Partial<
-  Record<(typeof SECTION_IDS)[number], { text: string; href: string; hash?: string }>
-> = {
-  letter: { text: 'See how it works', href: '/work-with-us' },
-  condition: { text: 'See how it works', href: '/work-with-us' },
-  'how-it-works': { text: 'Read the full picture', href: '/work-with-us' },
-  proof: { text: 'Read the full picture', href: '/work-with-us' },
-  'not-promise': { text: 'Apply', href: '/apply' },
-  capacity: { text: 'Apply', href: '/apply' },
-  faq: { text: 'Apply', href: '/apply' },
-}
-
 export function StickyCta() {
-  const activeId = useActiveSection(SECTION_IDS)
-  const cta = activeId ? LABEL_BY_SECTION[activeId as (typeof SECTION_IDS)[number]] : undefined
+  const activeId = useActiveSection(STICKY_CTA_SECTION_IDS)
+  const cta = activeId ? STICKY_CTA_BY_SECTION[activeId as HomeSectionId] : undefined
 
   if (!cta) return null
 

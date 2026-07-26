@@ -28,8 +28,4 @@ export const freeSlots = {
 /** Paste a full YouTube URL or 11-character video ID */
 export const video = {
   hero: 'https://youtu.be/wqH_2z21zEc?si=TIfRY47lHca205uc',
-  branding: '',
 } as const
-
-/** The one number every wa.me deep-link on the site points at. */
-export const whatsappNumber = '96178883966' 
