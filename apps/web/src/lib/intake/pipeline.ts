@@ -70,6 +70,8 @@ export type ApplicationRecord = {
   paymentStatus: string | null
   activeCapacitySlot: boolean
   notes: string | null
+  userId: string | null
+  visitorId: string | null
   createdAt: string
   updatedAt: string
 }

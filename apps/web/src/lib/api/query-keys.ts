@@ -9,4 +9,10 @@ export const queryKeys = {
     lists: () => [...queryKeys.applications.all, 'list'] as const,
     detail: (id: string) => [...queryKeys.applications.all, 'detail', id] as const,
   },
+  tracking: {
+    all: ['tracking'] as const,
+    funnel: (days: number) => [...queryKeys.tracking.all, 'funnel', days] as const,
+    journey: (applicationId: string) =>
+      [...queryKeys.tracking.all, 'journey', applicationId] as const,
+  },
 } as const

@@ -14,6 +14,8 @@ Operator sign-in for reviewers/admins. Public `/apply` intake stays open.
 | GET | `/auth/me` | Bearer JWT | Current user |
 | GET | `/intake/applications` | Bearer JWT + reviewer | List applications (reviewers) |
 | POST | `/tracking/events` | — | Batch visitor events (public) |
+| GET | `/tracking/funnel/summary` | Bearer JWT + reviewer | Funnel drop-off aggregates (`?days=30`) |
+| GET | `/tracking/applications/:id/journey` | Bearer JWT + reviewer | Applicant event timeline |
 
 ## Environment
 
