@@ -29,6 +29,9 @@ superseded_by: []
 
 # THP First 12-Video Test
 
+> **Superseded:** [`content/youtube/FOUNDATIONAL-OBSERVATIONAL-SERIES.md`](../../content/youtube/FOUNDATIONAL-OBSERVATIONAL-SERIES.md) — observational spine F01–F12.  
+> This file retained for history only.
+
 > **Status:** `working` · All videos `not_started`.  
 > One deliberate sequence — not a content calendar.
 

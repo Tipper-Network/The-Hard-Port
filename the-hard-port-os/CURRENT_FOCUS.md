@@ -2,27 +2,23 @@
 
 Updated: 2026-07-27
 
-## Pre-Content Architecture
-
-Status: complete working system; pending first-entity validation.
-
-## Minimum Intake Operation
-
-Build the minimum functioning intake operation **alongside** YouTube production — not instead of it.
-
-See [`operations/first-client-readiness/`](./operations/first-client-readiness/) and [`active/CURRENT_TASK.md`](./active/CURRENT_TASK.md).
-
-Publish Video 12 application CTA only when the intake readiness gate is satisfied.
-
 ## Active Focus
 
-Produce the first three videos in the THP YouTube Attraction Architecture.
+Film **Drift 01 — The Overwhelmed Business** (first filming session).
 
-## First Production Sequence
+Canonical package: [`content/youtube/first-50-observational-videos/00-FIRST-50-FILMING-MAP.md`](./content/youtube/first-50-observational-videos/00-FIRST-50-FILMING-MAP.md)
 
-1. Posting Consistently Is Not a Business Strategy
-2. You May Not Have a Content Problem
-3. Your Business Should Not Need a Miracle Every Month
+## First Filming Session
+
+Drift file: [`01-DRIFT-OVERWHELMED-BUSINESS.md`](./content/youtube/first-50-observational-videos/01-DRIFT-OVERWHELMED-BUSINESS.md)
+
+**Expected from one session:**
+
+- FND-001 · FND-002 · FND-003
+- OBS-001 through OBS-008
+- Hooks, closings, B-roll
+
+Checklist: [`06-FILMING-SESSION-CHECKLIST.md`](./content/youtube/first-50-observational-videos/06-FILMING-SESSION-CHECKLIST.md)
 
 ## Parallel Operational Work
 
@@ -31,24 +27,16 @@ Produce the first three videos in the THP YouTube Attraction Architecture.
 - Confirm first-client evidence storage
 - Confirm the paid diagnostic summary
 
-Media architecture: [`knowledge/media/youtube/`](./knowledge/media/youtube/)
+## Production Labels
 
-## Content-System Requirements
+```yaml
+content_phase: public-diagnostic-layer
+content_mode: observational
+instructional_intensity: low
+target_audience: level-1-and-level-2-small-business-owners
+status: ready-for-filming
+```
 
-The media system must:
+Observation precedes instruction. No application CTA in the first fifty.
 
-1. Attract established online or online-dependent microbusinesses in Level 1.
-2. Help owners recognize survival-mode patterns.
-3. Replace false marketing explanations with structural interpretations.
-4. Explain the Level 1-to-Level 2 transition.
-5. Establish THP's authority without giving away the full intervention.
-6. Route qualified owners toward the Engagement Readiness Application (`/apply`).
-7. Generate evidence about owner language, objections, and readiness.
-8. Produce institutional learning for THP and future Tipper development.
-
-## Not Yet Active
-
-- Final prices and signed legal documents (drafts exist — legal review required)
-- Client portal / custom CRM
-- Tipper product development
-- Port Reports series (inactive until field evidence exists)
+System: [`knowledge/media/youtube/`](./knowledge/media/youtube/)
