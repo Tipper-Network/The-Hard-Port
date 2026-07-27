@@ -56,6 +56,10 @@ export class AuthService {
 
     const existingUser = await this.prisma.user.findUnique({ where: { email } })
 
+    if (existingUser?.role === UserRole.user) {
+      throw new ForbiddenException('Applicant accounts cannot sign in here')
+    }
+
     const user =
       existingUser ??
       (await this.prisma.user.create({
@@ -158,7 +162,7 @@ export class AuthService {
       email: payload.email,
       name: null,
       image: null,
-      role: payload.role ?? 'reviewer',
+      role: payload.role ?? UserRole.reviewer,
     }
   }
 }

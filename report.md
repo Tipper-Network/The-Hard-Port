@@ -1,7 +1,33 @@
 # The Hard Port — Full Business & Architecture Report
 **Prepared:** 2026-07-22  
-**Revised:** 2026-07-26 — homepage funnel expanded; alignment table corrected  
+**Revised:** 2026-07-27 — runtime health check; both apps confirmed clean  
 **Scope:** Backend coherence, frontend coherence, OS-to-product harmony, skills/goals fit, and senior BA advice on user flow and design.
+
+---
+
+## Revision note (2026-07-27) — Runtime Health Check
+
+**Both apps spun up and probed end-to-end. All green.**
+
+| Check | Result |
+|-------|--------|
+| API build (`pnpm build`) | Clean — Prisma client generated, NestJS compiled with zero errors |
+| API startup (`node dist/main.js`) | Starts in ~50ms, all routes registered |
+| `GET /intake/health` | `{"ok":true,"service":"thp-api"}` ✅ |
+| `GET /auth/providers` | `{"ok":true,"google":false,"meta":false}` ✅ (OAuth creds not set locally — expected) |
+| `POST /intake/applications` (empty body) | 400 with full validation error list — all 24 required fields named ✅ |
+| `POST /intake/applications` (valid body) | `{"ok":true,"id":"cms3bpx2n00009qir01xy4eau","lifecycleStatus":"application_submitted"}` — DB write confirmed ✅ |
+| `GET /intake/applications` (bad JWT) | 401 ✅ |
+| `GET /intake/applications/:id` (bad JWT) | 401 ✅ |
+| Web build (`pnpm build`) | Compiled clean, TypeScript valid, 12 pages generated |
+| Web startup (`pnpm start`) | Up on port 3000 |
+| All routes: `/`, `/about`, `/apply`, `/sign-in`, `/work-with-us`, `/business-levels`, `/review` | 200 ✅ |
+| `/review/[id]` (dynamic route) | 200 ✅ |
+| `/nonexistent-page` | 404 ✅ |
+
+**One active warning:** `metadataBase` property not set in `apps/web/src/app/layout.tsx` — social OG/Twitter images will default to `http://localhost:3000`. This is the same item flagged in Part 5 item 8 of the action list. Confirmed still not fixed.
+
+**Node version note:** `package.json` declares `engines: { node: "22.x" }` but system is running Node 24.13.0. pnpm warns about this on build. No runtime impact observed — but worth aligning the engine declaration with what Dokploy actually deploys on.
 
 ---
 

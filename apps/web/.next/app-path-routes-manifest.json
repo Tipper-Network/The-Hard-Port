@@ -3,11 +3,12 @@
   "/auth/callback/page": "/auth/callback",
   "/auth/error/page": "/auth/error",
   "/page": "/",
+  "/apply/submitted/page": "/apply/submitted",
   "/apply/page": "/apply",
   "/about/page": "/about",
   "/review/page": "/review",
-  "/review/[id]/page": "/review/[id]",
   "/sign-in/page": "/sign-in",
-  "/work-with-us/page": "/work-with-us",
-  "/business-levels/page": "/business-levels"
+  "/review/[id]/page": "/review/[id]",
+  "/business-levels/page": "/business-levels",
+  "/work-with-us/page": "/work-with-us"
 }

@@ -54,6 +54,12 @@
       "namedRegex": "^/apply(?:/)?$"
     },
     {
+      "page": "/apply/submitted",
+      "regex": "^/apply/submitted(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/apply/submitted(?:/)?$"
+    },
+    {
       "page": "/auth/callback",
       "regex": "^/auth/callback(?:/)?$",
       "routeKeys": {},

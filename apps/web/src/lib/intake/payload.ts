@@ -20,6 +20,7 @@ export type IntakePayload = {
   willingnessFeedback: boolean
   crisisIndicators: string
   privacyAck: boolean
+  visitorId?: string
 }
 
 const REQUIRED_STRING_FIELDS = [
@@ -96,6 +97,7 @@ export function validateIntakePayload(
     willingnessFeedback: record.willingnessFeedback as boolean,
     crisisIndicators: isNonEmptyString(record.crisisIndicators) ? record.crisisIndicators.trim() : '',
     privacyAck: record.privacyAck as boolean,
+    visitorId: isNonEmptyString(record.visitorId) ? record.visitorId.trim() : undefined,
   }
 
   return { ok: true, payload }

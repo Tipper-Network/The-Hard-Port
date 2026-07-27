@@ -3,11 +3,12 @@
   "/auth/callback/page": "app/auth/callback/page.js",
   "/auth/error/page": "app/auth/error/page.js",
   "/page": "app/page.js",
+  "/apply/submitted/page": "app/apply/submitted/page.js",
   "/apply/page": "app/apply/page.js",
   "/about/page": "app/about/page.js",
   "/review/page": "app/review/page.js",
-  "/review/[id]/page": "app/review/[id]/page.js",
   "/sign-in/page": "app/sign-in/page.js",
-  "/work-with-us/page": "app/work-with-us/page.js",
-  "/business-levels/page": "app/business-levels/page.js"
+  "/review/[id]/page": "app/review/[id]/page.js",
+  "/business-levels/page": "app/business-levels/page.js",
+  "/work-with-us/page": "app/work-with-us/page.js"
 }

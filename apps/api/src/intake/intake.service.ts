@@ -2,12 +2,18 @@ import { BadRequestException, Injectable, NotFoundException } from '@nestjs/comm
 
 import { CreateApplicationDto } from './dto/create-application.dto'
 import { UpdateApplicationPipelineDto } from './dto/update-application-pipeline.dto'
+import { IntakeNotificationService } from './intake-notification.service'
 import { applicationSelect } from './pipeline.constants'
+import { UsersService } from '../users/users.service'
 import { PrismaService } from '../prisma/prisma.service'
 
 @Injectable()
 export class IntakeService {
-  constructor(private readonly prisma: PrismaService) {}
+  constructor(
+    private readonly prisma: PrismaService,
+    private readonly notifications: IntakeNotificationService,
+    private readonly users: UsersService,
+  ) {}
 
   async createApplication(dto: CreateApplicationDto) {
     if (!dto.willingnessExamine || !dto.willingnessEvidence || !dto.willingnessFeedback) {
@@ -18,6 +24,14 @@ export class IntakeService {
       throw new BadRequestException('Privacy acknowledgment is required')
     }
 
+    const email = dto.email.trim().toLowerCase()
+    const applicant = await this.users.ensureApplicantUser(email, dto.founderName)
+    const visitorId = dto.visitorId?.trim()
+
+    if (visitorId) {
+      await this.users.linkVisitorEvents(visitorId, applicant.id)
+    }
+
     const application = await this.prisma.application.create({
       data: {
         submittedAt: new Date(dto.submittedAt),
@@ -25,7 +39,9 @@ export class IntakeService {
         version: dto.version,
         founderName: dto.founderName.trim(),
         businessName: dto.businessName.trim(),
-        email: dto.email.trim().toLowerCase(),
+        email,
+        userId: applicant.id,
+        visitorId: visitorId || null,
         contactPhone: dto.contactPhone?.trim() || null,
         coreOffer: dto.coreOffer.trim(),
         payingCustomers: dto.payingCustomers.trim(),
@@ -44,6 +60,14 @@ export class IntakeService {
         lifecycleStatus: 'application_submitted',
         nextAction: 'Review application within 48h',
       },
+    })
+
+    void this.notifications.notifyNewApplication({
+      id: application.id,
+      businessName: application.businessName,
+      founderName: application.founderName,
+      email: application.email,
+      discoverySource: application.discoverySource,
     })
 
     return {

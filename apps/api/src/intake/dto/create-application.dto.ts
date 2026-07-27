@@ -85,4 +85,9 @@ export class CreateApplicationDto {
 
   @IsBoolean()
   privacyAck!: boolean
+
+  @IsOptional()
+  @IsString()
+  @MinLength(8)
+  visitorId?: string
 }
