@@ -4,6 +4,7 @@ import {
   IsISO8601,
   IsOptional,
   IsString,
+  MaxLength,
   MinLength,
 } from 'class-validator'
 
@@ -90,4 +91,19 @@ export class CreateApplicationDto {
   @IsString()
   @MinLength(8)
   visitorId?: string
+
+  @IsOptional()
+  @IsString()
+  @MaxLength(35)
+  locale?: string
+
+  @IsOptional()
+  @IsString()
+  @MaxLength(80)
+  timezone?: string
+
+  @IsOptional()
+  @IsString()
+  @MaxLength(8)
+  phoneCountryCode?: string
 }

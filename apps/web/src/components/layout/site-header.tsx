@@ -1,49 +1,10 @@
-import LinkButton from '@/components/link-button'
-
-import { THPLogo } from '@/components/layout/logo-mark'
+import { SiteHeaderNav } from '@/components/layout/site-header-nav'
 
 export function SiteHeader() {
   return (
     <header className="sticky top-0 z-50 border-b border-secondary/10 bg-primary/95 backdrop-blur-sm">
       <div className="mx-auto flex max-w-hero items-center justify-between px-6 py-4 lg:px-12">
-        <LinkButton href="/" variant="unstyled" aria-label="The Hard Port home" noMargin>
-          <THPLogo />
-        </LinkButton>
-        <nav className="hidden items-center gap-8 text-sm text-secondary md:flex">
-          <LinkButton
-            text="How it works"
-            href="/work-with-us"
-            variant="nav"
-            noMargin
-          />
-          <LinkButton
-            text="The ladder"
-            href="/business-levels"
-            variant="nav"
-            noMargin
-          />
-          <LinkButton
-            text="Who we are"
-            href="/about"
-            variant="nav"
-            noMargin
-          />
-          <LinkButton
-            text="Apply"
-            href="/apply"
-            variant="header"
-            noMargin
-            className="px-4 py-2 text-sm"
-          />
-        </nav>
-
-        <LinkButton
-          text="Apply"
-          href="/apply"
-          variant="header"
-          noMargin
-          className="px-3 py-2 text-xs md:hidden"
-        />
+        <SiteHeaderNav />
       </div>
     </header>
   )

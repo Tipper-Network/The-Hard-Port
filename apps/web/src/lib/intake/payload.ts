@@ -21,6 +21,9 @@ export type IntakePayload = {
   crisisIndicators: string
   privacyAck: boolean
   visitorId?: string
+  locale?: string
+  timezone?: string
+  phoneCountryCode?: string
 }
 
 const REQUIRED_STRING_FIELDS = [
@@ -98,6 +101,11 @@ export function validateIntakePayload(
     crisisIndicators: isNonEmptyString(record.crisisIndicators) ? record.crisisIndicators.trim() : '',
     privacyAck: record.privacyAck as boolean,
     visitorId: isNonEmptyString(record.visitorId) ? record.visitorId.trim() : undefined,
+    locale: isNonEmptyString(record.locale) ? record.locale.trim() : undefined,
+    timezone: isNonEmptyString(record.timezone) ? record.timezone.trim() : undefined,
+    phoneCountryCode: isNonEmptyString(record.phoneCountryCode)
+      ? record.phoneCountryCode.trim()
+      : undefined,
   }
 
   return { ok: true, payload }

@@ -1,4 +1,5 @@
-import { Body, Controller, Post } from '@nestjs/common'
+import { Body, Controller, Post, Req } from '@nestjs/common'
+import type { Request } from 'express'
 
 import { TrackEventsDto } from './dto/track-events.dto'
 import { TrackingService } from './tracking.service'
@@ -8,7 +9,7 @@ export class TrackingController {
   constructor(private readonly tracking: TrackingService) {}
 
   @Post('events')
-  ingestEvents(@Body() dto: TrackEventsDto) {
-    return this.tracking.ingestEvents(dto)
+  ingestEvents(@Body() dto: TrackEventsDto, @Req() req: Request) {
+    return this.tracking.ingestEvents(dto, req)
   }
 }

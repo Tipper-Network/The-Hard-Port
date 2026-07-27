@@ -40,6 +40,11 @@ export class TrackEventsDto {
   visitorId!: string
 
   @IsOptional()
+  @IsString()
+  @MaxLength(64)
+  sessionId?: string
+
+  @IsOptional()
   @IsEmail()
   email?: string
 
@@ -47,6 +52,21 @@ export class TrackEventsDto {
   @IsString()
   @MaxLength(200)
   name?: string
+
+  @IsOptional()
+  @IsString()
+  @MaxLength(35)
+  locale?: string
+
+  @IsOptional()
+  @IsString()
+  @MaxLength(80)
+  timezone?: string
+
+  @IsOptional()
+  @IsString()
+  @MaxLength(8)
+  phoneCountryCode?: string
 
   @IsArray()
   @ArrayMinSize(1)
