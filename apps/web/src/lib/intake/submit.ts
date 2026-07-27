@@ -5,7 +5,12 @@ import { validateIntakePayload, type IntakePayload } from '@/lib/intake/payload'
 
 export type SubmitIntakeResult =
   | { ok: true; id?: string }
-  | { ok: false; error: string; manual?: boolean }
+  | {
+      ok: false
+      error: string
+      manual?: boolean
+      reason?: 'not_configured' | 'unreachable' | 'api_error'
+    }
 
 async function submitToApi(payload: IntakePayload): Promise<SubmitIntakeResult> {
   const apiUrl = getConfiguredIntakeApiUrl()
@@ -14,6 +19,7 @@ async function submitToApi(payload: IntakePayload): Promise<SubmitIntakeResult> 
       ok: false,
       error: 'Intake API not configured',
       manual: true,
+      reason: 'not_configured',
     }
   }
 
@@ -34,7 +40,7 @@ async function submitToApi(payload: IntakePayload): Promise<SubmitIntakeResult> 
         typeof body.message === 'string'
           ? body.message
           : 'Application submission failed'
-      return { ok: false, error: message, manual: true }
+      return { ok: false, error: message, manual: true, reason: 'api_error' }
     }
 
     if (body && typeof body === 'object' && 'ok' in body && body.ok === true) {
@@ -50,6 +56,7 @@ async function submitToApi(payload: IntakePayload): Promise<SubmitIntakeResult> 
       ok: false,
       error: err instanceof Error ? err.message : 'API request failed',
       manual: true,
+      reason: 'unreachable',
     }
   }
 }

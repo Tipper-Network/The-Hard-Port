@@ -97,5 +97,15 @@ export function getServerApiUrl() {
 }
 
 export function getConfiguredIntakeApiUrl() {
-  return process.env.THP_API_URL?.trim().replace(/\/$/, '') ?? null
+  const configured =
+    process.env.THP_API_URL?.trim().replace(/\/$/, '') ??
+    process.env.NEXT_PUBLIC_THP_API_URL?.trim().replace(/\/$/, '')
+
+  if (configured) return configured
+
+  if (process.env.NODE_ENV === 'development') {
+    return 'http://localhost:3001'
+  }
+
+  return null
 }
