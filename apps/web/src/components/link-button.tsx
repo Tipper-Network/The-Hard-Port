@@ -1,6 +1,9 @@
+'use client'
+
 import type { ReactNode } from 'react'
 import Link from 'next/link'
 
+import { trackClick } from '@/lib/tracking'
 import { cn } from '@/lib/utils'
 
 /** Escalation ramp: later-funnel CTAs render bigger/bolder, never smaller. */
@@ -88,11 +91,25 @@ const LinkButton = ({
       target={opensInNewTab ? '_blank' : undefined}
       rel={opensInNewTab ? 'noopener noreferrer' : undefined}
       className={classes}
+      onClick={() => {
+        if (isCtaVariant && typeof text === 'string') {
+          trackClick(text, href)
+        }
+      }}
     >
       {content}
     </a>
   ) : (
-    <Link href={resolveHref(href, hash)} aria-label={ariaLabel} className={classes}>
+    <Link
+      href={resolveHref(href, hash)}
+      aria-label={ariaLabel}
+      className={classes}
+      onClick={() => {
+        if (isCtaVariant && typeof text === 'string') {
+          trackClick(text, resolveHref(href, hash))
+        }
+      }}
+    >
       {content}
     </Link>
   )

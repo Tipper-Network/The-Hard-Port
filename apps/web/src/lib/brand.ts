@@ -12,18 +12,20 @@ export const site = {
   title: 'The Hard Port; We give a f*ck. We just don\u2019t care.',
   shortName: 'The Hard Port',
   description:
-    'A no-bullshit media agency for small businesses that are "doing fine." Fine is the problem. We bring clarity, you bring the commitment. Hard a-port.',
+    'The Hard Port investigates why established microbusinesses stay trapped in survival mode — and what it takes to become stable enough to grow responsibly.',
   logo: '/THP_Logo.svg',
 } as const
 
 /** The line everything else hangs off. */
 export const slogan = 'We Give A F*ck. We just don\u2019t care.'
 
-/** How many freebies we hand out, and how we frame them everywhere. */
-export const freeSlots = {
-  perMonth: 2,
-  label: '2 businesses a month. Free. We pick them.',
-} as const
+/** Public site origin — metadataBase, OG URLs. Set NEXT_PUBLIC_SITE_URL in production. */
+export function getSiteUrl() {
+  const configured = process.env.NEXT_PUBLIC_SITE_URL?.trim().replace(/\/$/, '')
+  if (configured) return configured
+  if (process.env.VERCEL_URL) return `https://${process.env.VERCEL_URL}`
+  return 'http://localhost:3000'
+}
 
 /** Paste a full YouTube URL or 11-character video ID */
 export const video = {

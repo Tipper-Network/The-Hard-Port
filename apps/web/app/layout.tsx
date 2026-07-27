@@ -1,10 +1,12 @@
 import type { Metadata, Viewport } from 'next'
 
 import { QueryProvider } from '@/components/providers/query-provider'
-import { brand, site } from '@/lib/brand'
+import { TrackingProvider } from '@/components/providers/tracking-provider'
+import { brand, getSiteUrl, site } from '@/lib/brand'
 import '@/styles.css'
 
 export const metadata: Metadata = {
+  metadataBase: new URL(getSiteUrl()),
   title: site.title,
   description: site.description,
   icons: {
@@ -45,7 +47,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         />
       </head>
       <body>
-        <QueryProvider>{children}</QueryProvider>
+        <QueryProvider>
+          <TrackingProvider>{children}</TrackingProvider>
+        </QueryProvider>
       </body>
     </html>
   )

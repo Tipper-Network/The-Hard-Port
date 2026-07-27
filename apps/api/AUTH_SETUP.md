@@ -12,7 +12,8 @@ Operator sign-in for reviewers/admins. Public `/apply` intake stays open.
 | GET | `/auth/meta` | — | Start Meta (Facebook) OAuth |
 | GET | `/auth/meta/callback` | — | Meta callback → JWT → web redirect |
 | GET | `/auth/me` | Bearer JWT | Current user |
-| GET | `/intake/applications` | Bearer JWT | List applications (reviewers) |
+| GET | `/intake/applications` | Bearer JWT + reviewer | List applications (reviewers) |
+| POST | `/tracking/events` | — | Batch visitor events (public) |
 
 ## Environment
 
@@ -68,7 +69,8 @@ NEXT_PUBLIC_THP_API_URL=http://localhost:3001
 
 | Role | Default | Notes |
 |---|---|---|
-| `reviewer` | Yes | Can list applications |
+| `user` | Applicant | Created from site tracking / application; cannot OAuth sign-in |
+| `reviewer` | Operator | OAuth sign-in; can review applications |
 | `admin` | Manual in DB | Future admin operations |
 
 Promote users in Prisma Studio: `UPDATE users SET role = 'admin' WHERE email = '…'`.

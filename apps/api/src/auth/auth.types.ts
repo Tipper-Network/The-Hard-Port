@@ -15,11 +15,11 @@ export type AuthenticatedUser = {
   email: string
   name: string | null
   image: string | null
-  role: 'reviewer' | 'admin'
+  role: 'user' | 'reviewer' | 'admin'
 }
 
 export type JwtPayload = {
   sub: string
   email: string
-  role: 'reviewer' | 'admin'
+  role: 'user' | 'reviewer' | 'admin'
 }

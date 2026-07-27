@@ -24,6 +24,8 @@ model Application {
   crisisIndicators    String? @map("crisis_indicators")
   privacyAck          Boolean @map("privacy_ack")
 
+  userId          String? @map("user_id")
+  visitorId       String? @map("visitor_id")
   clientId        String? @map("client_id")
   lifecycleStatus String  @default("application_submitted") @map("lifecycle_status")
 
@@ -39,7 +41,11 @@ model Application {
   createdAt DateTime @default(now()) @map("created_at")
   updatedAt DateTime @updatedAt @map("updated_at")
 
+  user User? @relation(fields: [userId], references: [id], onDelete: SetNull)
+
   @@index([email])
+  @@index([userId])
+  @@index([visitorId])
   @@index([lifecycleStatus])
   @@map("applications")
 }

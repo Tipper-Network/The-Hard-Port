@@ -1,12 +1,14 @@
 'use client'
 
-import { useState, type FormEvent } from 'react'
+import { useState, useEffect, type FormEvent } from 'react'
+import { useRouter } from 'next/navigation'
 
 import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
 import { Textarea } from '@/components/ui/textarea'
 import type { IntakePayload } from '@/lib/intake/payload'
 import { submitIntake } from '@/lib/intake/submit'
+import { getVisitorId, identifyVisitor, trackEvent } from '@/lib/tracking'
 
 type FormState = {
   founderName: string
@@ -53,19 +55,36 @@ const initialState: FormState = {
 type FieldErrors = Partial<Record<keyof FormState, boolean>>
 
 function buildPayload(form: FormState): IntakePayload {
+  const visitorId = getVisitorId()
   return {
     submittedAt: new Date().toISOString(),
     form: 'THP-ENGAGEMENT-READINESS-APPLICATION',
     version: '1.0.0',
     ...form,
+    ...(visitorId ? { visitorId } : {}),
   }
 }
 
 export function EngagementReadinessForm() {
+  const router = useRouter()
   const [form, setForm] = useState<FormState>(initialState)
   const [errors, setErrors] = useState<FieldErrors>({})
-  const [status, setStatus] = useState<'idle' | 'submitting' | 'success' | 'manual'>('idle')
+  const [status, setStatus] = useState<'idle' | 'submitting' | 'manual'>('idle')
   const [manualJson, setManualJson] = useState('')
+
+  useEffect(() => {
+    trackEvent('application_view')
+  }, [])
+
+  function syncIdentity(next: Pick<FormState, 'email' | 'founderName'>) {
+    const email = next.email.trim()
+    const name = next.founderName.trim()
+    if (!email && !name) return
+    identifyVisitor({
+      ...(email ? { email } : {}),
+      ...(name ? { name } : {}),
+    })
+  }
 
   function updateText(key: keyof FormState) {
     return (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -97,13 +116,15 @@ export function EngagementReadinessForm() {
     if (Object.values(nextErrors).some(Boolean)) return
 
     const payload = buildPayload(form)
+    identifyVisitor({ email: form.email.trim(), name: form.founderName.trim() })
+    trackEvent('application_submit', { businessName: form.businessName.trim() })
     setStatus('submitting')
 
     try {
       const result = await submitIntake(payload)
 
       if (result.ok) {
-        setStatus('success')
+        router.replace('/apply/submitted')
         return
       }
 
@@ -119,18 +140,6 @@ export function EngagementReadinessForm() {
       setManualJson(JSON.stringify(payload, null, 2))
       setStatus('manual')
     }
-  }
-
-  if (status === 'success') {
-    return (
-      <div className="border border-accent bg-accent/10 p-8 text-center">
-        <p className="text-lg font-extrabold text-white">Application received.</p>
-        <p className="mt-2 text-sm text-white/70">
-          Applying does not guarantee qualification, diagnosis, or acceptance. We review
-          and respond if there is a fit.
-        </p>
-      </div>
-    )
   }
 
   if (status === 'manual') {
@@ -169,7 +178,13 @@ export function EngagementReadinessForm() {
       <div className="mt-7 space-y-5">
         <div className="grid gap-5 md:grid-cols-2">
           <Field label="Your name" id="founder-name" error={errors.founderName}>
-            <Input id="founder-name" value={form.founderName} onChange={updateText('founderName')} className={inputClass} />
+            <Input
+              id="founder-name"
+              value={form.founderName}
+              onChange={updateText('founderName')}
+              onBlur={() => syncIdentity(form)}
+              className={inputClass}
+            />
           </Field>
           <Field label="Business name" id="business-name" error={errors.businessName}>
             <Input id="business-name" value={form.businessName} onChange={updateText('businessName')} className={inputClass} />
@@ -178,7 +193,14 @@ export function EngagementReadinessForm() {
 
         <div className="grid gap-5 md:grid-cols-2">
           <Field label="Email" id="email" error={errors.email}>
-            <Input id="email" type="email" value={form.email} onChange={updateText('email')} className={inputClass} />
+            <Input
+              id="email"
+              type="email"
+              value={form.email}
+              onChange={updateText('email')}
+              onBlur={() => syncIdentity(form)}
+              className={inputClass}
+            />
           </Field>
           <Field label="Phone / WhatsApp (optional)" id="phone">
             <Input id="phone" value={form.contactPhone} onChange={updateText('contactPhone')} className={inputClass} />
