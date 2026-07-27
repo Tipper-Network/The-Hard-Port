@@ -1,13 +1,14 @@
 'use client'
 
-import { useEffect, useState } from 'react'
+import { useEffect } from 'react'
 import { useRouter } from 'next/navigation'
 
-import { getCurrentUser, type AuthenticatedUser } from '@/lib/api/auth'
-import { clearAccessToken, getAccessToken } from '@/lib/auth/session'
+import { isUnauthorizedError } from '@/lib/api/errors'
+import { getAccessToken } from '@/lib/auth/session'
+import { useCurrentUser, useSignOut } from '@/hooks/api/use-auth'
 
 type ReviewerSessionState = {
-  user: AuthenticatedUser | null
+  user: ReturnType<typeof useCurrentUser>['data'] | null
   loading: boolean
   error: string | null
   signOut: () => void
@@ -15,48 +16,27 @@ type ReviewerSessionState = {
 
 export function useReviewerSession(): ReviewerSessionState {
   const router = useRouter()
-  const [user, setUser] = useState<AuthenticatedUser | null>(null)
-  const [loading, setLoading] = useState(true)
-  const [error, setError] = useState<string | null>(null)
-
-  function signOut() {
-    clearAccessToken()
-    setUser(null)
-    router.replace('/sign-in')
-  }
+  const signOut = useSignOut()
+  const hasToken = !!getAccessToken()
 
   useEffect(() => {
-    if (!getAccessToken()) {
+    if (!hasToken) {
       router.replace('/sign-in')
-      return
     }
+  }, [hasToken, router])
 
-    let cancelled = false
+  const { data: user, isPending, isError, error } = useCurrentUser({ enabled: hasToken })
 
-    async function load() {
-      const result = await getCurrentUser()
-      if (cancelled) return
-
-      if (!result.ok) {
-        if (result.unauthorized) {
-          clearAccessToken()
-          router.replace('/sign-in')
-          return
-        }
-        setError(result.error)
-        setLoading(false)
-        return
-      }
-
-      setUser(result.user)
-      setLoading(false)
+  useEffect(() => {
+    if (isError && isUnauthorizedError(error)) {
+      signOut()
     }
+  }, [isError, error, signOut])
 
-    void load()
-    return () => {
-      cancelled = true
-    }
-  }, [router])
-
-  return { user, loading, error, signOut }
+  return {
+    user: user ?? null,
+    loading: hasToken && isPending,
+    error: isError && !isUnauthorizedError(error) ? error.message : null,
+    signOut,
+  }
 }

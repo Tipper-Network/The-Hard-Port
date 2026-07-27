@@ -1,15 +1,12 @@
 'use client'
 
-import { useEffect, useState } from 'react'
+import { useEffect } from 'react'
 import { useRouter } from 'next/navigation'
 
 import LinkButton from '@/components/link-button'
-import {
-  getAuthProviders,
-  getCurrentUser,
-  type AuthProviders,
-} from '@/lib/api/auth'
+import type { AuthProviders } from '@/lib/api/auth'
 import { getAccessToken, getGoogleLoginUrl, getMetaLoginUrl } from '@/lib/auth/session'
+import { useAuthProviders, useCurrentUser } from '@/hooks/api/use-auth'
 
 type SignInPanelProps = {
   initialProviders?: AuthProviders
@@ -17,62 +14,33 @@ type SignInPanelProps = {
 
 export function SignInPanel({ initialProviders }: SignInPanelProps) {
   const router = useRouter()
-  const [providers, setProviders] = useState<AuthProviders | null>(initialProviders ?? null)
-  const [loading, setLoading] = useState(!initialProviders)
-  const [error, setError] = useState<string | null>(null)
+  const hasToken = !!getAccessToken()
+  const { data: user, isSuccess: isSignedIn } = useCurrentUser({ enabled: hasToken })
+  const {
+    data: providers,
+    isPending,
+    isError,
+    error,
+  } = useAuthProviders(initialProviders)
 
   useEffect(() => {
-    if (!getAccessToken()) return
-
-    let cancelled = false
-
-    async function redirectIfSignedIn() {
-      const result = await getCurrentUser()
-      if (cancelled) return
-      if (result.ok) {
-        router.replace('/review')
-      }
+    if (isSignedIn && user) {
+      router.replace('/review')
     }
+  }, [isSignedIn, user, router])
 
-    void redirectIfSignedIn()
-    return () => {
-      cancelled = true
-    }
-  }, [router])
+  if (hasToken && !isSignedIn) {
+    return <p className="text-white/70">Checking session…</p>
+  }
 
-  useEffect(() => {
-    if (initialProviders) return
-
-    let cancelled = false
-
-    async function loadProviders() {
-      const result = await getAuthProviders()
-      if (cancelled) return
-
-      if (!result.ok) {
-        setError(result.error)
-        setLoading(false)
-        return
-      }
-
-      setProviders(result.providers)
-      setLoading(false)
-    }
-
-    void loadProviders()
-    return () => {
-      cancelled = true
-    }
-  }, [initialProviders])
-
-  if (loading) {
+  if (isPending) {
     return <p className="text-white/70">Loading sign-in options…</p>
   }
 
-  if (error) {
+  if (isError) {
     return (
       <div className="space-y-4">
-        <p className="text-alert">{error}</p>
+        <p className="text-alert">{error.message}</p>
         <LinkButton text="Try again" href="/sign-in" intensity={1} />
       </div>
     )

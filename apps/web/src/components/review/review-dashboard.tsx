@@ -1,13 +1,12 @@
 'use client'
 
-import { useEffect, useState } from 'react'
 import Link from 'next/link'
 
 import LinkButton from '@/components/link-button'
 import { ReviewerSessionBar } from '@/components/review/reviewer-session-bar'
 import { useReviewerSession } from '@/components/review/use-reviewer-session'
-import type { ApplicationSummary } from '@/lib/intake/pipeline'
-import { listApplications } from '@/lib/api/review'
+import { isUnauthorizedError } from '@/lib/api/errors'
+import { useApplications } from '@/hooks/api/use-applications'
 
 function formatDate(value: string) {
   return new Date(value).toLocaleString(undefined, {
@@ -18,40 +17,14 @@ function formatDate(value: string) {
 
 export function ReviewDashboard() {
   const { user, loading: sessionLoading, error: sessionError, signOut } = useReviewerSession()
-  const [applications, setApplications] = useState<ApplicationSummary[]>([])
-  const [error, setError] = useState<string | null>(null)
-  const [loading, setLoading] = useState(true)
+  const {
+    data: applications = [],
+    isPending,
+    isError,
+    error,
+  } = useApplications({ enabled: !!user })
 
-  useEffect(() => {
-    if (sessionLoading || !user) return
-
-    let cancelled = false
-
-    async function load() {
-      const result = await listApplications()
-      if (cancelled) return
-
-      if (!result.ok) {
-        if (result.unauthorized) {
-          signOut()
-          return
-        }
-        setError(result.error)
-        setLoading(false)
-        return
-      }
-
-      setApplications(result.applications)
-      setLoading(false)
-    }
-
-    void load()
-    return () => {
-      cancelled = true
-    }
-  }, [sessionLoading, user, signOut])
-
-  if (sessionLoading || (user && loading)) {
+  if (sessionLoading || (user && isPending)) {
     return <p className="text-white/70">Loading applications…</p>
   }
 
@@ -68,11 +41,15 @@ export function ReviewDashboard() {
     return null
   }
 
-  if (error) {
+  if (isError) {
+    if (isUnauthorizedError(error)) {
+      return null
+    }
+
     return (
       <div className="space-y-4">
         <ReviewerSessionBar user={user} onSignOut={signOut} />
-        <p className="text-alert">{error}</p>
+        <p className="text-alert">{error.message}</p>
         <LinkButton text="Try again" href="/review" intensity={1} />
       </div>
     )
