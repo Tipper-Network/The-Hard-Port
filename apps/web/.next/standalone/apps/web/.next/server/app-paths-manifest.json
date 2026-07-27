@@ -1,14 +1,14 @@
 {
   "/_not-found/page": "app/_not-found/page.js",
-  "/auth/error/page": "app/auth/error/page.js",
   "/auth/callback/page": "app/auth/callback/page.js",
+  "/auth/error/page": "app/auth/error/page.js",
   "/page": "app/page.js",
   "/apply/page": "app/apply/page.js",
-  "/about/page": "app/about/page.js",
   "/apply/submitted/page": "app/apply/submitted/page.js",
-  "/review/page": "app/review/page.js",
-  "/review/[id]/page": "app/review/[id]/page.js",
+  "/about/page": "app/about/page.js",
   "/sign-in/page": "app/sign-in/page.js",
+  "/review/[id]/page": "app/review/[id]/page.js",
+  "/review/page": "app/review/page.js",
   "/work-with-us/page": "app/work-with-us/page.js",
   "/business-levels/page": "app/business-levels/page.js"
 }

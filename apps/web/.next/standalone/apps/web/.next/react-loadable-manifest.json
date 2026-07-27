@@ -24,10 +24,10 @@
     ]
   },
   "src/landing/section-loader.tsx -> ./sections/faq-section": {
-    "id": 815,
+    "id": 7703,
     "files": [
-      "static/chunks/771.144200c51cde2a73.js",
-      "static/chunks/815.68398ad00b897676.js"
+      "static/chunks/6-1da256a3fa1c2331.js",
+      "static/chunks/703.e89c43689d84e0ea.js"
     ]
   },
   "src/landing/section-loader.tsx -> ./sections/gap-section": {

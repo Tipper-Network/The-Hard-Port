@@ -1,14 +1,14 @@
 {
   "/_not-found/page": "/_not-found",
-  "/auth/error/page": "/auth/error",
   "/auth/callback/page": "/auth/callback",
+  "/auth/error/page": "/auth/error",
   "/page": "/",
   "/apply/page": "/apply",
-  "/about/page": "/about",
   "/apply/submitted/page": "/apply/submitted",
-  "/review/page": "/review",
-  "/review/[id]/page": "/review/[id]",
+  "/about/page": "/about",
   "/sign-in/page": "/sign-in",
+  "/review/[id]/page": "/review/[id]",
+  "/review/page": "/review",
   "/work-with-us/page": "/work-with-us",
   "/business-levels/page": "/business-levels"
 }

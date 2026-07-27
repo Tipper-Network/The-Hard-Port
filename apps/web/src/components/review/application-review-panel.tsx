@@ -2,10 +2,12 @@
 
 import Link from 'next/link'
 
+import { ApplicantJourneyPanel } from '@/components/review/applicant-journey-panel'
 import { ApplicationPipelineForm } from '@/components/review/application-pipeline-form'
 import LinkButton from '@/components/link-button'
 import { ReviewerSessionBar } from '@/components/review/reviewer-session-bar'
 import { useReviewerSession } from '@/components/review/use-reviewer-session'
+import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs'
 import { isUnauthorizedError } from '@/lib/api/errors'
 import { useApplication } from '@/hooks/api/use-applications'
 
@@ -90,50 +92,72 @@ export function ApplicationReviewPanel({ id }: ApplicationReviewPanelProps) {
         </p>
       </div>
 
-      <section className="border border-white/10 p-6">
-        <h3 className="text-xs font-bold tracking-[0.14em] text-accent uppercase">
-          Intake responses
-        </h3>
-        <dl className="mt-4 grid gap-4 text-sm md:grid-cols-2">
-          <div>
-            <dt className="text-white/50">Core offer</dt>
-            <dd className="mt-1 text-white/85">{application.coreOffer}</dd>
-          </div>
-          <div>
-            <dt className="text-white/50">Paying customers</dt>
-            <dd className="mt-1 text-white/85">{application.payingCustomers}</dd>
-          </div>
-          <div>
-            <dt className="text-white/50">Operating status</dt>
-            <dd className="mt-1 text-white/85">{application.operatingStatus}</dd>
-          </div>
-          <div>
-            <dt className="text-white/50">Primary problems</dt>
-            <dd className="mt-1 text-white/85">{application.primaryProblems ?? '-'}</dd>
-          </div>
-          <div>
-            <dt className="text-white/50">Discovery source</dt>
-            <dd className="mt-1 text-white/85">{application.discoverySource}</dd>
-          </div>
-          <div>
-            <dt className="text-white/50">Delivery history</dt>
-            <dd className="mt-1 text-white/85">{application.deliveryHistory}</dd>
-          </div>
-        </dl>
-      </section>
+      <Tabs defaultValue="intake" className="gap-6">
+        <TabsList variant="line" className="border-b border-white/10 bg-transparent">
+          <TabsTrigger value="intake" className="text-white/60 data-active:text-secondary">
+            Intake
+          </TabsTrigger>
+          <TabsTrigger value="journey" className="text-white/60 data-active:text-secondary">
+            Site journey
+          </TabsTrigger>
+          <TabsTrigger value="pipeline" className="text-white/60 data-active:text-secondary">
+            Pipeline
+          </TabsTrigger>
+        </TabsList>
 
-      <section className="border border-white/10 p-6">
-        <h3 className="text-xs font-bold tracking-[0.14em] text-accent uppercase">
-          Pipeline tracker
-        </h3>
-        <p className="mt-2 text-sm text-white/60">
-          Updates sync to Postgres; export CSV with{' '}
-          <code className="text-white/80">pnpm --filter api pipeline:export</code>
-        </p>
-        <div className="mt-6">
-          <ApplicationPipelineForm key={application.id} application={application} />
-        </div>
-      </section>
+        <TabsContent value="intake">
+          <section className="border border-white/10 p-6">
+            <h3 className="text-xs font-bold tracking-[0.14em] text-accent uppercase">
+              Intake responses
+            </h3>
+            <dl className="mt-4 grid gap-4 text-sm md:grid-cols-2">
+              <div>
+                <dt className="text-white/50">Core offer</dt>
+                <dd className="mt-1 text-white/85">{application.coreOffer}</dd>
+              </div>
+              <div>
+                <dt className="text-white/50">Paying customers</dt>
+                <dd className="mt-1 text-white/85">{application.payingCustomers}</dd>
+              </div>
+              <div>
+                <dt className="text-white/50">Operating status</dt>
+                <dd className="mt-1 text-white/85">{application.operatingStatus}</dd>
+              </div>
+              <div>
+                <dt className="text-white/50">Primary problems</dt>
+                <dd className="mt-1 text-white/85">{application.primaryProblems ?? '-'}</dd>
+              </div>
+              <div>
+                <dt className="text-white/50">Discovery source</dt>
+                <dd className="mt-1 text-white/85">{application.discoverySource}</dd>
+              </div>
+              <div>
+                <dt className="text-white/50">Delivery history</dt>
+                <dd className="mt-1 text-white/85">{application.deliveryHistory}</dd>
+              </div>
+            </dl>
+          </section>
+        </TabsContent>
+
+        <TabsContent value="journey">
+          <ApplicantJourneyPanel applicationId={application.id} />
+        </TabsContent>
+
+        <TabsContent value="pipeline">
+          <section className="border border-white/10 p-6">
+            <h3 className="text-xs font-bold tracking-[0.14em] text-accent uppercase">
+              Pipeline tracker
+            </h3>
+            <p className="mt-2 text-sm text-white/60">
+              Updates sync to Postgres; export CSV with{' '}
+              <code className="text-white/80">pnpm --filter api pipeline:export</code>
+            </p>
+            <div className="mt-6">
+              <ApplicationPipelineForm key={application.id} application={application} />
+            </div>
+          </section>
+        </TabsContent>
+      </Tabs>
     </div>
   )
 }

@@ -71,6 +71,8 @@ export const applicationSelect = {
   paymentStatus: true,
   activeCapacitySlot: true,
   notes: true,
+  userId: true,
+  visitorId: true,
   createdAt: true,
   updatedAt: true,
 } as const

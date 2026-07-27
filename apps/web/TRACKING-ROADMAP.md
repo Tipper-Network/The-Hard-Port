@@ -156,9 +156,9 @@ See **Cookie / consent** below. Implementation todos:
 
 ## Phase 7 — Operator visibility (later)
 
-- [ ] **7.1** API: `GET /tracking/users/:id/events` (reviewer JWT) — timeline for one applicant
-- [ ] **7.2** API: `GET /tracking/funnel/summary` — counts by max rung, step, abandon (date range)
-- [ ] **7.3** Review UI tab on `/review/[id]`: “Site path” — last 20 events + max homepage rung
+- [x] **7.1** API: `GET /tracking/applications/:id/journey` — timeline for one applicant
+- [x] **7.2** API: `GET /tracking/funnel/summary` — counts by max rung, step, abandon (date range)
+- [x] **7.3** Review UI tab on `/review/[id]`: “Site path” — event timeline + max homepage rung
 - [ ] **7.4** Optional CSV export matching pipeline tracker
 
 ---
