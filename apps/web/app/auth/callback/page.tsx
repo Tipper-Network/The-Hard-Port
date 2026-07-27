@@ -1,24 +1,56 @@
 'use client'
 
-import { Suspense, useEffect } from 'react'
+import { Suspense, useEffect, useState } from 'react'
 import { useRouter, useSearchParams } from 'next/navigation'
 
-import { setAccessToken } from '@/lib/auth-session'
+import LinkButton from '@/components/link-button'
+import { getCurrentUser } from '@/lib/api/auth'
+import { clearAccessToken, setAccessToken } from '@/lib/auth/session'
 
 function AuthCallbackInner() {
   const router = useRouter()
   const searchParams = useSearchParams()
   const token = searchParams.get('token')
+  const [error, setError] = useState<string | null>(null)
 
   useEffect(() => {
-    if (token) {
-      setAccessToken(token)
-      router.replace('/review')
+    if (!token) {
+      router.replace('/auth/error?message=Missing%20access%20token')
       return
     }
 
-    router.replace('/auth/error?message=Missing%20access%20token')
+    const accessToken = token
+    let cancelled = false
+
+    async function finishSignIn() {
+      setAccessToken(accessToken)
+
+      const result = await getCurrentUser()
+      if (cancelled) return
+
+      if (!result.ok) {
+        clearAccessToken()
+        setError(result.error)
+        return
+      }
+
+      router.replace('/review')
+    }
+
+    void finishSignIn()
+    return () => {
+      cancelled = true
+    }
   }, [token, router])
+
+  if (error) {
+    return (
+      <main className="flex min-h-screen flex-col items-center justify-center gap-4 bg-depth-9 px-6 text-center">
+        <p className="text-alert">{error}</p>
+        <LinkButton text="Back to sign in" href="/sign-in" intensity={1} />
+      </main>
+    )
+  }
 
   return (
     <main className="flex min-h-screen items-center justify-center bg-depth-9 px-6 text-white/70">

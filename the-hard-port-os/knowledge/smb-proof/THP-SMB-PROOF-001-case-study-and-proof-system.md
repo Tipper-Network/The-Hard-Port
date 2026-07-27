@@ -197,6 +197,20 @@ It must not be presented as institutional validation.
 
 ---
 
+## Media Relationship
+
+Proof and field evidence may inform the Port Reports series only when the
+appropriate case-study and public-content permissions exist.
+
+Anonymous patterns must not be presented in a way that enables reasonable
+client reidentification.
+
+Media usefulness does not override client consent.
+
+See [`THP-MEDIA-SERIES-005-port-reports.md`](../media/youtube/series/THP-MEDIA-SERIES-005-port-reports.md) — inactive until field evidence exists.
+
+---
+
 ## Revision History
 
 ### 1.0.0 — 2026-07-21

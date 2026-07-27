@@ -1,6 +1,6 @@
 # Current Focus
 
-Updated: 2026-07-21
+Updated: 2026-07-27
 
 ## Pre-Content Architecture
 
@@ -8,17 +8,30 @@ Status: complete working system; pending first-entity validation.
 
 ## Minimum Intake Operation
 
-Build the minimum functioning intake operation **alongside** YouTube design — not instead of it.
+Build the minimum functioning intake operation **alongside** YouTube production — not instead of it.
 
-See [`operations/first-client-readiness/`](./operations/first-client-readiness/) and [`active/CURRENT_TASK.md`](./active/CURRENT_TASK.md) § Minimum Intake Operation Prerequisite.
+See [`operations/first-client-readiness/`](./operations/first-client-readiness/) and [`active/CURRENT_TASK.md`](./active/CURRENT_TASK.md).
 
-Publish application CTA only when the five-item readiness gate is satisfied.
+Publish Video 12 application CTA only when the intake readiness gate is satisfied.
 
 ## Active Focus
 
-YouTube Attraction Architecture — **designed** in [`operations/youtube-attraction/THP-YOUTUBE-001-attraction-architecture.md`](./operations/youtube-attraction/THP-YOUTUBE-001-attraction-architecture.md).
+Produce the first three videos in the THP YouTube Attraction Architecture.
 
-**Execute next:** intake webhook + commercial placeholders, then script Video 1.
+## First Production Sequence
+
+1. Posting Consistently Is Not a Business Strategy
+2. You May Not Have a Content Problem
+3. Your Business Should Not Need a Miracle Every Month
+
+## Parallel Operational Work
+
+- Complete the public THP service explanation
+- Make the Engagement Readiness Application usable
+- Confirm first-client evidence storage
+- Confirm the paid diagnostic summary
+
+Media architecture: [`knowledge/media/youtube/`](./knowledge/media/youtube/)
 
 ## Content-System Requirements
 
@@ -38,3 +51,4 @@ The media system must:
 - Final prices and signed legal documents (drafts exist — legal review required)
 - Client portal / custom CRM
 - Tipper product development
+- Port Reports series (inactive until field evidence exists)

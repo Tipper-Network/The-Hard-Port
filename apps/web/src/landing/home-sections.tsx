@@ -1,6 +1,6 @@
 'use client'
 
-import { LazySection } from '@/components/lazy-section'
+import { LazySection } from '@/components/landing/lazy-section'
 
 import { LazySectionContent } from './section-loader'
 import { LAZY_HOME_SECTIONS } from './sections.config'

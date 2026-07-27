@@ -1,7 +1,7 @@
-import { DistanceMeter } from '@/components/distance-meter'
-import { StickyCta } from '@/components/sticky-cta'
-import { SiteFooter } from '@/shared/site-footer'
-import { SiteHeader } from '@/shared/site-header'
+import { DistanceMeter } from '@/components/landing/distance-meter'
+import { StickyCta } from '@/components/landing/sticky-cta'
+import { SiteFooter } from '@/components/layout/site-footer'
+import { SiteHeader } from '@/components/layout/site-header'
 
 import { HomeSections } from './home-sections'
 import { Hero } from './sections/hero-section'

@@ -64,6 +64,23 @@
 - [x] [`THP-FIRST-CLIENT-FIELD-VALIDATION.md`](./templates/THP-FIRST-CLIENT-FIELD-VALIDATION.md) template ready
 - [ ] Completed after first engagement (or per milestone)
 
+## Required Before Video 12 Application CTA
+
+Videos 1–11 may be designed and produced while these items are being completed.
+
+Do not publish Video 12 with a direct application CTA before the route is usable.
+
+- [x] Public THP explanation is live — `/work-with-us`
+- [x] Engagement Readiness Application is usable — `/apply`
+- [x] Application submissions reach one controlled location — Nest API + Neon
+- [x] Privacy notice is visible — on application form
+- [ ] Application-source video is recorded — `discovery_source_video` field documented; form implementation pending
+- [ ] Qualification review process is ready — `/review` in use; first entity pending
+- [x] Paid diagnostic summary is ready — [`THP-MINIMUM-COMMERCIAL-READINESS.md`](./THP-MINIMUM-COMMERCIAL-READINESS.md)
+- [x] One-client field-validation limit is stated — capacity rule documented
+
+See also [`THP-MEDIA-002`](../../knowledge/media/youtube/THP-MEDIA-002-first-12-video-test.md) Video 12 publication gate.
+
 ## Readiness gate (all must be true to publish CTA)
 
 - [x] Viewer has somewhere to apply
