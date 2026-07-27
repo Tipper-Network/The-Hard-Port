@@ -102,6 +102,7 @@ export function EngagementReadinessForm() {
   const [manualReason, setManualReason] = useState<
     'not_configured' | 'unreachable' | 'api_error' | 'unknown'
   >('unknown')
+  const [manualError, setManualError] = useState('')
 
   useEffect(() => {
     markApplicationViewed()
@@ -179,6 +180,7 @@ export function EngagementReadinessForm() {
       if (result.manual) {
         setManualJson(JSON.stringify(payload, null, 2))
         setManualReason(result.reason ?? 'unknown')
+        setManualError(result.error)
         setStatus('manual')
         return
       }
@@ -188,6 +190,7 @@ export function EngagementReadinessForm() {
     } catch {
       setManualJson(JSON.stringify(payload, null, 2))
       setManualReason('unreachable')
+      setManualError('')
       setStatus('manual')
     }
   }
@@ -208,12 +211,25 @@ export function EngagementReadinessForm() {
           <code className="text-accent">apps/web/.env</code> (see{' '}
           <code className="text-accent">apps/web/.env.example</code>).
         </>
-      ) : (
+      ) : manualReason === 'unreachable' ? (
         <>
           Start the API: <code className="text-accent">pnpm dev:api</code> (or{' '}
           <code className="text-accent">pnpm dev</code> from repo root). Web expects the API at{' '}
           <code className="text-accent">http://localhost:3001</code> by default.
         </>
+      ) : manualReason === 'api_error' ? (
+        <>
+          The API responded with an error
+          {manualError ? (
+            <>
+              : <span className="text-white/90">{manualError}</span>
+            </>
+          ) : null}
+          . If this mentions a missing database column, run{' '}
+          <code className="text-accent">pnpm db:migrate</code> and restart the API.
+        </>
+      ) : (
+        <>Try again, or use the JSON below for manual intake.</>
       )
 
     return (
