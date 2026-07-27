@@ -1,0 +1,13 @@
+{
+  "/_not-found/page": "/_not-found",
+  "/auth/callback/page": "/auth/callback",
+  "/auth/error/page": "/auth/error",
+  "/page": "/",
+  "/apply/page": "/apply",
+  "/about/page": "/about",
+  "/review/page": "/review",
+  "/review/[id]/page": "/review/[id]",
+  "/sign-in/page": "/sign-in",
+  "/work-with-us/page": "/work-with-us",
+  "/business-levels/page": "/business-levels"
+}

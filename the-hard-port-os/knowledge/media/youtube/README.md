@@ -12,6 +12,23 @@ It does not replace qualification, diagnosis, intervention, or proof.
 Its purpose is to attract the correct Level 1 owner and route suitable viewers
 toward the Engagement Readiness Application.
 
+**Production source of truth for the first twelve videos:** [`content/youtube/first-50-observational-videos/00-FIRST-50-FILMING-MAP.md`](../../content/youtube/first-50-observational-videos/00-FIRST-50-FILMING-MAP.md) — **canonical entry point** (FND-001–012 · OBS-001–038).
+
+---
+
+## Content Format Definitions
+
+| Format | Definition |
+|---|---|
+| **Foundational observational** | Developed observation establishing THP's worldview — the twelve-video spine |
+| **Supporting observation** | Short evidence reinforcing a foundational observation (~3 between each main video) |
+| **Instructional** | Later-stage response to a condition already identified |
+| **Focus video** | Deep examination of one condition, mechanism, or entity example |
+
+Full definitions: [`content/youtube/README.md`](../../content/youtube/README.md)
+
+The first twelve are **not** tutorials, educational modules, or service-promotion videos. They form THP's first public diagnostic layer.
+
 ---
 
 ## Channel Purpose
@@ -84,7 +101,9 @@ The channel is not primarily built for:
 
 ---
 
-## Five Core Series
+## Five Core Series (system architecture)
+
+Legacy system-series records — interpretive framework for later content:
 
 | Series | Focus | Record |
 |---|---|---|
@@ -94,19 +113,25 @@ The channel is not primarily built for:
 | **Community Is Infrastructure** | Customers, participation, feedback | [`THP-MEDIA-SERIES-004`](./series/THP-MEDIA-SERIES-004-community-is-infrastructure.md) |
 | **Port Reports** | Field learning in public | [`THP-MEDIA-SERIES-005`](./series/THP-MEDIA-SERIES-005-port-reports.md) — **inactive** |
 
+## Production series (first twelve)
+
+| Series | Folder | Videos |
+|---|---|---|
+| **I Noticed Something…** | [`content/youtube/series-001-i-noticed-something/`](../../content/youtube/series-001-i-noticed-something/) | F01–F06 |
+| **Businesses Think…** | [`content/youtube/series-002-businesses-think/`](../../content/youtube/series-002-businesses-think/) | F07–F12 |
+| **Supporting observations** | [`content/youtube/series-003-supporting-observations/`](../../content/youtube/series-003-supporting-observations/) | OBS-* |
+
 ---
 
 ## First 12-Video Test
 
-One deliberate sequence across three acts:
+**Superseded by** [`content/youtube/FOUNDATIONAL-OBSERVATIONAL-SERIES.md`](../../content/youtube/FOUNDATIONAL-OBSERVATIONAL-SERIES.md).
 
-* **Act I (Videos 1–4):** Recognition and early interpretation
-* **Act II (Videos 5–8):** Interpretation and transition
-* **Act III (Videos 9–12):** Transition and institutional invitation
+Legacy record (prior titles): [`THP-MEDIA-002-first-12-video-test.md`](./THP-MEDIA-002-first-12-video-test.md)
 
-Full record: [`THP-MEDIA-002-first-12-video-test.md`](./THP-MEDIA-002-first-12-video-test.md)
+**Narrative progression:** Overwhelm → Reaction → Misdiagnosis → Disconnection → Recognition
 
-**Current production sequence:** Videos 1–3 (see [`CURRENT_FOCUS.md`](../../CURRENT_FOCUS.md))
+**Current production sequence:** F01–F03 (see [`CURRENT_FOCUS.md`](../../CURRENT_FOCUS.md))
 
 ---
 
@@ -118,7 +143,7 @@ Full record: [`THP-MEDIA-002-first-12-video-test.md`](./THP-MEDIA-002-first-12-v
 | Visual and editorial system | Defined — [`THP-MEDIA-003`](./THP-MEDIA-003-visual-and-editorial-system.md) |
 | Video brief template | Ready — [`THP-MEDIA-TEMPLATE-001`](./templates/THP-MEDIA-TEMPLATE-001-video-brief.md) |
 | Content evidence template | Ready — [`THP-MEDIA-TEMPLATE-002`](./templates/THP-MEDIA-TEMPLATE-002-content-evidence-record.md) |
-| Videos 1–12 | All `not_started` |
+| Videos 1–12 | All `not_started` — see [`content/youtube/`](../../content/youtube/) |
 | Port Reports series | Inactive — no field evidence yet |
 | Video 12 application CTA | Blocked until intake readiness gate complete |
 

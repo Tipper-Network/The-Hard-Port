@@ -1,47 +1,46 @@
 # Current Task
 
-Write and Produce THP YouTube Videos 1–3.
+Film Drift 01 — The Overwhelmed Business.
 
 ## Purpose
 
-Create the first recognition sequence that helps Level 1 owners understand
-that activity is not learning, content may be exposing a deeper business
-condition, and dependence on temporary rescue is survival mode.
+Record one continuous observational session that produces three foundational videos and eight supporting observations — without rushing toward solutions.
 
-## Video 1
+## Canonical Package
 
-Posting Consistently Is Not a Business Strategy
+[`content/youtube/first-50-observational-videos/00-FIRST-50-FILMING-MAP.md`](../content/youtube/first-50-observational-videos/00-FIRST-50-FILMING-MAP.md)
 
-## Video 2
+## Drift File
 
-You May Not Have a Content Problem
+[`01-DRIFT-OVERWHELMED-BUSINESS.md`](../content/youtube/first-50-observational-videos/01-DRIFT-OVERWHELMED-BUSINESS.md)
 
-## Video 3
+## Foundational Videos (This Session)
 
-Your Business Should Not Need a Miracle Every Month
+- FND-001 — I Noticed Why Small Businesses Never Have Enough Time
+- FND-002 — Businesses Think Growth Means Doing More
+- FND-003 — Businesses Think They Have a Content Problem
 
-## Required Outputs for Each Video
+## Supporting Observations (This Session)
 
-- Video brief — [`THP-MEDIA-TEMPLATE-001`](../knowledge/media/youtube/templates/THP-MEDIA-TEMPLATE-001-video-brief.md)
-- Full script
-- Visual and kinetic-typography plan — [`THP-MEDIA-003`](../knowledge/media/youtube/THP-MEDIA-003-visual-and-editorial-system.md)
-- Description
-- Pinned comment
-- Call to action
-- Content evidence record — [`THP-MEDIA-TEMPLATE-002`](../knowledge/media/youtube/templates/THP-MEDIA-TEMPLATE-002-content-evidence-record.md)
-- Production status
+OBS-001 through OBS-008
+
+## Required Outputs
+
+- One uninterrupted drift recording (20–30 min raw)
+- Hook and closing pickups per FND
+- Strong lines as direct clips
+- Each OBS as separate 8–25 second clip
+- B-roll per drift file list
+- File naming per [`06-FILMING-SESSION-CHECKLIST.md`](../content/youtube/first-50-observational-videos/06-FILMING-SESSION-CHECKLIST.md)
 
 ## Production Boundary
 
-Do not include a direct application CTA until the application route is usable.
-
-Videos 1–3 should use recognition and evidence calls to action.
+- **Format:** Observational public diagnostic layer — not tutorial, module, or service promotion
+- **Instructional intensity:** low
+- **No solutions** in first fifty — stay with the condition
 
 ## Parallel Task
 
-Complete the minimum first-client intake operation before the direct
-application invitation in Video 12.
+Complete minimum first-client intake operation before any application invitation content.
 
 Checklist: [`THP-FIRST-CLIENT-READINESS-CHECKLIST.md`](../operations/first-client-readiness/THP-FIRST-CLIENT-READINESS-CHECKLIST.md)
-
-Architecture: [`THP-MEDIA-001`](../knowledge/media/youtube/THP-MEDIA-001-youtube-attraction-architecture.md) · First 12 test: [`THP-MEDIA-002`](../knowledge/media/youtube/THP-MEDIA-002-first-12-video-test.md)
