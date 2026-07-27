@@ -4,6 +4,7 @@ import Link from 'next/link'
 
 import { ApplicantJourneyPanel } from '@/components/review/applicant-journey-panel'
 import { ApplicationPipelineForm } from '@/components/review/application-pipeline-form'
+import { QualificationWorkflowScaffold } from '@/components/review/qualification-workflow-scaffold'
 import LinkButton from '@/components/link-button'
 import { ReviewerSessionBar } from '@/components/review/reviewer-session-bar'
 import { useReviewerSession } from '@/components/review/use-reviewer-session'
@@ -131,6 +132,12 @@ export function ApplicationReviewPanel({ id }: ApplicationReviewPanelProps) {
                 <dt className="text-white/50">Discovery source</dt>
                 <dd className="mt-1 text-white/85">{application.discoverySource}</dd>
               </div>
+              {application.discoverySourceVideo ? (
+                <div>
+                  <dt className="text-white/50">Discovery video ID</dt>
+                  <dd className="mt-1 font-mono text-white/85">{application.discoverySourceVideo}</dd>
+                </div>
+              ) : null}
               <div>
                 <dt className="text-white/50">Delivery history</dt>
                 <dd className="mt-1 text-white/85">{application.deliveryHistory}</dd>
@@ -154,6 +161,7 @@ export function ApplicationReviewPanel({ id }: ApplicationReviewPanelProps) {
             </p>
             <div className="mt-6">
               <ApplicationPipelineForm key={application.id} application={application} />
+              <QualificationWorkflowScaffold />
             </div>
           </section>
         </TabsContent>

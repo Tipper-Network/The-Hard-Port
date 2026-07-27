@@ -5,6 +5,8 @@ import { Strategy, Profile } from 'passport-facebook'
 
 import type { OAuthProfile } from '../auth.types'
 import { AuthService } from '../auth.service'
+import { META_OAUTH_SCOPES, META_PROFILE_FIELDS } from '../meta-oauth.constants'
+import { extractMetaProfileFields } from '../meta-profile.util'
 
 @Injectable()
 export class MetaStrategy extends PassportStrategy(Strategy, 'meta') {
@@ -16,8 +18,8 @@ export class MetaStrategy extends PassportStrategy(Strategy, 'meta') {
       clientID: config.getOrThrow<string>('META_APP_ID'),
       clientSecret: config.getOrThrow<string>('META_APP_SECRET'),
       callbackURL: config.getOrThrow<string>('META_CALLBACK_URL'),
-      scope: ['email'],
-      profileFields: ['id', 'emails', 'name', 'picture.type(large)'],
+      scope: [...META_OAUTH_SCOPES],
+      profileFields: [...META_PROFILE_FIELDS],
     })
   }
 
@@ -33,6 +35,8 @@ export class MetaStrategy extends PassportStrategy(Strategy, 'meta') {
         return done(new Error('Meta account has no email'))
       }
 
+      const metaProfile = extractMetaProfileFields(profile)
+
       const oauthProfile: OAuthProfile = {
         provider: 'meta',
         providerAccountId: profile.id,
@@ -41,6 +45,9 @@ export class MetaStrategy extends PassportStrategy(Strategy, 'meta') {
         image: profile.photos?.[0]?.value,
         accessToken,
         refreshToken,
+        birthDate: metaProfile.birthDate,
+        gender: metaProfile.gender,
+        hometown: metaProfile.hometown,
       }
 
       const user = await this.authService.validateOAuthLogin(oauthProfile)

@@ -56,6 +56,7 @@ export const applicationSelect = {
   primaryProblems: true,
   availableRecords: true,
   discoverySource: true,
+  discoverySourceVideo: true,
   willingnessExamine: true,
   willingnessEvidence: true,
   willingnessFeedback: true,

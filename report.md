@@ -1,33 +1,259 @@
 # The Hard Port — Full Business & Architecture Report
 **Prepared:** 2026-07-22  
-**Revised:** 2026-07-27 — runtime health check; both apps confirmed clean  
+**Revised:** 2026-07-27 — doc sync with codebase; launch scaffold + recommended plan for later  
 **Scope:** Backend coherence, frontend coherence, OS-to-product harmony, skills/goals fit, and senior BA advice on user flow and design.
+
+---
+
+## Revision note (2026-07-27, update 3) — Doc sync & when-ready plan
+
+**Purpose:** Align this report with the live codebase after tracking, launch scaffold, and intake fixes. **`review.md`** is the operational snapshot; this file keeps architecture analysis and the course-access spec.
+
+### Shipped since update 2 (runtime section was stale)
+
+| Item | Status |
+|------|--------|
+| `metadataBase` / `getSiteUrl()` | **Fixed** — `apps/web/app/layout.tsx` |
+| Operator email on submit | **Done** — `IntakeNotificationService` (needs prod Resend) |
+| `/apply/submitted` post-submit page | **Done** |
+| `/about` brand rewrite | **Done** |
+| `/privacy` placeholder + consent link | **Done** — legal copy pending (P02) |
+| Operator pipeline PATCH UI | **Done** — `/review/[id]` Pipeline tab |
+| Applicant confirmation | **Stub wired** — fill copy (P04) |
+| Pipeline webhook | **Stub wired** — fill destination |
+| `discoverySourceVideo` | **DB + API wired** — from `?ref=youtube&video=` |
+| Launch ops checklists P01–P07 | **Scaffold** — `the-hard-port-os/operations/launch-scaffold/` |
+| Tracking CSV export | **Stub** — `GET /tracking/funnel/export` |
+
+### Five-item broadcast gate (updated)
+
+| Gate | Status |
+|------|--------|
+| Intake → DB | Done |
+| Operator review dashboard | Done |
+| Operator can advance pipeline | Done |
+| Notification on submit | Done in code — prod env required |
+| Commercial placeholder | **Open** |
+
+**Soft-launch apply:** OK. **YouTube at scale:** wait for launch gate (see `review.md` Phase A).
+
+### Recommended plan when ready (do not reorder)
+
+**Phase A — Launch gate** (human + config): P01 deploy → P02 legal → P03 ops SLA → P04 applicant email → commercial placeholder.
+
+**Phase B — Course access** (below): only after Phase A. Model → API → guard → `/courses` routes → operator grants panel → content → Tipper webhook.
+
+**Phase C — After first client:** design system (P07), maturity enum, real CSV export, real webhooks.
+
+---
+
+## Revision note (2026-07-27, update 2) — Courses Architecture: Tipper-Gated Access
+
+### What was just shipped
+
+Three commits landed today on top of the notification setup from earlier: **front end tracking** and **dashboard**.
+
+What they contain:
+
+| Area | What shipped |
+|------|-------------|
+| `TrackingAnalyticsService` | Funnel summary: sessions → apply opens → submits → abandons, section reach by rung, form step views/completes/abandons |
+| `TrackingController` | `GET /tracking/funnel/summary` (reviewer-guarded), `GET /tracking/applications/:id/journey` (reviewer-guarded) |
+| `FunnelAnalyticsDashboard` | First-party analytics tab on the operator review dashboard — stat cards, scroll depth ladder with progress bars, form step table, top events |
+| `applicant-journey-panel.tsx` | Per-application pre-apply behaviour: what rungs they hit, what form steps they completed, whether they abandoned |
+| `applications-list-panel.tsx` | Extracted from `review-dashboard.tsx` — list view now lives in its own component |
+| `ReviewOperatorTabs` | Applications tab + Funnel analytics tab, operator dashboard now has two modes |
+| Tracking primitives | `consent.ts`, `event-store.ts`, `flush-events.ts`, `session.ts`, `visitor-id.ts` in `lib/tracking/` — first-party, GDPR-consent-gated event pipeline |
+
+**The funnel is now observable.** You can watch where visitors drop off on the ladder, which form steps lose people, and reconstruct the pre-apply journey for any individual applicant. This is a meaningful operational capability.
+
+---
+
+### Next step architecture: Courses with Tipper-gated access
+
+> **When to build:** Phase B — after Phase A launch gate closes (`review.md`). Do not build course content before grants; do not build grants before the model.
+
+**The constraint:** Access to courses is not a website-managed subscription. Tipper is the access layer. The website's job is to ask "does this user have access?" and render accordingly — it does not decide who gets access, it only enforces what Tipper has already decided.
+
+**What this means in practice:**
+
+Access grants are operator-created artefacts, not self-serve purchases. When a client completes a diagnostic, advances to a certain pipeline stage, or reaches a maturity level that Tipper recognises, an operator (or eventually Tipper itself) issues a `CourseGrant`. The website checks for that grant. If it exists, the door opens. If not, the visitor sees a gate that explains what they'd need to do to earn access — not a pricing page.
+
+This maps cleanly onto what already exists: the `UserRole` enum, the JWT auth pattern, and the `ReviewerGuard` pattern all show how to express "this user is allowed here." A `CourseGrant` is the same idea applied to content instead of dashboard access.
+
+---
+
+### Prisma schema additions
+
+Add a `courses/` domain folder to `apps/api/prisma/models/`:
+
+```
+apps/api/prisma/models/
+  auth/
+    user.prisma           (existing)
+    enums.prisma          (existing — add CourseSlug enum here)
+  intake/                 (existing)
+  tracking/               (existing)
+  courses/                ← new
+    course-grant.prisma   ← who has access to what
+```
+
+**`courses/course-grant.prisma`**
+```prisma
+/// Access grant issued by Tipper or an operator after a qualifying event
+model CourseGrant {
+  id         String      @id @default(cuid())
+  userId     String      @map("user_id")
+  courseSlug CourseSlug  @map("course_slug")
+  grantedAt  DateTime    @default(now()) @map("granted_at")
+  grantedBy  String?     @map("granted_by")     // operator userId or "tipper"
+  source     String?                              // e.g. "diagnostic_complete", "maturity_level_2"
+  expiresAt  DateTime?   @map("expires_at")      // null = permanent
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@unique([userId, courseSlug])
+  @@index([userId])
+  @@map("course_grants")
+}
+```
+
+**`CourseSlug` enum** (add to `auth/enums.prisma` or a new `courses/enums.prisma`):
+```prisma
+enum CourseSlug {
+  foundations_level_1
+  diagnostic_toolkit
+  stable_ops
+  // add as courses are created
+}
+```
+
+No `Course` model yet — course content lives in the filesystem (MDX or static content), not the database. The database only records grants. When you have enough courses to need metadata management, add a `Course` model then. Not before.
+
+---
+
+### API additions
+
+Add a `courses/` NestJS module alongside the existing ones:
+
+```
+apps/api/src/
+  app.module.ts           (existing — register CoursesModule here)
+  auth/                   (existing)
+  intake/                 (existing)
+  tracking/               (existing)
+  prisma/                 (existing)
+  users/                  (existing)
+  courses/                ← new
+    courses.module.ts
+    courses.controller.ts
+    courses.service.ts
+    guards/
+      course-access.guard.ts   ← checks CourseGrant, wraps JwtAuthGuard
+    dto/
+      grant-course.dto.ts
+```
+
+**Controller shape:**
+```
+GET  /courses                       → list slugs the authed user has grants for
+GET  /courses/:slug/access          → 200 (has grant) or 403 (does not)
+POST /courses/:slug/grants          → JwtAuthGuard + ReviewerGuard — create a grant (operator or Tipper webhook)
+DEL  /courses/:slug/grants/:userId  → JwtAuthGuard + ReviewerGuard — revoke a grant
+```
+
+The `CourseAccessGuard` does one thing: given a JWT and a route param `slug`, check for an active `CourseGrant`. If not found or expired, throw `ForbiddenException`. This guard composes on top of `JwtAuthGuard`, same pattern as `ReviewerGuard` today.
+
+---
+
+### Web additions
+
+```
+apps/web/src/
+  components/
+    auth/                 (existing)
+    courses/              ← new
+      course-card.tsx           — thumbnail + title + lock/unlock state
+      course-gate.tsx           — "you don't have access" wall; explains how to earn it
+      lesson-layout.tsx         — shared wrapper for a lesson page
+    landing/              (existing)
+    review/               (existing)
+    tracking/             (existing)
+    ui/                   (existing)
+  hooks/
+    api/
+      use-applications.ts (existing)
+      use-auth.ts         (existing)
+      use-courses.ts      ← new — useMyGrants(), useCourseAccess(slug)
+      use-tracking.ts     (existing)
+  lib/
+    api/
+      courses.ts          ← new — fetchMyGrants(), checkCourseAccess(slug)
+      client.ts           (existing)
+      query-keys.ts       (existing — add courses keys)
+```
+
+**Routes** (Next.js App Router — wherever `layout.tsx` / `page.tsx` currently live):
+```
+/courses                  → index; shows granted courses as unlocked cards, others as locked
+/courses/[slug]           → course home; layout checks access via CourseAccessGuard pattern
+/courses/[slug]/[lesson]  → individual lesson; inherits access from parent layout
+```
+
+The `/courses/[slug]/layout.tsx` calls `GET /courses/:slug/access` server-side. If 403, it renders `<CourseGate />` instead of the content. If 200, it renders `{children}`. No content is sent to the client until the server confirms the grant.
+
+---
+
+### Operator surface additions (review dashboard)
+
+Add a third tab to `ReviewOperatorTabs`: **Access grants**.
+
+```
+apps/web/src/components/review/
+  applicant-journey-panel.tsx    (existing)
+  application-pipeline-form.tsx  (existing)
+  application-review-panel.tsx   (existing)
+  applications-list-panel.tsx    (existing)
+  course-grants-panel.tsx        ← new — list + issue + revoke grants per user
+  funnel-analytics-dashboard.tsx (existing)
+  review-dashboard.tsx           (existing)
+  reviewer-session-bar.tsx       (existing)
+```
+
+`CourseGrantsPanel` shows: which users have grants, to which courses, granted when, by whom. Operator can issue a new grant (dropdown: userId + courseSlug) or revoke an existing one. This is the Tipper-facing surface — when Tipper eventually issues grants programmatically via the `POST /courses/:slug/grants` endpoint with `grantedBy: "tipper"`, the panel shows that too.
+
+---
+
+### Sequencing
+
+| Step | What | Why first |
+|------|------|-----------|
+| 1 | Add `CourseGrant` Prisma model + migrate | Everything else depends on the grant record existing |
+| 2 | `CoursesModule` with access check + grant endpoints | API needs to exist before web can call it |
+| 3 | `CourseAccessGuard` on the API | Validates grants server-side |
+| 4 | `/courses` route tree in Next.js with server-side access check | Course pages need to be reachable before content matters |
+| 5 | `CourseGrantsPanel` on review dashboard | Operator needs to be able to issue grants to test the whole chain |
+| 6 | Add actual course content | Content is last because the access scaffolding has to exist first |
+| 7 | Tipper webhook to `POST /courses/:slug/grants` | Automates what the operator currently does manually |
+
+Don't build course content before you can gate it. Don't gate it before you can issue grants. Don't issue grants before the model exists. This is the right order.
 
 ---
 
 ## Revision note (2026-07-27) — Runtime Health Check
 
-**Both apps spun up and probed end-to-end. All green.**
+**Both apps build clean. Spot-checks below; re-run before prod deploy.**
 
 | Check | Result |
 |-------|--------|
-| API build (`pnpm build`) | Clean — Prisma client generated, NestJS compiled with zero errors |
-| API startup (`node dist/main.js`) | Starts in ~50ms, all routes registered |
-| `GET /intake/health` | `{"ok":true,"service":"thp-api"}` ✅ |
-| `GET /auth/providers` | `{"ok":true,"google":false,"meta":false}` ✅ (OAuth creds not set locally — expected) |
-| `POST /intake/applications` (empty body) | 400 with full validation error list — all 24 required fields named ✅ |
-| `POST /intake/applications` (valid body) | `{"ok":true,"id":"cms3bpx2n00009qir01xy4eau","lifecycleStatus":"application_submitted"}` — DB write confirmed ✅ |
-| `GET /intake/applications` (bad JWT) | 401 ✅ |
-| `GET /intake/applications/:id` (bad JWT) | 401 ✅ |
-| Web build (`pnpm build`) | Compiled clean, TypeScript valid, 12 pages generated |
-| Web startup (`pnpm start`) | Up on port 3000 |
-| All routes: `/`, `/about`, `/apply`, `/sign-in`, `/work-with-us`, `/business-levels`, `/review` | 200 ✅ |
-| `/review/[id]` (dynamic route) | 200 ✅ |
-| `/nonexistent-page` | 404 ✅ |
+| API build (`pnpm build`) | Clean |
+| Web build (`pnpm build`) | Clean — 14 static/dynamic routes including `/privacy`, `/apply/submitted` |
+| `metadataBase` | **Fixed** — `getSiteUrl()` in root layout |
+| `POST /intake/applications` | Validates + writes; operator notification when Resend configured |
+| `GET /tracking/funnel/summary` | Reviewer-guarded — funnel analytics |
+| Operator pipeline `PATCH` | Functional on `/review/[id]` |
 
-**One active warning:** `metadataBase` property not set in `apps/web/src/app/layout.tsx` — social OG/Twitter images will default to `http://localhost:3000`. This is the same item flagged in Part 5 item 8 of the action list. Confirmed still not fixed.
-
-**Node version note:** `package.json` declares `engines: { node: "22.x" }` but system is running Node 24.13.0. pnpm warns about this on build. No runtime impact observed — but worth aligning the engine declaration with what Dokploy actually deploys on.
+**Node version note:** `package.json` declares `engines: { node: "22.x" }`; align with Dokploy runtime to avoid pnpm warnings.
 
 ---
 
@@ -60,7 +286,7 @@ Visual spec for rung 7 diagram: `apps/web/src/landing/execution-instruments-visu
 
 The Hard Port is a conceptually mature business running on a technically solid but operationally incomplete platform. The brand identity, philosophy, and funnel architecture are well-defined. The OS folder is genuinely impressive institutional infrastructure. The code is clean, modern, and production-grade. But there is a measurable gap between what the OS says should exist and what the product currently does — and a smaller but meaningful gap between what the product currently does and what the design system says it should look like. None of these gaps are critical. All of them are actionable.
 
-The business is ready to receive applications. It is not ready to process them end-to-end. The website can soft-launch now. It should not broadcast (YouTube at scale) until the five-item operations gate closes.
+The business is ready to receive and process applications in dev/local. **YouTube broadcast** should wait until Phase A launch gate closes (see update 3). Course access (Phase B) follows when ready.
 
 ---
 
@@ -100,7 +326,7 @@ These are not opinions. These are concrete gaps between what the OS specifies an
 #### Gap 3 — Scroll-Depth Darkening Not Implemented (Medium Impact)
 **OS says:** Background darkens and type weight climbs as the visitor scrolls down the ladder.  
 **OS provides:** A concrete formula (one `escalationIntensity` slider, 8 named sections, procedural `oklch()` lightness + font-weight per rung).  
-**Live site:** Flat `bg-primary` (single navy) throughout all 9 sections. No per-section depth variation.  
+**Live site:** Flat depth tokens throughout **12 rungs**. No scroll-intensity darkening yet.  
 **Impact:** The experience the OS describes — where the descent is *felt*, not just read — does not exist. The visual emotional escalation is missing. This is the biggest design gap.
 
 #### Gap 4 — Accent Color Conflict: Orange vs. Gold (Medium Impact)
@@ -108,25 +334,23 @@ These are not opinions. These are concrete gaps between what the OS specifies an
 **Live site:** Orange (`#ff6b17`) accent with no separate alert/rust color.  
 **Impact:** Orange and gold are different brand signals. More critically, without a separate rust/alert color, the "wrong" column in the mechanism section (Boosting vs. Campaign) visually competes with the apply CTA for the same attention. This is a functional design problem, not just an aesthetic one.
 
-#### Gap 5 — Maturity Classification Is Free Text, Not Structured (Medium Impact)
+#### Gap 5 — Maturity Classification Is Free Text, Not Structured (Medium Impact — scaffold only)
 **OS defines:** A maturity model — Level 1 (survival), Level 2 (stable), transition psychology, "founding ≠ managing" diagnosis, Tipper readiness as the gating concept.  
-**Live schema:** `maturityClassification String?` — a free text field. No enum. No validation.  
-**Impact:** When you eventually have 20 applications in the review dashboard, maturity classification will be inconsistently entered across reviewers and impossible to filter or analyze. The OS's maturity model exists; the database just doesn't enforce it.
+**Live schema:** `maturityClassification String?` — free text. Empty enum scaffold in `maturity-classifications.constants.ts`.  
+**Impact:** Fill enum after first client patterns emerge (Phase C).
 
-#### Gap 6 — No Notification System (High Impact on Operations)
-**OS says:** Next action auto-populated: "Review application within 48h."  
-**Live system:** No email notification when an application is submitted. No SLA tracking. No alert mechanism.  
-**Impact:** When someone applies, nothing tells the operator. You are dependent on manually checking the dashboard. At 2 clients/month this is manageable; the moment you publish YouTube and applications spike, you will lose applications through the gap.
+#### Gap 6 — No Notification System ~~(High Impact on Operations)~~ **FIXED (2026-07-27)**
+**Was:** No email when application submitted.  
+**Now:** `IntakeNotificationService` emails operator via Resend when `RESEND_API_KEY` + `INTAKE_NOTIFY_EMAIL` set.  
+**Remaining:** Prod env + optional applicant confirmation (P04 stub).
 
-#### Gap 7 — Applicant Post-Submit Experience Is Empty (Medium Impact on Brand)
-**OS says:** Attraction media must "Route qualified owners toward the Engagement Readiness Application."  
-**Live site:** After submission, the applicant sees a success message. No "what happens next." No timeframe. No expectation. No brand voice.  
-**Impact:** A person who just submitted a vulnerable, honest application about their struggling business gets a generic "it worked" message. This is a brand miss. The post-submit experience should sound like THP — direct, honest, "here's what we do next and when."
+#### Gap 7 — Applicant Post-Submit Experience ~~(Medium Impact)~~ **FIXED (2026-07-27)**
+**Was:** Generic success flash only.  
+**Now:** `/apply/submitted` with THP-voice copy; form redirects on success.
 
-#### Gap 8 — /about Page Has Legacy Agency Tone (Low-Medium Impact)
-**OS spec:** No brand voice contradictions. Voice must be consistent with the "no bullshit" identity.  
-**Live site:** The `/about` page reportedly carries legacy agency tone inconsistent with the brand.  
-**Impact:** A visitor who navigates away from the funnel to `/about` receives a different brand voice. This breaks the consistency of the identity match the funnel works hard to establish.
+#### Gap 8 — /about Page Has Legacy Agency Tone ~~(Low-Medium Impact)~~ **FIXED (2026-07-27)**
+**Was:** Legacy agency tone.  
+**Now:** Rewritten to SERVICE-001 / brand voice. Nav link to `/about` still allows ladder skip (Gap 1).
 
 #### Gap 9 — CTA Copy Does Not Escalate in Size/Weight (Low Impact)
 **OS design-system (05-buttons-cta.md):** CTA copy escalates from 13px ("See the gap") → 14px ("Show me what I'm doing wrong") → 15px ("Prove us wrong") → 17px / weight 800 ("Stop being fine").  
@@ -143,7 +367,7 @@ The knowledge architecture in `the-hard-port-os/` is not decoration. It is doing
 
 - The 27 lifecycle statuses in the Prisma schema mirror the OS's understanding of the full service journey. Someone thought carefully about what happens between "application submitted" and "completed." That thinking lives in the OS and is reflected in the code.
 - The qualification form's willingness checkboxes map directly to the OS's definition of client readiness. The form is not just collecting data — it is enforcing the OS's philosophical stance (we only work with people willing to be examined).
-- The 9-rung funnel in `sections.config.ts` cites `02-conversion-funnel.mdc` in its comment header. The OS is the stated authority. The code defers to it.
+- The **12-rung funnel** in `sections.config.ts` cites `02-conversion-funnel.mdc` in its comment header.
 - The `CURRENT_FOCUS.md` correctly identifies YouTube Attraction Architecture as the next macro goal, which is the logical next step given that the intake pipeline exists but has no top-of-funnel traffic.
 
 **The OS is functioning as an institutional brain.** That is rare and valuable. Most agencies have brand guidelines in a PDF no one reads. The OS is queryable, versioned, and actively referenced in code.
@@ -152,7 +376,7 @@ The knowledge architecture in `the-hard-port-os/` is not decoration. It is doing
 
 **The OS is ahead of the product in two critical areas:**
 
-**1. Operator tooling.** Pipeline PATCH + `/review/[id]` form ships (qualification, lifecycle, notes, next action). **Still missing:** submission email notification, applicant post-submit page, structured maturity enum.
+**1. Operator tooling.** Pipeline PATCH, funnel analytics, site journey, and operator notification **ship**. **Still open:** maturity enum, applicant confirmation copy (P04), commercial placeholder, course grants (Phase B).
 
 **2. The design system is aspirational, not implemented.** The `design-system/` folder in the OS contains a full specification: 4-step oklch depth scale, scroll-intensity formula, button variants with ghost/secondary, CTA size escalation, nautical icon system, hi-fi wireframe patterns. None of it is implemented. The live site is a first pass — coherent and functional, but missing the experiential depth the design system was built to deliver.
 
@@ -174,7 +398,7 @@ The technical choices are mature and appropriate:
 - **Modular Prisma schema** (separate `.prisma` files per domain) — shows architectural foresight. As the schema grows, this won't become unmanageable.
 - **JWT in localStorage** — this is a deliberate tradeoff (simpler to implement than httpOnly cookies). Fine for an internal operator tool. Would be worth revisiting if the auth surface ever expands to clients.
 
-**Skill gap identified:** No email/notification system yet. This requires a transactional email service (Resend, Postmark, SendGrid). It is not a difficult integration but it is currently absent, and it is a prerequisite for production readiness.
+**Skill gap identified:** Applicant confirmation copy and commercial placeholder still open. Resend operator path exists; extend for P04 when ready.
 
 ### 3.2 What the OS Reveals About Instincts
 
@@ -192,11 +416,11 @@ The instincts are sound and, in several cases, unusually good:
 
 | Stated Goal | Infrastructure Status | Gap |
 |-------------|----------------------|-----|
-| Receive 2 clients/month free | Application form → DB works | No notification, no operator actions, no pipeline advancement UI |
-| Qualify clients rigorously | Willingness gates in form | No structured maturity classification, no qualification UX |
-| Deliver Level 1 → Level 2 diagnostic | Pipeline statuses defined | No delivery infrastructure, no commercial layer, no legal |
-| YouTube → apply funnel | Content architecture designed | YouTube not yet publishing; intake webhook not wired |
-| Build Tipper intelligence framework | Layers 0–9 documented | No evidence base, no first client to generate observations from |
+| Receive 2 clients/month free | Application form → DB + pipeline UI | Prod Resend, ops SLA (P03), commercial rails |
+| Qualify clients rigorously | Willingness gates + pipeline form | Structured maturity enum |
+| Deliver Level 1 → Level 2 diagnostic | Pipeline statuses defined | No delivery workspace yet |
+| YouTube → apply funnel | Tracking + prefill wired | Broadcast blocked until Phase A |
+| Build Tipper intelligence framework | Layers 0–9 documented | Course grants Phase B; evidence after first client |
 
 **Goals are coherent with the OS. The gap is execution depth.** The business knows what it wants to do and why. The question is sequencing and pace.
 
@@ -206,7 +430,7 @@ The instincts are sound and, in several cases, unusually good:
 
 ### 4.1 User Flow: What Is Working
 
-The funnel architecture is genuinely good. The 9-rung ladder is a correct model for a high-trust, high-scrutiny service sale. Making the visitor earn the CTA through descent — identity match → agitation → mechanism → proof → offer → scarcity → objection handling → last call — is sound practice for a service that requires the client to self-select into readiness. You are not selling a subscription; you are recruiting a relationship.
+The funnel architecture is genuinely good. The **12-rung ladder** is a correct model for a high-trust, high-scrutiny service sale.
 
 The sticky CTA that escalates from "See how it works" → "Apply" as the visitor descends is correctly implemented and correctly signals the commitment gradient.
 
@@ -214,20 +438,17 @@ The form's willingness checkboxes are the best thing on the site. They are not U
 
 ### 4.2 User Flow: What Needs Work
 
-**The cold nav is killing the ladder.**  
-The top navigation exposes Pricing and Who We Are as jump links. This means a cold visitor can click "Pricing" before they have read the letter, before they have been agitated, before they have seen the proof. They will see prices without context and leave. Fix this immediately — it is the highest-leverage, lowest-effort change on the site. Solution: nav becomes `logo | [The Truth] | [Apply Free]`. Pricing and About move to the footer. Done.
+**The cold nav still allows ladder skip via Who we are.**  
+Pricing jump link is gone (fixed Jul 26). **Who we are → `/about`** still skips agitation. Optional fix: footer-only for `/about`, or merge into ladder.
 
-**The last section needs to be singular.**  
-`contact-section.tsx` (Rung 9) has three exits: Apply CTA, email link, WhatsApp. Rung 9 is the hardest line on the page, the moment of maximum commitment. Three exits dilutes that. Collapse to one CTA. The WhatsApp and email links belong in the footer, not competing with the final ask.
+**The last section uses dual CTAs by design.**  
+`contact-section.tsx` — ghost "How THP works" + primary "Apply" per `02-conversion-funnel.mdc`. Report originally argued single CTA; funnel rule wins unless OS is updated.
 
-**The post-submit experience is a brand gap.**  
-After submitting the application, the applicant waits. They submitted something vulnerable. The response they get should sound like THP. Recommended: a confirmation page at `/apply/submitted` with a short, direct message in brand voice. Something like: "We got it. We review every application within 48 hours. We'll reach out directly — no automated emails, no form letters. If you don't hear from us in 48 hours, the email went somewhere weird." That is THP voice. The current success flash is not.
+**Post-submit experience — fixed.**  
+See `/apply/submitted`. Applicant confirmation email still stub (P04).
 
-**The work-with-us page is a bridge that might not hold.**  
-The sticky CTA for Rungs 2–5 points to `/work-with-us`. That page is doing the job of converting a warm visitor who clicked away from the funnel into an applicant. If that page does not match the funnel's intensity, the visitor will lose momentum and not return to apply. This page needs to be audited against the brand voice before YouTube goes live.
-
-**The YouTube hook-to-site handoff is undefined.**  
-The video exists (`src/lib/brand.ts` has the URL). The OS has designed an attraction architecture. But the specific line in the video that "only resolves on-site" — the hook that makes a viewer click to the homepage — has not been defined in the code. When Video 1 publishes, where does it send people? To the homepage? To a specific section hash? To `/work-with-us`? This routing decision needs to be made explicitly, not defaulted. Deep-linking to `/#letter` (the canonical brand message, rung 2) is probably the right answer — it bypasses the hero video on the homepage (they just watched a video) and puts them immediately at the emotional center.
+**YouTube handoff — partially wired.**  
+`?ref=youtube&video={ID}` prefill works. Video description template + broadcast decision: P06.
 
 ### 4.3 Design: What Needs Decisions, Not Just Work
 
@@ -249,7 +470,7 @@ Collapse Pricing and Who We Are out of the cold top nav. This is not a debate �
 
 Once the color decision is made, implement in this order:
 
-1. **Scroll-depth darkening** — apply the formula from `07-depth-scroll-intensity.md` across the 9 sections. This is the highest-leverage visual change. The descent should be felt.
+1. **Scroll-depth darkening** — apply the formula from `07-depth-scroll-intensity.md` across all rungs (Phase C / P07).
 2. **Ghost button variant** — the mechanism section (Boosting vs. Campaign) and the hero (Watch + Apply side-by-side) both need a primary + ghost CTA pair. Build the ghost variant as a shared component once the primary color is decided.
 3. **Rust token for "wrong" states** — implement a separate alert color for the agitation column in the mechanism section. Currently all accent-colored elements compete for the same attention.
 4. **CTA size/weight escalation** — match the font-size and weight ramp (13→17px, 700→800) to the copy escalation already in place.
@@ -260,13 +481,13 @@ The OS (`CURRENT_FOCUS.md`) states: "Publish application CTA only when the five-
 
 | Gate Item | Status |
 |-----------|--------|
-| Intake form → database working | Done |
-| Operator review dashboard functional (can read applications) | Done (read-only) |
-| Operator can advance pipeline state (accept/qualify/reject) | Not done |
-| Intake webhook / notification on submission | Not done |
-| Commercial placeholder (what happens after qualification) | Not done |
+| Intake form → database working | **Done** |
+| Operator review dashboard functional | **Done** (list + detail + analytics) |
+| Operator can advance pipeline state | **Done** |
+| Intake notification on submission | **Done in code** — prod Resend required |
+| Commercial placeholder (post-qualification) | **Open** |
 
-The application CTA is already live on the site. The intent of the gate seems to be about YouTube broadcast CTA, not the soft-launch apply link. But the operational reality is: the moment YouTube drives scale, you need all five items. **Items 3 and 4 are the critical path.**
+Soft-launch apply is live. **YouTube broadcast** waits on commercial placeholder + Phase A (`review.md`). **Course access** waits on Phase B after Phase A.
 
 ### 4.6 The Tipper Question
 
@@ -284,34 +505,39 @@ Tipper will be better — more accurately scoped, more evidence-based — after 
 
 ## Part 5 — Prioritized Action List
 
-Ordered by business impact, not technical difficulty.
+**See `review.md` for the operational when-ready plan (Phase A → B → C).** Items below track report-era recommendations against current status.
 
-### Immediate (before soft-launch promotion)
+### Done (2026-07-27)
 
-1. **Fix the cold nav.** Remove Pricing and Who We Are jump links. Logo + one contextual link + Apply button. 1-hour fix. Highest funnel impact.
-2. **Fix the contact section (Rung 9).** One CTA only. Move email and WhatsApp to footer. 30-minute fix.
-3. **Build the post-submit page.** `/apply/submitted` with THP-voice confirmation. 2-hour build. Brand integrity.
-4. **Wire the submission notification.** Add Resend (or any transactional email service) to the API. Single email to operator email on `POST /intake/applications`. 3-hour integration. Operations prerequisite.
+- [x] Post-submit page — `/apply/submitted`
+- [x] Submission notification — `IntakeNotificationService`
+- [x] Operator pipeline UX — `/review/[id]` PATCH form
+- [x] Rewrite `/about` — brand voice
+- [x] `metadataBase` — `getSiteUrl()`
+- [x] First-party funnel tracking + operator analytics dashboard
+- [x] Launch scaffold P01–P07 — ops checklists + code stubs
 
-### Before YouTube Launch
+### Still open — before YouTube broadcast (Phase A)
 
-5. **Complete the operator pipeline UX.** The detail view needs: qualification result selector, lifecycle status dropdown, maturity classification enum (not free text), next action field, notes, and a save button that hits `PATCH /intake/applications/:id`. This is already stubbed. Full implementation is a 2-day build.
-6. **Define the YouTube → site deep-link.** Decide where Video 1 sends viewers. Recommend `/#letter` or a dedicated landing page variant. 30-minute decision, implement in the video description.
-7. **Audit and rewrite `/about`** to match brand voice. Eliminate any legacy agency tone.
-8. **Add `metadataBase` to the Next.js layout.** The build is warning about this now. Required for OG image rendering on social shares.
+1. **Production deploy** — P01: OAuth, Resend, env, migrate, smoke test
+2. **Legal minimum** — P02: `/privacy` final copy, apply ack, lawyer pass
+3. **Ops loop** — P03: reviewer owner, 48h SLA habit
+4. **Applicant confirmation email** — P04: fill stub copy + `INTAKE_APPLICANT_FROM`
+5. **Commercial placeholder** — static post-qualification page (gate item 5)
+6. **YouTube deep-link** — P06: `?ref=youtube&video=` in descriptions; broadcast gates
 
-### After First Client
+### Deferred — product expansion (Phase B, when Phase A closed)
 
-9. **Implement scroll-depth darkening.** Apply the OS-specified formula. Unlocks the experiential depth the design system describes.
-10. **Add structured maturity classification.** Move from free text to an enum matching the OS's maturity model.
-11. **Make the color system decision.** Migrate to oklch depth scale or formally decide to keep orange. Either way, end the ambiguity.
-12. **Add the ghost button variant and rust alert token.** Build them as shared components after the color decision.
+7. **Course access scaffolding** — full spec in this report (update 2): `CourseGrant` → API → guard → `/courses` → grants panel → content → Tipper webhook
+8. **Optional nav tweak** — move Who we are to footer only (Gap 1)
 
-### Later
+### After first client (Phase C)
 
-13. **Applicant confirmation email.** Extend the notification system to send a brand-voice confirmation to the applicant after submission.
-14. **Intake webhook** for pipeline-advancing events (qualification complete, diagnostic scheduled, etc.).
-15. **First commercial placeholder** — even a static "what happens after you're qualified" page keeps the promise visible.
+9. Scroll-depth darkening (P07 / OS design system)
+10. Structured maturity classification enum
+11. Color system decision (oklch vs keep orange)
+12. Ghost button + rust alert token
+13. Real tracking CSV export + intake webhook destination
 
 ---
 
@@ -319,16 +545,16 @@ Ordered by business impact, not technical difficulty.
 
 | Dimension | Grade | Notes |
 |-----------|-------|-------|
-| Brand-to-product coherence | B+ | Core identity intact; nav and last-rung violations undermine funnel |
-| OS-to-code fidelity | B | Lifecycle statuses and form logic match; design system is aspirational, not shipped |
-| Technical architecture | A- | Stack is clean, modular, production-grade; JWT in localStorage is a minor note |
-| Operational readiness | C+ | Can receive; cannot process end-to-end |
-| Design system implementation | C | Flat backgrounds, no depth mechanic, accent color conflict unresolved |
-| Strategic sequencing | A- | Order of operations (build intake before acquiring traffic) is correct |
-| Instinct quality | A | Gatekeeping, OS as institutional brain, willingness-as-filter — all sound |
+| Brand-to-product coherence | B+ | Core identity intact; `/about` nav skip remains |
+| OS-to-code fidelity | B+ | Pipeline, tracking, notifications match; design system still aspirational |
+| Technical architecture | A- | Stack clean, modular, production-grade |
+| Operational readiness | B- | Can receive + process in dev; prod env + commercial placeholder open |
+| Design system implementation | C | Flat backgrounds, no depth mechanic, accent conflict unresolved |
+| Strategic sequencing | A | Intake → tracking → launch scaffold → courses (when ready) |
+| Instinct quality | A | Gatekeeping, OS as institutional brain — sound |
 
-**The Hard Port knows who it is, who it's for, and what it does.** That is rare. The gap is between the specification and the implementation — which is a normal, solvable problem. The instincts got the hard parts right. The remaining work is execution.
+**The Hard Port knows who it is, who it's for, and what it does.** Remaining work is Phase A launch gate, then Phase B course access per the recommended plan in `review.md`.
 
 ---
 
-*This report was generated from direct analysis of `apps/web`, `apps/api`, and `the-hard-port-os/` as of 2026-07-22. All findings reference specific files and line-level observations, not generalizations.*
+*Last synced with `apps/web`, `apps/api`, and `the-hard-port-os/` on 2026-07-27. Operational snapshot: `review.md`.*

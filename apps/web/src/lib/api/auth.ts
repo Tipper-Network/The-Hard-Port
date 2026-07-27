@@ -11,6 +11,9 @@ export type AuthenticatedUser = {
   name: string | null
   image: string | null
   role: 'reviewer' | 'admin'
+  birthDate: string | null
+  gender: string | null
+  hometown: string | null
 }
 
 export type AuthProvidersResult =

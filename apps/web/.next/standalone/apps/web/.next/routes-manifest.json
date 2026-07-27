@@ -78,6 +78,12 @@
       "namedRegex": "^/business\\-levels(?:/)?$"
     },
     {
+      "page": "/privacy",
+      "regex": "^/privacy(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/privacy(?:/)?$"
+    },
+    {
       "page": "/review",
       "regex": "^/review(?:/)?$",
       "routeKeys": {},

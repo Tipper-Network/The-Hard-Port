@@ -31,7 +31,7 @@ export function TrackingConsentBanner({ onChoice }: TrackingConsentBannerProps) 
         <p className="text-sm leading-6 text-white/80">
           We log anonymous site usage — pages, scroll depth, where people drop off — so we can fix
           the funnel. No ads. No third-party trackers.{' '}
-          <Link href="/about" className="font-semibold text-accent underline-offset-2 hover:underline">
+          <Link href="/privacy" className="font-semibold text-accent underline-offset-2 hover:underline">
             Privacy
           </Link>
         </p>

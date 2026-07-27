@@ -1,6 +1,7 @@
 export { consentNeedsPrompt, getTrackingConsent, hasTrackingConsent, setTrackingConsent } from '@/lib/tracking/consent'
 export {
   getDiscoveryPrefill,
+  getDiscoveryVideoId,
   getEntryContext,
   getMaxRung,
   getSessionId,

@@ -11,6 +11,7 @@ import type { IntakePayload } from '@/lib/intake/payload'
 import { submitIntake } from '@/lib/intake/submit'
 import {
   getDiscoveryPrefill,
+  getDiscoveryVideoId,
   getEntryContext,
   getVisitorId,
   identifyVisitor,
@@ -69,6 +70,7 @@ function buildPayload(form: FormState): IntakePayload {
   const visitorId = getVisitorId()
   const entry = getEntryContext()
   const phoneCountryCode = parsePhoneCountryCode(form.contactPhone)
+  const discoverySourceVideo = getDiscoveryVideoId()
 
   return {
     submittedAt: new Date().toISOString(),
@@ -79,6 +81,7 @@ function buildPayload(form: FormState): IntakePayload {
     ...(entry?.locale ? { locale: entry.locale } : {}),
     ...(entry?.timezone ? { timezone: entry.timezone } : {}),
     ...(phoneCountryCode ? { phoneCountryCode } : {}),
+    ...(discoverySourceVideo ? { discoverySourceVideo } : {}),
   }
 }
 

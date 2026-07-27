@@ -8,6 +8,10 @@ export type OAuthProfile = {
   image?: string
   accessToken?: string
   refreshToken?: string
+  /** Set on Meta sign-in when Graph returns birthday (MM/DD/YYYY). */
+  birthDate?: Date | null
+  gender?: string | null
+  hometown?: string | null
 }
 
 export type AuthenticatedUser = {
@@ -16,6 +20,9 @@ export type AuthenticatedUser = {
   name: string | null
   image: string | null
   role: 'user' | 'reviewer' | 'admin'
+  birthDate: string | null
+  gender: string | null
+  hometown: string | null
 }
 
 export type JwtPayload = {
