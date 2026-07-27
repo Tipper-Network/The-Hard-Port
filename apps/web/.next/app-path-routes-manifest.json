@@ -6,10 +6,10 @@
   "/apply/page": "/apply",
   "/apply/submitted/page": "/apply/submitted",
   "/about/page": "/about",
-  "/review/[id]/page": "/review/[id]",
   "/review/page": "/review",
-  "/sign-in/page": "/sign-in",
   "/privacy/page": "/privacy",
-  "/work-with-us/page": "/work-with-us",
-  "/business-levels/page": "/business-levels"
+  "/review/[id]/page": "/review/[id]",
+  "/sign-in/page": "/sign-in",
+  "/business-levels/page": "/business-levels",
+  "/work-with-us/page": "/work-with-us"
 }
