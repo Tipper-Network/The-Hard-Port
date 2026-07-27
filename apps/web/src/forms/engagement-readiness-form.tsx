@@ -91,6 +91,9 @@ export function EngagementReadinessForm() {
   const [errors, setErrors] = useState<FieldErrors>({})
   const [status, setStatus] = useState<'idle' | 'submitting' | 'manual'>('idle')
   const [manualJson, setManualJson] = useState('')
+  const [manualReason, setManualReason] = useState<
+    'not_configured' | 'unreachable' | 'api_error' | 'unknown'
+  >('unknown')
 
   useEffect(() => {
     markApplicationViewed()
@@ -167,6 +170,7 @@ export function EngagementReadinessForm() {
 
       if (result.manual) {
         setManualJson(JSON.stringify(payload, null, 2))
+        setManualReason(result.reason ?? 'unknown')
         setStatus('manual')
         return
       }
@@ -175,21 +179,41 @@ export function EngagementReadinessForm() {
       setStatus('idle')
     } catch {
       setManualJson(JSON.stringify(payload, null, 2))
+      setManualReason('unreachable')
       setStatus('manual')
     }
   }
 
   if (status === 'manual') {
+    const title =
+      manualReason === 'not_configured'
+        ? 'Intake API not configured'
+        : manualReason === 'unreachable'
+          ? 'Intake API unreachable'
+          : 'Application could not be submitted'
+
+    const help =
+      manualReason === 'not_configured' ? (
+        <>
+          Set <code className="text-accent">THP_API_URL</code> or{' '}
+          <code className="text-accent">NEXT_PUBLIC_THP_API_URL</code> in{' '}
+          <code className="text-accent">apps/web/.env</code> (see{' '}
+          <code className="text-accent">apps/web/.env.example</code>).
+        </>
+      ) : (
+        <>
+          Start the API: <code className="text-accent">pnpm dev:api</code> (or{' '}
+          <code className="text-accent">pnpm dev</code> from repo root). Web expects the API at{' '}
+          <code className="text-accent">http://localhost:3001</code> by default.
+        </>
+      )
+
     return (
       <div className="border border-secondary/15 bg-secondary/5 p-8">
-        <p className="font-heading text-lg text-secondary uppercase">
-          Intake not configured; manual handoff
-        </p>
-        <p className="mt-2 text-sm text-white/70">
-          Email this JSON to your intake address, or start the API with{' '}
-          <code className="text-accent">THP_API_URL</code> in{' '}
-          <code className="text-accent">apps/web/.env</code> (see{' '}
-          <code className="text-accent">pnpm dev:api</code>).
+        <p className="font-heading text-lg text-secondary uppercase">{title}</p>
+        <p className="mt-2 text-sm text-white/70">{help}</p>
+        <p className="mt-3 text-sm text-white/60">
+          Until that is fixed, email this JSON to your intake address:
         </p>
         <pre className="mt-4 max-h-64 overflow-auto border border-white/10 bg-black/40 p-4 text-left text-xs text-white/80">
           {manualJson}
