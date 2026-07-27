@@ -33,13 +33,7 @@ async function submitToApi(payload: IntakePayload): Promise<SubmitIntakeResult> 
     const body: unknown = await res.json().catch(() => null)
 
     if (!res.ok) {
-      const message =
-        body &&
-        typeof body === 'object' &&
-        'message' in body &&
-        typeof body.message === 'string'
-          ? body.message
-          : 'Application submission failed'
+      const message = formatApiErrorMessage(body, 'Application submission failed')
       return { ok: false, error: message, manual: true, reason: 'api_error' }
     }
 
@@ -68,4 +62,18 @@ export async function submitIntake(data: unknown): Promise<SubmitIntakeResult> {
   }
 
   return submitToApi(validated.payload)
+}
+
+function formatApiErrorMessage(body: unknown, fallback: string): string {
+  if (!body || typeof body !== 'object' || !('message' in body)) {
+    return fallback
+  }
+
+  const { message } = body as { message?: unknown }
+  if (typeof message === 'string') return message
+  if (Array.isArray(message)) {
+    return message.filter((item): item is string => typeof item === 'string').join('; ')
+  }
+
+  return fallback
 }
