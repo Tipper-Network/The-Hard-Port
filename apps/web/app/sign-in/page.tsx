@@ -1,15 +1,18 @@
 import type { Metadata } from 'next'
 
-import { SignInPanel } from '@/components/sign-in-panel'
-import { SiteFooter } from '@/shared/site-footer'
-import { SiteHeader } from '@/shared/site-header'
+import { SignInPanel } from '@/components/auth/sign-in-panel'
+import { fetchAuthProvidersServer } from '@/lib/api/auth'
+import { SiteFooter } from '@/components/layout/site-footer'
+import { SiteHeader } from '@/components/layout/site-header'
 
 export const metadata: Metadata = {
   title: 'Team Sign-in — The Hard Port',
   robots: { index: false, follow: false },
 }
 
-export default function SignInPage() {
+export default async function SignInPage() {
+  const providers = await fetchAuthProvidersServer()
+
   return (
     <>
       <SiteHeader />
@@ -26,7 +29,7 @@ export default function SignInPage() {
             applications.
           </p>
           <div className="mt-10">
-            <SignInPanel />
+            <SignInPanel initialProviders={providers} />
           </div>
         </div>
       </main>

@@ -1,64 +1,47 @@
 # Current Task
 
-Design the THP YouTube Attraction Architecture.
+Write and Produce THP YouTube Videos 1–3.
 
 ## Purpose
 
-Create the media system that attracts THP's first Level 1 SMB onboarders and moves suitable viewers from recognition to application.
+Create the first recognition sequence that helps Level 1 owners understand
+that activity is not learning, content may be exposing a deeper business
+condition, and dependence on temporary rescue is survival mode.
 
-## Central Question
+## Video 1
 
-What should THP publish so the correct business owner recognizes their real condition, trusts THP's interpretation, and chooses to enter the application and qualification process?
+Posting Consistently Is Not a Business Strategy
 
-## Required Outputs
+## Video 2
 
-Delivered in [`operations/youtube-attraction/THP-YOUTUBE-001-attraction-architecture.md`](../operations/youtube-attraction/THP-YOUTUBE-001-attraction-architecture.md):
+You May Not Have a Content Problem
 
-- Channel thesis
-- Target viewer definition
-- Viewer psychological progression
-- Core series architecture
-- Focus-video formats
-- Institutional thesis videos
-- Calls to action
-- Viewer-to-application journey
-- Content evidence standards
-- Publishing and review rhythm
-- First 12-video test
-- Metrics and learning questions
+## Video 3
 
-**Next:** Script and record Video 1 after intake webhook + commercial placeholders are set.
+Your Business Should Not Need a Miracle Every Month
 
-## Content Categories
+## Required Outputs for Each Video
 
-1. Recognition
-2. Interpretation
-3. Transition
-4. Institutional thesis
-5. Proof and field learning
+- Video brief — [`THP-MEDIA-TEMPLATE-001`](../knowledge/media/youtube/templates/THP-MEDIA-TEMPLATE-001-video-brief.md)
+- Full script
+- Visual and kinetic-typography plan — [`THP-MEDIA-003`](../knowledge/media/youtube/THP-MEDIA-003-visual-and-editorial-system.md)
+- Description
+- Pinned comment
+- Call to action
+- Content evidence record — [`THP-MEDIA-TEMPLATE-002`](../knowledge/media/youtube/templates/THP-MEDIA-TEMPLATE-002-content-evidence-record.md)
+- Production status
 
-## Minimum Intake Operation Prerequisite
+## Production Boundary
 
-Before publishing a direct application CTA, establish:
+Do not include a direct application CTA until the application route is usable.
 
-1. A usable Engagement Readiness Application — `/apply`
-2. A public THP service explanation — `/work-with-us`
-3. A first-client folder template — [`clients/_TEMPLATE/`](../clients/_TEMPLATE/)
-4. A lifecycle pipeline tracker — [`operations/first-client-readiness/templates/THP-LIFECYCLE-PIPELINE-TRACKER.csv`](../operations/first-client-readiness/templates/THP-LIFECYCLE-PIPELINE-TRACKER.csv)
-5. Minimum commercial and privacy documents — [`operations/first-client-readiness/`](../operations/first-client-readiness/)
-6. A one-active-client field-validation limit
-7. A field-validation record — [`THP-FIRST-CLIENT-FIELD-VALIDATION.md`](../operations/first-client-readiness/templates/THP-FIRST-CLIENT-FIELD-VALIDATION.md)
+Videos 1–3 should use recognition and evidence calls to action.
 
-This prerequisite should be built **alongside** the YouTube architecture, not as another extended institutional-design phase.
+## Parallel Task
+
+Complete the minimum first-client intake operation before the direct
+application invitation in Video 12.
 
 Checklist: [`THP-FIRST-CLIENT-READINESS-CHECKLIST.md`](../operations/first-client-readiness/THP-FIRST-CLIENT-READINESS-CHECKLIST.md)
 
-## Explicitly Deferred
-
-- Daily posting calendar
-- High-volume short-form production
-- Paid media
-- Broad founder-brand content
-- Levels 4–7 media
-- Tipper product promotion without field evidence
-- Client portal and custom CRM
+Architecture: [`THP-MEDIA-001`](../knowledge/media/youtube/THP-MEDIA-001-youtube-attraction-architecture.md) · First 12 test: [`THP-MEDIA-002`](../knowledge/media/youtube/THP-MEDIA-002-first-12-video-test.md)

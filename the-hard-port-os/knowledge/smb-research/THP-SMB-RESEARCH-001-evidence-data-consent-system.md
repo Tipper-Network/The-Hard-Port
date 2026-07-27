@@ -212,6 +212,34 @@ A neat dashboard does not make poor evidence reliable.
 
 ---
 
+## Content Evidence (Institutional Input)
+
+`content_evidence` is a distinct institutional input separate from client source data and verified business evidence.
+
+It contains media and research signals from public YouTube content, comments, and application attribution — **not** verified business evidence.
+
+### What content evidence includes
+
+* **Viewer language** — phrases owners use to describe their condition
+* **Objections** — disagreements with THP framing in comments or applications
+* **Recognition patterns** — comments indicating "this describes me"
+* **Application-source attribution** — which video led to application start or completion
+* **Misfit applicant patterns** — pre-launch founders, agency shoppers, content-only requests
+* **Readiness signals** — self-observation, evidence CTAs performed, service-explanation visits
+* **Interpretation failures** — distinctions misunderstood (e.g. "THP says stop posting")
+
+### Recording
+
+Use [`THP-MEDIA-TEMPLATE-002-content-evidence-record.md`](../media/youtube/templates/THP-MEDIA-TEMPLATE-002-content-evidence-record.md) per video.
+
+Application media fields (`discovery_source_video`, recognition statement, problem frame, tactic history, service expectation) feed this input via intake — see [`THP-ENGAGEMENT-READINESS-APPLICATION.md`](../../docs/03-methods/entity-assessment/THP-ENGAGEMENT-READINESS-APPLICATION.md).
+
+### Boundary
+
+Public comments and application self-reports are **media and research signals**.
+
+They must not be treated as verified business evidence, customer data, or diagnostic findings.
+
 ---
 
 ## Revision History

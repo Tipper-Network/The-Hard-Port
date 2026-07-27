@@ -1,8 +1,8 @@
 import type { Metadata } from 'next'
 
-import LinkButton from '@/components/link_button'
-import { SiteFooter } from '@/shared/site-footer'
-import { SiteHeader } from '@/shared/site-header'
+import LinkButton from '@/components/link-button'
+import { SiteFooter } from '@/components/layout/site-footer'
+import { SiteHeader } from '@/components/layout/site-header'
 
 export const metadata: Metadata = {
   title: 'Work With Us — The Hard Port',

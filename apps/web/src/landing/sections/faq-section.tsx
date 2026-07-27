@@ -4,7 +4,7 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from '@/components/ui/accordion'
-import LinkButton from '@/components/link_button'
+import LinkButton from '@/components/link-button'
 
 const faqs = [
   {

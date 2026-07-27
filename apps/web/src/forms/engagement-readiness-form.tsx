@@ -2,11 +2,11 @@
 
 import { useState, type FormEvent } from 'react'
 
-import { Input } from '#/components/ui/input'
-import { Label } from '#/components/ui/label'
-import { Textarea } from '#/components/ui/textarea'
-import type { IntakePayload } from '#/lib/intake-payload'
-import { submitIntake } from '#/lib/submit-intake'
+import { Input } from '@/components/ui/input'
+import { Label } from '@/components/ui/label'
+import { Textarea } from '@/components/ui/textarea'
+import type { IntakePayload } from '@/lib/intake/payload'
+import { submitIntake } from '@/lib/intake/submit'
 
 type FormState = {
   founderName: string

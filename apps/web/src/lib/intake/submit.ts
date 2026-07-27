@@ -1,13 +1,14 @@
 'use server'
 
-import { validateIntakePayload, type IntakePayload } from '@/lib/intake-payload'
+import { getConfiguredIntakeApiUrl } from '@/lib/api/client'
+import { validateIntakePayload, type IntakePayload } from '@/lib/intake/payload'
 
 export type SubmitIntakeResult =
   | { ok: true; id?: string }
   | { ok: false; error: string; manual?: boolean }
 
 async function submitToApi(payload: IntakePayload): Promise<SubmitIntakeResult> {
-  const apiUrl = process.env.THP_API_URL?.trim().replace(/\/$/, '')
+  const apiUrl = getConfiguredIntakeApiUrl()
   if (!apiUrl) {
     return {
       ok: false,

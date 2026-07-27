@@ -1,6 +1,6 @@
 import type { Metadata } from 'next'
 
-import LinkButton from '@/components/link_button'
+import LinkButton from '@/components/link-button'
 import {
   corePrinciple,
   dimensions,
@@ -9,8 +9,8 @@ import {
   progression,
   provisionalLevels,
 } from '@/content/business-levels'
-import { SiteFooter } from '@/shared/site-footer'
-import { SiteHeader } from '@/shared/site-header'
+import { SiteFooter } from '@/components/layout/site-footer'
+import { SiteHeader } from '@/components/layout/site-header'
 
 export const metadata: Metadata = {
   title: 'Business Levels | The Hard Port',

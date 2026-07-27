@@ -3,9 +3,9 @@ id: METHOD-EPDA-APP-001
 title: THP Engagement Readiness Application
 document_type: method_definition
 status: candidate
-version: 0.5.0
+version: 0.6.0
 created: 2026-07-21
-updated: 2026-07-21
+updated: 2026-07-27
 authors:
   - The Hard Port
 owners:
@@ -23,8 +23,10 @@ related_documents:
   - ./ENTITY-POSITION-AND-DIRECTION-ASSESSMENT.md
   - ../../../knowledge/smb-maturity/instruments/THP-SMB-INSTRUMENT-002-first-onboarder-diagnostic.md
   - ../../../knowledge/smb-engagement/THP-SMB-ENGAGEMENT-001-client-lifecycle.md
+  - ../../../knowledge/media/youtube/THP-MEDIA-002-first-12-video-test.md
+  - ../../../knowledge/media/youtube/templates/THP-MEDIA-TEMPLATE-002-content-evidence-record.md
 supersedes: []
-superseded_by: []
+supersedes_by: []
 ---
 
 # THP Engagement Readiness Application
@@ -88,6 +90,11 @@ Operational form implemented in `apps/web/src/landing/engagement-readiness-form.
 | Willingness to stop unsupported actions | `founder_readiness` | Founder-readiness (R6) |
 | Crisis or referral indicators | `scope_review` | Scope and referral review |
 | Contact and scheduling preferences | `routing_only` | Application routing only |
+| `discovery_source_video` | `routing_only` · `media_attribution` | Which THP video led the applicant here |
+| Statement that felt most accurate | `first_onboarder_fit` · `media_attribution` | Self-reported recognition signal — intake only |
+| What they believe is wrong | `first_onboarder_fit` · `scope_review` | Self-reported problem frame — not verified diagnosis |
+| What they have already tried | `first_onboarder_fit` | Self-reported tactic history — intake only |
+| What they expect THP to do | `founder_readiness` · `scope_review` | Self-reported service expectation — not verified scope agreement |
 
 Qualification uses:
 
@@ -97,6 +104,33 @@ Qualification uses:
 - `evidence_inventory` — minimum evidence and records inventory
 - `scope_review` — scope and referral review
 - `routing_only` — intake logistics; does not feed a gate decision directly
+- `media_attribution` — YouTube or media source tracking; informs institutional learning, not gate decisions alone
+
+## Media source fields
+
+These fields capture **intake inputs**, not verified diagnostic findings.
+
+### `discovery_source_video`
+
+Records which THP video (if any) led the applicant to the application.
+
+- Format: video number and working title (e.g. `Video 12 — We Are Looking for the First THP Entity`) or `not_from_youtube` / `unknown`
+- Use: media attribution, content-evidence loop, first-onboarder model refinement
+- Distinct from general `discoverySource` (e.g. "YouTube") — this field ties to a specific video in [`THP-MEDIA-002`](../../../knowledge/media/youtube/THP-MEDIA-002-first-12-video-test.md)
+
+### Media-attribution questions (intake only)
+
+| Field | Question | Notes |
+|---|---|---|
+| `discovery_source_video` | Which video led you here? | Source-video attribution |
+| Statement felt most accurate | Which statement in that video (or in THP content) felt most accurate? | Recognition signal — self-reported |
+| What they believe is wrong | What do you currently believe is wrong with the business? | Problem frame — not verified |
+| What they have already tried | What have you already tried? | Tactic history — self-reported |
+| What they expect THP to do | What do you expect THP to do? | Scope expectation — may reveal agency misinterpretation |
+
+Answers remain `self_reported` until reviewed through [`THP-SMB-INSTRUMENT-002`](../../knowledge/smb-maturity/instruments/THP-SMB-INSTRUMENT-002-first-onboarder-diagnostic.md).
+
+Feed content-evidence records via [`THP-MEDIA-TEMPLATE-002`](../../../knowledge/media/youtube/templates/THP-MEDIA-TEMPLATE-002-content-evidence-record.md).
 
 ## What the Application Tests
 
@@ -160,6 +194,11 @@ See [`ENTITY-ENGAGEMENT-BOUNDARIES.md`](./ENTITY-ENGAGEMENT-BOUNDARIES.md).
 | Integration with qualification gate | **Mapped** — see Qualification field mapping |
 
 ## Revision History
+
+### 0.6.0 — 2026-07-27
+
+- Added `discovery_source_video` and media-attribution intake fields.
+- Linked to content-evidence record template and first 12-video test.
 
 ### 0.5.0 — 2026-07-21
 

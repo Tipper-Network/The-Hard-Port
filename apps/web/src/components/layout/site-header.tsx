@@ -1,6 +1,6 @@
-import LinkButton from '@/components/link_button'
+import LinkButton from '@/components/link-button'
 
-import { THPLogo } from '../components/logo-mark'
+import { THPLogo } from '@/components/layout/logo-mark'
 
 export function SiteHeader() {
   return (

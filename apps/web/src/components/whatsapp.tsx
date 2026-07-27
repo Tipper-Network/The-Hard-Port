@@ -1,4 +1,4 @@
-import LinkButton from '#/components/link_button'
+import LinkButton from '@/components/link-button'
 
 const WhatsappButton = () => {
   const whatsappMessage = [

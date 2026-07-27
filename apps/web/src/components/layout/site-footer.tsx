@@ -1,7 +1,7 @@
-import LinkButton from '@/components/link_button'
+import LinkButton from '@/components/link-button'
 import WhatsappButton from '@/components/whatsapp'
 
-import { THPLogo } from '@/components/logo-mark'
+import { THPLogo } from '@/components/layout/logo-mark'
 
 const footerLinks = [
   { href: '/work-with-us', label: 'How it works' },

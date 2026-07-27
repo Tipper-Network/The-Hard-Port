@@ -52,7 +52,7 @@ const LAZY_SECTIONS: Record<LazyHomeSectionId, ComponentType> = {
     })),
   ),
   contact: dynamic(() =>
-    import('@/forms/contact-section').then((m) => ({
+    import('./sections/contact-section').then((m) => ({
       default: m.ContactSection,
     })),
   ),

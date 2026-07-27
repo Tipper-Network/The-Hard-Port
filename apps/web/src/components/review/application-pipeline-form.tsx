@@ -9,11 +9,11 @@ import {
   LIFECYCLE_STATUSES,
   QUALIFICATION_RESULTS,
   type ApplicationRecord,
-} from '@/lib/pipeline-constants'
+} from '@/lib/intake/pipeline'
 import {
   updateApplicationPipeline,
   type UpdatePipelinePayload,
-} from '@/lib/reviewer-api'
+} from '@/lib/api/review'
 
 type ApplicationPipelineFormProps = {
   application: ApplicationRecord

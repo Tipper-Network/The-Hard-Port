@@ -2,12 +2,12 @@
 
 import { useEffect, useState } from 'react'
 import Link from 'next/link'
-import { useRouter } from 'next/navigation'
 
-import LinkButton from '@/components/link_button'
-import { clearAccessToken, getAccessToken } from '@/lib/auth-session'
-import type { ApplicationSummary } from '@/lib/pipeline-constants'
-import { listApplications } from '@/lib/reviewer-api'
+import LinkButton from '@/components/link-button'
+import { ReviewerSessionBar } from '@/components/review/reviewer-session-bar'
+import { useReviewerSession } from '@/components/review/use-reviewer-session'
+import type { ApplicationSummary } from '@/lib/intake/pipeline'
+import { listApplications } from '@/lib/api/review'
 
 function formatDate(value: string) {
   return new Date(value).toLocaleString(undefined, {
@@ -17,16 +17,13 @@ function formatDate(value: string) {
 }
 
 export function ReviewDashboard() {
-  const router = useRouter()
+  const { user, loading: sessionLoading, error: sessionError, signOut } = useReviewerSession()
   const [applications, setApplications] = useState<ApplicationSummary[]>([])
   const [error, setError] = useState<string | null>(null)
   const [loading, setLoading] = useState(true)
 
   useEffect(() => {
-    if (!getAccessToken()) {
-      router.replace('/sign-in')
-      return
-    }
+    if (sessionLoading || !user) return
 
     let cancelled = false
 
@@ -36,8 +33,7 @@ export function ReviewDashboard() {
 
       if (!result.ok) {
         if (result.unauthorized) {
-          clearAccessToken()
-          router.replace('/sign-in')
+          signOut()
           return
         }
         setError(result.error)
@@ -53,50 +49,50 @@ export function ReviewDashboard() {
     return () => {
       cancelled = true
     }
-  }, [router])
+  }, [sessionLoading, user, signOut])
 
-  function signOut() {
-    clearAccessToken()
-    router.replace('/sign-in')
+  if (sessionLoading || (user && loading)) {
+    return <p className="text-white/70">Loading applications…</p>
   }
 
-  const activeSlot = applications.find((app) => app.activeCapacitySlot)
+  if (sessionError) {
+    return (
+      <div className="space-y-4">
+        <p className="text-alert">{sessionError}</p>
+        <LinkButton text="Sign in" href="/sign-in" intensity={1} />
+      </div>
+    )
+  }
 
-  if (loading) {
-    return <p className="text-white/70">Loading applications…</p>
+  if (!user) {
+    return null
   }
 
   if (error) {
     return (
       <div className="space-y-4">
+        <ReviewerSessionBar user={user} onSignOut={signOut} />
         <p className="text-alert">{error}</p>
         <LinkButton text="Try again" href="/review" intensity={1} />
       </div>
     )
   }
 
+  const activeSlot = applications.find((app) => app.activeCapacitySlot)
+
   return (
     <div className="space-y-8">
-      <div className="flex flex-wrap items-center justify-between gap-4">
-        <div className="space-y-1">
-          <p className="text-sm text-white/60">
-            {applications.length} application{applications.length === 1 ? '' : 's'}
-          </p>
-          {activeSlot ? (
-            <p className="text-sm text-accent">
-              Capacity slot: {activeSlot.businessName}
-            </p>
-          ) : (
-            <p className="text-sm text-white/40">No active capacity slot</p>
-          )}
-        </div>
-        <button
-          type="button"
-          onClick={signOut}
-          className="text-sm font-semibold text-accent underline"
-        >
-          Sign out
-        </button>
+      <ReviewerSessionBar user={user} onSignOut={signOut} />
+
+      <div className="space-y-1">
+        <p className="text-sm text-white/60">
+          {applications.length} application{applications.length === 1 ? '' : 's'}
+        </p>
+        {activeSlot ? (
+          <p className="text-sm text-accent">Capacity slot: {activeSlot.businessName}</p>
+        ) : (
+          <p className="text-sm text-white/40">No active capacity slot</p>
+        )}
       </div>
 
       {applications.length === 0 ? (
@@ -128,8 +124,8 @@ export function ReviewDashboard() {
                       <span className="ml-2 text-accent">[slot]</span>
                     ) : null}
                   </td>
-                  <td className="px-4 py-3 max-w-xs truncate">{app.nextAction ?? '—'}</td>
-                  <td className="px-4 py-3">{app.assignedReviewer ?? '—'}</td>
+                  <td className="px-4 py-3 max-w-xs truncate">{app.nextAction ?? '-'}</td>
+                  <td className="px-4 py-3">{app.assignedReviewer ?? '-'}</td>
                   <td className="px-4 py-3">
                     <Link href={`/review/${app.id}`} className="text-accent underline">
                       Open

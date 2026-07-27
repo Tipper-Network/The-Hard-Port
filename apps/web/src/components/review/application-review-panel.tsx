@@ -2,13 +2,13 @@
 
 import { useEffect, useState } from 'react'
 import Link from 'next/link'
-import { useRouter } from 'next/navigation'
 
-import { ApplicationPipelineForm } from '@/components/application-pipeline-form'
-import LinkButton from '@/components/link_button'
-import { clearAccessToken, getAccessToken } from '@/lib/auth-session'
-import type { ApplicationRecord } from '@/lib/pipeline-constants'
-import { getApplication } from '@/lib/reviewer-api'
+import { ApplicationPipelineForm } from '@/components/review/application-pipeline-form'
+import LinkButton from '@/components/link-button'
+import { ReviewerSessionBar } from '@/components/review/reviewer-session-bar'
+import { useReviewerSession } from '@/components/review/use-reviewer-session'
+import type { ApplicationRecord } from '@/lib/intake/pipeline'
+import { getApplication } from '@/lib/api/review'
 
 type ApplicationReviewPanelProps = {
   id: string
@@ -22,16 +22,13 @@ function formatDate(value: string) {
 }
 
 export function ApplicationReviewPanel({ id }: ApplicationReviewPanelProps) {
-  const router = useRouter()
+  const { user, loading: sessionLoading, error: sessionError, signOut } = useReviewerSession()
   const [application, setApplication] = useState<ApplicationRecord | null>(null)
   const [error, setError] = useState<string | null>(null)
   const [loading, setLoading] = useState(true)
 
   useEffect(() => {
-    if (!getAccessToken()) {
-      router.replace('/sign-in')
-      return
-    }
+    if (sessionLoading || !user) return
 
     let cancelled = false
 
@@ -41,8 +38,7 @@ export function ApplicationReviewPanel({ id }: ApplicationReviewPanelProps) {
 
       if (!result.ok) {
         if (result.unauthorized) {
-          clearAccessToken()
-          router.replace('/sign-in')
+          signOut()
           return
         }
         setError(result.error)
@@ -58,15 +54,29 @@ export function ApplicationReviewPanel({ id }: ApplicationReviewPanelProps) {
     return () => {
       cancelled = true
     }
-  }, [id, router])
+  }, [id, sessionLoading, user, signOut])
 
-  if (loading) {
+  if (sessionLoading || (user && loading)) {
     return <p className="text-white/70">Loading application…</p>
+  }
+
+  if (sessionError) {
+    return (
+      <div className="space-y-4">
+        <p className="text-alert">{sessionError}</p>
+        <LinkButton text="Sign in" href="/sign-in" intensity={1} />
+      </div>
+    )
+  }
+
+  if (!user) {
+    return null
   }
 
   if (error || !application) {
     return (
       <div className="space-y-4">
+        <ReviewerSessionBar user={user} onSignOut={signOut} />
         <p className="text-alert">{error ?? 'Application not found'}</p>
         <LinkButton text="Back to list" href="/review" intensity={1} />
       </div>
@@ -75,6 +85,8 @@ export function ApplicationReviewPanel({ id }: ApplicationReviewPanelProps) {
 
   return (
     <div className="space-y-10">
+      <ReviewerSessionBar user={user} onSignOut={signOut} />
+
       <div>
         <Link href="/review" className="text-sm text-accent underline">
           ← All applications
@@ -110,7 +122,7 @@ export function ApplicationReviewPanel({ id }: ApplicationReviewPanelProps) {
           </div>
           <div>
             <dt className="text-white/50">Primary problems</dt>
-            <dd className="mt-1 text-white/85">{application.primaryProblems ?? '—'}</dd>
+            <dd className="mt-1 text-white/85">{application.primaryProblems ?? '-'}</dd>
           </div>
           <div>
             <dt className="text-white/50">Discovery source</dt>
@@ -132,10 +144,7 @@ export function ApplicationReviewPanel({ id }: ApplicationReviewPanelProps) {
           <code className="text-white/80">pnpm --filter api pipeline:export</code>
         </p>
         <div className="mt-6">
-          <ApplicationPipelineForm
-            application={application}
-            onUpdated={setApplication}
-          />
+          <ApplicationPipelineForm application={application} onUpdated={setApplication} />
         </div>
       </section>
     </div>

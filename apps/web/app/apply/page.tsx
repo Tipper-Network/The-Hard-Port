@@ -1,8 +1,8 @@
 import type { Metadata } from 'next'
 
 import { EngagementReadinessForm } from '@/forms/engagement-readiness-form'
-import { SiteFooter } from '@/shared/site-footer'
-import { SiteHeader } from '@/shared/site-header'
+import { SiteFooter } from '@/components/layout/site-footer'
+import { SiteHeader } from '@/components/layout/site-header'
 
 export const metadata: Metadata = {
   title: 'Apply — The Hard Port',

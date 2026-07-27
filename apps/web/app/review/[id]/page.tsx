@@ -1,8 +1,8 @@
 import type { Metadata } from 'next'
 
-import { ApplicationReviewPanel } from '@/components/application-review-panel'
-import { SiteFooter } from '@/shared/site-footer'
-import { SiteHeader } from '@/shared/site-header'
+import { ApplicationReviewPanel } from '@/components/review/application-review-panel'
+import { SiteFooter } from '@/components/layout/site-footer'
+import { SiteHeader } from '@/components/layout/site-header'
 
 export const metadata: Metadata = {
   title: 'Review Application — The Hard Port',

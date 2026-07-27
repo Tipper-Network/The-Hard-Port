@@ -1,12 +1,12 @@
 'use client'
 
-import LinkButton from '@/components/link_button'
+import LinkButton from '@/components/link-button'
 import {
   STICKY_CTA_BY_SECTION,
   STICKY_CTA_SECTION_IDS,
   type HomeSectionId,
 } from '@/landing/sections.config'
-import { useActiveSection } from '@/lib/use-active-section'
+import { useActiveSection } from '@/hooks/use-active-section'
 
 export function StickyCta() {
   const activeId = useActiveSection(STICKY_CTA_SECTION_IDS)

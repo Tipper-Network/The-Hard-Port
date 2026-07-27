@@ -1,4 +1,4 @@
-import LinkButton from '@/components/link_button'
+import LinkButton from '@/components/link-button'
 import { slogan } from '@/lib/brand'
 
 function HeroSail() {
