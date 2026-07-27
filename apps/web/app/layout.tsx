@@ -1,5 +1,6 @@
 import type { Metadata, Viewport } from 'next'
 
+import { QueryProvider } from '@/components/providers/query-provider'
 import { brand, site } from '@/lib/brand'
 import '@/styles.css'
 
@@ -43,7 +44,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           rel="stylesheet"
         />
       </head>
-      <body>{children}</body>
+      <body>
+        <QueryProvider>{children}</QueryProvider>
+      </body>
     </html>
   )
 }

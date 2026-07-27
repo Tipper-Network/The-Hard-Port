@@ -5,25 +5,19 @@ import { useState } from 'react'
 import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
 import { Textarea } from '@/components/ui/textarea'
+import { useUpdateApplicationPipeline } from '@/hooks/api/use-applications'
 import {
   LIFECYCLE_STATUSES,
   QUALIFICATION_RESULTS,
   type ApplicationRecord,
 } from '@/lib/intake/pipeline'
-import {
-  updateApplicationPipeline,
-  type UpdatePipelinePayload,
-} from '@/lib/api/review'
+import type { UpdatePipelinePayload } from '@/lib/api/review'
 
 type ApplicationPipelineFormProps = {
   application: ApplicationRecord
-  onUpdated: (application: ApplicationRecord) => void
 }
 
-export function ApplicationPipelineForm({
-  application,
-  onUpdated,
-}: ApplicationPipelineFormProps) {
+export function ApplicationPipelineForm({ application }: ApplicationPipelineFormProps) {
   const [form, setForm] = useState({
     lifecycleStatus: application.lifecycleStatus,
     qualificationResult: application.qualificationResult ?? '',
@@ -36,13 +30,15 @@ export function ApplicationPipelineForm({
     notes: application.notes ?? '',
     clientId: application.clientId ?? '',
   })
-  const [status, setStatus] = useState<'idle' | 'saving' | 'saved' | 'error'>('idle')
-  const [error, setError] = useState<string | null>(null)
+  const [savedVisible, setSavedVisible] = useState(false)
 
-  async function handleSubmit(e: React.FormEvent) {
+  const { mutate, isPending, isError, error, isSuccess, reset } = useUpdateApplicationPipeline(
+    application.id,
+  )
+
+  function handleSubmit(e: React.FormEvent) {
     e.preventDefault()
-    setStatus('saving')
-    setError(null)
+    reset()
 
     const payload: UpdatePipelinePayload = {
       lifecycleStatus: form.lifecycleStatus,
@@ -57,16 +53,12 @@ export function ApplicationPipelineForm({
       clientId: form.clientId || null,
     }
 
-    const result = await updateApplicationPipeline(application.id, payload)
-    if (!result.ok) {
-      setStatus('error')
-      setError(result.error)
-      return
-    }
-
-    onUpdated(result.application)
-    setStatus('saved')
-    setTimeout(() => setStatus('idle'), 2000)
+    mutate(payload, {
+      onSuccess: () => {
+        setSavedVisible(true)
+        window.setTimeout(() => setSavedVisible(false), 2000)
+      },
+    })
   }
 
   return (
@@ -197,15 +189,15 @@ export function ApplicationPipelineForm({
       <div className="flex flex-wrap items-center gap-4">
         <button
           type="submit"
-          disabled={status === 'saving'}
+          disabled={isPending}
           className="bg-accent px-6 py-3 text-sm font-bold uppercase tracking-wide text-background disabled:opacity-60"
         >
-          {status === 'saving' ? 'Saving…' : 'Save pipeline'}
+          {isPending ? 'Saving…' : 'Save pipeline'}
         </button>
-        {status === 'saved' ? (
+        {savedVisible && isSuccess ? (
           <span className="text-sm text-accent">Saved.</span>
         ) : null}
-        {error ? <span className="text-sm text-alert">{error}</span> : null}
+        {isError ? <span className="text-sm text-alert">{error.message}</span> : null}
       </div>
     </form>
   )

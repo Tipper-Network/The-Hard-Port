@@ -1,14 +1,13 @@
 'use client'
 
-import { useEffect, useState } from 'react'
 import Link from 'next/link'
 
 import { ApplicationPipelineForm } from '@/components/review/application-pipeline-form'
 import LinkButton from '@/components/link-button'
 import { ReviewerSessionBar } from '@/components/review/reviewer-session-bar'
 import { useReviewerSession } from '@/components/review/use-reviewer-session'
-import type { ApplicationRecord } from '@/lib/intake/pipeline'
-import { getApplication } from '@/lib/api/review'
+import { isUnauthorizedError } from '@/lib/api/errors'
+import { useApplication } from '@/hooks/api/use-applications'
 
 type ApplicationReviewPanelProps = {
   id: string
@@ -23,40 +22,14 @@ function formatDate(value: string) {
 
 export function ApplicationReviewPanel({ id }: ApplicationReviewPanelProps) {
   const { user, loading: sessionLoading, error: sessionError, signOut } = useReviewerSession()
-  const [application, setApplication] = useState<ApplicationRecord | null>(null)
-  const [error, setError] = useState<string | null>(null)
-  const [loading, setLoading] = useState(true)
+  const {
+    data: application,
+    isPending,
+    isError,
+    error,
+  } = useApplication(id, { enabled: !!user })
 
-  useEffect(() => {
-    if (sessionLoading || !user) return
-
-    let cancelled = false
-
-    async function load() {
-      const result = await getApplication(id)
-      if (cancelled) return
-
-      if (!result.ok) {
-        if (result.unauthorized) {
-          signOut()
-          return
-        }
-        setError(result.error)
-        setLoading(false)
-        return
-      }
-
-      setApplication(result.application)
-      setLoading(false)
-    }
-
-    void load()
-    return () => {
-      cancelled = true
-    }
-  }, [id, sessionLoading, user, signOut])
-
-  if (sessionLoading || (user && loading)) {
+  if (sessionLoading || (user && isPending)) {
     return <p className="text-white/70">Loading application…</p>
   }
 
@@ -73,11 +46,25 @@ export function ApplicationReviewPanel({ id }: ApplicationReviewPanelProps) {
     return null
   }
 
-  if (error || !application) {
+  if (isError) {
+    if (isUnauthorizedError(error)) {
+      return null
+    }
+
     return (
       <div className="space-y-4">
         <ReviewerSessionBar user={user} onSignOut={signOut} />
-        <p className="text-alert">{error ?? 'Application not found'}</p>
+        <p className="text-alert">{error.message}</p>
+        <LinkButton text="Back to list" href="/review" intensity={1} />
+      </div>
+    )
+  }
+
+  if (!application) {
+    return (
+      <div className="space-y-4">
+        <ReviewerSessionBar user={user} onSignOut={signOut} />
+        <p className="text-alert">Application not found</p>
         <LinkButton text="Back to list" href="/review" intensity={1} />
       </div>
     )
@@ -144,7 +131,7 @@ export function ApplicationReviewPanel({ id }: ApplicationReviewPanelProps) {
           <code className="text-white/80">pnpm --filter api pipeline:export</code>
         </p>
         <div className="mt-6">
-          <ApplicationPipelineForm application={application} onUpdated={setApplication} />
+          <ApplicationPipelineForm key={application.id} application={application} />
         </div>
       </section>
     </div>

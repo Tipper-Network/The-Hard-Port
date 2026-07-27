@@ -1,17 +1,17 @@
 'use client'
 
-import { Suspense, useEffect, useState } from 'react'
+import { Suspense, useEffect, useRef } from 'react'
 import { useRouter, useSearchParams } from 'next/navigation'
 
 import LinkButton from '@/components/link-button'
-import { getCurrentUser } from '@/lib/api/auth'
-import { clearAccessToken, setAccessToken } from '@/lib/auth/session'
+import { useCompleteSignIn } from '@/hooks/api/use-auth'
 
 function AuthCallbackInner() {
   const router = useRouter()
   const searchParams = useSearchParams()
   const token = searchParams.get('token')
-  const [error, setError] = useState<string | null>(null)
+  const { mutate, isPending, isError, error } = useCompleteSignIn()
+  const started = useRef(false)
 
   useEffect(() => {
     if (!token) {
@@ -19,34 +19,15 @@ function AuthCallbackInner() {
       return
     }
 
-    const accessToken = token
-    let cancelled = false
+    if (started.current) return
+    started.current = true
+    mutate(token)
+  }, [token, router, mutate])
 
-    async function finishSignIn() {
-      setAccessToken(accessToken)
-
-      const result = await getCurrentUser()
-      if (cancelled) return
-
-      if (!result.ok) {
-        clearAccessToken()
-        setError(result.error)
-        return
-      }
-
-      router.replace('/review')
-    }
-
-    void finishSignIn()
-    return () => {
-      cancelled = true
-    }
-  }, [token, router])
-
-  if (error) {
+  if (isError) {
     return (
       <main className="flex min-h-screen flex-col items-center justify-center gap-4 bg-depth-9 px-6 text-center">
-        <p className="text-alert">{error}</p>
+        <p className="text-alert">{error.message}</p>
         <LinkButton text="Back to sign in" href="/sign-in" intensity={1} />
       </main>
     )
@@ -54,7 +35,7 @@ function AuthCallbackInner() {
 
   return (
     <main className="flex min-h-screen items-center justify-center bg-depth-9 px-6 text-white/70">
-      Signing you in…
+      {isPending ? 'Signing you in…' : 'Signing you in…'}
     </main>
   )
 }
