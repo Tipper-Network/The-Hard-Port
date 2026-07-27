@@ -4,15 +4,10 @@ import { useEffect } from 'react'
 import { useRouter } from 'next/navigation'
 
 import LinkButton from '@/components/link-button'
-import type { AuthProviders } from '@/lib/api/auth'
 import { getAccessToken, getGoogleLoginUrl, getMetaLoginUrl } from '@/lib/auth/session'
 import { useAuthProviders, useCurrentUser } from '@/hooks/api/use-auth'
 
-type SignInPanelProps = {
-  initialProviders?: AuthProviders
-}
-
-export function SignInPanel({ initialProviders }: SignInPanelProps) {
+export function SignInPanel() {
   const router = useRouter()
   const hasToken = !!getAccessToken()
   const { data: user, isSuccess: isSignedIn } = useCurrentUser({ enabled: hasToken })
@@ -21,7 +16,7 @@ export function SignInPanel({ initialProviders }: SignInPanelProps) {
     isPending,
     isError,
     error,
-  } = useAuthProviders(initialProviders)
+  } = useAuthProviders()
 
   useEffect(() => {
     if (isSignedIn && user) {
