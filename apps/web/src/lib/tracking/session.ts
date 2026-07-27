@@ -90,11 +90,22 @@ export function getMaxRung(): number {
 export function getDiscoveryPrefill(): string | null {
   const entry = getEntryContext()
   if (!entry) return null
-  if (entry.ref === 'youtube') {
-    return entry.video ? `YouTube — video ${entry.video}` : 'YouTube'
-  }
+  if (entry.ref === 'youtube') return 'YouTube'
   if (entry.utmSource) {
-    return entry.utmSource
+    const source = entry.utmSource.trim().toLowerCase()
+    if (source.includes('google') || source.includes('bing') || source.includes('search')) {
+      return 'Google / search'
+    }
+    if (
+      source.includes('instagram') ||
+      source.includes('facebook') ||
+      source.includes('linkedin') ||
+      source.includes('meta') ||
+      source.includes('tiktok') ||
+      source.includes('youtube')
+    ) {
+      return source.includes('youtube') ? 'YouTube' : 'Social media'
+    }
   }
   return null
 }

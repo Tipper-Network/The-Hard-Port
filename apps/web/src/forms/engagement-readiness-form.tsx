@@ -6,7 +6,15 @@ import { useRouter } from 'next/navigation'
 import { FormStepSection } from '@/components/tracking/form-step-section'
 import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from '@/components/ui/select'
 import { Textarea } from '@/components/ui/textarea'
+import { DISCOVERY_SOURCE_OPTIONS } from '@/lib/intake/discovery-sources'
 import type { IntakePayload } from '@/lib/intake/payload'
 import { submitIntake } from '@/lib/intake/submit'
 import {
@@ -322,7 +330,28 @@ export function EngagementReadinessForm() {
           </Field>
 
           <Field label="How did you find The Hard Port?" id="discovery" error={errors.discoverySource}>
-            <Input id="discovery" value={form.discoverySource} onChange={updateText('discoverySource')} placeholder="YouTube, referral, search…" className={inputClass} />
+            <Select
+              value={form.discoverySource || undefined}
+              onValueChange={(value) => {
+                trackFieldStarted('discoverySource')
+                setForm((prev) => ({ ...prev, discoverySource: value }))
+              }}
+            >
+              <SelectTrigger
+                id="discovery"
+                aria-invalid={errors.discoverySource || undefined}
+                className={`${inputClass} h-auto min-h-10 w-full py-2 text-white data-placeholder:text-white/40`}
+              >
+                <SelectValue placeholder="Select…" />
+              </SelectTrigger>
+              <SelectContent className="border-white/20 bg-depth-9 text-white">
+                {DISCOVERY_SOURCE_OPTIONS.map((option) => (
+                  <SelectItem key={option.value} value={option.value}>
+                    {option.label}
+                  </SelectItem>
+                ))}
+              </SelectContent>
+            </Select>
           </Field>
 
           <Field label="Legal, financial, or operational crisis we should know about (optional)" id="crisis">
