@@ -1,5 +1,5 @@
 import { getApiUrl } from '@/lib/auth/session'
-import { getVisitorIdentity, type VisitorEvent } from '@/lib/tracking/event-store'
+import { getBatchMeta, getVisitorIdentity, type VisitorEvent } from '@/lib/tracking/event-store'
 
 type FlushResult = { ok: true; stored: number } | { ok: false }
 
@@ -10,6 +10,7 @@ export async function flushVisitorEvents(
   if (events.length === 0) return { ok: true, stored: 0 }
 
   const identity = getVisitorIdentity()
+  const meta = getBatchMeta()
 
   try {
     const res = await fetch(`${getApiUrl()}/tracking/events`, {
@@ -17,8 +18,12 @@ export async function flushVisitorEvents(
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
         visitorId,
+        sessionId: meta.sessionId,
         email: identity.email,
         name: identity.name,
+        locale: meta.locale,
+        timezone: meta.timezone,
+        phoneCountryCode: meta.phoneCountryCode,
         events: events.map((event) => ({
           name: event.name,
           path: event.path,

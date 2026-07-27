@@ -54,6 +54,7 @@ type LinkButtonProps = {
   noMargin?: boolean
   external?: boolean
   'aria-label'?: string
+  onClick?: () => void
   children?: ReactNode
 }
 
@@ -68,6 +69,7 @@ const LinkButton = ({
   noMargin = false,
   external,
   'aria-label': ariaLabel,
+  onClick,
   children,
 }: LinkButtonProps) => {
   const content = children ?? text
@@ -92,6 +94,7 @@ const LinkButton = ({
       rel={opensInNewTab ? 'noopener noreferrer' : undefined}
       className={classes}
       onClick={() => {
+        onClick?.()
         if (isCtaVariant && typeof text === 'string') {
           trackClick(text, href)
         }
@@ -105,6 +108,7 @@ const LinkButton = ({
       aria-label={ariaLabel}
       className={classes}
       onClick={() => {
+        onClick?.()
         if (isCtaVariant && typeof text === 'string') {
           trackClick(text, resolveHref(href, hash))
         }

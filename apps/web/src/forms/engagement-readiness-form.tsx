@@ -3,12 +3,23 @@
 import { useState, useEffect, type FormEvent } from 'react'
 import { useRouter } from 'next/navigation'
 
+import { FormStepSection } from '@/components/tracking/form-step-section'
 import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
 import { Textarea } from '@/components/ui/textarea'
 import type { IntakePayload } from '@/lib/intake/payload'
 import { submitIntake } from '@/lib/intake/submit'
-import { getVisitorId, identifyVisitor, trackEvent } from '@/lib/tracking'
+import {
+  getDiscoveryPrefill,
+  getEntryContext,
+  getVisitorId,
+  identifyVisitor,
+  markApplicationSubmitted,
+  markApplicationViewed,
+  parsePhoneCountryCode,
+  trackEvent,
+  trackFieldStarted,
+} from '@/lib/tracking'
 
 type FormState = {
   founderName: string
@@ -56,12 +67,18 @@ type FieldErrors = Partial<Record<keyof FormState, boolean>>
 
 function buildPayload(form: FormState): IntakePayload {
   const visitorId = getVisitorId()
+  const entry = getEntryContext()
+  const phoneCountryCode = parsePhoneCountryCode(form.contactPhone)
+
   return {
     submittedAt: new Date().toISOString(),
     form: 'THP-ENGAGEMENT-READINESS-APPLICATION',
     version: '1.0.0',
     ...form,
     ...(visitorId ? { visitorId } : {}),
+    ...(entry?.locale ? { locale: entry.locale } : {}),
+    ...(entry?.timezone ? { timezone: entry.timezone } : {}),
+    ...(phoneCountryCode ? { phoneCountryCode } : {}),
   }
 }
 
@@ -73,21 +90,37 @@ export function EngagementReadinessForm() {
   const [manualJson, setManualJson] = useState('')
 
   useEffect(() => {
+    markApplicationViewed()
     trackEvent('application_view')
+
+    const prefill = getDiscoveryPrefill()
+    if (prefill) {
+      setForm((prev) =>
+        prev.discoverySource.trim() ? prev : { ...prev, discoverySource: prefill },
+      )
+    }
   }, [])
 
-  function syncIdentity(next: Pick<FormState, 'email' | 'founderName'>) {
+  function syncIdentity(next: Pick<FormState, 'email' | 'founderName' | 'contactPhone'>) {
     const email = next.email.trim()
     const name = next.founderName.trim()
-    if (!email && !name) return
+    const phoneCountryCode = parsePhoneCountryCode(next.contactPhone)
+    const entry = getEntryContext()
+
+    if (!email && !name && !phoneCountryCode) return
+
     identifyVisitor({
       ...(email ? { email } : {}),
       ...(name ? { name } : {}),
+      ...(entry?.locale ? { locale: entry.locale } : {}),
+      ...(entry?.timezone ? { timezone: entry.timezone } : {}),
+      ...(phoneCountryCode ? { phoneCountryCode } : {}),
     })
   }
 
   function updateText(key: keyof FormState) {
     return (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+      trackFieldStarted(key)
       setForm((prev) => ({ ...prev, [key]: e.target.value }))
     }
   }
@@ -116,7 +149,8 @@ export function EngagementReadinessForm() {
     if (Object.values(nextErrors).some(Boolean)) return
 
     const payload = buildPayload(form)
-    identifyVisitor({ email: form.email.trim(), name: form.founderName.trim() })
+    syncIdentity(form)
+    markApplicationSubmitted()
     trackEvent('application_submit', { businessName: form.businessName.trim() })
     setStatus('submitting')
 
@@ -161,6 +195,8 @@ export function EngagementReadinessForm() {
     )
   }
 
+  const stepValues = form as unknown as Record<string, string | boolean>
+
   return (
     <form
       onSubmit={handleSubmit}
@@ -176,87 +212,110 @@ export function EngagementReadinessForm() {
       </p>
 
       <div className="mt-7 space-y-5">
-        <div className="grid gap-5 md:grid-cols-2">
-          <Field label="Your name" id="founder-name" error={errors.founderName}>
-            <Input
-              id="founder-name"
-              value={form.founderName}
-              onChange={updateText('founderName')}
-              onBlur={() => syncIdentity(form)}
-              className={inputClass}
-            />
+        <FormStepSection step="step_identity" values={stepValues}>
+          <div className="grid gap-5 md:grid-cols-2">
+            <Field label="Your name" id="founder-name" error={errors.founderName}>
+              <Input
+                id="founder-name"
+                value={form.founderName}
+                onChange={updateText('founderName')}
+                onBlur={() => syncIdentity(form)}
+                className={inputClass}
+              />
+            </Field>
+            <Field label="Business name" id="business-name" error={errors.businessName}>
+              <Input
+                id="business-name"
+                value={form.businessName}
+                onChange={updateText('businessName')}
+                className={inputClass}
+              />
+            </Field>
+          </div>
+
+          <div className="mt-5 grid gap-5 md:grid-cols-2">
+            <Field label="Email" id="email" error={errors.email}>
+              <Input
+                id="email"
+                type="email"
+                value={form.email}
+                onChange={updateText('email')}
+                onBlur={() => syncIdentity(form)}
+                className={inputClass}
+              />
+            </Field>
+            <Field label="Phone / WhatsApp (optional)" id="phone">
+              <Input
+                id="phone"
+                value={form.contactPhone}
+                onChange={updateText('contactPhone')}
+                onBlur={() => syncIdentity(form)}
+                className={inputClass}
+              />
+            </Field>
+          </div>
+        </FormStepSection>
+
+        <FormStepSection step="step_business" values={stepValues}>
+          <div className="space-y-5">
+          <Field label="What do you sell; in one clear sentence?" id="core-offer" error={errors.coreOffer}>
+            <Textarea id="core-offer" rows={2} value={form.coreOffer} onChange={updateText('coreOffer')} className={inputClass} />
           </Field>
-          <Field label="Business name" id="business-name" error={errors.businessName}>
-            <Input id="business-name" value={form.businessName} onChange={updateText('businessName')} className={inputClass} />
+
+          <Field label="Paying customers; how many unrelated buyers, with examples?" id="paying" error={errors.payingCustomers}>
+            <Textarea id="paying" rows={2} value={form.payingCustomers} onChange={updateText('payingCustomers')} className={inputClass} />
           </Field>
-        </div>
 
-        <div className="grid gap-5 md:grid-cols-2">
-          <Field label="Email" id="email" error={errors.email}>
-            <Input
-              id="email"
-              type="email"
-              value={form.email}
-              onChange={updateText('email')}
-              onBlur={() => syncIdentity(form)}
-              className={inputClass}
-            />
+          <Field label="How many times have you delivered this offer?" id="delivery" error={errors.deliveryHistory}>
+            <Textarea id="delivery" rows={2} value={form.deliveryHistory} onChange={updateText('deliveryHistory')} className={inputClass} />
           </Field>
-          <Field label="Phone / WhatsApp (optional)" id="phone">
-            <Input id="phone" value={form.contactPhone} onChange={updateText('contactPhone')} className={inputClass} />
+
+          <Field label="Is the business actively operating right now?" id="operating" error={errors.operatingStatus}>
+            <Textarea id="operating" rows={2} value={form.operatingStatus} onChange={updateText('operatingStatus')} className={inputClass} />
           </Field>
-        </div>
 
-        <Field label="What do you sell; in one clear sentence?" id="core-offer" error={errors.coreOffer}>
-          <Textarea id="core-offer" rows={2} value={form.coreOffer} onChange={updateText('coreOffer')} className={inputClass} />
-        </Field>
+          <Field label="Do you intend to keep building this as a business?" id="continuation" error={errors.founderContinuation}>
+            <Textarea id="continuation" rows={2} value={form.founderContinuation} onChange={updateText('founderContinuation')} className={inputClass} />
+          </Field>
 
-        <Field label="Paying customers; how many unrelated buyers, with examples?" id="paying" error={errors.payingCustomers}>
-          <Textarea id="paying" rows={2} value={form.payingCustomers} onChange={updateText('payingCustomers')} className={inputClass} />
-        </Field>
+          <Field label="Primary online channels and activity" id="online">
+            <Textarea id="online" rows={2} value={form.onlineActivity} onChange={updateText('onlineActivity')} className={inputClass} />
+          </Field>
+          </div>
+        </FormStepSection>
 
-        <Field label="How many times have you delivered this offer?" id="delivery" error={errors.deliveryHistory}>
-          <Textarea id="delivery" rows={2} value={form.deliveryHistory} onChange={updateText('deliveryHistory')} className={inputClass} />
-        </Field>
+        <FormStepSection step="step_problems" values={stepValues}>
+          <div className="space-y-5">
+          <Field label="What is not working; and what have you already tried?" id="problems">
+            <Textarea id="problems" rows={3} value={form.primaryProblems} onChange={updateText('primaryProblems')} className={inputClass} />
+          </Field>
 
-        <Field label="Is the business actively operating right now?" id="operating" error={errors.operatingStatus}>
-          <Textarea id="operating" rows={2} value={form.operatingStatus} onChange={updateText('operatingStatus')} className={inputClass} />
-        </Field>
+          <Field label="What records can you share if we proceed? (invoices, messages, analytics…)" id="records">
+            <Textarea id="records" rows={2} value={form.availableRecords} onChange={updateText('availableRecords')} className={inputClass} />
+          </Field>
 
-        <Field label="Do you intend to keep building this as a business?" id="continuation" error={errors.founderContinuation}>
-          <Textarea id="continuation" rows={2} value={form.founderContinuation} onChange={updateText('founderContinuation')} className={inputClass} />
-        </Field>
+          <Field label="How did you find The Hard Port?" id="discovery" error={errors.discoverySource}>
+            <Input id="discovery" value={form.discoverySource} onChange={updateText('discoverySource')} placeholder="YouTube, referral, search…" className={inputClass} />
+          </Field>
 
-        <Field label="Primary online channels and activity" id="online">
-          <Textarea id="online" rows={2} value={form.onlineActivity} onChange={updateText('onlineActivity')} className={inputClass} />
-        </Field>
+          <Field label="Legal, financial, or operational crisis we should know about (optional)" id="crisis">
+            <Textarea id="crisis" rows={2} value={form.crisisIndicators} onChange={updateText('crisisIndicators')} className={inputClass} />
+          </Field>
+          </div>
+        </FormStepSection>
 
-        <Field label="What is not working; and what have you already tried?" id="problems">
-          <Textarea id="problems" rows={3} value={form.primaryProblems} onChange={updateText('primaryProblems')} className={inputClass} />
-        </Field>
+        <FormStepSection step="step_confirm" values={stepValues}>
+          <div className="space-y-3 border-t border-white/10 pt-5">
+            <p className="text-sm font-semibold text-white/80">Readiness (required)</p>
+            <Check id="w1" checked={form.willingnessExamine} onChange={(v) => { trackFieldStarted('willingnessExamine'); setForm((p) => ({ ...p, willingnessExamine: v })) }} label="I am willing to examine my business assumptions with evidence." />
+            <Check id="w2" checked={form.willingnessEvidence} onChange={(v) => { trackFieldStarted('willingnessEvidence'); setForm((p) => ({ ...p, willingnessEvidence: v })) }} label="I can provide basic business evidence if asked." />
+            <Check id="w3" checked={form.willingnessFeedback} onChange={(v) => { trackFieldStarted('willingnessFeedback'); setForm((p) => ({ ...p, willingnessFeedback: v })) }} label="I am open to customer and market feedback, including uncomfortable findings." />
+          </div>
 
-        <Field label="What records can you share if we proceed? (invoices, messages, analytics…)" id="records">
-          <Textarea id="records" rows={2} value={form.availableRecords} onChange={updateText('availableRecords')} className={inputClass} />
-        </Field>
-
-        <Field label="How did you find The Hard Port?" id="discovery" error={errors.discoverySource}>
-          <Input id="discovery" value={form.discoverySource} onChange={updateText('discoverySource')} placeholder="YouTube, referral, search…" className={inputClass} />
-        </Field>
-
-        <Field label="Legal, financial, or operational crisis we should know about (optional)" id="crisis">
-          <Textarea id="crisis" rows={2} value={form.crisisIndicators} onChange={updateText('crisisIndicators')} className={inputClass} />
-        </Field>
-
-        <div className="space-y-3 border-t border-white/10 pt-5">
-          <p className="text-sm font-semibold text-white/80">Readiness (required)</p>
-          <Check id="w1" checked={form.willingnessExamine} onChange={(v) => setForm((p) => ({ ...p, willingnessExamine: v }))} label="I am willing to examine my business assumptions with evidence." />
-          <Check id="w2" checked={form.willingnessEvidence} onChange={(v) => setForm((p) => ({ ...p, willingnessEvidence: v }))} label="I can provide basic business evidence if asked." />
-          <Check id="w3" checked={form.willingnessFeedback} onChange={(v) => setForm((p) => ({ ...p, willingnessFeedback: v }))} label="I am open to customer and market feedback, including uncomfortable findings." />
-        </div>
-
-        <div className="space-y-2 border-t border-white/10 pt-5">
-          <Check id="privacy" checked={form.privacyAck} onChange={(v) => setForm((p) => ({ ...p, privacyAck: v }))} label="I understand this application is self-reported, does not guarantee acceptance, and that THP will use my information only to evaluate fit and contact me. (Privacy notice; full text pending legal review.)" error={errors.privacyAck} />
-        </div>
+          <div className="space-y-2 border-t border-white/10 pt-5">
+            <Check id="privacy" checked={form.privacyAck} onChange={(v) => { trackFieldStarted('privacyAck'); setForm((p) => ({ ...p, privacyAck: v })) }} label="I understand this application is self-reported, does not guarantee acceptance, and that THP will use my information only to evaluate fit and contact me. (Privacy notice; full text pending legal review.)" error={errors.privacyAck} />
+          </div>
+        </FormStepSection>
 
         {Object.values(errors).some(Boolean) && (
           <p className="text-sm font-semibold text-accent">Complete required fields and confirm the privacy notice.</p>

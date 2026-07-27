@@ -25,7 +25,12 @@ export class IntakeService {
     }
 
     const email = dto.email.trim().toLowerCase()
-    const applicant = await this.users.ensureApplicantUser(email, dto.founderName)
+    const applicant = await this.users.ensureApplicantUser(email, {
+      name: dto.founderName,
+      locale: dto.locale,
+      timezone: dto.timezone,
+      phoneCountryCode: dto.phoneCountryCode,
+    })
     const visitorId = dto.visitorId?.trim()
 
     if (visitorId) {
