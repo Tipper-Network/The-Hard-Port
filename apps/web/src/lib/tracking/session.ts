@@ -98,3 +98,10 @@ export function getDiscoveryPrefill(): string | null {
   }
   return null
 }
+
+/** YouTube video ID from `?ref=youtube&video=` — for discoverySourceVideo field (P05). */
+export function getDiscoveryVideoId(): string | null {
+  const entry = getEntryContext()
+  if (!entry || entry.ref !== 'youtube') return null
+  return entry.video?.trim() || null
+}

@@ -55,6 +55,7 @@ export type ApplicationRecord = {
   primaryProblems: string | null
   availableRecords: string | null
   discoverySource: string
+  discoverySourceVideo: string | null
   willingnessExamine: boolean
   willingnessEvidence: boolean
   willingnessFeedback: boolean

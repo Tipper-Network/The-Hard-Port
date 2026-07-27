@@ -8,6 +8,7 @@ import { JwtService } from '@nestjs/jwt'
 import { OAuthProvider, UserRole } from '../generated/prisma/client'
 
 import type { AuthenticatedUser, JwtPayload, OAuthProfile } from './auth.types'
+import { buildOAuthUserData } from './oauth-user-data.util'
 import { PrismaService } from '../prisma/prisma.service'
 
 @Injectable()
@@ -45,10 +46,7 @@ export class AuthService {
 
       const user = await this.prisma.user.update({
         where: { id: account.userId },
-        data: {
-          name: profile.name ?? account.user.name,
-          image: profile.image ?? account.user.image,
-        },
+        data: buildOAuthUserData(profile, account.user),
       })
 
       return this.toAuthenticatedUser(user)
@@ -60,16 +58,18 @@ export class AuthService {
       throw new ForbiddenException('Applicant accounts cannot sign in here')
     }
 
-    const user =
-      existingUser ??
-      (await this.prisma.user.create({
-        data: {
-          email,
-          name: profile.name,
-          image: profile.image,
-          role: UserRole.reviewer,
-        },
-      }))
+    const user = existingUser
+      ? await this.prisma.user.update({
+          where: { id: existingUser.id },
+          data: buildOAuthUserData(profile, existingUser),
+        })
+      : await this.prisma.user.create({
+          data: {
+            email,
+            role: UserRole.reviewer,
+            ...buildOAuthUserData(profile),
+          },
+        })
 
     await this.prisma.oAuthAccount.create({
       data: {
@@ -142,6 +142,9 @@ export class AuthService {
     name: string | null
     image: string | null
     role: UserRole
+    birthDate: Date | null
+    gender: string | null
+    hometown: string | null
   }): AuthenticatedUser {
     return {
       id: user.id,
@@ -149,6 +152,9 @@ export class AuthService {
       name: user.name,
       image: user.image,
       role: user.role,
+      birthDate: user.birthDate ? user.birthDate.toISOString().slice(0, 10) : null,
+      gender: user.gender,
+      hometown: user.hometown,
     }
   }
 
@@ -163,6 +169,9 @@ export class AuthService {
       name: null,
       image: null,
       role: payload.role ?? UserRole.reviewer,
+      birthDate: null,
+      gender: null,
+      hometown: null,
     }
   }
 }

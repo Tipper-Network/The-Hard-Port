@@ -1,5 +1,7 @@
 # THP Site Tracking — Roadmap & Todo
 
+**Launch priorities (scaffold):** `the-hard-port-os/operations/launch-scaffold/` — P01–P07 ops checklists + wired code stubs.
+
 **Purpose:** Build a first-party drop-off map — entry → homepage depth → CTA → apply → submit — linked to `users` (role `user`) by email when known.
 
 **Current baseline (shipped):** `page_view`, `cta_click`, `application_view`, `application_submit`, visitor ID in `localStorage`, batch flush to `POST /tracking/events`, email identify on blur/submit.
@@ -159,7 +161,7 @@ See **Cookie / consent** below. Implementation todos:
 - [x] **7.1** API: `GET /tracking/applications/:id/journey` — timeline for one applicant
 - [x] **7.2** API: `GET /tracking/funnel/summary` — counts by max rung, step, abandon (date range)
 - [x] **7.3** Review UI tab on `/review/[id]`: “Site path” — event timeline + max homepage rung
-- [ ] **7.4** Optional CSV export matching pipeline tracker
+- [ ] **7.4** CSV export — stub at `GET /tracking/funnel/export` (header only); implement aggregation
 
 ---
 

@@ -71,6 +71,11 @@ export class CreateApplicationDto {
   @MinLength(1)
   discoverySource!: string
 
+  @IsOptional()
+  @IsString()
+  @MaxLength(120)
+  discoverySourceVideo?: string
+
   @IsBoolean()
   willingnessExamine!: boolean
 

@@ -51,8 +51,18 @@ OAuth providers are **optional at startup**. Routes return `503` until credentia
 
 1. [Meta for Developers](https://developers.facebook.com/) → Create app → Facebook Login
 2. Valid OAuth Redirect URI: `http://localhost:3001/auth/meta/callback`
-3. Add **email** permission
+3. Request permissions: **email**, **public_profile**, **user_birthday**, **user_gender**, **user_hometown**
 4. Copy App ID + App Secret to `.env`
+
+On sign-in, Meta profile fields are stored on `users`:
+
+| Meta permission | DB column | Notes |
+|-----------------|-----------|-------|
+| email | `email` | Required for sign-in |
+| public_profile | `name`, `image` | Display name + picture |
+| user_birthday | `birth_date` | Only when Meta returns MM/DD/YYYY (year shared) |
+| user_gender | `gender` | e.g. `male`, `female` |
+| user_hometown | `hometown` | City name from Graph `hometown.name` |
 
 ## Web flow
 

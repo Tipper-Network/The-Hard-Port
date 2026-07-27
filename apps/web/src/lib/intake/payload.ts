@@ -15,6 +15,7 @@ export type IntakePayload = {
   primaryProblems: string
   availableRecords: string
   discoverySource: string
+  discoverySourceVideo?: string
   willingnessExamine: boolean
   willingnessEvidence: boolean
   willingnessFeedback: boolean
@@ -95,6 +96,9 @@ export function validateIntakePayload(
     primaryProblems: isNonEmptyString(record.primaryProblems) ? record.primaryProblems.trim() : '',
     availableRecords: isNonEmptyString(record.availableRecords) ? record.availableRecords.trim() : '',
     discoverySource: (record.discoverySource as string).trim(),
+    ...(isNonEmptyString(record.discoverySourceVideo)
+      ? { discoverySourceVideo: record.discoverySourceVideo.trim() }
+      : {}),
     willingnessExamine: record.willingnessExamine as boolean,
     willingnessEvidence: record.willingnessEvidence as boolean,
     willingnessFeedback: record.willingnessFeedback as boolean,

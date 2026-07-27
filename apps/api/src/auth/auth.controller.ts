@@ -14,6 +14,7 @@ import type { AuthenticatedUser } from './auth.types'
 import { AuthService } from './auth.service'
 import { CurrentUser } from './decorators/current-user.decorator'
 import { JwtAuthGuard } from './guards/auth.guards'
+import { META_OAUTH_SCOPES } from './meta-oauth.constants'
 
 @Controller('auth')
 export class AuthController {
@@ -48,7 +49,7 @@ export class AuthController {
   @Get('meta')
   meta(@Req() req: Request, @Res() res: Response, @Next() next: NextFunction) {
     this.assertMetaEnabled()
-    return passport.authenticate('meta', { scope: ['email'] })(req, res, next)
+    return passport.authenticate('meta', { scope: [...META_OAUTH_SCOPES] })(req, res, next)
   }
 
   @Get('meta/callback')

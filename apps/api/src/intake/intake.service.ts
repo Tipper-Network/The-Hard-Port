@@ -2,7 +2,9 @@ import { BadRequestException, Injectable, NotFoundException } from '@nestjs/comm
 
 import { CreateApplicationDto } from './dto/create-application.dto'
 import { UpdateApplicationPipelineDto } from './dto/update-application-pipeline.dto'
+import { IntakeApplicantConfirmationService } from './intake-applicant-confirmation.service'
 import { IntakeNotificationService } from './intake-notification.service'
+import { IntakeWebhookService } from './intake-webhook.service'
 import { applicationSelect } from './pipeline.constants'
 import { UsersService } from '../users/users.service'
 import { PrismaService } from '../prisma/prisma.service'
@@ -12,6 +14,8 @@ export class IntakeService {
   constructor(
     private readonly prisma: PrismaService,
     private readonly notifications: IntakeNotificationService,
+    private readonly applicantConfirmation: IntakeApplicantConfirmationService,
+    private readonly webhooks: IntakeWebhookService,
     private readonly users: UsersService,
   ) {}
 
@@ -57,6 +61,7 @@ export class IntakeService {
         primaryProblems: dto.primaryProblems?.trim() || null,
         availableRecords: dto.availableRecords?.trim() || null,
         discoverySource: dto.discoverySource.trim(),
+        discoverySourceVideo: dto.discoverySourceVideo?.trim() || null,
         willingnessExamine: dto.willingnessExamine,
         willingnessEvidence: dto.willingnessEvidence,
         willingnessFeedback: dto.willingnessFeedback,
@@ -73,6 +78,13 @@ export class IntakeService {
       founderName: application.founderName,
       email: application.email,
       discoverySource: application.discoverySource,
+    })
+
+    void this.applicantConfirmation.sendApplicationReceived({
+      id: application.id,
+      businessName: application.businessName,
+      founderName: application.founderName,
+      email: application.email,
     })
 
     return {
@@ -156,6 +168,19 @@ export class IntakeService {
       data,
       select: applicationSelect,
     })
+
+    if (
+      dto.lifecycleStatus !== undefined &&
+      dto.lifecycleStatus !== existing.lifecycleStatus
+    ) {
+      void this.webhooks.notifyPipelineStageChange({
+        applicationId: application.id,
+        businessName: application.businessName,
+        previousLifecycleStatus: existing.lifecycleStatus,
+        lifecycleStatus: application.lifecycleStatus,
+        qualificationResult: application.qualificationResult,
+      })
+    }
 
     return { ok: true as const, application }
   }

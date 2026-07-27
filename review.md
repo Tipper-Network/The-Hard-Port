@@ -1,15 +1,15 @@
 # The Hard Port — Project Review
 
-**As of:** 2026-07-22  
-**Scope:** Website, intake API, operator tooling, positioning alignment, and readiness to attract first applicants.
+**As of:** 2026-07-27  
+**Scope:** Website, intake API, operator tooling, tracking, launch readiness, and positioning alignment.
 
 ---
 
 ## Executive summary
 
-THP has crossed from **prototype agency site** to **operating intake architecture**. The public funnel, backend, and reviewer path are wired and aligned with `THP-SMB-SERVICE-001`. The site can accept applications today in dev/local; **YouTube and paid diagnostic CTAs should wait** until commercial/legal gates and qualification workflow are closed.
+THP has moved from **intake prototype** to **observable funnel + operator pipeline**. Applications land in Postgres, operators get email notification (when Resend is configured), the review dashboard supports pipeline updates and first-party analytics, and applicants get a branded post-submit page.
 
-**One-line state:** Infrastructure is ahead of operations — you can collect applications, but you are not yet fully ready to process one through to a paid diagnostic conclusion.
+**One-line state:** You can receive and process applications end-to-end in dev/local. **YouTube broadcast** should wait until production deploy, legal minimum, ops SLA habit, and commercial placeholder are closed. **Course access (Tipper-gated)** is specced in `report.md` — build when the launch gate is ready.
 
 ---
 
@@ -18,99 +18,140 @@ THP has crossed from **prototype agency site** to **operating intake architectur
 ```
 Public applicant                         THP operator
 ────────────────                         ────────────
-/  (homepage)                            /sign-in
-  Hero + letter (eager)                    Google / Meta OAuth
+/  (homepage, 12 rungs)                  /sign-in
+  Consent banner → tracking (opt-in)       Google / Meta OAuth
   ↓ lazy sections                        ↓
-/work-with-us  →  /apply                 /auth/callback → /review
-  Service explanation                      JWT → GET /intake/applications
-  Engagement Readiness form
-       ↓ server action
-Nest POST /intake/applications
+/work-with-us  →  /apply                 /review
+  Engagement Readiness form                Applications | Funnel analytics
+       ↓ server action                   /review/[id]
+Nest POST /intake/applications             Intake | Site journey | Pipeline
        ↓
-Postgres (applications table)
+Postgres (applications, users, user_events)
+       ↓
+Resend → operator email (optional)
+Resend → applicant confirmation stub (optional)
 ```
 
 | Layer | Choice | Notes |
 |---|---|---|
-| Web | Next.js 15 App Router | Migrated from TanStack Start; homepage ~118 kB first load |
+| Web | Next.js 15 App Router | ~14 routes; homepage lazy-loaded |
 | API | NestJS + Prisma 7 | Multi-file schema under `apps/api/prisma/models/` |
-| DB | Postgres (Dokploy / local) | Was Neon; local via `127.0.0.1`, database `THP` |
-| Deploy | Docker Compose | Web standalone + API; see `DOCKER.md` |
+| DB | Postgres (Dokploy / local) | Tracking + `discovery_source_video` need migrations if not applied |
+| Deploy | Docker Compose | `NEXT_PUBLIC_THP_API_URL` + `NEXT_PUBLIC_SITE_URL` at web build |
 
-### Auth boundary (non-negotiable, now enforced in code + rules)
+### Auth boundary
 
-- **Applicants:** no sign-in. Public `/apply` only.
-- **Operators:** OAuth + JWT. `/sign-in` → `/review`.
-- Do not conflate application, qualification, diagnostic, or intervention in copy or routes.
+- **Applicants:** no sign-in. Public `/apply` only. Visitor ID + events if consent accepted.
+- **Operators:** OAuth + JWT. `/sign-in` → `/review`. Applicant `user` role blocked from operator sign-in.
 
 ---
 
-## What shipped (this cycle)
+## What shipped (cumulative through 2026-07-27)
 
 ### Web platform
 
-- [x] Next.js migration with App Router routes: `/`, `/work-with-us`, `/apply`, `/about`, `/sign-in`, `/review`, `/auth/callback`, `/auth/error`
-- [x] Homepage lazy loading (`LazySection` + `next/dynamic`) — hero + letter eager; seven SERVICE-001 sections below fold
-- [x] Legacy agency homepage retired from live page (packages, free slots, old `#apply` form still exist as dead files)
-- [x] Header/footer/sticky CTAs → `/work-with-us` and `/apply`
-- [x] Homepage copy aligned to SERVICE-001 ladder: condition → how it works → proof → not-promise → capacity → FAQ → last call
+- [x] Next.js App Router: `/`, `/work-with-us`, `/apply`, `/apply/submitted`, `/about`, `/privacy`, `/sign-in`, `/review`, `/review/[id]`, `/business-levels`, `/auth/callback`, `/auth/error`
+- [x] Homepage **12 rungs** (`sections.config.ts`) — SERVICE-001 ladder; legacy Port/Sea/Ocean removed from live funnel
+- [x] `/apply/submitted` — THP-voice confirmation; form redirects on success
+- [x] `/about` rewritten — brand voice; no free-slot mechanic
+- [x] `/privacy` placeholder — consent banner links here; legal copy pending (P02)
+- [x] `metadataBase` via `getSiteUrl()` in root layout
+- [x] First-party tracking: consent gate, session/entry context, homepage section views, scroll depth, form steps/abandon, nav clicks, batch flush to API
+- [x] YouTube prefill: `?ref=youtube&video=` → `discoverySource` + `discoverySourceVideo` on submit
 
 ### Backend & intake
 
-- [x] Engagement Readiness form → Nest `POST /intake/applications` → Postgres
-- [x] Server action submit (`THP_API_URL` server-side)
-- [x] OAuth (Google + Meta) + JWT on API
-- [x] Protected `GET /intake/applications` for reviewers
-- [x] Minimal review dashboard (table list)
+- [x] Engagement Readiness form → `POST /intake/applications` → Postgres
+- [x] Operator notification on submit — `IntakeNotificationService` (Resend)
+- [x] Applicant confirmation **stub** — `IntakeApplicantConfirmationService` (needs copy + `INTAKE_APPLICANT_FROM`)
+- [x] Pipeline webhook **stub** — `IntakeWebhookService` on lifecycle change
+- [x] OAuth + JWT; `ReviewerGuard` on intake list/detail/patch + tracking analytics
+- [x] `PATCH /intake/applications/:id` — lifecycle, qualification, notes, capacity slot, etc.
+- [x] Visitor tracking: `UserEvent`, `POST /tracking/events`, link by email/visitorId
+- [x] Analytics: `GET /tracking/funnel/summary`, `GET /tracking/applications/:id/journey`
+- [x] CSV export **stub**: `GET /tracking/funnel/export`
 
-### Governance (Cursor)
+### Operator UI
 
-- [x] New rule: `06-web-platform-architecture.mdc`
-- [x] Funnel, copy, UX rules updated for SERVICE-001 (not legacy agency funnel)
-- [x] Skills/instincts updated; new `web-platform` skill and `applicant-not-operator` instinct
+- [x] `/review` — application list + **Funnel analytics** tab
+- [x] `/review/[id]` — Intake responses, **Site journey**, **Pipeline** form
+- [x] Qualification workflow **scaffold** on Pipeline tab (fill via P03)
 
----
+### Ops scaffolding
 
-## Performance
-
-| Metric | Before (TanStack) | After (Next.js + lazy) |
-|---|---|---|
-| Homepage first-load JS | ~284 kB chunk (~90 kB gzip) | **~118 kB** |
-| Below-fold sections | All imported eagerly | Viewport + code-split |
-
-Hero video still loads on first paint — acceptable tradeoff for hook; poster + `preload="metadata"` in place.
+- [x] Launch checklists P01–P07: `the-hard-port-os/operations/launch-scaffold/`
 
 ---
 
-## Positioning alignment
+## Readiness gates
 
-| Area | Status |
-|---|---|
-| Public site vs SERVICE-001 | **Aligned** — homepage and `/work-with-us` describe Level 1 service, diagnostic, intervention ladder |
-| Legacy agency language | **Removed from live funnel** — banned in copy rules; dead component files remain |
-| Brand letter (canonical) | **Kept** — emotional center unchanged; CTAs updated |
-| `/about` | Partially updated — still contains some legacy tone (free-slot bullet in "No spin" list); lower priority |
-
----
-
-## Readiness gates (first client / YouTube)
-
-From `THP-FIRST-CLIENT-READINESS-CHECKLIST.md`:
+### Five-item gate (YouTube broadcast — from `report.md`)
 
 | Gate | Status |
 |---|---|
-| Application destination live | **Done** |
-| Public service explanation | **Done** |
-| Client workspace template | **Done** |
-| Pipeline tracker in active use | **Open** — CSV exists; not yet single source of truth |
-| Commercial readiness (payment, entity, delivery period) | **Open** — drafts exist; not operational |
-| Legal review of templates | **Open** — drafts exist; lawyer pass required |
-| Qualification workflow beyond list view | **Open** — review page lists apps; no accept/reject/qualify actions |
-| Field validation after first entity | **Pending** — no first client yet |
+| Intake form → database | **Done** |
+| Operator review dashboard | **Done** |
+| Operator can advance pipeline state | **Done** |
+| Notification on submission | **Done in code** — needs prod Resend env |
+| Commercial placeholder (post-qualification) | **Open** |
 
-**YouTube (`THP-YOUTUBE-001`):** Architecture doc exists; site CTAs not yet wired for YouTube-specific entry (still todo: route video CTAs → `/work-with-us` → `/apply`).
+### Launch scaffold (fill before scale)
 
-**Recommendation:** Do not publish Video 1 with a hard apply CTA until pipeline tracker is live and you can act on submissions within 48 hours.
+| Priority | Doc | Status |
+|---|---|---|
+| P01 Production deploy | `launch-scaffold/P01-production-deploy.md` | Scaffold — fill env + smoke test |
+| P02 Legal & privacy | `P02-legal-privacy.md` | Scaffold — `/privacy` placeholder live |
+| P03 Intake ops loop | `P03-intake-ops-loop.md` | Scaffold — 48h SLA, daily loop |
+| P04 Applicant confirmation | `P04-applicant-confirmation-email.md` | Stub wired — fill copy |
+| P05 Discovery source video | `P05-discovery-source-video.md` | DB field wired — optional form UI |
+| P06 YouTube launch | `P06-youtube-launch.md` | Scaffold — pre-broadcast gates |
+| P07 Design system polish | `P07-design-system-polish.md` | Defer until after first client feedback |
+
+**Soft-launch apply:** OK today. **YouTube at scale:** wait for P01–P04 minimum + gate item 5.
+
+---
+
+## Known gaps & tech debt
+
+1. **Maturity classification** — still free text; enum scaffold empty (`maturity-classifications.constants.ts`).
+2. **Design system** — no scroll-depth darkening; orange vs gold/rust unresolved (P07).
+3. **Cold nav** — Who we are → `/about` still skips ladder agitation (report Gap 1).
+4. **Last rung dual CTA** — intentional per funnel rule; OS single-CTA line still conflicts (decide once).
+5. **Legacy landing files** — unused components under `apps/web/src/landing/`; safe to delete when cleaning tree.
+6. **OS `01-ia-sitemap.md`** — stale vs live 12-rung funnel.
+7. **Tracking CSV export** — header-only stub; implement aggregation (TRACKING-ROADMAP §7.4).
+8. **Courses / Tipper grants** — specced in `report.md`; not built.
+
+---
+
+## Recommended plan (when ready)
+
+Use this order when moving from soft-launch to product expansion. **Do not skip steps.**
+
+### Phase A — Launch gate (human + config)
+
+1. P01 production deploy (OAuth callbacks, env, migrate, smoke test)
+2. P02 legal minimum (`/privacy`, apply ack, lawyer pass on drafts)
+3. P03 ops loop — owner + 48h SLA habit on `/review`
+4. P04 applicant confirmation email (copy + `INTAKE_APPLICANT_FROM`)
+5. Commercial placeholder — static “what happens after qualification” page (report gate item 5)
+
+### Phase B — Course access scaffolding (per `report.md` § Courses)
+
+1. `CourseGrant` Prisma model + migrate
+2. `CoursesModule` — access check + grant/revoke endpoints
+3. `CourseAccessGuard` (composes on `JwtAuthGuard`)
+4. `/courses` route tree — server-side gate before content
+5. `CourseGrantsPanel` — third tab on `/review`
+6. Course content (filesystem/MDX) — **only after 1–5 work**
+7. Tipper webhook → `POST /courses/:slug/grants`
+
+### Phase C — After first client
+
+- P07 design system (oklch depth, rust/gold decision, scroll darkening)
+- Structured maturity enum
+- Tracking CSV export (real data)
+- Intake webhook (real destination)
 
 ---
 
@@ -119,53 +160,20 @@ From `THP-FIRST-CLIENT-READINESS-CHECKLIST.md`:
 | Item | Status |
 |---|---|
 | Local dev (web + api + DB) | Working |
-| Docker Compose | Configured; `NEXT_PUBLIC_THP_API_URL` at build time |
-| Dokploy Postgres (internal hostname) | Documented; use internal URL on server |
-| OAuth creds in production | **Open** — set callback URLs to public API |
-| `AUTH_ALLOWLIST` in production | **Optional, not set** — recommended before go-live |
-| Legacy `VITE_THP_API_URL` | Retired — use `NEXT_PUBLIC_THP_API_URL` |
-
----
-
-## Known gaps & tech debt
-
-1. **Review UI is read-only** — no qualification outcomes, no link to client folder, no detail view per application.
-2. **Legacy landing components** — nine unused files under `apps/web/src/landing/`; safe to delete when you want a clean tree.
-3. **`/about` copy drift** — still references free-slot mechanic in one bullet.
-4. **`brand.ts` `freeSlots`** — constant still exists; not used on live homepage but may confuse future edits.
-5. **First-client checklist** still mentions Neon in one line — cosmetic; DB is Postgres/Dokploy.
-6. **No applicant confirmation email** — form shows in-UI success; no automated follow-up.
-7. **metadataBase** — Next build warns about OG image base URL; set before production SEO matters.
-
----
-
-## Recommended next steps (priority order)
-
-1. **Operational:** Put pipeline tracker in daily use; define who reviews applications and within what SLA.
-2. **Review UI:** Add application detail view + qualification status updates (even manual at first).
-3. **Commercial/legal:** Close payment method, issuing entity, delivery period; legal review of agreement/SOW/privacy.
-4. **Production:** Deploy with `AUTH_ALLOWLIST`, OAuth callbacks, `NEXT_PUBLIC_THP_API_URL`, Dokploy internal `DATABASE_URL`.
-5. **YouTube:** Wire video/end-screen CTAs to `/work-with-us` then `/apply`; script Video 1 per `THP-YOUTUBE-001`.
-6. **Cleanup:** Delete legacy landing components; trim `brand.ts` free-slot constants if no longer policy.
-
----
-
-## Decision log (recent)
-
-| Decision | Outcome |
-|---|---|
-| TanStack Start vs Next.js | **Next.js** — migrated; no re-platform needed for performance now |
-| Applicant auth | **None** — public apply only |
-| Homepage structure | **SERVICE-001 ladder** — legacy agency funnel retired |
-| Scarcity copy | **One active client** — replaces "2 free slots" on public site |
-| Cursor rules | **Updated** — platform, funnel, copy, instincts reflect current architecture |
+| Docker Compose | Configured |
+| OAuth in production | **Open** — set callback URLs |
+| `AUTH_ALLOWLIST` | **Recommended** — not required locally |
+| Resend (operator + applicant) | **Open** — set in prod |
+| `NEXT_PUBLIC_SITE_URL` | Set at web build for OG/metadata |
 
 ---
 
 ## Bottom line
 
-You have a **coherent minimum intake operation**: public explanation, public apply, stored applications, operator sign-in, application list. That is the hard structural work.
+You have a **coherent intake operation with observability**: public apply, stored applications, operator pipeline UI, funnel analytics, per-applicant site journey, and notification hooks.
 
-What you do **not** yet have is the **operating loop** that turns a submission into a qualification decision and, if accepted, a paid diagnostic engagement with legal and commercial rails attached.
+What you do **not** yet have: **production-hardened ops** (deploy, legal, SLA habit), **commercial rails**, or **course access layer**.
 
-The site is ready for **soft testing** (send a trusted founder to `/work-with-us` → `/apply`). It is not yet ready for **broadcast attraction** (YouTube CTA at scale) until operations and legal/commercial gates close.
+The site is ready for **soft testing**. It is not ready for **broadcast attraction** until Phase A closes. Phase B (courses) follows when Phase A is done.
+
+For full architecture analysis and course spec detail, see **`report.md`**.
