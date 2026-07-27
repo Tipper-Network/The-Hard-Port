@@ -1,7 +1,7 @@
 import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query'
 import { useRouter } from 'next/navigation'
 
-import { getAuthProviders, getCurrentUser, type AuthProviders } from '@/lib/api/auth'
+import { getAuthProviders, getCurrentUser } from '@/lib/api/auth'
 import { ApiRequestError } from '@/lib/api/errors'
 import { queryKeys } from '@/lib/api/query-keys'
 import { clearAccessToken, getAccessToken, setAccessToken } from '@/lib/auth/session'
@@ -25,12 +25,10 @@ async function fetchAuthProviders() {
   return result.providers
 }
 
-export function useAuthProviders(initialData?: AuthProviders) {
+export function useAuthProviders() {
   return useQuery({
     queryKey: queryKeys.auth.providers(),
     queryFn: fetchAuthProviders,
-    initialData,
-    enabled: !initialData,
   })
 }
 

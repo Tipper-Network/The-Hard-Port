@@ -7,9 +7,9 @@
   "/apply/submitted/page": "app/apply/submitted/page.js",
   "/about/page": "app/about/page.js",
   "/review/[id]/page": "app/review/[id]/page.js",
-  "/privacy/page": "app/privacy/page.js",
   "/review/page": "app/review/page.js",
   "/sign-in/page": "app/sign-in/page.js",
+  "/privacy/page": "app/privacy/page.js",
   "/work-with-us/page": "app/work-with-us/page.js",
   "/business-levels/page": "app/business-levels/page.js"
 }

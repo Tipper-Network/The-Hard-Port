@@ -7,9 +7,9 @@
   "/apply/submitted/page": "/apply/submitted",
   "/about/page": "/about",
   "/review/[id]/page": "/review/[id]",
-  "/privacy/page": "/privacy",
   "/review/page": "/review",
   "/sign-in/page": "/sign-in",
+  "/privacy/page": "/privacy",
   "/work-with-us/page": "/work-with-us",
   "/business-levels/page": "/business-levels"
 }
