@@ -29,7 +29,7 @@ export function TrackingConsentBanner({ onChoice }: TrackingConsentBannerProps) 
     >
       <div className="mx-auto flex max-w-hero flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
         <p className="text-sm leading-6 text-white/80">
-          We log anonymous site usage — pages, scroll depth, where people drop off — so we can fix
+          We log anonymous site usage; pages, scroll depth, where people drop off. So we can constanty adjust
           the funnel. No ads. No third-party trackers.{' '}
           <Link href="/privacy" className="font-semibold text-accent underline-offset-2 hover:underline">
             Privacy
