@@ -36,18 +36,40 @@ export function SiteFooter() {
           </div>
         </div>
 
-        <nav className="grid grid-cols-2 gap-x-10 gap-y-3 text-sm font-medium text-secondary">
-          {footerLinks.map((link) => (
+        <nav className="flex gap-10 md:gap-14 text-sm font-medium text-secondary">
+          <div className="grid grid-cols-2 gap-x-10 gap-y-3">
+            {footerLinks.map((link) => (
+              <LinkButton
+                key={link.label}
+                text={link.label}
+                href={link.href}
+                hash={'hash' in link ? link.hash : undefined}
+                variant="nav"
+                noMargin
+                className="hover:opacity-70"
+              />
+            ))}
+          </div>
+
+          <div className="flex flex-col gap-3">
+            <p className="text-xs font-bold tracking-widest text-secondary/30 uppercase">
+              Legal
+            </p>
             <LinkButton
-              key={link.label}
-              text={link.label}
-              href={link.href}
-              hash={'hash' in link ? link.hash : undefined}
+              text="Privacy Notice"
+              href="/privacy"
               variant="nav"
               noMargin
               className="hover:opacity-70"
             />
-          ))}
+            <LinkButton
+              text="Terms of Service"
+              href="/terms"
+              variant="nav"
+              noMargin
+              className="hover:opacity-70"
+            />
+          </div>
         </nav>
       </div>
 
@@ -55,9 +77,25 @@ export function SiteFooter() {
         <p className="text-sm italic text-secondary/40 mb-4">
           Each sailor should have their own experience in the open sea. For the sea takes the ship each time on a new journey.
         </p>
-        <p className="text-sm text-secondary/50">
-          © {new Date().getFullYear()} The Hard Port. All rights reserved.
-        </p>
+        <div className="flex flex-wrap items-center gap-x-6 gap-y-2">
+          <p className="text-sm text-secondary/50">
+            © {new Date().getFullYear()} The Hard Port. All rights reserved.
+          </p>
+          <LinkButton
+            text="Privacy Notice"
+            href="/privacy"
+            variant="text"
+            noMargin
+            className="text-xs text-secondary/40 hover:opacity-70 hover:no-underline"
+          />
+          <LinkButton
+            text="Terms of Service"
+            href="/terms"
+            variant="text"
+            noMargin
+            className="text-xs text-secondary/40 hover:opacity-70 hover:no-underline"
+          />
+        </div>
       </div>
     </footer>
   )

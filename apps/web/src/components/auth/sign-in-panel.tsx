@@ -2,15 +2,22 @@
 
 import { useEffect } from 'react'
 import { useRouter } from 'next/navigation'
+import { useQueryClient } from '@tanstack/react-query'
 
 import LinkButton from '@/components/link-button'
+import { queryKeys } from '@/lib/api/query-keys'
 import { getAccessToken, getGoogleLoginUrl, getMetaLoginUrl } from '@/lib/auth/session'
 import { useAuthProviders, useCurrentUser } from '@/hooks/api/use-auth'
 
 export function SignInPanel() {
   const router = useRouter()
+  const queryClient = useQueryClient()
   const hasToken = !!getAccessToken()
-  const { data: user, isSuccess: isSignedIn } = useCurrentUser({ enabled: hasToken })
+  const {
+    data: user,
+    isPending: sessionPending,
+    isSuccess: sessionValid,
+  } = useCurrentUser({ enabled: hasToken })
   const {
     data: providers,
     isPending,
@@ -19,12 +26,17 @@ export function SignInPanel() {
   } = useAuthProviders()
 
   useEffect(() => {
-    if (isSignedIn && user) {
+    if (!hasToken) {
+      queryClient.removeQueries({ queryKey: queryKeys.auth.me() })
+      return
+    }
+
+    if (sessionValid && user) {
       router.replace('/review')
     }
-  }, [isSignedIn, user, router])
+  }, [hasToken, sessionValid, user, router, queryClient])
 
-  if (hasToken && !isSignedIn) {
+  if (hasToken && sessionPending) {
     return <p className="text-white/70">Checking session…</p>
   }
 
