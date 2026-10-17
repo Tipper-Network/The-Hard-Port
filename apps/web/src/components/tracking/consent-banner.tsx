@@ -5,6 +5,7 @@ import { useState } from 'react'
 import Link from 'next/link'
 
 import { consentNeedsPrompt, setTrackingConsent } from '@/lib/tracking/consent'
+import { Button } from '../ui/button'
 
 type TrackingConsentBannerProps = {
   onChoice: () => void
@@ -36,20 +37,13 @@ export function TrackingConsentBanner({ onChoice }: TrackingConsentBannerProps) 
           </Link>
         </p>
         <div className="flex shrink-0 gap-3">
-          <button
-            type="button"
+          <Button
+            variant="outline"
             onClick={() => choose(false)}
-            className="border border-white/30 px-4 py-2 text-sm font-semibold text-white/80 uppercase transition-colors hover:border-white/60"
           >
             Decline
-          </button>
-          <button
-            type="button"
-            onClick={() => choose(true)}
-            className="bg-accent px-4 py-2 text-sm font-extrabold text-background uppercase transition-opacity hover:opacity-90"
-          >
-            Accept
-          </button>
+          </Button>
+          <Button onClick={() => choose(true)}>Accept</Button>
         </div>
       </div>
     </div>
