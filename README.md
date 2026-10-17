@@ -30,6 +30,20 @@ pnpm start:api    # production api
 
 See [`DOCKER.md`](DOCKER.md).
 
+## Platform (Access + Payments)
+
+Separate Postgres database from the website. Package manager is pnpm.
+
+```bash
+pnpm platform:migrate      # DATABASE_URL = platform migration owner
+pnpm platform:bootstrap -- --slug hardport --name "The Hard Port" --email you@example.com \
+  --domain thehardport.com --origin https://thehardport.com
+pnpm platform:test
+pnpm platform:typecheck
+```
+
+See [`docs/hardport-architecture.md`](docs/hardport-architecture.md) and [`docs/platform-routes.md`](docs/platform-routes.md) for which service calls which route. CyberSource uses Microform v2. The website does not share this database.
+
 ## Database
 
 ```bash
