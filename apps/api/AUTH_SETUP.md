@@ -71,6 +71,8 @@ On sign-in, Meta profile fields are stored on `users`:
 3. Web stores JWT in `localStorage` (`thp_access_token`)
 4. Protected API calls: `Authorization: Bearer {token}`
 
+This OAuth flow is for **website operators** (`/sign-in` → `/review` — submitted **applications** on the website DB). It is **not** the Access platform console at `/thp/*` (npm package **`access`**, partners/content on platform Postgres). See [`docs/website-sitemap.md`](../../docs/website-sitemap.md).
+
 Web env:
 
 ```env

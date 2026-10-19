@@ -19,12 +19,18 @@ The Hard Port/
   apps/web          thehardport.com (Next.js). Own Prisma database.
   apps/api          website API (Nest). Same website database.
   packages/core     signing, sessions, field encryption, Db.withTenant
-  services/access   port 4001, role hp_access
+  packages/access-ui  (planned) npm package "access" — console + BFF mounted at /thp/*
+  services/access   port 4001, npm @hardport/access — platform HTTP API
   services/payments port 4002, role hp_payments
   db/migrations     platform schema (not the website schema)
   scripts/platform  migrate and bootstrap
   docs/platform-routes.md
+  docs/website-sitemap.md
 ```
+
+**Host integration:** Any site (including thehardport.com) installs npm package **`access`**, sets `HP_ACCESS_URL` + `pk`/`sk`, and mounts `<AccessApp basePath="/thp" />` on one Next route. Internal paths (`/thp/login`, `/thp/partners`, …) are owned by that package. See [`website-sitemap.md`](website-sitemap.md).
+
+**Website-only (not in `access` package):** `/apply`, `/sign-in`, `/review` — consulting intake on `apps/api` and website Postgres. May move later; stays separate from platform Access.
 
 The website database (users, OAuth, applications) is not the platform database. One Postgres server with two databases is fine. One shared schema is not. Other sites can call Access and Payments over HTTP later without joining this repo.
 
@@ -95,7 +101,7 @@ Credential JSON for CyberSource, encrypted with AAD `gw:<tenantId>:cybersource:<
 ## 6. Suggested phases
 
 1. Done in this repo: Access and Payments beside the website, pnpm workspace, Microform sale path, route catalogue, JSDoc.
-2. Wire thehardport.com to checkout and complete, then run the bank sandbox. Manual paid grants still work without the widget.
-3. Admin and partner front end.
-4. Subscription billing for tenants; licence issuing tool.
+2. Ship npm **`access`** console (mount `/thp/*`, v1: connection, partners, content, partner OTP; v2: keywords UI, analytics). Finish Access service gaps (partner email, OTP) before production deploy test.
+3. Wire customer sites: env keys + widgets; checkout complete + bank sandbox when ready.
+4. Subscription billing for tenants; licence issuing tool; Tipper for multi-site partner provisioning.
 5. DM/comment automation once the structure is settled.

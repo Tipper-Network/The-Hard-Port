@@ -4,6 +4,8 @@ How Access and Payments connect, and how another website calls them.
 
 The Hard Port website (`apps/web`, `apps/api`) keeps its own Postgres (users, OAuth, applications). Access and Payments share a **different** Postgres. They do not read each other's tables. The website, and any later tenant, talks to them over HTTP.
 
+**Console on customer sites:** Install npm package **`access`** (UI; monorepo `packages/access-ui` when added). Mount `<AccessApp basePath="/thp" />` — internal routes and BFF call **this** API. That is separate from **`@hardport/access`** (this server) and from website **`/review`** (intake on `apps/api`). Sitemap: [`website-sitemap.md`](website-sitemap.md).
+
 | Process | Package | Default port | Database role |
 |---|---|---|---|
 | Access | `@hardport/access` | 4001 | `hp_access` |

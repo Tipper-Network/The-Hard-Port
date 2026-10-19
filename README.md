@@ -42,7 +42,7 @@ pnpm platform:test
 pnpm platform:typecheck
 ```
 
-See [`docs/hardport-architecture.md`](docs/hardport-architecture.md) and [`docs/platform-routes.md`](docs/platform-routes.md) for which service calls which route. CyberSource uses Microform v2. The website does not share this database.
+See [`docs/hardport-architecture.md`](docs/hardport-architecture.md) and [`docs/platform-routes.md`](docs/platform-routes.md) for which service calls which route. External sites install npm **`access`** (console at `/thp/*`): [`docs/access-installation-and-separation.md`](docs/access-installation-and-separation.md). CyberSource uses Microform v2. The website does not share this database.
 
 ## Database
 
@@ -56,13 +56,20 @@ OAuth setup: [`apps/api/AUTH_SETUP.md`](apps/api/AUTH_SETUP.md).
 
 ## Web routing (Next.js App Router)
 
+Full map: [`docs/website-sitemap.md`](docs/website-sitemap.md).
+
 | Route | Purpose |
 |---|---|
 | `/` | Homepage — hero + letter eager; below-fold sections lazy-loaded |
-| `/work-with-us` | Public service explanation |
-| `/apply` | Engagement Readiness form |
-| `/about` | About page |
-| `/auth/callback` | OAuth token handoff (operators) |
-| `/auth/error` | OAuth failure |
+| `/work-with-us`, `/business-levels`, `/about` | Public funnel |
+| `/apply` | Engagement Readiness form → `apps/api` |
+| `/sign-in`, `/review`, `/review/[id]` | **Consulting intake ops** (OAuth + JWT) — not Access platform |
+| `/auth/callback`, `/auth/error` | OAuth handoff |
+| `/thp/*` | **Access console** (planned) — **`@psyferblock/access`**, `<AccessApp basePath="/thp" />` |
 
 Landing sections live in `apps/web/src/landing/`. Lazy loading: `LazySection` + `next/dynamic` in `lazy-home-sections.tsx`.
+
+| Artifact | npm | Role |
+|---|---|---|
+| Access API | `@hardport/access` | Platform service `:4001` |
+| Access console UI | **`@psyferblock/access`** (planned) | Installable `/thp/*` router + BFF |
