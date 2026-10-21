@@ -2,7 +2,7 @@ import type { Metadata } from 'next'
 import { notFound } from 'next/navigation'
 
 import { ProductPage } from '@psyferblock/access/widgets'
-import { fetchContentForPage } from '@psyferblock/access/server/fetch-content'
+import { fetchContentForPage } from '@psyferblock/access/server'
 
 import { SiteFooter } from '@/components/layout/site-footer'
 import { SiteHeader } from '@/components/layout/site-header'

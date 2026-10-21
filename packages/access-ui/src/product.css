@@ -326,3 +326,92 @@
   font-style: italic;
   margin: 0;
 }
+
+.hp-catalog__grid {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 1.25rem;
+  grid-template-columns: repeat(auto-fill, minmax(16rem, 1fr));
+}
+
+.hp-catalog__card {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  padding: 1.15rem 1.25rem;
+  background: var(--hp-panel);
+  border: 1px solid var(--hp-border);
+  border-radius: 4px;
+}
+
+.hp-catalog__kind {
+  margin: 0 0 0.5rem;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--hp-gold);
+}
+
+.hp-catalog__title {
+  margin: 0 0 0.5rem;
+  font-family: Anton, 'IBM Plex Sans', sans-serif;
+  font-size: 1.25rem;
+  font-weight: 400;
+  line-height: 1.15;
+  text-transform: uppercase;
+}
+
+.hp-catalog__title a {
+  color: var(--hp-ink);
+  text-decoration: none;
+}
+
+.hp-catalog__title a:hover {
+  color: var(--hp-gold);
+}
+
+.hp-catalog__summary {
+  margin: 0 0 1rem;
+  flex: 1;
+  font-size: 14px;
+  color: var(--hp-muted);
+  line-height: 1.45;
+}
+
+.hp-catalog__footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  margin-top: auto;
+}
+
+.hp-catalog__price {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--hp-ink);
+}
+
+.hp-catalog__price--free {
+  color: var(--hp-muted);
+  font-weight: 500;
+}
+
+.hp-catalog__cta {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: var(--hp-bg);
+  background: var(--hp-rust);
+  padding: 0.45rem 0.75rem;
+  border-radius: 2px;
+}
+
+.hp-catalog__cta:hover {
+  filter: brightness(1.08);
+}

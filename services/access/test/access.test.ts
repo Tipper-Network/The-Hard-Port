@@ -306,6 +306,16 @@ describe('admin back-office and the public keyword flow', () => {
     assert.equal((await call('GET', '/v1/content/motion-guide', { origin: ALPHA_SITE, headers: { 'x-hp-key': alphaSecretKey } })).status, 403);
   });
 
+  test('catalog lists published items only, without asset URLs', async () => {
+    const res = await call('GET', '/v1/catalog', { origin: ALPHA_SITE, headers: { 'x-hp-key': alphaPublicKey } });
+    assert.equal(res.status, 200);
+    const slugs = (res.json.items as { slug: string }[]).map((i) => i.slug);
+    assert.ok(slugs.includes('motion-guide'));
+    assert.ok(!slugs.includes('hidden-draft'));
+    const row = (res.json.items as { slug: string; bodyRef?: string }[]).find((i) => i.slug === 'motion-guide');
+    assert.equal(row?.bodyRef, undefined);
+  });
+
   test('gating: teaser without the word, content with the right session, not with a wrong or forged one', async () => {
     const get = (slug: string, h: Record<string, string> = {}) => call('GET', `/v1/content/${slug}`, { origin: ALPHA_SITE, headers: { 'x-hp-key': alphaPublicKey, ...h } });
     const teaser = await get('motion-guide');

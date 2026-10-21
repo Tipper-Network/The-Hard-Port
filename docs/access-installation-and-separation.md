@@ -40,11 +40,13 @@ Customer (or you on THP) does **four** things:
 1. **Provision tenant (once)** — you run bootstrap / Tipper → tenant slug, owner staff user, **`pk` + `sk`** tied to their **origin** (`https://customer.com`).
 2. **Add dependency** — `pnpm add access` (name TBD on npm registry).
 3. **Set environment variables** on **their** hosting (Vercel, Dokploy, etc.) — see §4.
-4. **Mount two integration points** in **their** Next app:
+4. **Mount integration points** in **their** Next app (see also **`packages/access-ui/README.md`**).
+
+**Do not** add TypeScript `paths` aliases to the package source when installing from npm. Node resolves subpaths from `"exports"` in the package. In this monorepo, `pnpm add @psyferblock/access workspace:*` is enough; only set `transpilePackages: ['@psyferblock/access']` in `next.config`.
 
 ```tsx
-// app/thp/[[...slug]]/page.tsx  — browser UI (shared package)
-import { AccessApp } from 'access'
+// app/thp/[[...slug]]/page.tsx  — THP Access console (platform staff: owner / admin / staff)
+import { AccessApp } from '@psyferblock/access'
 
 export default function Page() {
   return <AccessApp basePath="/thp" />
@@ -52,16 +54,18 @@ export default function Page() {
 ```
 
 ```ts
-// app/thp/api/[...path]/route.ts  — server only (BFF, never imported in client components)
-export { GET, POST } from 'access/server'
+// app/thp/api/[[...path]]/route.ts  — BFF (server only)
+export { GET, POST, PATCH } from '@psyferblock/access/server'
 ```
 
-Optional elsewhere on the site:
+Public catalog + product pages (optional on the marketing site):
 
 ```tsx
-import { KeywordWidget } from 'access/widgets'
-// uses NEXT_PUBLIC_HP_PUBLIC_KEY in the browser
+import { CatalogGrid, ProductPage } from '@psyferblock/access/widgets'
+import { fetchCatalog, fetchContentForPage } from '@psyferblock/access/server'
 ```
+
+**Website admin** (intake reviewers on `/sign-in` → `/review`) is **not** this package; it uses your Nest `apps/api` OAuth JWT. **THP Access** is a separate login at **`/thp/login`**. Header shortcuts should expose both when the respective sessions exist.
 
 No Docker image of Access on the customer side. No platform DB connection string on the customer side.
 

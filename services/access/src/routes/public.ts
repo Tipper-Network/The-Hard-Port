@@ -90,6 +90,46 @@ export function registerPublicRoutes(app: FastifyInstance, ctx: AppCtx): void {
     });
   });
 
+  app.get('/v1/catalog', { config: { rateLimit: { max: 60, timeWindow: '1 minute' } } }, async (req, reply) => {
+    const key = await resolveApiKey(ctx, req, reply, ['public', 'secret']);
+    if (!key) return reply;
+    const actor = { tenantId: key.tenantId, role: key.kind === 'secret' ? ('system' as const) : ('public' as const) };
+
+    return respond(
+      reply,
+      db.withTenant(actor, async (q) => {
+        const rows = (
+          await q.query<{
+            slug: string;
+            title: string;
+            summary: string | null;
+            kind: string;
+            access_mode: string;
+            price_minor: number | null;
+            currency: string | null;
+          }>(
+            `SELECT slug, title, summary, kind, access_mode, price_minor, currency
+             FROM access.content_items
+             WHERE status = 'published'
+             ORDER BY published_at DESC NULLS LAST, title ASC
+             LIMIT 200`,
+          )
+        ).rows;
+        return ok({
+          items: rows.map((row) => ({
+            slug: row.slug,
+            title: row.title,
+            summary: row.summary,
+            kind: row.kind,
+            accessMode: row.access_mode,
+            priceMinor: row.price_minor,
+            currency: row.currency,
+          })),
+        });
+      }),
+    );
+  });
+
   app.get<{ Params: { slug: string } }>('/v1/content/:slug', { config: { rateLimit: { max: 120, timeWindow: '1 minute' } } }, async (req, reply) => {
     const key = await resolveApiKey(ctx, req, reply, ['public', 'secret']);
     if (!key) return reply;

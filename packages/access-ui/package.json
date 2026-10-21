@@ -9,12 +9,8 @@
       "default": "./src/index.tsx"
     },
     "./server": {
-      "types": "./src/server/handler.ts",
-      "default": "./src/server/handler.ts"
-    },
-    "./server/fetch-content": {
-      "types": "./src/server/fetch-content.ts",
-      "default": "./src/server/fetch-content.ts"
+      "types": "./src/server/index.ts",
+      "default": "./src/server/index.ts"
     },
     "./widgets": {
       "types": "./src/widgets/index.tsx",

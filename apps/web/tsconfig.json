@@ -17,11 +17,7 @@
     "noUnusedParameters": true,
     "plugins": [{ "name": "next" }],
     "paths": {
-      "@/*": ["./src/*"],
-      "@psyferblock/access": ["../../packages/access-ui/src/index.tsx"],
-      "@psyferblock/access/server": ["../../packages/access-ui/src/server/handler.ts"],
-      "@psyferblock/access/server/fetch-content": ["../../packages/access-ui/src/server/fetch-content.ts"],
-      "@psyferblock/access/widgets": ["../../packages/access-ui/src/widgets/index.tsx"]
+      "@/*": ["./src/*"]
     }
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],
