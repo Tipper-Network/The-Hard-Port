@@ -18,17 +18,21 @@ export async function fetchContentForPage(opts: FetchContentOptions): Promise<Co
   const base = opts.accessUrl.replace(/\/$/, '')
   const headers: Record<string, string> = { 'x-hp-key': opts.secretKey }
   if (opts.session) headers['x-hp-session'] = opts.session
-  const res = await fetch(`${base}/v1/content/${encodeURIComponent(opts.slug)}`, {
-    headers,
-    cache: 'no-store',
-  })
-  if (res.status === 404) return { found: false }
-  const json = (await res.json()) as V1ContentResponse
-  if (json.access === true && json.content) {
-    return { found: true, access: true, content: json.content }
+  try {
+    const res = await fetch(`${base}/v1/content/${encodeURIComponent(opts.slug)}`, {
+      headers,
+      cache: 'no-store',
+    })
+    if (res.status === 404) return { found: false }
+    const json = (await res.json()) as V1ContentResponse
+    if (json.access === true && json.content) {
+      return { found: true, access: true, content: json.content }
+    }
+    if (json.access === false && json.teaser) {
+      return { found: true, access: false, teaser: json.teaser }
+    }
+    return { found: false }
+  } catch {
+    return { found: false }
   }
-  if (json.access === false && json.teaser) {
-    return { found: true, access: false, teaser: json.teaser }
-  }
-  return { found: false }
 }

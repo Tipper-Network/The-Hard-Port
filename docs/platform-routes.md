@@ -127,7 +127,7 @@ Default port 4001. Bodies are JSON and reject unknown fields.
 | Method | Path | Caller | Auth | Body / query | Success |
 |---|---|---|---|---|---|
 | OPTIONS | `/v1/*` | Browser preflight | none | — | `204`. Does not grant access |
-| POST | `/v1/keywords/lookup` | Browser | public key + allowed Origin | `{ "word", "anonId" }`. `anonId` is 16–64 chars, `[A-Za-z0-9_-]` | Hit: `{ "ok": true, "slug", "session" }`. Miss: `{ "ok": false }` for unknown, expired, or unpublished words |
+| POST | `/v1/keywords/lookup` | Browser | public key + allowed Origin | `{ "word", "anonId", "contentSlug"? }`. `anonId` is 16–64 chars. Optional `contentSlug` requires the keyword to unlock that published product | Hit: `{ "ok": true, "slug", "session" }`. Miss: `{ "ok": false }` for unknown word, wrong slug, expired, or unpublished |
 | GET | `/v1/content/:slug` | Browser | public key + Origin, optional `x-hp-session` from the lookup | — | `{ "access": true, "content": { slug, title, kind, bodyRef, bookingUrl } }` or `{ "access": false, "teaser": {…} }` |
 | GET | `/v1/content/:slug` | Tenant server | secret key, no Origin, optional `x-hp-customer` email | — | Same shape. The email is how a paid entitlement is checked. A secret key sent from a browser (Origin present) is refused |
 

@@ -17,6 +17,10 @@ import { PartnersView } from './views/partners'
 
 export type AccessAppProps = {
   basePath?: string
+  /** When mounted from the marketing-site admin hub, link back to website admin (e.g. `/admin`). */
+  websiteAdminHref?: string
+  /** Staff “View” link for published rows. Default `/p/{slug}`. */
+  publicProductHref?: (slug: string) => string
 }
 
 const staffRoles = new Set(['owner', 'admin', 'staff'])
@@ -33,7 +37,7 @@ function relPath(base: string, pathname: string): string {
   return p
 }
 
-export function AccessApp({ basePath = '/thp' }: AccessAppProps) {
+export function AccessApp({ basePath = '/thp', websiteAdminHref, publicProductHref }: AccessAppProps) {
   const base = normalizeBase(basePath)
   const pathname = usePathname() ?? base
   const router = useRouter()
@@ -143,6 +147,11 @@ export function AccessApp({ basePath = '/thp' }: AccessAppProps) {
 
   const staffNav = (
     <nav className="hp-access__nav" aria-label="Console">
+      {websiteAdminHref ? (
+        <Link href={websiteAdminHref} className="hp-access__admin-back">
+          ← Website admin
+        </Link>
+      ) : null}
       <Link href={`${base}/connection`} aria-current={route === '/connection' ? 'page' : undefined}>
         Connection
       </Link>
@@ -176,7 +185,8 @@ export function AccessApp({ basePath = '/thp' }: AccessAppProps) {
   if (isPartner && route === '/partner/dashboard') body = <PartnerDashboardView basePath={base} />
   else if (isStaff && route === '/connection') body = <ConnectionView basePath={base} />
   else if (isStaff && route === '/partners') body = <PartnersView basePath={base} />
-  else if (isStaff && route === '/content') body = <ContentView basePath={base} />
+  else if (isStaff && route === '/content')
+    body = <ContentView basePath={base} publicProductHref={publicProductHref} />
   else if (isStaff && route === '/content/new') body = <ContentFormView basePath={base} mode="create" />
   else if (isStaff && route.startsWith('/content/') && route.endsWith('/edit')) {
     const slug = route.slice('/content/'.length, -'/edit'.length)

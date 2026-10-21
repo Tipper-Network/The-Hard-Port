@@ -9,8 +9,20 @@
       "default": "./src/index.tsx"
     },
     "./server": {
-      "types": "./src/server/index.ts",
-      "default": "./src/server/index.ts"
+      "types": "./src/server/routes.ts",
+      "default": "./src/server/routes.ts"
+    },
+    "./server/config": {
+      "types": "./src/server/config.ts",
+      "default": "./src/server/config.ts"
+    },
+    "./server/fetch-content": {
+      "types": "./src/server/fetch-content.ts",
+      "default": "./src/server/fetch-content.ts"
+    },
+    "./server/fetch-catalog": {
+      "types": "./src/server/fetch-catalog.ts",
+      "default": "./src/server/fetch-catalog.ts"
     },
     "./widgets": {
       "types": "./src/widgets/index.tsx",

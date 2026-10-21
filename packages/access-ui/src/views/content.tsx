@@ -15,9 +15,12 @@ type ContentRow = {
   body_ref: string | null
 }
 
-type Props = { basePath: string }
+type Props = {
+  basePath: string
+  publicProductHref?: (slug: string) => string
+}
 
-export function ContentView({ basePath }: Props) {
+export function ContentView({ basePath, publicProductHref = (slug) => `/p/${slug}` }: Props) {
   const [items, setItems] = useState<ContentRow[]>([])
   const [error, setError] = useState<string | null>(null)
 
@@ -68,7 +71,7 @@ export function ContentView({ basePath }: Props) {
                   {c.status === 'published' ? (
                     <>
                       {' · '}
-                      <a href={`/p/${c.slug}`} target="_blank" rel="noopener noreferrer">
+                      <a href={publicProductHref(c.slug)} target="_blank" rel="noopener noreferrer">
                         View
                       </a>
                     </>

@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 
+import { AdminHubNav } from '@/components/admin/admin-hub-nav'
 import { ReviewDashboard } from '@/components/review/review-dashboard'
 import { SiteFooter } from '@/components/layout/site-footer'
 import { SiteHeader } from '@/components/layout/site-header'
@@ -25,6 +26,7 @@ export default function ReviewPage() {
             Submitted Engagement Readiness applications. Qualification workflow comes next.
           </p>
           <div className="mt-10">
+            <AdminHubNav />
             <ReviewDashboard />
           </div>
         </div>

@@ -4,6 +4,7 @@ import LinkButton from '@/components/link-button'
 import { ApplicationsListPanel } from '@/components/review/applications-list-panel'
 import { ReviewOperatorTabs } from '@/components/review/funnel-analytics-dashboard'
 import { ReviewerSessionBar } from '@/components/review/reviewer-session-bar'
+import { WebsiteAdminPlatformPanel } from '@/components/review/website-admin-platform-panel'
 import { useReviewerSession } from '@/components/review/use-reviewer-session'
 import { isUnauthorizedError } from '@/lib/api/errors'
 import { useApplications } from '@/hooks/api/use-applications'
@@ -53,6 +54,7 @@ export function ReviewDashboard() {
   return (
     <div className="space-y-8">
       <ReviewerSessionBar user={user} onSignOut={signOut} />
+      <WebsiteAdminPlatformPanel />
 
       <div className="space-y-1">
         <p className="text-sm text-white/60">

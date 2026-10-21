@@ -6,9 +6,12 @@ Monorepo: **Next.js** web (`apps/web`) + **NestJS** API (`apps/api`).
 
 ```bash
 pnpm install
-pnpm dev          # web :3000 + api :3001
+pnpm dev          # web :3000 + intake api :3001 (apply, sign-in, /review)
+pnpm dev:all      # web + api + Access :4001 (catalog, /admin/thp, everything)
+pnpm dev:console  # web + Access only (no intake OAuth api)
 pnpm dev:web
 pnpm dev:api
+pnpm dev:access   # Access service only
 ```
 
 ## Build

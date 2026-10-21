@@ -73,7 +73,7 @@ export function SignInPanel() {
         <p className="text-alert">{providerErrorMessage(error.message)}</p>
         <p className="text-sm text-white/60">
           Platform console (partners, content) is separate:{' '}
-          <LinkButton text="/thp/login" href="/thp/login" variant="text" intensity={1} noMargin />
+          <LinkButton text="/admin/thp/login" href="/admin/thp/login" variant="text" intensity={1} noMargin />
         </p>
         <button
           type="button"

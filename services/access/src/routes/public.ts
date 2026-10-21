@@ -9,10 +9,14 @@ import { canAccess, normalizeKeyword } from '../rules.js';
 // POST /v1/keywords/lookup   browser, public key + allowed Origin
 // GET  /v1/content/:slug     browser (public key, optional x-hp-session) or tenant server (secret key, x-hp-customer)
 
+const contentSlugField = z.string().regex(/^[a-z0-9][a-z0-9-]{0,80}$/)
+
 const LookupBody = z
   .object({
     word: z.string().min(1).max(60),
     anonId: z.string().regex(/^[A-Za-z0-9_-]{16,64}$/),
+    /** When set, the keyword must unlock this published product (not another slug). */
+    contentSlug: contentSlugField.optional(),
   })
   .strict();
 
@@ -78,6 +82,7 @@ export function registerPublicRoutes(app: FastifyInstance, ctx: AppCtx): void {
       );
 
       if (!hit) return { ok: false }; // identical response for "no such word", expired, unpublished, bad format
+      if (body.contentSlug && hit.content_slug !== body.contentSlug) return { ok: false };
 
       if (hit.campaign_id) {
         await q.query(

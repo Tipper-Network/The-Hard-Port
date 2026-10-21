@@ -4,7 +4,7 @@ import type { NextRequest } from 'next/server'
 import { NextResponse } from 'next/server'
 
 import { loadBffConfig, SESSION_COOKIE } from './config'
-import { createPresignedUpload, loadS3UploadConfig } from './s3-upload'
+import { proxyKeywordLookup } from './keyword-lookup-proxy'
 
 type RouteContext = { params: Promise<{ path?: string[] }> }
 
@@ -182,10 +182,6 @@ export async function handleAccessApi(req: NextRequest, context: RouteContext): 
 
   if (path === '/uploads/presign' && req.method === 'POST') {
     if (!session) return NextResponse.json({ error: 'unauthenticated' }, { status: 401 })
-    const s3 = loadS3UploadConfig(config.tenantSlug)
-    if (!s3) {
-      return NextResponse.json({ error: 's3_not_configured' }, { status: 503 })
-    }
     let parsed: { slug?: string; filename?: string; contentType?: string } = {}
     try {
       parsed = JSON.parse(await req.text()) as typeof parsed
@@ -196,6 +192,11 @@ export async function handleAccessApi(req: NextRequest, context: RouteContext): 
       return NextResponse.json({ error: 'missing_fields' }, { status: 400 })
     }
     try {
+      const { loadS3UploadConfig, createPresignedUpload } = await import('./s3-upload')
+      const s3 = loadS3UploadConfig(config.tenantSlug)
+      if (!s3) {
+        return NextResponse.json({ error: 's3_not_configured' }, { status: 503 })
+      }
       const out = await createPresignedUpload(s3, {
         slug: parsed.slug.trim(),
         filename: parsed.filename.trim(),
@@ -205,6 +206,28 @@ export async function handleAccessApi(req: NextRequest, context: RouteContext): 
     } catch {
       return NextResponse.json({ error: 'presign_failed' }, { status: 500 })
     }
+  }
+
+  if (path === '/public/keywords/lookup' && req.method === 'POST') {
+    let parsed: { word?: string; anonId?: string; contentSlug?: string } = {}
+    try {
+      parsed = JSON.parse(await req.text()) as typeof parsed
+    } catch {
+      return NextResponse.json({ error: 'invalid_body' }, { status: 400 })
+    }
+    if (!parsed.word?.trim() || !parsed.anonId?.trim()) {
+      return NextResponse.json({ error: 'missing_fields' }, { status: 400 })
+    }
+    const slug = parsed.contentSlug?.trim()
+    const out = await proxyKeywordLookup(
+      {
+        word: parsed.word.trim(),
+        anonId: parsed.anonId.trim(),
+        ...(slug ? { contentSlug: slug } : {}),
+      },
+      forwardOrigin(req, config),
+    )
+    return NextResponse.json(out.body, { status: out.status })
   }
 
   const adminOrPartner = path.startsWith('/admin/') || path.startsWith('/partner/')

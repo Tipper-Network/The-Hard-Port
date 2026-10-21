@@ -2,7 +2,8 @@ import type { Metadata } from 'next'
 import { notFound } from 'next/navigation'
 
 import { ProductPage } from '@psyferblock/access/widgets'
-import { fetchContentForPage } from '@psyferblock/access/server'
+import { isAccessInstalled } from '@psyferblock/access/server/config'
+import { fetchContentForPage } from '@psyferblock/access/server/fetch-content'
 
 import { SiteFooter } from '@/components/layout/site-footer'
 import { SiteHeader } from '@/components/layout/site-header'
@@ -38,6 +39,8 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 }
 
 export default async function ProductRoutePage({ params }: PageProps) {
+  if (!isAccessInstalled()) notFound()
+
   const { slug } = await params
   const accessUrl = requireEnv('HP_ACCESS_URL')
   const secretKey = requireEnv('HP_SECRET_KEY')

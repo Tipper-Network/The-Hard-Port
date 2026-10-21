@@ -21,8 +21,25 @@ transpilePackages: ['@psyferblock/access'],
 | Import | Use |
 |--------|-----|
 | `@psyferblock/access` | `AccessApp` at `/thp/*` |
-| `@psyferblock/access/server` | BFF route handlers, `fetchCatalog`, `fetchContentForPage` |
-| `@psyferblock/access/widgets` | `CatalogGrid`, `ProductPage`, `ProductUnlocked` |
+| `@psyferblock/access/server` | BFF route handlers only (`GET`, `POST`, `PATCH`) |
+| `@psyferblock/access/server/config` | `isAccessInstalled`, env helpers (no AWS SDK) |
+| `@psyferblock/access/server/fetch-catalog` | Server catalog fetch |
+| `@psyferblock/access/server/fetch-content` | Server product fetch |
+| `@psyferblock/access/widgets` | `CatalogGrid`, `ProductPage`, `ProductUnlockWidget`, … |
+
+Catalog and widgets require env (`HP_ACCESS_URL`, keys). Use `isAccessInstalled()` on the server or `GET /api/hp/status` in the host app.
+
+**Visitor unlock embed** (email + access code → `/p/[slug]`):
+
+```tsx
+import { ProductUnlockWidget } from '@psyferblock/access/widgets'
+
+export function HeroUnlock() {
+  return <ProductUnlockWidget contentSlug="motion-guide" lookupUrl="/api/hp/keywords/lookup" />
+}
+```
+
+Host app must expose `POST /api/hp/keywords/lookup` (see `apps/web/app/api/hp/keywords/lookup/route.ts`) or mount the BFF path `/thp/api/public/keywords/lookup`.
 
 ## Env (host app)
 

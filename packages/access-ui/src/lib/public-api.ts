@@ -35,13 +35,18 @@ export async function lookupKeyword(
   publicKey: string,
   word: string,
   anonId: string,
+  contentSlug?: string,
 ): Promise<KeywordLookupResult> {
   const base = accessUrl.replace(/\/$/, '')
   try {
     const res = await fetch(`${base}/v1/keywords/lookup`, {
       method: 'POST',
       headers: { 'content-type': 'application/json', 'x-hp-key': publicKey },
-      body: JSON.stringify({ word, anonId }),
+      body: JSON.stringify({
+        word,
+        anonId,
+        ...(contentSlug ? { contentSlug } : {}),
+      }),
     })
     const json = (await res.json()) as { ok?: boolean; session?: string; slug?: string }
     if (res.ok && json.ok && json.session && json.slug) {
@@ -51,6 +56,20 @@ export async function lookupKeyword(
   } catch {
     return { ok: false, reason: 'network' }
   }
+}
+
+export function keywordSessionStorageKey(contentSlug: string): string {
+  return `hp_kw_session_${contentSlug}`
+}
+
+export function storeKeywordSession(contentSlug: string, session: string): void {
+  if (typeof window === 'undefined') return
+  window.sessionStorage.setItem(keywordSessionStorageKey(contentSlug), session)
+}
+
+export function readKeywordSession(contentSlug: string): string | null {
+  if (typeof window === 'undefined') return null
+  return window.sessionStorage.getItem(keywordSessionStorageKey(contentSlug))
 }
 
 /** Stable anonymous id for keyword lookup (16–64 chars). */

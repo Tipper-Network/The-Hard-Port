@@ -282,6 +282,21 @@ describe('admin back-office and the public keyword flow', () => {
     assert.ok(visitor.rows[0].first_campaign_id, 'the visit is attributed to the campaign');
   });
 
+  test('keyword lookup with contentSlug rejects a valid word for the wrong product', async () => {
+    const ok = await call('POST', '/v1/keywords/lookup', {
+      origin: ALPHA_SITE,
+      headers: { 'x-hp-key': alphaPublicKey },
+      body: { word: 'motion', anonId: 'anon-visitor-0000004', contentSlug: 'motion-guide' },
+    });
+    assert.equal(ok.json.ok, true);
+    const wrong = await call('POST', '/v1/keywords/lookup', {
+      origin: ALPHA_SITE,
+      headers: { 'x-hp-key': alphaPublicKey },
+      body: { word: 'motion', anonId: 'anon-visitor-0000004', contentSlug: 'old-guide' },
+    });
+    assert.deepEqual(wrong.json, { ok: false });
+  });
+
   test('misses look identical to the visitor but are recorded for the owner', async () => {
     const miss = await call('POST', '/v1/keywords/lookup', { origin: ALPHA_SITE, headers: { 'x-hp-key': alphaPublicKey }, body: { word: 'motoin', anonId: 'anon-visitor-0000001' } });
     const junk = await call('POST', '/v1/keywords/lookup', { origin: ALPHA_SITE, headers: { 'x-hp-key': alphaPublicKey }, body: { word: "x'; drop table--", anonId: 'anon-visitor-0000001' } });

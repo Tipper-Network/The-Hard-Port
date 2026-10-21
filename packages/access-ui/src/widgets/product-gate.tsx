@@ -2,7 +2,7 @@
 
 import { useState } from 'react'
 
-import { fetchPublicContent, getOrCreateAnonId, lookupKeyword } from '../lib/public-api'
+import { fetchPublicContent, getOrCreateAnonId, lookupKeyword, storeKeywordSession } from '../lib/public-api'
 import type { ContentPayload, ContentTeaser } from '../types/public-content'
 import { ProductUnlocked } from './product-unlocked'
 
@@ -36,13 +36,14 @@ export function ProductGate({ slug, accessUrl, publicKey, teaser }: Props) {
     setBusy(true)
     try {
       const anonId = getOrCreateAnonId(window.localStorage)
-      const hit = await lookupKeyword(accessUrl, publicKey, word, anonId)
+      const hit = await lookupKeyword(accessUrl, publicKey, word, anonId, slug)
       if (!hit.ok) {
         setError(hit.reason === 'network' ? 'Network error. Try again.' : 'Wrong word, or this page is not unlocked that way.')
         return
       }
       const page = await fetchPublicContent(accessUrl, publicKey, slug, hit.session)
       if (page.found && page.access) {
+        storeKeywordSession(slug, hit.session)
         setUnlocked(page.content)
         return
       }

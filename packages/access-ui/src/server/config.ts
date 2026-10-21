@@ -21,3 +21,9 @@ export function loadBffConfig(): BffConfig {
     siteOrigin: process.env.NEXT_PUBLIC_SITE_URL?.replace(/\/$/, '') || undefined,
   }
 }
+
+/** Catalog, BFF, and widgets require hosted Access + keys on the Next server. */
+export function isAccessInstalled(): boolean {
+  const { accessUrl, secretKey, publicKey } = loadBffConfig()
+  return Boolean(accessUrl && secretKey && publicKey)
+}

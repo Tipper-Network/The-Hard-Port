@@ -3,8 +3,7 @@
 import '../product.css'
 
 import type { ContentPageData } from '../types/public-content'
-import { ProductUnlocked } from './product-unlocked'
-import { ProductGate } from './product-gate'
+import { ProductPageClient } from './product-page-client'
 
 export type ProductPageProps = {
   slug: string
@@ -34,13 +33,7 @@ export function ProductPage({ slug, initial, accessUrl, publicKey }: ProductPage
 
   return (
     <div className="hp-product">
-      {initial.access ? (
-        <div className="hp-product__inner hp-product__inner--wide">
-          <ProductUnlocked content={initial.content} />
-        </div>
-      ) : (
-        <ProductGate slug={slug} accessUrl={accessUrl} publicKey={publicKey} teaser={initial.teaser} />
-      )}
+      <ProductPageClient slug={slug} initial={initial} accessUrl={accessUrl} publicKey={publicKey} />
     </div>
   )
 }
