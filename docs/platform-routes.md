@@ -143,7 +143,9 @@ Login first. The cookie is set by the response. Send it on later calls. POST and
 | POST | `/auth/logout` | the session's user | — | Clears the cookie |
 | GET | `/admin/content` | owner, admin, staff | — | `{ "items": […] }` |
 | POST | `/admin/content` | owner, admin, staff | slug, title, kind (`guide`, `part`, `video`, `session`, `ebook`, `download`), accessMode (`open`, `keyword_first`, `paid`), optional summary, freeFrom, bodyRef, bookingUrl, priceMinor, currency, status | `201 { "ok": true, "id" }` |
-| POST | `/admin/partners` | owner, admin, staff | `{ "displayName", "commissionPct", "payoutDetails"? }` | `201 { "ok": true, "id" }` |
+| POST | `/admin/partners` | owner, admin, staff | `{ "displayName", "email", "commissionPct", "payoutDetails"?, "portalCode"? }` | `201 { "ok": true, "id", "portalCode" }` (code once) |
+| POST | `/auth/partner/request-otp` | public (rate limited) | `{ "tenantSlug", "email", "portalCode" }` | `{ "ok": true }` |
+| POST | `/auth/partner/verify-otp` | public | `{ "tenantSlug", "email", "otp" }` | Session cookie or `{ sessionToken, … }` with `x-hp-session-mode: body` |
 | POST | `/admin/campaigns` | owner, admin, staff | title, optional platform, postUrl, triggerWord, partnerId | `201 { "ok": true, "id" }` |
 | POST | `/admin/keywords` | owner, admin, staff | `{ "word", "contentSlug", "campaignId"? }` | `201 { "ok": true, "id", "word" }` |
 | GET | `/admin/keywords/misses` | owner, admin, staff | — | Words that missed in the last 7 days: `{ "misses": [{ "word", "tries" }] }` |

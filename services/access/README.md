@@ -17,8 +17,10 @@ pnpm --filter @hardport/access start
 | Artifact | Location / npm | Role |
 |----------|----------------|------|
 | **Access service** | `services/access`, npm **`@hardport/access`** | Fastify API you deploy (e.g. `access.thehardport.com`) |
-| **@psyferblock/access** (console) | `packages/access-ui` (planned) | Installable Next mount at **`/thp/*`** — router + BFF + widgets ([psyferblock.io](https://psyferblock.io)) |
+| **@psyferblock/access** (console) | `packages/access-ui` | Installable Next mount at **`/thp/*`** — router + BFF + widgets ([psyferblock.io](https://psyferblock.io)) |
 
 Customer sites install the **`access`** package, set env keys, and render `<AccessApp basePath="/thp" />`. The console talks to **this service** over HTTP; it is not embedded inside the Fastify process.
 
 Website **application review** (`/review`, `apps/api` intake) is **not** part of either package above.
+
+v1 partner portal API: [`docs/access-service-v1.md`](../../docs/access-service-v1.md). Migrate with `pnpm platform:migrate` (includes `006_partner_portal.sql`).

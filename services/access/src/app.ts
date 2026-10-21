@@ -9,6 +9,7 @@ import { registerAuthRoutes } from './routes/auth.js';
 import { registerPublicRoutes } from './routes/public.js';
 import { registerAdminRoutes } from './routes/admin.js';
 import { registerPartnerRoutes } from './routes/partner.js';
+import { registerPartnerAuthRoutes } from './routes/partner-auth.js';
 import { registerInternalRoutes } from './routes/internal.js';
 
 export interface BuildDeps {
@@ -48,6 +49,7 @@ export async function buildApp(deps: BuildDeps): Promise<FastifyInstance> {
   app.get('/healthz', async () => ({ ok: true }));
 
   registerAuthRoutes(app, ctx);
+  registerPartnerAuthRoutes(app, ctx);
   registerPublicRoutes(app, ctx);
   registerAdminRoutes(app, ctx);
   registerPartnerRoutes(app, ctx);

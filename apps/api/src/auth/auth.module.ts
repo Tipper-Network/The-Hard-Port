@@ -3,8 +3,11 @@ import { ConfigModule, ConfigService } from '@nestjs/config'
 import { JwtModule } from '@nestjs/jwt'
 import { PassportModule } from '@nestjs/passport'
 
+import '../load-env.js'
+
 import { AuthController } from './auth.controller'
 import { AuthService } from './auth.service'
+import { OAuthExceptionFilter } from './oauth-exception.filter'
 import { GoogleStrategy } from './strategies/google.strategy'
 import { JwtStrategy } from './strategies/jwt.strategy'
 import { MetaStrategy } from './strategies/meta.strategy'
@@ -43,7 +46,7 @@ if (
     }),
   ],
   controllers: [AuthController],
-  providers: [AuthService, JwtStrategy, ...oauthProviders],
+  providers: [AuthService, OAuthExceptionFilter, JwtStrategy, ...oauthProviders],
   exports: [AuthService, JwtModule],
 })
 export class AuthModule {}

@@ -7,10 +7,12 @@ import {
   hashSessionToken,
   pepperedHash,
   randomToken,
+  resolveSessionActor,
   verifyPassword,
   verifyTotp,
 } from '@hardport/core';
-import { originAllowed, type AppCtx } from '../context.js';
+import { originAllowed, readSessionToken, type AppCtx } from '../context.js';
+import { sessionPayload, wantsSessionBody } from '../session-response.js';
 
 const LoginBody = z
   .object({
@@ -116,19 +118,33 @@ export function registerAuthRoutes(app: FastifyInstance, ctx: AppCtx): void {
     if (!created) return fail();
 
     await db.withoutTenant((q) => q.query('SELECT platform.record_login_attempt($1, $2, true)', [emailHash, ipHash]));
-    reply.setCookie(name, token, {
-      httpOnly: true,
-      secure: config.cookieSecure,
-      sameSite: 'lax',
-      path: '/',
-      maxAge: config.sessionTtlHours * 3600,
+    return sessionPayload(req, reply, config, token, config.sessionTtlHours, {
+      tenant: chosen.tenant_slug,
+      role: chosen.role,
     });
-    return { ok: true, tenant: chosen.tenant_slug, role: chosen.role };
+  });
+
+  app.get('/auth/session', async (req, reply) => {
+    const token = readSessionToken(req, config.cookieSecure);
+    const actor = await resolveSessionActor(db, token);
+    if (!actor) return reply.code(401).send({ error: 'unauthenticated' });
+    const row = (
+      await db.withoutTenant((q) =>
+        q.query<{ slug: string }>('SELECT slug FROM platform.tenants WHERE id = $1', [actor.tenantId]),
+      )
+    ).rows[0];
+    if (!row) return reply.code(401).send({ error: 'unauthenticated' });
+    return {
+      ok: true,
+      tenant: row.slug,
+      role: actor.role,
+      partnerId: actor.partnerId ?? null,
+    };
   });
 
   app.post('/auth/logout', async (req, reply) => {
-    if (!originAllowed(ctx, req)) return reply.code(403).send({ error: 'bad_origin' });
-    const token = req.cookies[name];
+    if (!originAllowed(ctx, req) && !wantsSessionBody(req)) return reply.code(403).send({ error: 'bad_origin' });
+    const token = readSessionToken(req, config.cookieSecure);
     if (token) await db.withoutTenant((q) => q.query('SELECT platform.revoke_session($1)', [hashSessionToken(token)]));
     reply.clearCookie(name, { path: '/' });
     return { ok: true };

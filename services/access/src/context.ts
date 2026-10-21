@@ -35,6 +35,18 @@ declare module 'fastify' {
 
 const SAFE_METHODS = new Set(['GET', 'HEAD', 'OPTIONS']);
 
+/** Session cookie or `Authorization: Bearer` (BFF replay). */
+export function readSessionToken(req: FastifyRequest, cookieSecure: boolean): string | undefined {
+  const fromCookie = req.cookies[cookieName(cookieSecure)];
+  if (fromCookie) return fromCookie;
+  const auth = req.headers.authorization;
+  if (typeof auth === 'string' && auth.startsWith('Bearer ')) {
+    const token = auth.slice('Bearer '.length).trim();
+    if (token.length >= 20 && token.length <= 200) return token;
+  }
+  return undefined;
+}
+
 /**
  * True when the request Origin is one of `ADMIN_ORIGINS`. Cookie mutations require this, on top of SameSite=Lax.
  * @param ctx - Access app context
@@ -58,7 +70,7 @@ export function requireRole(ctx: AppCtx, ...roles: ActorRole[]) {
     if (!SAFE_METHODS.has(req.method) && !originAllowed(ctx, req)) {
       return reply.code(403).send({ error: 'bad_origin' });
     }
-    const actor = await resolveSessionActor(ctx.db, req.cookies[cookieName(ctx.config.cookieSecure)]);
+    const actor = await resolveSessionActor(ctx.db, readSessionToken(req, ctx.config.cookieSecure));
     if (!actor) return reply.code(401).send({ error: 'unauthenticated' });
     if (!roles.includes(actor.role)) return reply.code(403).send({ error: 'forbidden' });
     req.actor = actor;

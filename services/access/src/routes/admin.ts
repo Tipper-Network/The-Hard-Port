@@ -1,10 +1,11 @@
 import { randomUUID } from 'node:crypto';
 import type { FastifyInstance, FastifyReply } from 'fastify';
 import { z } from 'zod';
-import { encryptField, generateApiKey } from '@hardport/core';
+import { encryptField, generateApiKey, hashPassword } from '@hardport/core';
 import { audit, pgCode, requireRole, type AppCtx } from '../context.js';
 import { fail, ok, respond } from '../respond.js';
 import { normalizeKeyword } from '../rules.js';
+import { generatePortalCode } from './partner-auth.js';
 
 // Staff session routes for a tenant's own operators. Catalogue: docs/platform-routes.md
 // Tenant back-office. Every body schema is .strict(): unknown fields (like tenant_id) are
@@ -30,7 +31,15 @@ const ContentBody = z
   .strict();
 
 const KeywordBody = z.object({ word: z.string().min(1).max(60), contentSlug: z.string().max(81), campaignId: z.string().uuid().optional() }).strict();
-const PartnerBody = z.object({ displayName: z.string().min(1).max(100), commissionPct: z.number().min(0).max(100).default(0), payoutDetails: z.string().max(500).optional() }).strict();
+const PartnerBody = z
+  .object({
+    displayName: z.string().min(1).max(100),
+    email: z.string().email().max(254),
+    commissionPct: z.number().min(0).max(100).default(0),
+    payoutDetails: z.string().max(500).optional(),
+    portalCode: z.string().min(6).max(64).optional(),
+  })
+  .strict();
 const CampaignBody = z
   .object({
     title: z.string().min(1).max(200),
@@ -107,6 +116,19 @@ export function registerAdminRoutes(app: FastifyInstance, ctx: AppCtx): void {
     );
   });
 
+  app.get('/admin/partners', { preHandler: requireRole(ctx, ...staff) }, async (req) =>
+    db.withTenant(req.actor!, async (q) => ({
+      items: (
+        await q.query(
+          `SELECT id, display_name, email, commission_pct, created_at
+           FROM access.partners
+           ORDER BY created_at DESC
+           LIMIT 500`,
+        )
+      ).rows,
+    })),
+  );
+
   app.post('/admin/partners', { preHandler: requireRole(ctx, ...staff) }, async (req, reply) => {
     const b = PartnerBody.parse(req.body);
     const actor = req.actor!;
@@ -117,9 +139,17 @@ export function registerAdminRoutes(app: FastifyInstance, ctx: AppCtx): void {
         reply,
         db.withTenant(actor, async (q) => {
           const enc = b.payoutDetails ? encryptField(b.payoutDetails, config.fieldKeys, `partner:${id}:payout`) : null;
-          await q.query('INSERT INTO access.partners (id, tenant_id, display_name, commission_pct, payout_details_enc) VALUES ($1, $2, $3, $4, $5)', [id, actor.tenantId, b.displayName, b.commissionPct, enc]);
-          await audit(q, actor, 'partner.create', id, { displayName: b.displayName, commissionPct: b.commissionPct });
-          return ok({ id }, 201);
+          const email = b.email.trim().toLowerCase();
+          const portal =
+            b.portalCode !== undefined
+              ? { portalCode: b.portalCode, portalCodeHash: await hashPassword(b.portalCode) }
+              : await generatePortalCode();
+          await q.query(
+            'INSERT INTO access.partners (id, tenant_id, display_name, email, commission_pct, payout_details_enc, portal_code_hash) VALUES ($1, $2, $3, $4, $5, $6, $7)',
+            [id, actor.tenantId, b.displayName, email, b.commissionPct, enc, portal.portalCodeHash],
+          );
+          await audit(q, actor, 'partner.create', id, { displayName: b.displayName, commissionPct: b.commissionPct, email });
+          return ok({ id, portalCode: portal.portalCode }, 201);
         }),
       ),
     );

@@ -18,6 +18,10 @@ const Env = z.object({
   DEFAULT_FREE_AFTER_DAYS: z.coerce.number().int().min(0).max(3650).default(30),
   // Per-IP request limit on /auth/login (on top of the per-account lockout in the database).
   LOGIN_RATE_LIMIT_PER_MINUTE: z.coerce.number().int().min(1).max(10_000).default(20),
+  RESEND_API_KEY: z.string().optional(),
+  MAIL_FROM: z.string().optional(),
+  PARTNER_OTP_TTL_MINUTES: z.coerce.number().int().min(5).max(60).default(10),
+  PARTNER_SESSION_TTL_HOURS: z.coerce.number().int().min(1).max(24).default(8),
 });
 
 export interface AccessConfig {
@@ -33,6 +37,10 @@ export interface AccessConfig {
   sessionTtlHours: number;
   defaultFreeAfterDays: number;
   loginRateLimitPerMinute: number;
+  resendApiKey: string | undefined;
+  mailFrom: string | undefined;
+  partnerOtpTtlMinutes: number;
+  partnerSessionTtlHours: number;
 }
 
 /**
@@ -54,5 +62,9 @@ export function loadConfig(env: Record<string, string | undefined> = process.env
     sessionTtlHours: e.SESSION_TTL_HOURS,
     defaultFreeAfterDays: e.DEFAULT_FREE_AFTER_DAYS,
     loginRateLimitPerMinute: e.LOGIN_RATE_LIMIT_PER_MINUTE,
+    resendApiKey: e.RESEND_API_KEY?.trim() || undefined,
+    mailFrom: e.MAIL_FROM?.trim() || undefined,
+    partnerOtpTtlMinutes: e.PARTNER_OTP_TTL_MINUTES,
+    partnerSessionTtlHours: e.PARTNER_SESSION_TTL_HOURS,
   };
 }

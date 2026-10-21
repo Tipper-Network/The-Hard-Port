@@ -1,20 +1,22 @@
 import {
   Controller,
   Get,
-  Next,
   Req,
   Res,
   ServiceUnavailableException,
+  UseFilters,
   UseGuards,
 } from '@nestjs/common'
-import type { NextFunction, Request, Response } from 'express'
-import * as passport from 'passport'
+import { AuthGuard } from '@nestjs/passport'
+import type { Request, Response } from 'express'
 
 import type { AuthenticatedUser } from './auth.types'
 import { AuthService } from './auth.service'
 import { CurrentUser } from './decorators/current-user.decorator'
 import { JwtAuthGuard } from './guards/auth.guards'
-import { META_OAUTH_SCOPES } from './meta-oauth.constants'
+import { OAuthExceptionFilter } from './oauth-exception.filter'
+
+type OAuthRequest = Request & { user: AuthenticatedUser }
 
 @Controller('auth')
 export class AuthController {
@@ -30,37 +32,33 @@ export class AuthController {
   }
 
   @Get('google')
-  google(@Req() req: Request, @Res() res: Response, @Next() next: NextFunction) {
+  @UseGuards(AuthGuard('google'))
+  @UseFilters(OAuthExceptionFilter)
+  googleAuth() {
     this.assertGoogleEnabled()
-    return passport.authenticate('google', { scope: ['email', 'profile'] })(req, res, next)
   }
 
   @Get('google/callback')
-  googleCallback(@Req() req: Request, @Res() res: Response, @Next() next: NextFunction) {
+  @UseGuards(AuthGuard('google'))
+  @UseFilters(OAuthExceptionFilter)
+  googleCallback(@Req() req: OAuthRequest, @Res() res: Response) {
     this.assertGoogleEnabled()
-    passport.authenticate('google', { session: false }, (err: Error | null, user?: AuthenticatedUser) => {
-      if (err || !user) {
-        return this.redirectAuthError(res, err?.message ?? 'Google authentication failed')
-      }
-      return this.finishOAuth(user, res)
-    })(req, res, next)
+    this.finishOAuth(req.user, res)
   }
 
   @Get('meta')
-  meta(@Req() req: Request, @Res() res: Response, @Next() next: NextFunction) {
+  @UseGuards(AuthGuard('meta'))
+  @UseFilters(OAuthExceptionFilter)
+  metaAuth() {
     this.assertMetaEnabled()
-    return passport.authenticate('meta', { scope: [...META_OAUTH_SCOPES] })(req, res, next)
   }
 
   @Get('meta/callback')
-  metaCallback(@Req() req: Request, @Res() res: Response, @Next() next: NextFunction) {
+  @UseGuards(AuthGuard('meta'))
+  @UseFilters(OAuthExceptionFilter)
+  metaCallback(@Req() req: OAuthRequest, @Res() res: Response) {
     this.assertMetaEnabled()
-    passport.authenticate('meta', { session: false }, (err: Error | null, user?: AuthenticatedUser) => {
-      if (err || !user) {
-        return this.redirectAuthError(res, err?.message ?? 'Meta authentication failed')
-      }
-      return this.finishOAuth(user, res)
-    })(req, res, next)
+    this.finishOAuth(req.user, res)
   }
 
   @Get('me')
@@ -70,14 +68,10 @@ export class AuthController {
   }
 
   private finishOAuth(user: AuthenticatedUser, res: Response) {
+    if (res.headersSent) return
     const { accessToken } = this.authService.issueAccessToken(user)
     const webUrl = this.authService.getWebCallbackUrl()
     res.redirect(`${webUrl}/auth/callback?token=${encodeURIComponent(accessToken)}`)
-  }
-
-  private redirectAuthError(res: Response, message: string) {
-    const webUrl = this.authService.getWebCallbackUrl()
-    res.redirect(`${webUrl}/auth/error?message=${encodeURIComponent(message)}`)
   }
 
   private assertGoogleEnabled() {

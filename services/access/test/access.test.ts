@@ -25,6 +25,10 @@ const config: AccessConfig = {
   sessionTtlHours: 12,
   defaultFreeAfterDays: 30,
   loginRateLimitPerMinute: 1000, // the per-account lockout is what these tests exercise
+  resendApiKey: undefined,
+  mailFrom: undefined,
+  partnerOtpTtlMinutes: 10,
+  partnerSessionTtlHours: 8,
 };
 
 let t: TestDb;
@@ -239,7 +243,10 @@ describe('admin back-office and the public keyword flow', () => {
     await mk({ slug: 'roadmap-kit', title: 'Roadmap kit', kind: 'ebook', accessMode: 'paid', status: 'published', priceMinor: 12000, currency: 'USD', bodyRef: 'kits/roadmap.pdf' });
     await mk({ slug: 'hidden-draft', title: 'Draft', kind: 'guide', status: 'draft' });
 
-    const partner = await call('POST', '/admin/partners', { cookie: staffCookie, body: { displayName: 'Sara', commissionPct: 10, payoutDetails: 'IBAN LB00 0000' } });
+    const partner = await call('POST', '/admin/partners', {
+      cookie: staffCookie,
+      body: { displayName: 'Sara', email: 'sara@partner.test', commissionPct: 10, payoutDetails: 'IBAN LB00 0000', portalCode: 'portal-sara-v1' },
+    });
     assert.equal(partner.status, 201);
     const enc = (await t.seed.query<{ payout_details_enc: string }>('SELECT payout_details_enc FROM access.partners WHERE id = $1', [partner.json.id])).rows[0]!.payout_details_enc;
     assert.ok(enc.startsWith('v1.k1.') && !enc.includes('IBAN'), 'payout details must be encrypted at rest');
@@ -342,9 +349,37 @@ describe('admin back-office and the public keyword flow', () => {
     assert.equal((await asServer('someone-else@client.test')).json.access, false);
   });
 
+  test('partner portal OTP returns a bearer session for BFF', async () => {
+    process.env.ACCESS_TEST_OTP = '123456';
+    const created = await call('POST', '/admin/partners', {
+      cookie: staffCookie,
+      body: { displayName: 'Portal Only', email: 'portal-only@alpha.test', commissionPct: 5, portalCode: 'portal-only-code' },
+    });
+    assert.equal(created.status, 201);
+    const portalCode = created.json.portalCode as string;
+    assert.equal(
+      (await call('POST', '/auth/partner/request-otp', { body: { tenantSlug: 'alpha', email: 'portal-only@alpha.test', portalCode } })).status,
+      200,
+    );
+    const verified = await call('POST', '/auth/partner/verify-otp', {
+      body: { tenantSlug: 'alpha', email: 'portal-only@alpha.test', otp: '123456' },
+      headers: { 'x-hp-session-mode': 'body' },
+    });
+    assert.equal(verified.status, 200);
+    assert.equal(verified.json.role, 'partner');
+    assert.ok(verified.json.sessionToken);
+    const bearer = verified.json.sessionToken as string;
+    const camps = await call('GET', '/partner/campaigns', { headers: { Authorization: `Bearer ${bearer}` }, origin: ADMIN });
+    assert.equal(camps.status, 200);
+    delete process.env.ACCESS_TEST_OTP;
+  });
+
   test('a partner sees only their own campaigns and aggregate stats; no admin routes', async () => {
     const partnerId = (globalThis as any).__partnerId as string;
-    const other = await call('POST', '/admin/partners', { cookie: staffCookie, body: { displayName: 'Omar', commissionPct: 12 } });
+    const other = await call('POST', '/admin/partners', {
+      cookie: staffCookie,
+      body: { displayName: 'Omar', email: 'omar@partner.test', commissionPct: 12, portalCode: 'portal-omar-v1' },
+    });
     await call('POST', '/admin/campaigns', { cookie: staffCookie, body: { title: 'Omar video', partnerId: other.json.id } });
     const uid = await seedUser(t.seed, 'sara@partner.test', { passwordHash: await hashPassword(PASSWORD) });
     await seedMembership(t.seed, alpha, uid, 'partner', { partnerId });

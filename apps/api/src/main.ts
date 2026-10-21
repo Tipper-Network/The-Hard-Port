@@ -1,7 +1,4 @@
-import { config } from 'dotenv'
-
-config()
-config({ path: '.env.local', override: true })
+import './load-env.js'
 
 import { ValidationPipe } from '@nestjs/common'
 import { NestFactory } from '@nestjs/core'

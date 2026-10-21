@@ -57,7 +57,7 @@ May move under another path or product later; **does not** ship inside the `acce
 
 ---
 
-## Access console — `/thp/*` (planned, via `access` package)
+## Access console — `/thp/*` (via `@psyferblock/access`)
 
 Install on any customer site:
 

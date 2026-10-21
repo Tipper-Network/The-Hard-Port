@@ -13,8 +13,9 @@
     "types": ["node"]
   },
   "include": [
-    "packages/*/src",
-    "packages/*/test",
+    "packages/core/src",
+    "packages/core/test",
+    "packages/access-ui/src/server",
     "services/*/src",
     "services/*/test",
     "scripts/platform",
