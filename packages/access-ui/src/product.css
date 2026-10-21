@@ -1,0 +1,328 @@
+.hp-product {
+  --hp-bg: oklch(0.14 0.03 250);
+  --hp-panel: oklch(0.22 0.04 250);
+  --hp-ink: oklch(0.97 0.01 250);
+  --hp-muted: oklch(0.72 0.03 250);
+  --hp-gold: oklch(0.8 0.14 85);
+  --hp-rust: oklch(0.62 0.16 35);
+  --hp-border: oklch(0.32 0.05 250);
+  color: var(--hp-ink);
+  font-family: 'IBM Plex Sans', system-ui, sans-serif;
+  font-size: 16px;
+  line-height: 1.55;
+}
+
+.hp-product__inner {
+  max-width: 42rem;
+  margin: 0 auto;
+}
+
+.hp-product__inner--wide {
+  max-width: 56rem;
+}
+
+.hp-product__page {
+  width: 100%;
+}
+
+.hp-product__header {
+  margin-bottom: 2rem;
+}
+
+.hp-product__kind {
+  margin: 0 0 0.75rem;
+}
+
+.hp-product__kind-pill {
+  display: inline-block;
+  padding: 0.2rem 0.55rem;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  border: 1px solid var(--hp-border);
+  color: var(--hp-gold);
+  border-radius: 2px;
+}
+
+.hp-product h1 {
+  font-family: Anton, 'IBM Plex Sans', sans-serif;
+  font-size: clamp(1.85rem, 4vw, 2.75rem);
+  font-weight: 400;
+  letter-spacing: 0.02em;
+  margin: 0 0 0.75rem;
+  text-transform: uppercase;
+  line-height: 1.1;
+}
+
+.hp-product__summary {
+  color: var(--hp-muted);
+  margin: 0;
+  max-width: 40rem;
+  font-size: 1.05rem;
+}
+
+.hp-product__header .hp-product__summary {
+  margin-top: 0.75rem;
+}
+
+.hp-product__hero {
+  margin-bottom: 1.5rem;
+}
+
+.hp-product__mode-toggle {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 1.15rem;
+}
+
+.hp-product__mode {
+  padding: 0.45rem 0.85rem;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  border: 1px solid var(--hp-border);
+  background: transparent;
+  color: var(--hp-muted);
+  border-radius: 2px;
+  cursor: pointer;
+}
+
+.hp-product__mode:hover {
+  border-color: var(--hp-gold);
+  color: var(--hp-ink);
+}
+
+.hp-product__mode--active {
+  background: var(--hp-gold);
+  color: var(--hp-bg);
+  border-color: var(--hp-gold);
+}
+
+.hp-product__mode-body {
+  min-height: 2rem;
+}
+
+.hp-product__substack-frame {
+  width: 100%;
+  min-height: min(70vh, 640px);
+  border: 1px solid var(--hp-border);
+  border-radius: 4px;
+  background: var(--hp-bg);
+}
+
+.hp-product__section-title {
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin: 0 0 1rem;
+  color: var(--hp-muted);
+}
+
+.hp-product__section-title--small {
+  margin-bottom: 0.5rem;
+}
+
+.hp-product__panel {
+  background: var(--hp-panel);
+  border: 1px solid var(--hp-border);
+  border-radius: 4px;
+  padding: 1.25rem 1.35rem;
+  margin-bottom: 1.25rem;
+}
+
+.hp-product__panel--empty {
+  border-style: dashed;
+}
+
+.hp-product__embed {
+  position: relative;
+  width: 100%;
+  padding-bottom: 56.25%;
+  background: #000;
+  border-radius: 4px;
+  overflow: hidden;
+  border: 1px solid var(--hp-border);
+}
+
+.hp-product__embed--compact {
+  padding-bottom: 0;
+  height: 0;
+  display: none;
+}
+
+.hp-product__embed iframe {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+.hp-product__pdf-wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.hp-product__pdf-frame {
+  width: 100%;
+  min-height: min(75vh, 720px);
+  border: 1px solid var(--hp-border);
+  border-radius: 4px;
+  background: var(--hp-bg);
+}
+
+.hp-product__pdf-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.65rem;
+}
+
+.hp-product__callout {
+  padding: 1.25rem 1.35rem;
+  background: var(--hp-panel);
+  border: 1px solid var(--hp-border);
+  border-radius: 4px;
+}
+
+.hp-product__callout-text {
+  margin: 0 0 1rem;
+  color: var(--hp-muted);
+  max-width: 36rem;
+}
+
+.hp-product__cta {
+  display: inline-block;
+  padding: 0.65rem 1.25rem;
+  background: var(--hp-rust);
+  color: var(--hp-ink);
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 14px;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  border-radius: 2px;
+}
+
+.hp-product__cta:hover {
+  filter: brightness(1.08);
+}
+
+.hp-product__cta--ghost {
+  background: transparent;
+  border: 1px solid var(--hp-border);
+  color: var(--hp-gold);
+}
+
+.hp-product__resources {
+  margin-top: 0.5rem;
+}
+
+.hp-product__resource-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+}
+
+.hp-product__resource-link {
+  display: block;
+  padding: 0.75rem 0.85rem;
+  border: 1px solid var(--hp-border);
+  border-radius: 4px;
+  text-decoration: none;
+  color: var(--hp-ink);
+  transition: border-color 0.15s ease;
+}
+
+.hp-product__resource-link:hover {
+  border-color: var(--hp-gold);
+}
+
+.hp-product__resource-title {
+  display: block;
+  font-weight: 600;
+  font-size: 14px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 0.25rem;
+  color: var(--hp-gold);
+}
+
+.hp-product__resource-url {
+  display: block;
+  font-size: 13px;
+  color: var(--hp-muted);
+  word-break: break-all;
+}
+
+.hp-product__attribution {
+  margin-top: 2.5rem;
+  padding-top: 1.25rem;
+  border-top: 1px solid var(--hp-border);
+}
+
+.hp-product__attribution-label {
+  margin: 0 0 0.35rem;
+  color: var(--hp-ink);
+}
+
+.hp-product__attribution-link {
+  color: var(--hp-gold);
+  font-size: 14px;
+  word-break: break-all;
+}
+
+.hp-product__gate label {
+  display: block;
+  font-size: 13px;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  margin-bottom: 0.35rem;
+}
+
+.hp-product__gate input {
+  width: 100%;
+  max-width: 20rem;
+  padding: 0.5rem 0.65rem;
+  border: 1px solid var(--hp-border);
+  background: var(--hp-bg);
+  color: var(--hp-ink);
+  border-radius: 2px;
+  margin-bottom: 0.75rem;
+}
+
+.hp-product__gate button {
+  padding: 0.55rem 1.1rem;
+  background: var(--hp-gold);
+  color: var(--hp-bg);
+  border: none;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  cursor: pointer;
+  border-radius: 2px;
+}
+
+.hp-product__gate button:disabled {
+  opacity: 0.6;
+  cursor: wait;
+}
+
+.hp-product__error {
+  color: var(--hp-rust);
+  font-size: 14px;
+  margin: 0 0 0.75rem;
+}
+
+.hp-product__empty {
+  color: var(--hp-muted);
+  font-style: italic;
+  margin: 0;
+}

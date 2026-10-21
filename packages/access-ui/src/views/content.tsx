@@ -65,6 +65,14 @@ export function ContentView({ basePath }: Props) {
                 <td className="hp-access__mono">{c.body_ref ? 'yes' : '—'}</td>
                 <td>
                   <Link href={`${basePath}/content/${c.slug}/edit`}>Edit</Link>
+                  {c.status === 'published' ? (
+                    <>
+                      {' · '}
+                      <a href={`/p/${c.slug}`} target="_blank" rel="noopener noreferrer">
+                        View
+                      </a>
+                    </>
+                  ) : null}
                 </td>
               </tr>
             ))}

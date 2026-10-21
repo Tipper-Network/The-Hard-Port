@@ -44,6 +44,11 @@ Bucket must allow **CORS PUT** from `http://localhost:3000` (dev) and your produ
 
 **S3 uploads:** still only fill **`body_ref`** via `packages/access-ui/src/server/s3-upload.ts` + `POST /thp/api/uploads/presign`.
 
-## Visitor-facing page (next)
+## Visitor-facing page
 
-Public site route e.g. **`/p/[slug]`** reads **`GET /v1/content/:slug`** with **`pk`** and renders by **kind** (embed from `youtubeUrl`, link `bodyRef`, off-site `substackUrl`, attribution from `sourceLabel`/`sourceUrl`). Widget export not built yet.
+**`/p/[slug]`** on the marketing site (`apps/web/app/p/[slug]/page.tsx`):
+
+1. Server: **`fetchContentForPage`** (`@psyferblock/access/server/fetch-content`) with **`HP_SECRET_KEY`** — teaser or full payload for **`access_mode = open`** (and keyword/paid rules still apply).
+2. Client widget **`ProductPage`** — if locked, keyword gate; if unlocked, **`ProductUnlocked`** shows **Watch** and/or **Read** with toggles: **on this page** (YouTube embed, PDF iframe, or Substack `/embed`) vs **on YouTube** / **on Substack** (external). PDF in `body_ref` wins for on-site read when both PDF and Substack are set. Session booking and non-PDF downloads get their own sections. **Where this came from** uses `source_label` / `source_url`.
+
+Staff can open **`/p/{slug}`** after publish to preview the same layout visitors get.
