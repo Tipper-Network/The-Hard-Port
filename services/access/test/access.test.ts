@@ -43,7 +43,7 @@ interface Res {
   cookies: { name: string; value: string }[];
 }
 
-async function call(method: 'GET' | 'POST', url: string, o: { cookie?: string; body?: unknown; origin?: string | null; headers?: Record<string, string> } = {}): Promise<Res> {
+async function call(method: 'GET' | 'POST' | 'PATCH', url: string, o: { cookie?: string; body?: unknown; origin?: string | null; headers?: Record<string, string> } = {}): Promise<Res> {
   const headers: Record<string, string> = { ...(o.headers ?? {}) };
   const origin = o.origin === undefined ? ADMIN : o.origin;
   if (origin) headers.origin = origin;
@@ -406,6 +406,18 @@ describe('admin back-office and the public keyword flow', () => {
     assert.equal((await call('GET', '/admin/content', { cookie })).status, 200);
     assert.equal((await call('POST', '/auth/logout', { cookie })).status, 200);
     assert.equal((await call('GET', '/admin/content', { cookie })).status, 401);
+  });
+
+  test('staff can patch content metadata and asset URL', async () => {
+    const patch = await call('PATCH', '/admin/content/hidden-draft', {
+      cookie: staffCookie,
+      body: { summary: 'Updated summary', bodyRef: 'https://cdn.example.com/draft.pdf' },
+    });
+    assert.equal(patch.status, 200, JSON.stringify(patch.json));
+    const one = await call('GET', '/admin/content/hidden-draft', { cookie: staffCookie });
+    assert.equal(one.status, 200);
+    assert.equal(one.json.item.summary, 'Updated summary');
+    assert.equal(one.json.item.body_ref, 'https://cdn.example.com/draft.pdf');
   });
 
   test('errors never leak SQL or stack traces', async () => {

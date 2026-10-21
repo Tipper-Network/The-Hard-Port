@@ -1,1 +1,1 @@
-export { GET, POST } from '@psyferblock/access/server'
+export { GET, POST, PATCH } from '@psyferblock/access/server'

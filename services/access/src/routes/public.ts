@@ -103,8 +103,22 @@ export function registerPublicRoutes(app: FastifyInstance, ctx: AppCtx): void {
 
     return respond(reply, db.withTenant(actor, async (q) => {
       const item = (
-        await q.query<{ id: string; slug: string; title: string; summary: string | null; kind: string; access_mode: 'open' | 'keyword_first' | 'paid'; free_from: Date | null; body_ref: string | null; booking_url: string | null }>(
-          'SELECT id, slug, title, summary, kind, access_mode, free_from, body_ref, booking_url FROM access.content_items WHERE slug = $1',
+        await q.query<{
+          id: string;
+          slug: string;
+          title: string;
+          summary: string | null;
+          kind: string;
+          access_mode: 'open' | 'keyword_first' | 'paid';
+          free_from: Date | null;
+          body_ref: string | null;
+          booking_url: string | null;
+          youtube_url: string | null;
+          substack_url: string | null;
+          source_label: string | null;
+          source_url: string | null;
+        }>(
+          'SELECT id, slug, title, summary, kind, access_mode, free_from, body_ref, booking_url, youtube_url, substack_url, source_label, source_url FROM access.content_items WHERE slug = $1',
           [slug.data],
         )
       ).rows[0];
@@ -128,7 +142,21 @@ export function registerPublicRoutes(app: FastifyInstance, ctx: AppCtx): void {
       }
       await q.query(`INSERT INTO access.events (tenant_id, type, content_id) VALUES ($1, 'content_open', $2)`, [key.tenantId, item.id]);
       // TODO(production): exchange body_ref for a short-lived signed storage URL instead of returning it raw.
-      return ok({ access: true, content: { slug: item.slug, title: item.title, kind: item.kind, bodyRef: item.body_ref, bookingUrl: item.booking_url } });
+      return ok({
+        access: true,
+        content: {
+          slug: item.slug,
+          title: item.title,
+          kind: item.kind,
+          summary: item.summary,
+          bodyRef: item.body_ref,
+          bookingUrl: item.booking_url,
+          youtubeUrl: item.youtube_url,
+          substackUrl: item.substack_url,
+          sourceLabel: item.source_label,
+          sourceUrl: item.source_url,
+        },
+      });
     }));
   });
 }

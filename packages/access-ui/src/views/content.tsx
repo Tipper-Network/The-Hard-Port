@@ -1,5 +1,6 @@
 'use client'
 
+import Link from 'next/link'
 import { useEffect, useState } from 'react'
 
 import { apiFetch } from '../api-client'
@@ -11,6 +12,7 @@ type ContentRow = {
   kind: string
   access_mode: string
   status: string
+  body_ref: string | null
 }
 
 type Props = { basePath: string }
@@ -32,7 +34,12 @@ export function ContentView({ basePath }: Props) {
   return (
     <>
       <h1>Content</h1>
-      <p className="hp-access__lede">Published and draft items on Access. Keyword UI ships in v2.</p>
+      <p className="hp-access__lede">Each item is a product page: PDF, video link, article URL, session booking, etc.</p>
+      <p>
+        <Link href={`${basePath}/content/new`} className="hp-access__ok">
+          + New product page
+        </Link>
+      </p>
       {error ? <p className="hp-access__error">{error}</p> : null}
       <div className="hp-access__panel">
         <table>
@@ -43,6 +50,8 @@ export function ContentView({ basePath }: Props) {
               <th>Kind</th>
               <th>Access</th>
               <th>Status</th>
+              <th>Asset</th>
+              <th />
             </tr>
           </thead>
           <tbody>
@@ -53,6 +62,10 @@ export function ContentView({ basePath }: Props) {
                 <td>{c.kind}</td>
                 <td>{c.access_mode}</td>
                 <td>{c.status}</td>
+                <td className="hp-access__mono">{c.body_ref ? 'yes' : '—'}</td>
+                <td>
+                  <Link href={`${basePath}/content/${c.slug}/edit`}>Edit</Link>
+                </td>
               </tr>
             ))}
           </tbody>

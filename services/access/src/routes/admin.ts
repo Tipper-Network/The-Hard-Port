@@ -14,21 +14,51 @@ import { generatePortalCode } from './partner-auth.js';
 const staff = ['owner', 'admin', 'staff'] as const;
 const admins = ['owner', 'admin'] as const;
 
+const contentFields = {
+  slug: z.string().regex(/^[a-z0-9][a-z0-9-]{0,80}$/),
+  title: z.string().min(1).max(200),
+  summary: z.string().max(1000).optional(),
+  kind: z.enum(['guide', 'part', 'video', 'session', 'ebook', 'download']),
+  accessMode: z.enum(['open', 'keyword_first', 'paid']),
+  freeFrom: z.string().datetime().optional(),
+  bodyRef: z.string().max(500).optional(),
+  bookingUrl: z.string().url().max(500).optional(),
+  youtubeUrl: z.string().url().max(500).optional(),
+  substackUrl: z.string().url().max(500).optional(),
+  sourceLabel: z.string().max(200).optional(),
+  sourceUrl: z.string().url().max(500).optional(),
+  priceMinor: z.number().int().min(0).max(100_000_000).optional(),
+  currency: z.string().length(3).optional(),
+  status: z.enum(['draft', 'published', 'archived']),
+};
+
 const ContentBody = z
   .object({
-    slug: z.string().regex(/^[a-z0-9][a-z0-9-]{0,80}$/),
-    title: z.string().min(1).max(200),
-    summary: z.string().max(1000).optional(),
-    kind: z.enum(['guide', 'part', 'video', 'session', 'ebook', 'download']),
-    accessMode: z.enum(['open', 'keyword_first', 'paid']).default('keyword_first'),
-    freeFrom: z.string().datetime().optional(),
-    bodyRef: z.string().max(500).optional(),
-    bookingUrl: z.string().url().max(500).optional(),
-    priceMinor: z.number().int().min(0).max(100_000_000).optional(),
-    currency: z.string().length(3).optional(),
+    ...contentFields,
+    accessMode: contentFields.accessMode.default('keyword_first'),
     status: z.enum(['draft', 'published']).default('draft'),
   })
   .strict();
+
+const ContentPatchBody = z
+  .object({
+    title: contentFields.title.optional(),
+    summary: contentFields.summary,
+    kind: contentFields.kind.optional(),
+    accessMode: contentFields.accessMode.optional(),
+    freeFrom: contentFields.freeFrom,
+    bodyRef: z.union([contentFields.bodyRef, z.literal('')]).optional(),
+    bookingUrl: z.union([contentFields.bookingUrl, z.literal('')]).optional(),
+    youtubeUrl: z.union([contentFields.youtubeUrl, z.literal('')]).optional(),
+    substackUrl: z.union([contentFields.substackUrl, z.literal('')]).optional(),
+    sourceLabel: z.union([contentFields.sourceLabel, z.literal('')]).optional(),
+    sourceUrl: z.union([contentFields.sourceUrl, z.literal('')]).optional(),
+    priceMinor: contentFields.priceMinor,
+    currency: contentFields.currency,
+    status: contentFields.status.optional(),
+  })
+  .strict()
+  .refine((b) => Object.keys(b).length > 0, { message: 'empty_patch' });
 
 const KeywordBody = z.object({ word: z.string().min(1).max(60), contentSlug: z.string().max(81), campaignId: z.string().uuid().optional() }).strict();
 const PartnerBody = z
@@ -84,11 +114,22 @@ export function registerAdminRoutes(app: FastifyInstance, ctx: AppCtx): void {
     }
   };
 
+  const contentSelect =
+    'id, slug, title, summary, kind, access_mode, free_from, status, price_minor, currency, body_ref, booking_url, youtube_url, substack_url, source_label, source_url';
+
   app.get('/admin/content', { preHandler: requireRole(ctx, ...staff) }, async (req) =>
     db.withTenant(req.actor!, async (q) => ({
-      items: (await q.query('SELECT id, slug, title, kind, access_mode, free_from, status, price_minor, currency FROM access.content_items ORDER BY created_at DESC LIMIT 500')).rows,
+      items: (await q.query(`SELECT ${contentSelect} FROM access.content_items ORDER BY created_at DESC LIMIT 500`)).rows,
     })),
   );
+
+  app.get<{ Params: { slug: string } }>('/admin/content/:slug', { preHandler: requireRole(ctx, ...staff) }, async (req, reply) => {
+    const row = await db.withTenant(req.actor!, async (q) =>
+      (await q.query(`SELECT ${contentSelect} FROM access.content_items WHERE slug = $1`, [req.params.slug])).rows[0],
+    );
+    if (!row) return reply.code(404).send({ error: 'not_found' });
+    return { item: row };
+  });
 
   app.post('/admin/content', { preHandler: requireRole(ctx, ...staff) }, async (req, reply) => {
     const b = ContentBody.parse(req.body);
@@ -101,16 +142,84 @@ export function registerAdminRoutes(app: FastifyInstance, ctx: AppCtx): void {
           const row = (
             await q.query<{ id: string }>(
               `INSERT INTO access.content_items
-                 (tenant_id, slug, title, summary, kind, access_mode, free_from, body_ref, booking_url, price_minor, currency, status, published_at)
+                 (tenant_id, slug, title, summary, kind, access_mode, free_from,
+                  body_ref, booking_url, youtube_url, substack_url, source_label, source_url,
+                  price_minor, currency, status, published_at)
                VALUES ($1, $2, $3, $4, $5, $6,
-                       CASE WHEN $6 = 'keyword_first' THEN COALESCE($7::timestamptz, now() + make_interval(days => $13::int)) ELSE $7::timestamptz END,
-                       $8, $9, $10, $11, $12, CASE WHEN $12 = 'published' THEN now() END)
+                       CASE WHEN $6 = 'keyword_first' THEN COALESCE($7::timestamptz, now() + make_interval(days => $17::int)) ELSE $7::timestamptz END,
+                       $8, $9, $10, $11, $12, $13, $14, $15, $16, CASE WHEN $16 = 'published' THEN now() END)
                RETURNING id`,
-              [actor.tenantId, b.slug, b.title, b.summary ?? null, b.kind, b.accessMode, b.freeFrom ?? null, b.bodyRef ?? null, b.bookingUrl ?? null, b.priceMinor ?? null, b.currency ?? null, b.status, config.defaultFreeAfterDays],
+              [
+                actor.tenantId,
+                b.slug,
+                b.title,
+                b.summary ?? null,
+                b.kind,
+                b.accessMode,
+                b.freeFrom ?? null,
+                b.bodyRef ?? null,
+                b.bookingUrl ?? null,
+                b.youtubeUrl ?? null,
+                b.substackUrl ?? null,
+                b.sourceLabel ?? null,
+                b.sourceUrl ?? null,
+                b.priceMinor ?? null,
+                b.currency ?? null,
+                b.status,
+                config.defaultFreeAfterDays,
+              ],
             )
           ).rows[0]!;
           await audit(q, actor, 'content.create', row.id, { slug: b.slug, accessMode: b.accessMode });
           return ok({ id: row.id }, 201);
+        }),
+      ),
+    );
+  });
+
+  app.patch<{ Params: { slug: string } }>('/admin/content/:slug', { preHandler: requireRole(ctx, ...staff) }, async (req, reply) => {
+    const b = ContentPatchBody.parse(req.body);
+    const actor = req.actor!;
+    return withDbErrors(
+      reply,
+      respond(
+        reply,
+        db.withTenant(actor, async (q) => {
+          const existing = (await q.query<{ id: string }>('SELECT id FROM access.content_items WHERE slug = $1', [req.params.slug])).rows[0];
+          if (!existing) return fail(404, 'not_found');
+
+          const sets: string[] = [];
+          const vals: unknown[] = [];
+          let n = 1;
+          const add = (col: string, val: unknown) => {
+            sets.push(`${col} = $${n++}`);
+            vals.push(val);
+          };
+
+          if (b.title !== undefined) add('title', b.title);
+          if (b.summary !== undefined) add('summary', b.summary);
+          if (b.kind !== undefined) add('kind', b.kind);
+          if (b.accessMode !== undefined) add('access_mode', b.accessMode);
+          if (b.freeFrom !== undefined) add('free_from', b.freeFrom ?? null);
+          if (b.bodyRef !== undefined) add('body_ref', b.bodyRef === '' ? null : b.bodyRef);
+          if (b.bookingUrl !== undefined) add('booking_url', b.bookingUrl === '' ? null : b.bookingUrl);
+          if (b.youtubeUrl !== undefined) add('youtube_url', b.youtubeUrl === '' ? null : b.youtubeUrl);
+          if (b.substackUrl !== undefined) add('substack_url', b.substackUrl === '' ? null : b.substackUrl);
+          if (b.sourceLabel !== undefined) add('source_label', b.sourceLabel === '' ? null : b.sourceLabel);
+          if (b.sourceUrl !== undefined) add('source_url', b.sourceUrl === '' ? null : b.sourceUrl);
+          if (b.priceMinor !== undefined) add('price_minor', b.priceMinor);
+          if (b.currency !== undefined) add('currency', b.currency);
+          if (b.status !== undefined) {
+            add('status', b.status);
+            if (b.status === 'published') sets.push('published_at = COALESCE(published_at, now())');
+            if (b.status === 'draft') sets.push('published_at = NULL');
+          }
+
+          vals.push(req.params.slug);
+          await q.query(`UPDATE access.content_items SET ${sets.join(', ')} WHERE slug = $${n}`, vals);
+
+          await audit(q, actor, 'content.update', existing.id, { slug: req.params.slug });
+          return ok({ id: existing.id }, 200);
         }),
       ),
     );

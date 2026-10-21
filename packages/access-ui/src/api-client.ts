@@ -22,12 +22,14 @@ export function apiBase(basePath: string): string {
 
 export async function apiFetch(basePath: string, path: string, init?: RequestInit): Promise<Response> {
   const url = `${apiBase(basePath)}${path.startsWith('/') ? path : `/${path}`}`
+  const method = init?.method?.toUpperCase() ?? 'GET'
+  const headers: Record<string, string> = { ...(init?.headers as Record<string, string> | undefined) }
+  if (method !== 'GET' && method !== 'HEAD' && !headers['content-type']) {
+    headers['content-type'] = 'application/json'
+  }
   return fetch(url, {
     ...init,
-    headers: {
-      'content-type': 'application/json',
-      ...(init?.headers ?? {}),
-    },
+    headers,
     credentials: 'same-origin',
   })
 }

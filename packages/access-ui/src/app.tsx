@@ -5,9 +5,10 @@ import { usePathname, useRouter } from 'next/navigation'
 import { useEffect, useState } from 'react'
 
 import { apiFetch, getSession, type SessionInfo } from './api-client'
-import './access.css'
+import './access.css' 
 import { BillingView } from './views/billing'
 import { ConnectionView } from './views/connection'
+import { ContentFormView } from './views/content-form'
 import { ContentView } from './views/content'
 import { LoginView } from './views/login'
 import { PartnerDashboardView } from './views/partner-dashboard'
@@ -176,6 +177,11 @@ export function AccessApp({ basePath = '/thp' }: AccessAppProps) {
   else if (isStaff && route === '/connection') body = <ConnectionView basePath={base} />
   else if (isStaff && route === '/partners') body = <PartnersView basePath={base} />
   else if (isStaff && route === '/content') body = <ContentView basePath={base} />
+  else if (isStaff && route === '/content/new') body = <ContentFormView basePath={base} mode="create" />
+  else if (isStaff && route.startsWith('/content/') && route.endsWith('/edit')) {
+    const slug = route.slice('/content/'.length, -'/edit'.length)
+    body = <ContentFormView basePath={base} mode="edit" slug={decodeURIComponent(slug)} />
+  }
   else if (isStaff && route === '/billing') body = <BillingView />
   else if (isStaff) body = <ConnectionView basePath={base} />
   else body = <PartnerDashboardView basePath={base} />

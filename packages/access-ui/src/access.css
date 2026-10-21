@@ -89,6 +89,10 @@
   font: inherit;
 }
 
+.hp-access textarea {
+  resize: vertical;
+}
+
 .hp-access button {
   background: var(--hp-gold);
   color: var(--hp-bg);

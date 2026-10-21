@@ -4,6 +4,7 @@ import type { NextRequest } from 'next/server'
 import { NextResponse } from 'next/server'
 
 import { loadBffConfig, SESSION_COOKIE } from './config'
+import { createPresignedUpload, loadS3UploadConfig } from './s3-upload'
 
 type RouteContext = { params: Promise<{ path?: string[] }> }
 
@@ -84,6 +85,10 @@ export async function GET(req: NextRequest, context: RouteContext): Promise<Resp
 }
 
 export async function POST(req: NextRequest, context: RouteContext): Promise<Response> {
+  return handleAccessApi(req, context)
+}
+
+export async function PATCH(req: NextRequest, context: RouteContext): Promise<Response> {
   return handleAccessApi(req, context)
 }
 
@@ -175,6 +180,33 @@ export async function handleAccessApi(req: NextRequest, context: RouteContext): 
     return res
   }
 
+  if (path === '/uploads/presign' && req.method === 'POST') {
+    if (!session) return NextResponse.json({ error: 'unauthenticated' }, { status: 401 })
+    const s3 = loadS3UploadConfig(config.tenantSlug)
+    if (!s3) {
+      return NextResponse.json({ error: 's3_not_configured' }, { status: 503 })
+    }
+    let parsed: { slug?: string; filename?: string; contentType?: string } = {}
+    try {
+      parsed = JSON.parse(await req.text()) as typeof parsed
+    } catch {
+      return NextResponse.json({ error: 'invalid_body' }, { status: 400 })
+    }
+    if (!parsed.slug?.trim() || !parsed.filename?.trim()) {
+      return NextResponse.json({ error: 'missing_fields' }, { status: 400 })
+    }
+    try {
+      const out = await createPresignedUpload(s3, {
+        slug: parsed.slug.trim(),
+        filename: parsed.filename.trim(),
+        contentType: parsed.contentType?.trim() || 'application/octet-stream',
+      })
+      return NextResponse.json({ ok: true, ...out })
+    } catch {
+      return NextResponse.json({ error: 'presign_failed' }, { status: 500 })
+    }
+  }
+
   const adminOrPartner = path.startsWith('/admin/') || path.startsWith('/partner/')
   if (!adminOrPartner) {
     return NextResponse.json({ error: 'not_found' }, { status: 404 })
@@ -189,6 +221,13 @@ export async function handleAccessApi(req: NextRequest, context: RouteContext): 
   if (req.method === 'POST') {
     const body = await req.text()
     const upstream = await proxyAccess(req, path, { session, method: 'POST', body })
+    const { status, body: out } = await jsonFromAccess(upstream)
+    return NextResponse.json(out, { status })
+  }
+
+  if (req.method === 'PATCH') {
+    const body = await req.text()
+    const upstream = await proxyAccess(req, path, { session, method: 'PATCH', body })
     const { status, body: out } = await jsonFromAccess(upstream)
     return NextResponse.json(out, { status })
   }
