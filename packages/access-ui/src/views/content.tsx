@@ -4,6 +4,7 @@ import Link from 'next/link'
 import { useEffect, useState } from 'react'
 
 import { apiFetch } from '../api-client'
+import { productPathFromPrefix } from '../lib/product-path'
 
 type ContentRow = {
   id: string
@@ -17,10 +18,10 @@ type ContentRow = {
 
 type Props = {
   basePath: string
-  publicProductHref?: (slug: string) => string
+  publicProductPathPrefix?: string
 }
 
-export function ContentView({ basePath, publicProductHref = (slug) => `/p/${slug}` }: Props) {
+export function ContentView({ basePath, publicProductPathPrefix = '/p' }: Props) {
   const [items, setItems] = useState<ContentRow[]>([])
   const [error, setError] = useState<string | null>(null)
 
@@ -71,7 +72,11 @@ export function ContentView({ basePath, publicProductHref = (slug) => `/p/${slug
                   {c.status === 'published' ? (
                     <>
                       {' · '}
-                      <a href={publicProductHref(c.slug)} target="_blank" rel="noopener noreferrer">
+                      <a
+                        href={productPathFromPrefix(c.slug, publicProductPathPrefix)}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
                         View
                       </a>
                     </>

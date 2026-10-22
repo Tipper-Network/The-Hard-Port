@@ -19,8 +19,8 @@ export type AccessAppProps = {
   basePath?: string
   /** When mounted from the marketing-site admin hub, link back to website admin (e.g. `/admin`). */
   websiteAdminHref?: string
-  /** Staff “View” link for published rows. Default `/p/{slug}`. */
-  publicProductHref?: (slug: string) => string
+  /** Staff “View” link base path. Default `/p` → `/p/{slug}`. */
+  publicProductPathPrefix?: string
 }
 
 const staffRoles = new Set(['owner', 'admin', 'staff'])
@@ -37,7 +37,7 @@ function relPath(base: string, pathname: string): string {
   return p
 }
 
-export function AccessApp({ basePath = '/thp', websiteAdminHref, publicProductHref }: AccessAppProps) {
+export function AccessApp({ basePath = '/thp', websiteAdminHref, publicProductPathPrefix }: AccessAppProps) {
   const base = normalizeBase(basePath)
   const pathname = usePathname() ?? base
   const router = useRouter()
@@ -186,7 +186,7 @@ export function AccessApp({ basePath = '/thp', websiteAdminHref, publicProductHr
   else if (isStaff && route === '/connection') body = <ConnectionView basePath={base} />
   else if (isStaff && route === '/partners') body = <PartnersView basePath={base} />
   else if (isStaff && route === '/content')
-    body = <ContentView basePath={base} publicProductHref={publicProductHref} />
+    body = <ContentView basePath={base} publicProductPathPrefix={publicProductPathPrefix} />
   else if (isStaff && route === '/content/new') body = <ContentFormView basePath={base} mode="create" />
   else if (isStaff && route.startsWith('/content/') && route.endsWith('/edit')) {
     const slug = route.slice('/content/'.length, -'/edit'.length)
