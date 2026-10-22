@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 
 import { AdminHubNav } from '@/components/admin/admin-hub-nav'
+import { ThpAccessHubLinks } from '@/components/admin/thp-access-hub-links'
 import { SiteFooter } from '@/components/layout/site-footer'
 import { SiteHeader } from '@/components/layout/site-header'
 import { isAccessInstalled } from '@psyferblock/access/server/config'
@@ -36,12 +37,8 @@ export default function AdminHubPage() {
               </Link>
             </li>
             {access ? (
-              <li className="border border-white/10 bg-white/5 px-4 py-4">
-                <h2 className="font-heading text-base uppercase text-secondary">THP Access</h2>
-                <p className="mt-1 text-white/60">Content, partners, keywords. Sign in at /admin/thp/login (platform staff).</p>
-                <Link href="/admin/thp/content" className="mt-2 inline-block font-semibold text-accent underline">
-                  Open Access console
-                </Link>
+              <li className="list-none p-0">
+                <ThpAccessHubLinks />
               </li>
             ) : (
               <li className="border border-dashed border-white/15 px-4 py-4 text-white/50">

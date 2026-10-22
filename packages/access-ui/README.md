@@ -29,13 +29,18 @@ transpilePackages: ['@psyferblock/access'],
 
 Catalog and widgets require env (`HP_ACCESS_URL`, keys). Use `isAccessInstalled()` on the server or `GET /api/hp/status` in the host app.
 
-**Visitor unlock embed** (email + access code → `/p/[slug]`):
+**Visitor unlock embed** (word → email → product; optional `contentSlug` to pin one product):
 
 ```tsx
 import { ProductUnlockWidget } from '@psyferblock/access/widgets'
 
 export function HeroUnlock() {
-  return <ProductUnlockWidget contentSlug="motion-guide" lookupUrl="/api/hp/keywords/lookup" />
+  return (
+    <ProductUnlockWidget
+      productPathPrefix="/thp/catalog"
+      lookupUrl="/api/hp/keywords/lookup"
+    />
+  )
 }
 ```
 

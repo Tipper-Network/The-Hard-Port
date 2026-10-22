@@ -1,1 +1,1 @@
-export { AccessApp, type AccessAppProps } from './app'
+export { AccessApp, type AccessAppProps, type AccessAppScope } from './app'

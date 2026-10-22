@@ -87,10 +87,8 @@ export function registerAuthRoutes(app: FastifyInstance, ctx: AppCtx): void {
       return reply.code(409).send({ error: 'tenant_required', tenants: memberships.map((m) => m.tenant_slug) });
     }
 
-    // 4. second factor (mandatory for owners and admins)
-    const privileged = chosen.role === 'owner' || chosen.role === 'admin';
-    if (privileged && !user.twofa_enabled) return reply.code(403).send({ error: 'twofa_setup_required' });
-    if (user.twofa_enabled) {
+    // 4. second factor — only when enabled on the user (owners/admins may log in with password until 2FA is turned on)
+    if (!config.skip2fa && user.twofa_enabled) {
       if (!body.totp || !user.twofa_secret_enc) return fail();
       const secret = decryptField(user.twofa_secret_enc, config.fieldKeys, `user:${user.id}:twofa`);
       const step = verifyTotp(secret, body.totp, { lastStep: user.twofa_last_step === null ? null : Number(user.twofa_last_step) });

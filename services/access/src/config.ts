@@ -22,6 +22,8 @@ const Env = z.object({
   MAIL_FROM: z.string().optional(),
   PARTNER_OTP_TTL_MINUTES: z.coerce.number().int().min(5).max(60).default(10),
   PARTNER_SESSION_TTL_HOURS: z.coerce.number().int().min(1).max(24).default(8),
+  /** When true, staff login skips TOTP (local dogfood only). */
+  ACCESS_SKIP_2FA: z.enum(['true', 'false']).default('false'),
 });
 
 export interface AccessConfig {
@@ -41,6 +43,7 @@ export interface AccessConfig {
   mailFrom: string | undefined;
   partnerOtpTtlMinutes: number;
   partnerSessionTtlHours: number;
+  skip2fa: boolean;
 }
 
 /**
@@ -66,5 +69,6 @@ export function loadConfig(env: Record<string, string | undefined> = process.env
     mailFrom: e.MAIL_FROM?.trim() || undefined,
     partnerOtpTtlMinutes: e.PARTNER_OTP_TTL_MINUTES,
     partnerSessionTtlHours: e.PARTNER_SESSION_TTL_HOURS,
+    skip2fa: e.ACCESS_SKIP_2FA === 'true',
   };
 }

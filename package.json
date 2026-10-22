@@ -26,7 +26,8 @@
     "platform:typecheck": "tsc --noEmit -p tsconfig.platform.json",
     "platform:test": "node --import tsx --test --test-concurrency=1 packages/core/test/*.test.ts services/access/test/*.test.ts services/payments/test/*.test.ts",
     "platform:migrate": "tsx scripts/platform/migrate.ts",
-    "platform:bootstrap": "tsx scripts/platform/bootstrap.ts"
+    "platform:bootstrap": "tsx scripts/platform/bootstrap.ts",
+    "platform:seed:dev-user": "tsx scripts/local/seed-thp-dev-user.ts"
   },
   "devDependencies": {
     "@hardport/core": "workspace:*",

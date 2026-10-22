@@ -3,16 +3,15 @@
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 
+import { THP_ACCESS_BASE, THP_ACCESS_ROUTES } from '@/components/admin/thp-access-hub-links'
 import { useAccessInstalled } from '@/hooks/use-access-installed'
-
-const ACCESS_BASE = '/admin/thp'
 
 export function AdminHubNav() {
   const pathname = usePathname() ?? ''
   const installed = useAccessInstalled()
 
   const onApplications = pathname.startsWith('/review')
-  const onAccess = pathname.startsWith(ACCESS_BASE)
+  const onAccess = pathname.startsWith(THP_ACCESS_BASE)
   const onAdminHome = pathname === '/admin'
 
   return (
@@ -31,7 +30,7 @@ export function AdminHubNav() {
       </Link>
       {installed ? (
         <Link
-          href={`${ACCESS_BASE}/content`}
+          href={THP_ACCESS_ROUTES.staffConsole}
           className={onAccess ? 'rounded px-3 py-2 font-semibold bg-white/10 text-accent' : 'rounded px-3 py-2 text-white/70 hover:text-accent'}
         >
           THP Access

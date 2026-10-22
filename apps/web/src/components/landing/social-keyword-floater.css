@@ -1,0 +1,18 @@
+/* Access widget tokens inside marketing shell */
+.hp-social-floater-widget .hp-unlock-widget {
+  --hp-bg: oklch(0.14 0.03 250);
+  --hp-panel: oklch(0.18 0.03 250);
+  --hp-ink: oklch(0.97 0.01 250);
+  --hp-muted: oklch(0.72 0.03 250);
+  --hp-gold: oklch(0.8 0.14 85);
+  --hp-rust: oklch(0.62 0.16 35);
+  --hp-border: oklch(0.32 0.05 250);
+}
+
+.hp-social-floater-widget .hp-unlock-widget__title {
+  font-size: 1.1rem;
+}
+
+.hp-social-floater-widget .hp-product__gate input {
+  width: 100%;
+}

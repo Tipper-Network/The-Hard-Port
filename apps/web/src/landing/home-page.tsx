@@ -1,4 +1,6 @@
 import { DistanceMeter } from '@/components/landing/distance-meter'
+import { SocialKeywordFloater } from '@/components/landing/social-keyword-floater'
+import '@/components/landing/social-keyword-floater.css'
 import { StickyCta } from '@/components/landing/sticky-cta'
 import { FunnelSection } from '@/components/tracking/funnel-section'
 import { HomeFunnelTracker } from '@/components/tracking/home-funnel-tracker'
@@ -28,6 +30,7 @@ export function HomePage() {
       </main>
       <SiteFooter />
       <StickyCta />
+      <SocialKeywordFloater />
     </>
   )
 }

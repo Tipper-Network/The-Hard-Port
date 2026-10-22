@@ -26,8 +26,10 @@ const nextConfig: NextConfig = {
       staffToAdmin('/thp/content', '/admin/thp/content'),
       staffToAdmin('/thp/content/:path*', '/admin/thp/content/:path*'),
       staffToAdmin('/thp/billing', '/admin/thp/billing'),
-      staffToAdmin('/thp/partner', '/admin/thp/partner'),
-      staffToAdmin('/thp/partner/:path*', '/admin/thp/partner/:path*'),
+      { source: '/admin/thp/partner', destination: '/partner', permanent: false },
+      { source: '/admin/thp/partner/:path*', destination: '/partner/:path*', permanent: false },
+      { source: '/thp/partner', destination: '/partner', permanent: false },
+      { source: '/thp/partner/:path*', destination: '/partner/:path*', permanent: false },
       staffToAdmin('/thp/api/:path*', '/admin/thp/api/:path*'),
     ]
   },

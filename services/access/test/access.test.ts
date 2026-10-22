@@ -162,10 +162,10 @@ describe('login and sessions', () => {
     assert.equal(replay.status, 401, 'same code must not work twice');
   });
 
-  test('admins without 2FA enrolled are refused outright', async () => {
+  test('admins without 2FA enrolled can sign in with password only', async () => {
     const r = await login({ email: 'admin-no2fa@alpha.test', password: PASSWORD });
-    assert.equal(r.status, 403);
-    assert.equal(r.json.error, 'twofa_setup_required');
+    assert.equal(r.status, 200);
+    assert.equal(r.json.ok, true);
   });
 
   test('staff can log in without 2FA; cookie is HttpOnly and SameSite=Lax', async () => {

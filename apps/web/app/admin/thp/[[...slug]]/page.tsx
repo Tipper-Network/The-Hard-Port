@@ -11,6 +11,7 @@ export default function AdminThpConsolePage() {
   return (
     <AccessApp
       basePath="/admin/thp"
+      scope="staff"
       websiteAdminHref="/admin"
       publicProductPathPrefix={THP_CATALOG_PATH}
     />
