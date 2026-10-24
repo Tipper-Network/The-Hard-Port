@@ -103,7 +103,7 @@ export function ContentFormView({ basePath, mode, slug: editSlug }: Props) {
       headers: { 'Content-Type': file.type || 'application/octet-stream' },
       body: file,
     })
-    if (!put.ok) throw new Error('S3 upload failed')
+    if (!put.ok) throw new Error(`S3 upload failed (${put.status})`)
     return data.publicUrl
   }
 
@@ -157,8 +157,23 @@ export function ContentFormView({ basePath, mode, slug: editSlug }: Props) {
       }
 
       window.location.href = `${basePath}/content`
-    } catch {
-      setError('Request failed. Check S3 env on the Access service (HP_S3_* / AWS_*).')
+    } catch (err) {
+      const msg = err instanceof Error ? err.message : 'unknown_error'
+      if (msg.includes('Failed to fetch') || msg.includes('NetworkError')) {
+        setError(
+          'Browser could not PUT to S3 — add bucket CORS for http://localhost:3000 (PUT, GET, HEAD) and your production origin. See docs/content-and-s3.md.',
+        )
+        return
+      }
+      if (msg === 's3_not_configured' || msg === 'presign_failed' || msg === 'Presign failed') {
+        setError('Upload presign failed. Set HP_S3_BUCKET and AWS creds on services/access/.env, restart Access.')
+        return
+      }
+      if (msg.startsWith('S3 upload failed')) {
+        setError(`${msg}. Check bucket CORS and IAM s3:PutObject on the key prefix.`)
+        return
+      }
+      setError(`Request failed: ${msg}`)
     } finally {
       setBusy(false)
     }

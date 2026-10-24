@@ -22,7 +22,23 @@ Each **`access.content_items`** row is one **product page**: PDF on CDN, YouTube
 Object key: `{prefix}/{tenantSlug}/{slug}/{uuid}-{filename}`  
 Public URL: `{HP_S3_PUBLIC_BASE_URL}/{key}`
 
-Bucket must allow **CORS PUT** from `http://localhost:3000` (dev) and your production origin. Objects should be **public-read** (or fronted by CloudFront) until paid/private downloads ship.
+Bucket must allow **CORS PUT** from the browser (presign is server-side; the file upload is a direct PUT from the client). Example CORS rule on the bucket:
+
+```json
+[
+  {
+    "AllowedHeaders": ["*"],
+    "AllowedMethods": ["GET", "PUT", "HEAD"],
+    "AllowedOrigins": ["http://localhost:3000", "https://thehardport.com"],
+    "ExposeHeaders": ["ETag"],
+    "MaxAgeSeconds": 3000
+  }
+]
+```
+
+Optional: `HP_S3_URI=s3://bucket-name/thp-access/` sets bucket root prefix for keys (combined with `HP_S3_PREFIX`). `HP_S3_PUBLIC_BASE_URL` should be the **bucket origin** (e.g. `https://bucket.s3.region.amazonaws.com`); path segments in that URL or in `HP_S3_URI` become the key prefix, not part of the hostname.
+
+Objects should be **public-read** (or fronted by CloudFront) until paid/private downloads ship.
 
 ## Product fields (where data lives)
 
