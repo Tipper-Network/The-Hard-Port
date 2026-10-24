@@ -1,0 +1,54 @@
+---
+description: Use TypeScript enums (or Prisma enums in schema) whenever a value is constrained to a fixed set — not string unions or bare string.
+globs: ["**/*.ts","**/*.tsx"]
+alwaysApply: false
+---
+
+# Constrained types → enums
+
+When a value may only be one of a **closed, known set** of strings or numbers, model it as an
+**enum** (or a Prisma `enum` in the database layer). Do not use `type X = 'a' | 'b'`, bare
+`string`, or magic literals scattered in comparisons.
+
+## When this applies
+
+- Props, function args, return types, route/query params after validation
+- Roles, scopes, statuses, steps in wizards, adapter kinds, event names
+- Shared constants compared with `===` in more than one place
+
+## When not to force an enum
+
+- **Discriminated unions** for shape (`{ ok: true; data } | { ok: false; error }`) — keep as union types
+- **Open-ended** strings (email, slug, free text, URLs)
+- **Generated / external** types you do not own (narrow at the boundary, then map into your enum)
+
+## TypeScript
+
+- Prefer **`export enum Name { ... }`** with **string values** that match wire/JSON/DB literals
+- Use the enum in types **and** at runtime (`Name.STAFF`, not `'staff'` literals in app code)
+- Validate unknown input once, then assign to the enum; use `Object.values(Name)` for guards if needed
+- One enum per concept; do not duplicate the same closed set as both enum and union type
+
+```typescript
+// ❌ BAD — union drifts, literals hide in switches
+export type AccessAppScope = 'staff' | 'partner' | 'public'
+if (scope === 'staff') { ... }
+
+// ✅ GOOD
+export enum AccessAppScope {
+  Staff = 'staff',
+  Partner = 'partner',
+  Public = 'public',
+}
+if (scope === AccessAppScope.Staff) { ... }
+```
+
+## Database
+
+- **Website API (Prisma):** define closed sets as Prisma `enum` in schema; use generated enum types in TS
+- **Platform Postgres (SQL migrations):** use `CHECK (... IN (...))` or Postgres enums; mirror in TS with a matching string enum at the service boundary
+
+## Refactors
+
+When touching code that still uses a string union for a closed set, convert to an enum in the same
+change (or a focused follow-up) instead of adding more literal strings.

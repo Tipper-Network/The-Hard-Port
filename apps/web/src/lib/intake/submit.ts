@@ -3,13 +3,18 @@
 import { getConfiguredIntakeApiUrl } from '@/lib/api/client'
 import { validateIntakePayload, type IntakePayload } from '@/lib/intake/payload'
 
+export enum SubmitIntakeReason__Enum {
+  NOT_CONFIGURED = 'not_configured',
+  UNREACHABLE = 'unreachable',
+      API_ERROR = 'API_ERROR',
+}
 export type SubmitIntakeResult =
   | { ok: true; id?: string }
   | {
       ok: false
       error: string
       manual?: boolean
-      reason?: 'not_configured' | 'unreachable' | 'api_error'
+      reason?: SubmitIntakeReason__Enum
     }
 
 async function submitToApi(payload: IntakePayload): Promise<SubmitIntakeResult> {
@@ -19,7 +24,7 @@ async function submitToApi(payload: IntakePayload): Promise<SubmitIntakeResult> 
       ok: false,
       error: 'Intake API not configured',
       manual: true,
-      reason: 'not_configured',
+      reason: SubmitIntakeReason__Enum.NOT_CONFIGURED,
     }
   }
 
@@ -34,7 +39,7 @@ async function submitToApi(payload: IntakePayload): Promise<SubmitIntakeResult> 
 
     if (!res.ok) {
       const message = formatApiErrorMessage(body, 'Application submission failed')
-      return { ok: false, error: message, manual: true, reason: 'api_error' }
+      return { ok: false, error: message, manual: true, reason: SubmitIntakeReason__Enum.API_ERROR }
     }
 
     if (body && typeof body === 'object' && 'ok' in body && body.ok === true) {
@@ -50,7 +55,7 @@ async function submitToApi(payload: IntakePayload): Promise<SubmitIntakeResult> 
       ok: false,
       error: err instanceof Error ? err.message : 'API request failed',
       manual: true,
-      reason: 'unreachable',
+        reason: SubmitIntakeReason__Enum.UNREACHABLE,
     }
   }
 }

@@ -1,42 +1,45 @@
 /** Early pipeline statuses — full list in THP-SMB-ENGAGEMENT-001 §4 */
-export const LIFECYCLE_STATUSES = [
-  'application_submitted',
-  'application_under_review',
-  'qualification_invited',
-  'qualification_active',
-  'conditionally_qualified',
-  'qualified',
-  'too_early',
-  'outside_current_scope',
-  'not_ready_for_thp',
-  'diagnostic_preparation',
-  'diagnostic_active',
-  'findings_ready',
-  'findings_presented',
-  'engagement_proposed',
-  'agreement_pending',
-  'payment_pending',
-  'intervention_ready',
-  'intervention_active',
-  'intervention_paused',
-  'referred',
-  'reassessment_active',
-  'completed_level_2',
-  'completed_partial',
-  'terminated',
-  'withdrawn',
-] as const
+export enum LIFECYCLE_STATUSES__Enum  {
+  APPLICATION_SUBMITTED = 'APPLICATION_SUBMITTED',
+  APPLICATION_UNDER_REVIEW = 'APPLICATION_UNDER_REVIEW',
+  QUALIFICATION_INVITED = 'QUALIFICATION_INVITED',
+  QUALIFICATION_ACTIVE = 'QUALIFICATION_ACTIVE',
+  CONDITIONALLY_QUALIFIED = 'CONDITIONALLY_QUALIFIED',
+  QUALIFIED = 'QUALIFIED',
+  TOO_EARLY = 'TOO_EARLY',
+  OUTSIDE_CURRENT_SCOPE = 'OUTSIDE_CURRENT_SCOPE',
+  NOT_READY_FOR_THP = 'NOT_READY_FOR_THP',
+  DIAGNOSTIC_PREPARATION = 'DIAGNOSTIC_PREPARATION',
+  DIAGNOSTIC_ACTIVE = 'DIAGNOSTIC_ACTIVE',
+  FINDINGS_READY = 'FINDINGS_READY',
+  FINDINGS_PRESENTED = 'FINDINGS_PRESENTED',
+  ENGAGEMENT_PROPOSED = 'ENGAGEMENT_PROPOSED',
+  AGREEMENT_PENDING = 'AGREEMENT_PENDING',
+  PAYMENT_PENDING = 'PAYMENT_PENDING',
+  INTERVENTION_READY = 'INTERVENTION_READY',
+  INTERVENTION_ACTIVE = 'INTERVENTION_ACTIVE',
+  INTERVENTION_PAUSED = 'INTERVENTION_PAUSED',
+  REFERRED = 'REFERRED',
+  REASSESSMENT_ACTIVE = 'REASSESSMENT_ACTIVE',
+  COMPLETED_LEVEL_2 = 'COMPLETED_LEVEL_2',
+  COMPLETED_PARTIAL = 'COMPLETED_PARTIAL',
+  TERMINATED = 'TERMINATED',
+  WITHDRAWN = 'WITHDRAWN',
+}
 
-export const QUALIFICATION_RESULTS = [
-  'qualified',
-  'conditionally_qualified',
-  'too_early',
-  'outside_current_scope',
-  'not_ready_for_thp',
-] as const
+export enum QUALIFICATION_RESULTS__Enum {
+  QUALIFIED = 'QUALIFIED',
+  CONDITIONALLY_QUALIFIED = 'CONDITIONALLY_QUALIFIED',
+  TOO_EARLY = 'TOO_EARLY',
+  OUTSIDE_CURRENT_SCOPE = 'OUTSIDE_CURRENT_SCOPE',
+  NOT_READY_FOR_THP = 'NOT_READY_FOR_THP',
+}
 
-export type LifecycleStatus = (typeof LIFECYCLE_STATUSES)[number]
-export type QualificationResult = (typeof QUALIFICATION_RESULTS)[number]
+export type LifecycleStatus = keyof typeof LIFECYCLE_STATUSES__Enum
+export type QualificationResult = keyof typeof QUALIFICATION_RESULTS__Enum
+
+export const LIFECYCLE_STATUSES = Object.values(LIFECYCLE_STATUSES__Enum) as LifecycleStatus[]
+export const QUALIFICATION_RESULTS = Object.values(QUALIFICATION_RESULTS__Enum) as QualificationResult[]
 
 export const applicationSelect = {
   id: true,

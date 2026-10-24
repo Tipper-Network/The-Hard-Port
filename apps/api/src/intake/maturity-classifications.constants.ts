@@ -2,8 +2,11 @@
  * TODO(scaffold): replace free-text maturityClassification with enum values.
  * Ops doc: the-hard-port-os/operations/launch-scaffold/P03-intake-ops-loop.md
  */
-export const MATURITY_CLASSIFICATIONS = [
+export enum MATURITY_CLASSIFICATIONS__Enum {
   // _fill — e.g. 'survival', 'stable', 'growth_ready'
-] as const
+  SURVIVAL = 'SURVIVAL',
+  STABLE = 'STABLE',
+  GROWTH_READY = 'GROWTH_READY',
+}
 
-export type MaturityClassification = (typeof MATURITY_CLASSIFICATIONS)[number]
+export type MaturityClassification = keyof typeof MATURITY_CLASSIFICATIONS__Enum

@@ -1,4 +1,4 @@
-import { AccessApp } from '@psyferblock/access'
+import { AccessApp, AccessAppScope__Internal } from '@psyferblock/access'
 import { notFound } from 'next/navigation'
 
 import { isAccessInstalled } from '@psyferblock/access/server/config'
@@ -11,7 +11,7 @@ export default function AdminThpConsolePage() {
   return (
     <AccessApp
       basePath="/admin/thp"
-      scope="staff"
+      scope={AccessAppScope__Internal.STAFF}
       websiteAdminHref="/admin"
       publicProductPathPrefix={THP_CATALOG_PATH}
     />

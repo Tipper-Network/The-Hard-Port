@@ -8,6 +8,8 @@
     "dev": "tsx src/server.ts"
   },
   "dependencies": {
+    "@aws-sdk/client-s3": "^3.750.0",
+    "@aws-sdk/s3-request-presigner": "^3.750.0",
     "@hardport/core": "workspace:*",
     "@fastify/cookie": "^11.0.0",
     "@fastify/rate-limit": "^10.0.0",

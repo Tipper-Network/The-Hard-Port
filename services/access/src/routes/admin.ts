@@ -6,13 +6,23 @@ import { audit, pgCode, requireRole, type AppCtx } from '../context.js';
 import { fail, ok, respond } from '../respond.js';
 import { normalizeKeyword } from '../rules.js';
 import { generatePortalCode } from './partner-auth.js';
+import { createPresignedUpload, loadS3UploadConfig } from '../s3-upload.js';
 
 // Staff session routes for a tenant's own operators. Catalogue: docs/platform-routes.md
 // Tenant back-office. Every body schema is .strict(): unknown fields (like tenant_id) are
 // rejected, so mass-assignment is impossible. The tenant always comes from the session.
 
-const staff = ['owner', 'admin', 'staff'] as const;
-const admins = ['owner', 'admin'] as const;
+export enum StaffRoles__Enum {
+  OWNER = 'OWNER',
+  ADMIN = 'ADMIN',
+  STAFF = 'STAFF',
+}
+export enum AdminsRoles__Enum {
+  OWNER = 'OWNER',
+  ADMIN = 'ADMIN',
+}
+export type StaffRoles = keyof typeof StaffRoles__Enum;
+export  type AdminsRoles = keyof typeof AdminsRoles__Enum;
 
 const contentFields = {
   slug: z.string().regex(/^[a-z0-9][a-z0-9-]{0,80}$/),
@@ -79,6 +89,14 @@ const CampaignBody = z
     partnerId: z.string().uuid().optional(),
   })
   .strict();
+
+const PresignUploadBody = z
+  .object({
+    slug: z.string().regex(/^[a-z0-9][a-z0-9-]{0,80}$/),
+    filename: z.string().min(1).max(200),
+    contentType: z.string().max(200).optional(),
+  })
+  .strict();
 const GrantBody = z.object({ email: z.string().email().max(254), contentSlug: z.string().max(81), note: z.string().max(300).optional() }).strict();
 const SiteBody = z.object({ domain: z.string().min(3).max(253).regex(/^[a-z0-9.-]+$/), origins: z.array(z.string().url().max(200)).min(1).max(10) }).strict();
 
@@ -117,13 +135,34 @@ export function registerAdminRoutes(app: FastifyInstance, ctx: AppCtx): void {
   const contentSelect =
     'id, slug, title, summary, kind, access_mode, free_from, status, price_minor, currency, body_ref, booking_url, youtube_url, substack_url, source_label, source_url';
 
-  app.get('/admin/content', { preHandler: requireRole(ctx, ...staff) }, async (req) =>
+  app.post('/admin/uploads/presign', { preHandler: requireRole(ctx, ...Object.values(StaffRoles__Enum)) }, async (req, reply) => {
+    const b = PresignUploadBody.parse(req.body);
+    const actor = req.actor!;
+    const tenantRow = await db.withTenant(actor, async (q) =>
+      (await q.query<{ slug: string }>('SELECT slug FROM platform.tenants WHERE id = $1', [actor.tenantId])).rows[0],
+    );
+    if (!tenantRow?.slug) return reply.code(500).send({ error: 'tenant_not_found' });
+    const s3 = loadS3UploadConfig(tenantRow.slug);
+    if (!s3) return reply.code(503).send({ error: 's3_not_configured' });
+    try {
+      const out = await createPresignedUpload(s3, {
+        slug: b.slug,
+        filename: b.filename,
+        contentType: b.contentType?.trim() || 'application/octet-stream',
+      });
+      return { ok: true, ...out };
+    } catch {
+      return reply.code(500).send({ error: 'presign_failed' });
+    }
+  });
+
+  app.get('/admin/content', { preHandler: requireRole(ctx, ...Object.values(StaffRoles__Enum)) }, async (req) =>
     db.withTenant(req.actor!, async (q) => ({
       items: (await q.query(`SELECT ${contentSelect} FROM access.content_items ORDER BY created_at DESC LIMIT 500`)).rows,
     })),
   );
 
-  app.get<{ Params: { slug: string } }>('/admin/content/:slug', { preHandler: requireRole(ctx, ...staff) }, async (req, reply) => {
+  app.get<{ Params: { slug: string } }>('/admin/content/:slug', { preHandler: requireRole(ctx, ...Object.values(StaffRoles__Enum)) }, async (req, reply) => {
     const row = await db.withTenant(req.actor!, async (q) =>
       (await q.query(`SELECT ${contentSelect} FROM access.content_items WHERE slug = $1`, [req.params.slug])).rows[0],
     );
@@ -131,7 +170,7 @@ export function registerAdminRoutes(app: FastifyInstance, ctx: AppCtx): void {
     return { item: row };
   });
 
-  app.post('/admin/content', { preHandler: requireRole(ctx, ...staff) }, async (req, reply) => {
+  app.post('/admin/content', { preHandler: requireRole(ctx, ...Object.values(StaffRoles__Enum)) }, async (req, reply) => {
     const b = ContentBody.parse(req.body);
     const actor = req.actor!;
     return withDbErrors(
@@ -177,7 +216,7 @@ export function registerAdminRoutes(app: FastifyInstance, ctx: AppCtx): void {
     );
   });
 
-  app.patch<{ Params: { slug: string } }>('/admin/content/:slug', { preHandler: requireRole(ctx, ...staff) }, async (req, reply) => {
+  app.patch<{ Params: { slug: string } }>('/admin/content/:slug', { preHandler: requireRole(ctx, ...Object.values(StaffRoles__Enum)) }, async (req, reply) => {
     const b = ContentPatchBody.parse(req.body);
     const actor = req.actor!;
     return withDbErrors(
@@ -225,7 +264,7 @@ export function registerAdminRoutes(app: FastifyInstance, ctx: AppCtx): void {
     );
   });
 
-  app.get('/admin/partners', { preHandler: requireRole(ctx, ...staff) }, async (req) =>
+  app.get('/admin/partners', { preHandler: requireRole(ctx, ...Object.values(StaffRoles__Enum)) }, async (req) =>
     db.withTenant(req.actor!, async (q) => ({
       items: (
         await q.query(
@@ -238,7 +277,7 @@ export function registerAdminRoutes(app: FastifyInstance, ctx: AppCtx): void {
     })),
   );
 
-  app.post('/admin/partners', { preHandler: requireRole(ctx, ...staff) }, async (req, reply) => {
+  app.post('/admin/partners', { preHandler: requireRole(ctx, ...Object.values(StaffRoles__Enum)) }, async (req, reply) => {
     const b = PartnerBody.parse(req.body);
     const actor = req.actor!;
     const id = randomUUID(); // generated here so the encryption context can include it
@@ -264,7 +303,7 @@ export function registerAdminRoutes(app: FastifyInstance, ctx: AppCtx): void {
     );
   });
 
-  app.post('/admin/campaigns', { preHandler: requireRole(ctx, ...staff) }, async (req, reply) => {
+  app.post('/admin/campaigns', { preHandler: requireRole(ctx, ...Object.values(StaffRoles__Enum)) }, async (req, reply) => {
     const b = CampaignBody.parse(req.body);
     const actor = req.actor!;
     return withDbErrors(
@@ -285,7 +324,7 @@ export function registerAdminRoutes(app: FastifyInstance, ctx: AppCtx): void {
     );
   });
 
-  app.post('/admin/keywords', { preHandler: requireRole(ctx, ...staff) }, async (req, reply) => {
+  app.post('/admin/keywords', { preHandler: requireRole(ctx, ...Object.values(StaffRoles__Enum)) }, async (req, reply) => {
     const b = KeywordBody.parse(req.body);
     const word = normalizeKeyword(b.word);
     if (!word) return reply.code(400).send({ error: 'invalid_word' });
@@ -308,7 +347,7 @@ export function registerAdminRoutes(app: FastifyInstance, ctx: AppCtx): void {
   });
 
   // What visitors typed that matched nothing in the last 7 days: typos and unmet demand.
-  app.get('/admin/keywords/misses', { preHandler: requireRole(ctx, ...staff) }, async (req) =>
+  app.get('/admin/keywords/misses', { preHandler: requireRole(ctx, ...Object.values(StaffRoles__Enum)) }, async (req) =>
     db.withTenant(req.actor!, async (q) => ({
       misses: (
         await q.query(
@@ -321,7 +360,7 @@ export function registerAdminRoutes(app: FastifyInstance, ctx: AppCtx): void {
   );
 
   // Manual entitlement. Checkout grants the same row from order.paid; this is the operator override.
-  app.post('/admin/access/grant', { preHandler: requireRole(ctx, ...staff) }, async (req, reply) => {
+  app.post('/admin/access/grant', { preHandler: requireRole(ctx, ...Object.values(StaffRoles__Enum)) }, async (req, reply) => {
     const b = GrantBody.parse(req.body);
     const actor = req.actor!;
     return withDbErrors(
@@ -351,7 +390,7 @@ export function registerAdminRoutes(app: FastifyInstance, ctx: AppCtx): void {
   });
 
   // Create a site with its keys. Raw keys are returned ONCE; only hashes are stored.
-  app.post('/admin/sites', { preHandler: requireRole(ctx, ...admins) }, async (req, reply) => {
+  app.post('/admin/sites', { preHandler: requireRole(ctx, ...Object.values(AdminsRoles__Enum)) }, async (req, reply) => {
     const b = SiteBody.parse(req.body);
     const actor = req.actor!;
     return withDbErrors(

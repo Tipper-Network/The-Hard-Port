@@ -5,18 +5,19 @@ Each **`access.content_items`** row is one **product page**: PDF on CDN, YouTube
 ## Operator flow
 
 1. **`/thp/content/new`** — slug, title, kind, access (`open` for now), asset URL and/or S3 file upload.
-2. Upload uses **`POST /thp/api/uploads/presign`** → browser **PUT** to S3 → **`body_ref`** = public CDN URL.
+2. Upload uses **`POST /admin/thp/api/admin/uploads/presign`** (BFF → Access **`POST /admin/uploads/presign`**) → browser **PUT** to S3 → **`body_ref`** = public CDN URL.
 3. **`/thp/content/:slug/edit`** — **PATCH** via BFF to Access **`PATCH /admin/content/:slug`**.
 
-## Env (apps/web server)
+## Env (`services/access` — Access API process)
 
 | Variable | Purpose |
 |----------|---------|
-| `AWS_ACCESS_KEY_ID` / `AWS_SECRET_ACCESS_KEY` | Presign only (BFF) |
+| `AWS_ACCESS_KEY_ID` / `AWS_SECRET_ACCESS_KEY` | Presign (IAM user/role on Access service) |
+| `AWS_REGION` or `HP_S3_REGION` | Bucket region |
 | `HP_S3_BUCKET` | Bucket name |
-| `HP_S3_REGION` | e.g. `us-east-1` |
 | `HP_S3_PUBLIC_BASE_URL` | CDN or public bucket base, no trailing slash |
 | `HP_S3_PREFIX` | Key prefix (default `content`) |
+| `S3_PRESIGN_EXPIRES` | Presigned URL TTL seconds (default `900`) |
 
 Object key: `{prefix}/{tenantSlug}/{slug}/{uuid}-{filename}`  
 Public URL: `{HP_S3_PUBLIC_BASE_URL}/{key}`
@@ -42,7 +43,7 @@ Bucket must allow **CORS PUT** from `http://localhost:3000` (dev) and your produ
 
 **Visitor read path (when access granted):** `GET /v1/content/:slug` with site **`pk`** — `services/access/src/routes/public.ts` returns `content.{ bodyRef, bookingUrl, youtubeUrl, substackUrl, sourceLabel, sourceUrl, … }`.
 
-**S3 uploads:** still only fill **`body_ref`** via `packages/access-ui/src/server/s3-upload.ts` + `POST /thp/api/uploads/presign`.
+**S3 uploads:** fill **`body_ref`** via `services/access/src/s3-upload.ts` + **`POST /admin/uploads/presign`** (staff session). Next BFF only proxies.
 
 ## Visitor-facing page
 

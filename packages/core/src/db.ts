@@ -10,8 +10,16 @@ import pg from 'pg';
 // policy evaluates to "no rows" (fail closed).
 // ---------------------------------------------------------------------------
 
-export const ACTOR_ROLES = ['owner', 'admin', 'staff', 'partner', 'business', 'public', 'system'] as const;
-export type ActorRole = (typeof ACTOR_ROLES)[number];
+export enum ACTOR_ROLES__Enum {
+  OWNER = 'OWNER',
+  ADMIN = 'ADMIN',
+  STAFF = 'STAFF',
+  PARTNER = 'PARTNER',
+  BUSINESS = 'BUSINESS',
+  PUBLIC = 'PUBLIC',
+  SYSTEM = 'SYSTEM',
+}
+export type ActorRole = keyof typeof ACTOR_ROLES__Enum;
 
 export interface Actor {
   tenantId: string;
@@ -76,7 +84,7 @@ export class Db {
    */
   withTenant<T>(actor: Actor, fn: (q: Queryable) => Promise<T>): Promise<T> {
     if (!UUID_RE.test(actor.tenantId)) throw new Error('withTenant: invalid tenant id');
-    if (!ACTOR_ROLES.includes(actor.role)) throw new Error('withTenant: invalid role');
+    if (!Object.values(ACTOR_ROLES__Enum).includes(actor.role as ACTOR_ROLES__Enum)) throw new Error('withTenant: invalid role');
     for (const id of [actor.userId, actor.partnerId, actor.businessId]) {
       if (id && !UUID_RE.test(id)) throw new Error('withTenant: invalid actor id');
     }

@@ -101,7 +101,7 @@ GRANT USAGE ON SCHEMA access   TO hp_access;
 GRANT USAGE ON SCHEMA payments TO hp_payments;
 
 -- platform: global plans plus tenant-scoped tables (rows limited by RLS)
-GRANT SELECT ON platform.plans, platform.subscriptions, platform.sites, platform.memberships TO hp_access, hp_payments;
+GRANT SELECT ON platform.plans, platform.subscriptions, platform.sites, platform.memberships, platform.tenants TO hp_access, hp_payments;
 GRANT SELECT ON platform.api_keys TO hp_access;
 GRANT INSERT, UPDATE, DELETE ON platform.sites, platform.memberships, platform.api_keys TO hp_access;
 GRANT SELECT, INSERT ON platform.audit_log TO hp_access, hp_payments;   -- no UPDATE/DELETE: append-only

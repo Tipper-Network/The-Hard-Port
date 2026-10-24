@@ -160,5 +160,6 @@ Partner email is **not** sent locally unless `RESEND_API_KEY` is set; the fixed 
 | Staff login 403 `bad_origin` | `ADMIN_ORIGINS` must include `http://localhost:3000`; BFF sends `Origin` from `NEXT_PUBLIC_SITE_URL` |
 | Partner OTP fails | Set `ACCESS_TEST_OTP=123456` on Access; use exactly that code |
 | `misconfigured` on BFF | Fill `HP_ACCESS_URL`, `HP_SECRET_KEY`, `NEXT_PUBLIC_HP_PUBLIC_KEY` in `apps/web/.env.local` |
+| Content upload `503` / `s3_not_configured` | Set `HP_S3_BUCKET`, `HP_S3_PUBLIC_BASE_URL`, `AWS_REGION`, and AWS creds on **`services/access/.env`**; restart Access |
 
 Production deploy checklist: [`deployment.md`](deployment.md).

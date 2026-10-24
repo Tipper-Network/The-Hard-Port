@@ -15,12 +15,17 @@ import { PartnerDashboardView } from './views/partner-dashboard'
 import { PartnerLoginView } from './views/partner-login'
 import { PartnersView } from './views/partners'
 
-export type AccessAppScope = 'staff' | 'partner'
+export enum AccessAppScope__Internal{
+  STAFF = 'STAFF',
+  PARTNER = 'PARTNER',
+  PUBLIC = 'PUBLIC',
+  ADMIN = 'ADMIN',
+}
 
 export type AccessAppProps = {
   basePath?: string
   /** Staff console vs partner portal — never mix on one mount. */
-  scope?: AccessAppScope
+  scope?: AccessAppScope__Internal
   /** When mounted from the marketing-site admin hub, link back to website admin (e.g. `/admin`). */
   websiteAdminHref?: string
   /** Staff “View” link base path. Default `/p` → `/p/{slug}`. */
@@ -29,6 +34,16 @@ export type AccessAppProps = {
 
 const staffRoles = new Set(['owner', 'admin', 'staff'])
 const PARTNER_PORTAL_PATH = '/partner'
+
+/** Accept enum or legacy lowercase strings from older mounts. */
+function normalizeScope(scope: AccessAppScope__Internal | string): AccessAppScope__Internal {
+  const s = String(scope)
+  if (s === AccessAppScope__Internal.PARTNER || s === 'partner') return AccessAppScope__Internal.PARTNER
+  if (s === AccessAppScope__Internal.STAFF || s === 'staff') return AccessAppScope__Internal.STAFF
+  if (s === AccessAppScope__Internal.PUBLIC || s === 'public') return AccessAppScope__Internal.PUBLIC
+  if (s === AccessAppScope__Internal.ADMIN || s === 'admin') return AccessAppScope__Internal.ADMIN
+  return AccessAppScope__Internal.STAFF
+}
 
 function normalizeBase(basePath: string): string {
   const t = basePath.trim() || '/thp'
@@ -44,10 +59,11 @@ function relPath(base: string, pathname: string): string {
 
 export function AccessApp({
   basePath = '/thp',
-  scope = 'staff',
+  scope: scopeProp = AccessAppScope__Internal.STAFF,
   websiteAdminHref,
   publicProductPathPrefix,
 }: AccessAppProps) {
+  const scope = normalizeScope(scopeProp)
   const base = normalizeBase(basePath)
   const pathname = usePathname() ?? base
   const router = useRouter()
@@ -63,7 +79,7 @@ export function AccessApp({
     return () => {
       cancelled = true
     }
-  }, [base, pathname])
+  }, [base])
 
   useEffect(() => {
     if (session === undefined) return
@@ -71,13 +87,13 @@ export function AccessApp({
     const isStaff = session && staffRoles.has(session.role)
     const isPartner = session?.role === 'partner'
 
-    if (scope === 'staff' && (route === '/partner' || route.startsWith('/partner/'))) {
+    if (scope === AccessAppScope__Internal.STAFF && (route === '/partner' || route.startsWith('/partner/'))) {
       const suffix = route === '/partner' ? '' : route.slice('/partner'.length)
       window.location.replace(`${PARTNER_PORTAL_PATH}${suffix}`)
       return
     }
 
-    if (scope === 'partner') {
+    if (scope === AccessAppScope__Internal.PARTNER) {
       if (route === '/dashboard') {
         if (isPartner) return
         if (!session) setPendingRoute(base)
@@ -123,7 +139,7 @@ export function AccessApp({
   const logout = async () => {
     await apiFetch(base, '/auth/logout', { method: 'POST', body: '{}' })
     setSession(null)
-    router.push(scope === 'partner' ? base : `${base}/login`)
+    router.push(scope === AccessAppScope__Internal.PARTNER ? base : `${base}/login`)
   }
 
   if (session === undefined) {
@@ -145,7 +161,7 @@ export function AccessApp({
     )
   }
 
-  if (scope === 'partner' && (route === '/' || route === '/login')) {
+  if (scope === AccessAppScope__Internal.PARTNER && (route === '/' || route === '/login')) {
     if (isPartner) return null
     return (
       <div className="hp-access">
@@ -154,7 +170,7 @@ export function AccessApp({
     )
   }
 
-  if (scope === 'staff' && (route === '/login' || route.startsWith('/login/'))) {
+  if (scope === AccessAppScope__Internal.STAFF && (route === '/login' || route.startsWith('/login/'))) {
     if (isStaff) return null
     return (
       <div className="hp-access">
@@ -202,31 +218,31 @@ export function AccessApp({
   )
 
   let body: React.ReactNode = null
-  if (scope === 'partner' && isPartner && route === '/dashboard') {
+  if (scope === AccessAppScope__Internal.PARTNER && isPartner && route === '/dashboard') {
     body = <PartnerDashboardView basePath={base} />
-  } else if (scope === 'staff' && isStaff && route === '/connection') {
+  } else if (scope === AccessAppScope__Internal.STAFF && isStaff && route === '/connection') {
     body = <ConnectionView basePath={base} />
-  } else if (scope === 'staff' && isStaff && route === '/partners') {
+  } else if (scope === AccessAppScope__Internal.STAFF && isStaff && route === '/partners') {
     body = <PartnersView basePath={base} />
-  } else if (scope === 'staff' && isStaff && route === '/content') {
+  } else if (scope === AccessAppScope__Internal.STAFF && isStaff && route === '/content') {
     body = <ContentView basePath={base} publicProductPathPrefix={publicProductPathPrefix} />
-  } else if (scope === 'staff' && isStaff && route === '/content/new') {
+  } else if (scope === AccessAppScope__Internal.STAFF && isStaff && route === '/content/new') {
     body = <ContentFormView basePath={base} mode="create" />
-  } else if (scope === 'staff' && isStaff && route.startsWith('/content/') && route.endsWith('/edit')) {
+  } else if (scope === AccessAppScope__Internal.STAFF && isStaff && route.startsWith('/content/') && route.endsWith('/edit')) {
     const slug = route.slice('/content/'.length, -'/edit'.length)
     body = <ContentFormView basePath={base} mode="edit" slug={decodeURIComponent(slug)} />
-  } else if (scope === 'staff' && isStaff && route === '/billing') {
+  } else if (scope === AccessAppScope__Internal.STAFF && isStaff && route === '/billing') {
     body = <BillingView />
-  } else if (scope === 'staff' && isStaff) {
+  } else if (scope === AccessAppScope__Internal.STAFF && isStaff) {
     body = <ConnectionView basePath={base} />
-  } else if (scope === 'partner' && isPartner) {
+  } else if (scope === AccessAppScope__Internal.PARTNER && isPartner) {
     body = <PartnerDashboardView basePath={base} />
   }
 
   return (
     <div className="hp-access">
       <div className="hp-access__shell">
-        {scope === 'staff' ? (isStaff ? staffNav : null) : isPartner ? partnerNav : null}
+        {scope === AccessAppScope__Internal.STAFF ? (isStaff ? staffNav : null) : isPartner ? partnerNav : null}
         {body}
       </div>
     </div>

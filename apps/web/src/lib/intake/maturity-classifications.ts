@@ -1,8 +1,10 @@
 /**
- * TODO(scaffold): mirror apps/api/src/intake/maturity-classifications.constants.ts
+ * Mirror apps/api/src/intake/maturity-classifications.constants.ts (keep in sync).
  */
-export const MATURITY_CLASSIFICATIONS = [
-  // _fill — e.g. 'survival', 'stable', 'growth_ready'
-] as const
+export enum MATURITY_CLASSIFICATIONS__Enum {
+  SURVIVAL = 'SURVIVAL',
+  STABLE = 'STABLE',
+  GROWTH_READY = 'GROWTH_READY',
+}
 
-export type MaturityClassification = (typeof MATURITY_CLASSIFICATIONS)[number]
+export type MaturityClassification = keyof typeof MATURITY_CLASSIFICATIONS__Enum

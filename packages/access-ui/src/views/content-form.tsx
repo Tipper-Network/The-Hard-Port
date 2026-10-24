@@ -4,6 +4,11 @@ import Link from 'next/link'
 import { useEffect, useState } from 'react'
 
 import { apiFetch } from '../api-client'
+import { Button } from '../components/ui/button'
+import { Input } from '../components/ui/input'
+import { Label } from '../components/ui/label'
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '../components/ui/select'
+import { Textarea } from '../components/ui/textarea'
 
 export type ContentItem = {
   id: string
@@ -24,6 +29,11 @@ export type ContentItem = {
 }
 
 const KINDS = ['guide', 'part', 'video', 'session', 'ebook', 'download'] as const
+const ACCESS_MODES = [
+  { value: 'open', label: 'open — anyone with the page' },
+  { value: 'keyword_first', label: 'keyword_first' },
+  { value: 'paid', label: 'paid (stub)' },
+] as const
 const FILE_KINDS = new Set(['guide', 'part', 'ebook', 'download'])
 
 type Props = {
@@ -76,7 +86,7 @@ export function ContentFormView({ basePath, mode, slug: editSlug }: Props) {
 
   const uploadFile = async (targetSlug: string): Promise<string | null> => {
     if (!file) return bodyRef.trim() || null
-    const presign = await apiFetch(basePath, '/uploads/presign', {
+    const presign = await apiFetch(basePath, '/admin/uploads/presign', {
       method: 'POST',
       body: JSON.stringify({
         slug: targetSlug,
@@ -148,7 +158,7 @@ export function ContentFormView({ basePath, mode, slug: editSlug }: Props) {
 
       window.location.href = `${basePath}/content`
     } catch {
-      setError('Request failed. Check S3 env on the web server.')
+      setError('Request failed. Check S3 env on the Access service (HP_S3_* / AWS_*).')
     } finally {
       setBusy(false)
     }
@@ -165,94 +175,124 @@ export function ContentFormView({ basePath, mode, slug: editSlug }: Props) {
       <p className="hp-access__lede">
         One row = one visitor-facing page. Use <strong>Asset URL</strong> for files on your CDN; use the dedicated fields below for YouTube, Substack, and “where this came from.”
       </p>
-      <form className="hp-access__panel" onSubmit={(e) => void submit(e)}>
+      <form className="hp-access__panel space-y-4" method="post" onSubmit={(e) => void submit(e)}>
         {error ? <p className="hp-access__error">{error}</p> : null}
         {mode === 'create' ? (
-          <>
-            <label htmlFor="c-slug">Slug (URL segment)</label>
-            <input id="c-slug" value={slug} onChange={(e) => setSlug(e.target.value)} pattern="[a-z0-9][a-z0-9-]*" required />
-          </>
+          <div className="grid gap-2">
+            <Label htmlFor="c-slug">Slug (URL segment)</Label>
+            <Input id="c-slug" value={slug} onChange={(e) => setSlug(e.target.value)} pattern="[a-z0-9][a-z0-9-]*" required />
+          </div>
         ) : null}
-        <label htmlFor="c-title">Title</label>
-        <input id="c-title" value={title} onChange={(e) => setTitle(e.target.value)} required />
-        <label htmlFor="c-summary">Summary (optional)</label>
-        <textarea id="c-summary" rows={3} value={summary} onChange={(e) => setSummary(e.target.value)} />
-        <label htmlFor="c-kind">Kind</label>
-        <select id="c-kind" value={kind} onChange={(e) => setKind(e.target.value as (typeof KINDS)[number])}>
-          {KINDS.map((k) => (
-            <option key={k} value={k}>
-              {k}
-            </option>
-          ))}
-        </select>
-        <label htmlFor="c-access">Access (paid gating later)</label>
-        <select id="c-access" value={accessMode} onChange={(e) => setAccessMode(e.target.value)}>
-          <option value="open">open — anyone with the page</option>
-          <option value="keyword_first">keyword_first</option>
-          <option value="paid">paid (stub)</option>
-        </select>
-        <label htmlFor="c-status">Status</label>
-        <select id="c-status" value={status} onChange={(e) => setStatus(e.target.value as 'draft' | 'published')}>
-          <option value="draft">draft</option>
-          <option value="published">published</option>
-        </select>
+        <div className="grid gap-2">
+          <Label htmlFor="c-title">Title</Label>
+          <Input id="c-title" value={title} onChange={(e) => setTitle(e.target.value)} required />
+        </div>
+        <div className="grid gap-2">
+          <Label htmlFor="c-summary">Summary (optional)</Label>
+          <Textarea id="c-summary" rows={3} value={summary} onChange={(e) => setSummary(e.target.value)} />
+        </div>
+        <div className="grid gap-2">
+          <Label htmlFor="c-kind">Kind</Label>
+          <Select value={kind} onValueChange={(v) => setKind(v as (typeof KINDS)[number])}>
+            <SelectTrigger id="c-kind" aria-label="Content kind">
+              <SelectValue />
+            </SelectTrigger>
+            <SelectContent>
+              {KINDS.map((k) => (
+                <SelectItem key={k} value={k}>
+                  {k}
+                </SelectItem>
+              ))}
+            </SelectContent>
+          </Select>
+        </div>
+        <div className="grid gap-2">
+          <Label htmlFor="c-access">Access (paid gating later)</Label>
+          <Select value={accessMode} onValueChange={setAccessMode}>
+            <SelectTrigger id="c-access" aria-label="Access mode">
+              <SelectValue />
+            </SelectTrigger>
+            <SelectContent>
+              {ACCESS_MODES.map((m) => (
+                <SelectItem key={m.value} value={m.value}>
+                  {m.label}
+                </SelectItem>
+              ))}
+            </SelectContent>
+          </Select>
+        </div>
+        <div className="grid gap-2">
+          <Label htmlFor="c-status">Status</Label>
+          <Select value={status} onValueChange={(v) => setStatus(v as 'draft' | 'published')}>
+            <SelectTrigger id="c-status" aria-label="Publish status">
+              <SelectValue />
+            </SelectTrigger>
+            <SelectContent>
+              <SelectItem value="draft">draft</SelectItem>
+              <SelectItem value="published">published</SelectItem>
+            </SelectContent>
+          </Select>
+        </div>
         {kind === 'session' ? (
-          <>
-            <label htmlFor="c-book">Booking URL</label>
-            <input id="c-book" type="url" value={bookingUrl} onChange={(e) => setBookingUrl(e.target.value)} placeholder="https://cal.com/…" />
-          </>
+          <div className="grid gap-2">
+            <Label htmlFor="c-book">Booking URL</Label>
+            <Input id="c-book" type="url" value={bookingUrl} onChange={(e) => setBookingUrl(e.target.value)} placeholder="https://cal.com/…" />
+          </div>
         ) : null}
         {kind === 'video' ? (
-          <>
-            <label htmlFor="c-yt">YouTube URL</label>
-            <input
+          <div className="grid gap-2">
+            <Label htmlFor="c-yt">YouTube URL</Label>
+            <Input
               id="c-yt"
               type="url"
               value={youtubeUrl}
               onChange={(e) => setYoutubeUrl(e.target.value)}
               placeholder="https://www.youtube.com/watch?v=…"
             />
-          </>
+          </div>
         ) : null}
-        <label htmlFor="c-sub">Substack URL (optional)</label>
-        <input
-          id="c-sub"
-          type="url"
-          value={substackUrl}
-          onChange={(e) => setSubstackUrl(e.target.value)}
-          placeholder="https://yourname.substack.com/p/…"
-        />
-        <label htmlFor="c-src-label">Where this came from (label)</label>
-        <input
-          id="c-src-label"
-          value={sourceLabel}
-          onChange={(e) => setSourceLabel(e.target.value)}
-          placeholder="e.g. Featured on The Hard Port YouTube"
-        />
-        <label htmlFor="c-src-url">Source link (optional)</label>
-        <input
-          id="c-src-url"
-          type="url"
-          value={sourceUrl}
-          onChange={(e) => setSourceUrl(e.target.value)}
-          placeholder="https://youtube.com/@… or partner post"
-        />
-        <label htmlFor="c-url">Asset URL (CDN file — PDF, zip, etc.)</label>
-        <input
-          id="c-url"
-          value={bodyRef}
-          onChange={(e) => setBodyRef(e.target.value)}
-          placeholder="https://cdn…/file.pdf"
-        />
+        <div className="grid gap-2">
+          <Label htmlFor="c-sub">Substack URL (optional)</Label>
+          <Input
+            id="c-sub"
+            type="url"
+            value={substackUrl}
+            onChange={(e) => setSubstackUrl(e.target.value)}
+            placeholder="https://yourname.substack.com/p/…"
+          />
+        </div>
+        <div className="grid gap-2">
+          <Label htmlFor="c-src-label">Where this came from (label)</Label>
+          <Input
+            id="c-src-label"
+            value={sourceLabel}
+            onChange={(e) => setSourceLabel(e.target.value)}
+            placeholder="e.g. Featured on The Hard Port YouTube"
+          />
+        </div>
+        <div className="grid gap-2">
+          <Label htmlFor="c-src-url">Source link (optional)</Label>
+          <Input
+            id="c-src-url"
+            type="url"
+            value={sourceUrl}
+            onChange={(e) => setSourceUrl(e.target.value)}
+            placeholder="https://youtube.com/@… or partner post"
+          />
+        </div>
+        <div className="grid gap-2">
+          <Label htmlFor="c-url">Asset URL (CDN file — PDF, zip, etc.)</Label>
+          <Input id="c-url" value={bodyRef} onChange={(e) => setBodyRef(e.target.value)} placeholder="https://cdn…/file.pdf" />
+        </div>
         {FILE_KINDS.has(kind) ? (
-          <>
-            <label htmlFor="c-file">Or upload to S3 (fills asset URL)</label>
-            <input id="c-file" type="file" onChange={(e) => setFile(e.target.files?.[0] ?? null)} />
-          </>
+          <div className="grid gap-2">
+            <Label htmlFor="c-file">Or upload to S3 (fills asset URL)</Label>
+            <Input id="c-file" type="file" onChange={(e) => setFile(e.target.files?.[0] ?? null)} />
+          </div>
         ) : null}
-        <button type="submit" disabled={busy}>
+        <Button type="submit" disabled={busy} className="mt-2">
           {busy ? 'Saving…' : mode === 'create' ? 'Create' : 'Save'}
-        </button>
+        </Button>
       </form>
     </>
   )

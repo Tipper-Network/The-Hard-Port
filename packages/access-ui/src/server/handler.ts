@@ -180,34 +180,6 @@ export async function handleAccessApi(req: NextRequest, context: RouteContext): 
     return res
   }
 
-  if (path === '/uploads/presign' && req.method === 'POST') {
-    if (!session) return NextResponse.json({ error: 'unauthenticated' }, { status: 401 })
-    let parsed: { slug?: string; filename?: string; contentType?: string } = {}
-    try {
-      parsed = JSON.parse(await req.text()) as typeof parsed
-    } catch {
-      return NextResponse.json({ error: 'invalid_body' }, { status: 400 })
-    }
-    if (!parsed.slug?.trim() || !parsed.filename?.trim()) {
-      return NextResponse.json({ error: 'missing_fields' }, { status: 400 })
-    }
-    try {
-      const { loadS3UploadConfig, createPresignedUpload } = await import('./s3-upload')
-      const s3 = loadS3UploadConfig(config.tenantSlug)
-      if (!s3) {
-        return NextResponse.json({ error: 's3_not_configured' }, { status: 503 })
-      }
-      const out = await createPresignedUpload(s3, {
-        slug: parsed.slug.trim(),
-        filename: parsed.filename.trim(),
-        contentType: parsed.contentType?.trim() || 'application/octet-stream',
-      })
-      return NextResponse.json({ ok: true, ...out })
-    } catch {
-      return NextResponse.json({ error: 'presign_failed' }, { status: 500 })
-    }
-  }
-
   if (path === '/public/keywords/lookup' && req.method === 'POST') {
     let parsed: { word?: string; anonId?: string; contentSlug?: string } = {}
     try {
