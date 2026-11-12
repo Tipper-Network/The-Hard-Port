@@ -58,7 +58,20 @@ pnpm platform:bootstrap -- \
 
 ## 2. Dokploy / Docker on VPS
 
-**Build context:** repo root. **Dockerfile:** `./Dockerfile`. **Port:** `4001`.
+**Use a separate Dokploy application** — not the Hard Port website app.
+
+| Field | Value |
+|--------|--------|
+| **Git repository** | [Tipper-Network/SMB-access-service](https://github.com/Tipper-Network/SMB-access-service) |
+| **Branch** | `main` |
+| **Build type** | Dockerfile (not Nixpacks) |
+| **Dockerfile path** | `Dockerfile` (repo root) |
+| **Build context** | `.` (repo root) |
+| **Expose port** | `4001` |
+
+The **Hard Port** repo root `Dockerfile` builds **only** `apps/web` (Next, port 3000). It does **not** build `@hardport/access`. Older `services/access` paths in this monorepo are removed — Dokploy must point at **SMB-access-service**.
+
+After deploy, map **`https://access.thehardport.com`** (or your subdomain) to this service; set `TRUST_PROXY=true` and `ADMIN_ORIGINS` to the public site origin.
 
 ### Required environment variables
 

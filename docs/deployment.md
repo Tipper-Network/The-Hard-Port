@@ -60,7 +60,7 @@ pnpm platform:bootstrap -- \
 
 ## Deploy `@hardport/access` on VPS
 
-- [ ] Build/run `services/access/Dockerfile` (or `pnpm --filter @hardport/access start` under systemd)
+- [ ] Dokploy app on **[SMB-access-service](https://github.com/Tipper-Network/SMB-access-service)** — root `Dockerfile`, port **4001** (see [`deploy-access-service.md`](deploy-access-service.md) §2). **Not** The Hard Port monorepo Dockerfile.
 - [ ] Set container/host env:
 
 | Variable | Production value |
