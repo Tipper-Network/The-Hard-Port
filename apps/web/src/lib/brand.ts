@@ -5,6 +5,9 @@ export const brand = {
   deepest: '#12151d',
   ink: '#f2f3f6',
   gold: '#d9b676',
+  rust: '#c45c2a',
+  logoOrange: '#ff6b17',
+  logoNavy: '#0a2c75',
 } as const
 
 export const site = {
@@ -12,8 +15,10 @@ export const site = {
   title: 'The Hard Port; We give a f*ck. We just don\u2019t care.',
   shortName: 'The Hard Port',
   description:
-    'The Hard Port investigates why established microbusinesses stay trapped in survival mode — and what it takes to become stable enough to grow responsibly.',
+    'The Hard Port examines Level 1 service businesses stuck in survival mode; application, qualification, and a paid Business Reality Diagnostic toward stability.',
   logo: '/THP_Logo.svg',
+  logoOnDark: '/THP_Logo_on_dark.svg',
+  favicon: '/THP_Favicon.svg',
 } as const
 
 /** The line everything else hangs off. */

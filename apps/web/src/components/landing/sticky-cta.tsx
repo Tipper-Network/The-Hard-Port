@@ -37,7 +37,7 @@ export function StickyCta() {
         hash={cta.hash}
         intensity={1}
         noMargin
-        className="inline-flex w-full items-center justify-center bg-accent px-6 py-3.5 text-sm font-extrabold tracking-wide text-background uppercase shadow-lg shadow-black/40 transition-transform hover:-translate-y-0.5 sm:w-auto"
+        className="inline-flex w-full items-center justify-center rounded-button bg-rust px-6 py-3.5 text-sm font-extrabold tracking-wide text-ink uppercase shadow-lg shadow-black/40 transition-transform hover:-translate-y-0.5 hover:bg-[--color-cta-hover] sm:w-auto"
         onClick={() => trackStickyCtaClick(activeId, rung, cta.text, cta.href)}
       />
     </div>

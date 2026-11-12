@@ -2,20 +2,10 @@
 
 import { getConfiguredIntakeApiUrl } from '@/lib/api/client'
 import { validateIntakePayload, type IntakePayload } from '@/lib/intake/payload'
-
-export enum SubmitIntakeReason__Enum {
-  NOT_CONFIGURED = 'not_configured',
-  UNREACHABLE = 'unreachable',
-      API_ERROR = 'API_ERROR',
-}
-export type SubmitIntakeResult =
-  | { ok: true; id?: string }
-  | {
-      ok: false
-      error: string
-      manual?: boolean
-      reason?: SubmitIntakeReason__Enum
-    }
+import {
+  SubmitIntakeReason__Enum,
+  type SubmitIntakeResult,
+} from '@/lib/intake/submit-types'
 
 async function submitToApi(payload: IntakePayload): Promise<SubmitIntakeResult> {
   const apiUrl = getConfiguredIntakeApiUrl()
@@ -55,7 +45,7 @@ async function submitToApi(payload: IntakePayload): Promise<SubmitIntakeResult> 
       ok: false,
       error: err instanceof Error ? err.message : 'API request failed',
       manual: true,
-        reason: SubmitIntakeReason__Enum.UNREACHABLE,
+      reason: SubmitIntakeReason__Enum.UNREACHABLE,
     }
   }
 }

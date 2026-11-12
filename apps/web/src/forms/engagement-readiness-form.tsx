@@ -396,7 +396,7 @@ export function EngagementReadinessForm() {
         <button
           type="submit"
           disabled={status === 'submitting'}
-          className="mt-2 inline-flex w-full items-center justify-center bg-accent px-7 py-4 text-base font-extrabold tracking-wide text-background uppercase transition-transform hover:-translate-y-0.5 disabled:opacity-60"
+          className="mt-2 inline-flex w-full items-center justify-center rounded-button bg-rust px-7 py-4 text-base font-extrabold tracking-wide text-ink uppercase transition-transform hover:-translate-y-0.5 hover:bg-[--color-cta-hover] disabled:opacity-60"
         >
           {status === 'submitting' ? 'Submitting…' : 'Submit application'}
         </button>

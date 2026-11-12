@@ -36,7 +36,7 @@ export default function AboutPage() {
       <main>
         <section className="bg-depth-0 px-6 py-20 lg:px-12 lg:py-28">
           <div className="mx-auto max-w-hero">
-            <p className="text-sm font-bold tracking-[0.2em] text-accent uppercase">
+            <p className="text-sm font-bold tracking-[0.2em] text-rust uppercase">
               Who we are
             </p>
             <h1 className="mt-3 max-w-3xl font-heading text-4xl font-normal uppercase text-secondary md:text-5xl">
@@ -99,7 +99,7 @@ export default function AboutPage() {
 
         <section className="bg-depth-2 px-6 py-20 lg:px-12 lg:py-28">
           <div className="mx-auto max-w-hero">
-            <p className="text-sm font-bold tracking-[0.2em] text-accent uppercase">
+            <p className="text-sm font-bold tracking-[0.2em] text-rust uppercase">
               How we work
             </p>
             <h2 className="mt-3 font-heading text-3xl font-normal uppercase text-secondary md:text-4xl">

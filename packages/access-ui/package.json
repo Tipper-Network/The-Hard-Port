@@ -27,24 +27,28 @@
     "./widgets": {
       "types": "./src/widgets/index.tsx",
       "default": "./src/widgets/index.tsx"
+    },
+    "./product-path": {
+      "types": "./src/lib/product-path.ts",
+      "default": "./src/lib/product-path.ts"
     }
   },
   "peerDependencies": {
-    "next": ">=15",
+    "next": "^15.0.0",
     "react": ">=19",
     "react-dom": ">=19"
   },
   "dependencies": {
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
-    "lucide-react": "^1.18.0",
-    "radix-ui": "^1.5.0",
+    "lucide-react": "^1.72.0",
+    "radix-ui": "^1.8.1",
     "server-only": "^0.0.1",
-    "tailwind-merge": "^3.6.0"
+    "tailwind-merge": "^3.7.0"
   },
   "devDependencies": {
-    "@types/react": "^19.2.0",
-    "@types/react-dom": "^19.2.0",
-    "typescript": "^5.6.0"
+    "@types/react": "^19.3.0",
+    "@types/react-dom": "^19.3.0",
+    "typescript": "^5.9.3"
   }
 }

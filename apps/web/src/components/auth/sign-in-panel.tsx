@@ -77,7 +77,7 @@ export function SignInPanel() {
         </p>
         <button
           type="button"
-          className="rounded-button bg-accent px-6 py-3 text-sm font-bold text-background hover:bg-[--color-gold-hover]"
+          className="rounded-button bg-rust px-6 py-3 text-sm font-bold text-ink hover:bg-[--color-cta-hover]"
           disabled={isFetching}
           onClick={() => void refetch()}
         >

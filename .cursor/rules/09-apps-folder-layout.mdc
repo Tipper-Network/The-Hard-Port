@@ -1,0 +1,33 @@
+---
+description: Repo layout — apps/api vs apps/web (Access split vs Hard Port monorepo)
+globs:
+  - deploy/smb-access-service/**
+  - services/**
+  - docs/deploy-access-service.md
+---
+
+# Apps folder layout
+
+## SMB-access-service (Tipper-Network/SMB-access-service)
+
+All deployables under **`apps/`**:
+
+| Path | Role |
+|------|------|
+| `apps/api` | `@hardport/access` — platform HTTP API |
+| `apps/web` | Reserved for future Access-owned Next (placeholder until built) |
+| `packages/core` | Shared library vendored in this repo |
+
+**Never** add new top-level `services/access` or duplicate API trees. Docker build uses repo-root `Dockerfile` → `apps/api`.
+
+## The Hard Port monorepo (this repo)
+
+| Path | Role |
+|------|------|
+| `apps/web` | Marketing + intake Next site |
+| `apps/api` | **Website** Nest intake API — not platform Access |
+| `packages/access-ui` | Installable console/widgets npm package |
+
+Platform Access **does not** live in this monorepo. Point env at hosted `HP_ACCESS_URL`.
+
+When adding a new runnable in either repo, default to **`apps/<name>/`**, not `services/<name>/src`.

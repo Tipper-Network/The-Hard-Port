@@ -7,7 +7,7 @@ import { SiteHeader } from '@/components/layout/site-header'
 import { site } from '@/lib/brand'
 
 export const metadata: Metadata = {
-  title: `Terms of Service — ${site.name}`,
+  title: `Terms of Service | ${site.name}`,
   description:
     'The terms governing your use of thehardport.com and THP\'s services. Short, because the model is simple.',
 }
@@ -27,7 +27,7 @@ export default function TermsPage() {
       <main>
         <section className="bg-depth-0 px-6 py-20 lg:px-12 lg:py-28">
           <div className="mx-auto max-w-hero">
-            <p className="text-sm font-bold tracking-[0.2em] text-accent uppercase">
+            <p className="text-sm font-bold tracking-[0.2em] text-rust uppercase">
               Legal
             </p>
             <h1 className="mt-3 max-w-3xl font-heading text-4xl font-normal uppercase text-secondary md:text-5xl">

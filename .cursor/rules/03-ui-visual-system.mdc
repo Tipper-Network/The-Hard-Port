@@ -20,7 +20,7 @@ to bottom is a bug, same as copy that reads flat top to bottom. Concretely, that
   call. Plateauing early (multiple consecutive sections sharing one shade) shipped once already
   and read as flat — don't reintroduce a floor to "simplify" the scale.
 - **One CTA carries full weight per section.** When a section shows two CTAs (e.g. Hero), only
-  one is solid-gold; the other renders as the ghost/secondary variant (`link_button.tsx`'s
+  one is solid-rust; the other renders as the ghost/secondary variant (`link-button.tsx`
   `variant="ghost"`). Two equal-weight solid buttons in the same viewport is a hierarchy bug.
 - **A singled-out choice needs elevation, not just a label.** If a comparison (pricing tier,
   package, plan) marks one option as recommended/featured, a star or border alone doesn't cut
@@ -63,8 +63,9 @@ Tokens use **oklch** (lightness, chroma, hue), not hex, because:
    lightness without hue drift; hex/navy tweaks shift color unpredictably.
 2. **Load-bearing depth mechanic** — scroll escalation depends on 13 distinct navy steps; oklch
    makes that scale maintainable (see `design-system/07-depth-scroll-intensity.md`).
-3. **Functional split** — gold (`oklch(0.80 0.14 85)`) for CTAs vs rust (`oklch(0.62 0.16 35)`)
-   for wrong-state / agitation; separate hues in a uniform space, not one orange for everything.
+3. **Functional split (brand book)** — rust (`--color-cta`) for section labels, progress bar, and
+   primary buttons; gold (`--color-accent`) for one highlight per screen (hero line, key stat,
+   inline text links). Logo orange (`#FF6B17`) is mark-only until a full token merge.
 4. **Modern stack** — Tailwind 4 + `@theme inline` expect CSS color functions; oklch is the
    current standard for design-system tokens in browser CSS.
 

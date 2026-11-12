@@ -24,7 +24,7 @@ export function LetterSection() {
           </span>
 
           <div className="relative z-10">
-            <p className="text-sm font-bold tracking-[0.2em] text-accent uppercase">
+            <p className="text-sm font-bold tracking-[0.2em] text-rust uppercase">
               The part nobody says out loud
             </p>
             <h2 className="mt-4 border-l-4 border-accent pl-5 font-serif text-3xl font-normal text-secondary italic md:text-4xl">
@@ -58,18 +58,17 @@ export function LetterSection() {
               <p>
                 If you&apos;re not where you want to be, you&apos;re either doing
                 something wrong, or not doing something right. And it took you
-                reading some website nonsense to realize that &mdash; so you&apos;ve
-                got a way to go before you sail with a sense of direction.
+                reading some website nonsense to realize that; so you&apos;ve got a way to go
+                before you sail with a sense of direction.
               </p>
               <p>
                 Get over yourself. Get some clarity on how you&apos;re approaching
                 your work.
               </p>
               <p>
-                We call you so you don&apos;t feel like you&apos;re asking for help
-                &mdash; because you&apos;re not asking for help, you&apos;re asking
-                for clarity. We won&apos;t help you. We&apos;ll just do our job, so
-                yours gets easier.
+                We call you so you don&apos;t feel like you&apos;re asking for help;
+                because you&apos;re not asking for help, you&apos;re asking for clarity.
+                We won&apos;t help you. We&apos;ll just do our job, so yours gets easier.
               </p>
               <p className="border-l-4 border-accent pl-5 text-xl font-extrabold text-secondary">
                 If you&apos;re a man, grow a pair.
@@ -84,7 +83,7 @@ export function LetterSection() {
               <span className="h-px flex-1 bg-secondary/15" aria-hidden="true" />
             </div>
             <p className="mt-4 text-sm font-semibold tracking-[0.15em] text-secondary/50 [font-variant-caps:small-caps]">
-              &mdash; The Hard Port
+              The Hard Port
             </p>
 
             <div className="mt-6 flex flex-wrap gap-4">

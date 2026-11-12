@@ -8,6 +8,7 @@ import { useAccessInstalled } from '@/hooks/use-access-installed'
 import { THP_CATALOG_PATH } from '@/lib/access-public-paths'
 import { trackNavClick } from '@/lib/tracking'
 
+/** Service funnel links — primary story is THP diagnostic / intervention, not digital catalog. */
 const NAV_LINKS = [
   { text: 'How it works', href: '/work-with-us' },
   { text: 'The ladder', href: '/business-levels' },
@@ -31,6 +32,7 @@ export function SiteHeaderNav() {
             href={THP_CATALOG_PATH}
             variant="nav"
             noMargin
+            className="text-secondary/55"
             onClick={() => trackNavClick('Catalog', THP_CATALOG_PATH)}
           />
         ) : null}

@@ -5,7 +5,7 @@ import { SiteFooter } from '@/components/layout/site-footer'
 import { SiteHeader } from '@/components/layout/site-header'
 
 export const metadata: Metadata = {
-  title: 'Work With Us — The Hard Port',
+  title: 'Work With Us | The Hard Port',
   description: 'How The Hard Port works with Level 1 businesses.',
 }
 
@@ -19,10 +19,17 @@ export default function WorkWithUsPage() {
 
           <h2>Who we help</h2>
           <p>
-            Online or online-dependent microbusinesses with a defined offer and paying
-            customers; operating in Level 1 (established but surviving), not pre-launch.
-            See <LinkButton text="business levels" href="/business-levels" variant="text" noMargin className="text-accent" /> for
-            the full Level 0 to 3 map.
+            Community-driven service businesses with a defined offer and paying customers;
+            operating in Level 1 (established but surviving), not pre-launch. Online or
+            physical; founder still inside the operation. See{' '}
+            <LinkButton
+              text="business levels"
+              href="/business-levels"
+              variant="text"
+              noMargin
+              className="text-accent"
+            />{' '}
+            for the full Level 0 to 3 map.
           </p>
 
           <h2>What condition you are probably in</h2>

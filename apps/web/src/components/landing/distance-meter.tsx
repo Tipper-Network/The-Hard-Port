@@ -43,11 +43,11 @@ export function DistanceMeter() {
   return (
     <div className="fixed inset-x-0 top-0 z-60 h-1 bg-white/10" aria-hidden="true">
       <div
-        className="h-full bg-accent transition-[width] duration-150 ease-out"
+        className="h-full bg-rust transition-[width] duration-150 ease-out"
         style={{ width: `${progress * 100}%` }}
       />
       {label ? (
-        <span className="absolute top-2 right-3 hidden text-[0.65rem] font-bold tracking-[0.14em] text-accent/80 uppercase sm:block">
+        <span className="absolute top-2 right-3 hidden text-[0.65rem] font-bold tracking-[0.14em] text-rust/90 uppercase sm:block">
           {label}
         </span>
       ) : null}

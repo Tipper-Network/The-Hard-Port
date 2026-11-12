@@ -19,7 +19,7 @@ export function GapSection() {
     <section id="gap" className="bg-depth-4 px-6 py-20 lg:px-12 lg:py-28">
       <div className="mx-auto max-w-hero">
         <div className="mx-auto max-w-3xl text-center">
-          <p className="text-sm font-bold tracking-[0.2em] text-accent uppercase">
+          <p className="text-sm font-bold tracking-[0.2em] text-rust uppercase">
             The distance
           </p>
           <h2 className="mt-4 font-heading text-3xl font-normal uppercase leading-tight text-secondary md:text-4xl">
@@ -48,8 +48,8 @@ export function GapSection() {
             </ul>
           </div>
 
-          <div className="flex flex-col justify-center border border-accent bg-depth-5 px-6 py-8 shadow-[0_0_0_1px_var(--color-accent)] md:px-8 md:py-10">
-            <p className="text-xs font-bold tracking-[0.22em] text-accent uppercase">
+          <div className="flex flex-col justify-center border border-rust bg-depth-5 px-6 py-8 shadow-[0_0_0_1px_var(--color-rust)] md:px-8 md:py-10">
+            <p className="text-xs font-bold tracking-[0.22em] text-rust uppercase">
               The gap
             </p>
             <p className="mt-3 font-heading text-2xl font-normal uppercase leading-tight text-secondary md:text-3xl">
@@ -59,15 +59,15 @@ export function GapSection() {
               Not a branding package. Not a content retainer. The bridge between survival
               and stability; mapped first, executed only when the evidence says so.
             </p>
-            <div className="mt-6 flex items-center gap-3 text-accent">
-              <span className="hidden h-px flex-1 bg-accent/40 md:block" aria-hidden="true" />
+            <div className="mt-6 flex items-center gap-3 text-rust">
+              <span className="hidden h-px flex-1 bg-rust/40 md:block" aria-hidden="true" />
               <span className="text-3xl font-extrabold">&rarr;</span>
-              <span className="hidden h-px flex-1 bg-accent/40 md:block" aria-hidden="true" />
+              <span className="hidden h-px flex-1 bg-rust/40 md:block" aria-hidden="true" />
             </div>
           </div>
 
-          <div className="border border-accent bg-depth-5 p-5 shadow-[0_0_0_1px_var(--color-accent)] md:p-6">
-            <p className="text-[0.65rem] font-bold tracking-[0.18em] text-accent uppercase">
+          <div className="border border-rust/70 bg-depth-5 p-5 shadow-[0_0_0_1px_var(--color-rust)] md:p-6">
+            <p className="text-[0.65rem] font-bold tracking-[0.18em] text-rust uppercase">
               Where stability starts
             </p>
             <ul className="mt-4 space-y-2.5">

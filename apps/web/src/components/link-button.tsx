@@ -15,15 +15,16 @@ const INTENSITY_CLASSES = {
 } as const
 
 const VARIANT_CLASSES = {
-  solid: 'bg-accent text-background hover:bg-[--color-gold-hover]',
+  solid:
+    'rounded-button bg-rust text-ink hover:bg-[--color-cta-hover]',
   ghost:
-    'border-[1.5px] border-secondary/70 bg-transparent text-secondary hover:border-accent hover:text-accent',
+    'rounded-button border-[1.5px] border-secondary/70 bg-transparent text-secondary hover:border-rust hover:text-rust',
   text: 'font-bold text-accent normal-case tracking-normal hover:underline',
   nav: 'font-semibold normal-case tracking-normal transition-opacity hover:opacity-60',
   outline:
     'rounded-button border border-white/80 bg-transparent font-medium text-white/80 normal-case tracking-normal transition-colors hover:border-white hover:text-white',
   header:
-    'rounded-button bg-accent font-bold text-background normal-case tracking-normal transition-opacity hover:opacity-90',
+    'rounded-button bg-rust font-bold text-ink normal-case tracking-normal transition-opacity hover:opacity-90 hover:bg-[--color-cta-hover]',
   unstyled: '',
 } as const
 

@@ -22,7 +22,8 @@ export function SiteFooter() {
             <THPLogo />
           </LinkButton>
           <p className="mt-4 max-w-xs text-sm leading-6 text-secondary/60">
-            The Media Agency with no tolerance for nonsense.
+            Business diagnosis and Level 1 to Level 2 stability work. We give a f*ck about the
+            outcome; not your comfort.
           </p>
           <div className="mt-5 flex flex-col gap-3">
             <LinkButton

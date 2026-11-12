@@ -1,104 +1,96 @@
 type ProofStat = {
-  value: number
+  value: string
   label: string
 }
 
+const fieldStats: ProofStat[] = [
+  { value: '1', label: 'Active diagnostic or intervention client (field validation)' },
+  { value: '8', label: 'Dimensions assessed in the Business Reality Diagnostic' },
+  { value: '0', label: 'Published case studies for this service (yet)' },
+  { value: 'L1→L2', label: 'The transition we are building evidence for' },
+]
+
 export function ProofSection() {
-  const numberOfStrategies = 11
-  const numberOfClients = 9
-  const numberOfClientsSolo = 5
   const documentedReturn = 0
-  const numberOfBrands = 11
   const ourReturn = 270000
 
-  const stats: ProofStat[] = [
-    { value: numberOfBrands, label: 'Brands built, start to finish' },
-    { value: numberOfStrategies, label: 'Strategies built, start to finish' },
-    {
-      value: numberOfClientsSolo,
-      label: 'Clients who ran our strategies independently',
-    },
-    { value: numberOfClients, label: 'Clients who worked with us directly' },
-  ]
-
   return (
-    <section id="proof" className="bg-depth-4 px-6 py-20 lg:px-12 lg:py-28">
+    <section id="proof" className="bg-depth-6 px-6 py-20 lg:px-12 lg:py-28">
       <div className="mx-auto max-w-3xl">
-        <p className="text-sm font-bold tracking-[0.2em] text-accent uppercase">
-          Marketers lie. We won&apos;t.
+        <p className="text-sm font-bold tracking-[0.2em] text-rust uppercase">
+          Proof
         </p>
         <h2 className="mt-4 font-heading text-3xl font-normal uppercase leading-tight text-secondary md:text-4xl">
-          Here&apos;s the part where we&apos;re supposed to show off. We can&apos;t.
+          We are not selling a portfolio. We are running a process.
         </h2>
 
-        <div className="mt-8 space-y-5 text-base leading-8 text-white/80 md:text-lg">
+        <div className="mt-8 space-y-5 text-base leading-8 text-secondary/80 md:text-lg">
           <p>
-          <span className="font-bold text-white"> &quot;$7.8 billion generated&quot;</span>...
-            joking! joking!
-            not even a single five-star review. We&apos;re not going
-            to pretend.
-          </p>
-          <p className="font-bold text-white">
-            We don&apos;t have a hundred case studies. We don&apos;t have 7,000
-            reviews. We&apos;re new. No padding the numbers to look otherwise.
+            THP is in its first{' '}
+            <span className="font-bold text-secondary">field-validation cycle</span> for the
+            Level 1 to Level 2 path. That means honest capacity limits, paid diagnostics,
+            and no fabricated growth stories on this site.
           </p>
           <p>
-            What we do have: we&apos;ve built{' '}
-            <span className="font-bold text-accent">{numberOfStrategies} full strategies</span> for
-            real businesses. And here&apos;s the slightly annoying ending;
-            they took the strategies and ran them{' '}
-            <span className="italic">themselves</span>.
+            You are not buying a rebrand, a content calendar, or a 30-week package from a
+            pricing page. You are buying whether your business can be examined with evidence;
+            and whether the constraint we find is worth acting on.
           </p>
-          <p>
-            They didn&apos;t pay us to execute. They didn&apos;t need to. The
-            plan was that clear. We didn&apos;t see another cent, and that&apos;s
-            kind of the whole point: our thinking was good enough that people
-            could run with it on their own.
-          </p>
-          <p className="border-l-4 border-accent pl-5 text-xl font-extrabold text-white">
-            That&apos;s the proof we&apos;ve got. Take it or leave it. We&apos;re
-            not going to lie to make you comfortable.
+          <p className="border-l-4 border-accent pl-5 text-base font-semibold text-secondary">
+            If you need a hundred logos before you trust us, leave. If you want a partner who
+            will say when the evidence is thin, keep reading.
           </p>
         </div>
 
-        <div className="mt-14 flex items-center justify-center gap-6 sm:gap-12">
-          <div className="text-center">
-            <p className="font-heading text-4xl leading-none text-secondary/30 line-through decoration-2 sm:text-5xl">
-              ${documentedReturn.toLocaleString()}
-            </p>
-            <p className="mt-3 max-w-40 text-xs text-secondary/40 sm:text-sm">
-              Their documented return to us
-            </p>
-          </div>
-
-          <span className="h-16 w-px bg-secondary/15 sm:h-24" aria-hidden="true" />
-
-          <div className="text-center">
-            <p className="font-heading text-6xl leading-none text-accent sm:text-7xl lg:text-8xl">
-              ${ourReturn.toLocaleString()}
-            </p>
-            <p className="mt-3 text-sm text-secondary/70 sm:text-base">
-              The return they got instead
-            </p>
-          </div>
-        </div>
-
-        <div className="mt-12 grid gap-4 sm:grid-cols-4">
-          {stats.map((stat) => (
+        <div className="mt-12 grid gap-4 sm:grid-cols-2">
+          {fieldStats.map((stat) => (
             <div
               key={stat.label}
-              className="border border-secondary/15 bg-secondary/5 p-5 text-center"
+              className="border border-secondary/15 bg-secondary/5 p-5 text-left"
             >
-              <p className="font-heading text-[32px] leading-none text-accent/80">
-                {stat.value}
-              </p>
-              <p className="mt-2 text-xs text-secondary/60">{stat.label}</p>
+              <p className="font-heading text-3xl leading-none text-accent">{stat.value}</p>
+              <p className="mt-2 text-sm leading-6 text-secondary/65">{stat.label}</p>
             </div>
           ))}
         </div>
-        <div className="mt-4 text-center"> 
-          <p className="mt-2 text-xl text-white/70">
-            honest enough?
+
+        <div className="mt-14 border border-secondary/15 bg-depth-7 p-6 lg:p-8">
+          <p className="text-xs font-bold tracking-[0.18em] text-secondary/45 uppercase">
+            Founder history (not the product)
+          </p>
+          <p className="mt-4 text-sm leading-7 text-secondary/70">
+            Before this service existed, Tarek built strategies and brand systems for other
+            businesses. Some clients executed the plans without ongoing retainers; one outcome
+            in that era is below. That work was{' '}
+            <span className="font-semibold text-secondary">clarity and direction</span>, not
+            the Business Reality Diagnostic you apply for today.
+          </p>
+
+          <div className="mt-8 flex items-center justify-center gap-6 sm:gap-12">
+            <div className="text-center">
+              <p className="font-heading text-4xl leading-none text-secondary/30 line-through decoration-2 sm:text-5xl">
+                ${documentedReturn.toLocaleString()}
+              </p>
+              <p className="mt-3 max-w-40 text-xs text-secondary/45 sm:text-sm">
+                Documented return to THP from that chapter
+              </p>
+            </div>
+
+            <span className="h-16 w-px bg-secondary/15 sm:h-24" aria-hidden="true" />
+
+            <div className="text-center">
+              <p className="font-heading text-5xl leading-none text-accent sm:text-6xl lg:text-7xl">
+                ${ourReturn.toLocaleString()}
+              </p>
+              <p className="mt-3 text-sm text-secondary/70 sm:text-base">
+                Value the client kept instead
+              </p>
+            </div>
+          </div>
+
+          <p className="mt-6 text-center text-sm text-secondary/55">
+            Honest enough? Good. That is the register. The SMB service still has to earn its
+            own proof in the field.
           </p>
         </div>
       </div>

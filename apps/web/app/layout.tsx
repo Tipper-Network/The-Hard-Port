@@ -10,8 +10,9 @@ export const metadata: Metadata = {
   title: site.title,
   description: site.description,
   icons: {
-    icon: site.logo,
-    apple: site.logo,
+    icon: [{ url: '/THP_Favicon.svg', type: 'image/svg+xml' }],
+    apple: '/THP_Favicon.svg',
+    shortcut: '/THP_Favicon.svg',
   },
   manifest: '/manifest.json',
   openGraph: {

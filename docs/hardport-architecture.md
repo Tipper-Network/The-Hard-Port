@@ -20,7 +20,7 @@ The Hard Port/
   apps/api          website API (Nest). Same website database.
   packages/core     signing, sessions, field encryption, Db.withTenant
   packages/access-ui  (planned) npm package "access" — console + BFF mounted at /thp/*
-  services/access   port 4001, npm @hardport/access — platform HTTP API
+  SMB-access-service repo: apps/api — port 4001, npm @hardport/access (platform HTTP API; not in this monorepo)
   services/payments port 4002, role hp_payments
   db/migrations     platform schema (not the website schema)
   scripts/platform  migrate and bootstrap

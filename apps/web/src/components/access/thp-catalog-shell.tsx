@@ -1,5 +1,6 @@
 import Link from 'next/link'
 
+import LinkButton from '@/components/link-button'
 import { THP_CATALOG_PATH } from '@/lib/access-public-paths'
 
 type Props = {
@@ -27,12 +28,29 @@ export function ThpCatalogShell({ children, backHref, backLabel }: Props) {
             </Link>
           </div>
           {backHref ? (
-            <Link href={backHref} className="text-sm text-[oklch(0.72_0.03_250)] hover:text-[oklch(0.8_0.14_85)]">
+            <Link
+              href={backHref}
+              className="text-sm text-[oklch(0.72_0.03_250)] hover:text-[oklch(0.8_0.14_85)]"
+            >
               {backLabel ?? 'Back'}
             </Link>
           ) : null}
         </div>
       </header>
+      <div className="border-b border-rust/30 bg-rust/10 px-6 py-3 lg:px-12">
+        <p className="mx-auto max-w-5xl text-sm leading-6 text-[oklch(0.72_0.03_250)]">
+          This catalog is digital guides and unlocks; not the Level 1 diagnostic service.
+          For application and qualification,{' '}
+          <LinkButton
+            text="see how THP works"
+            href="/work-with-us"
+            variant="text"
+            noMargin
+            className="text-[oklch(0.8_0.14_85)]"
+          />
+          .
+        </p>
+      </div>
       <main className="px-6 py-12 lg:px-12 lg:py-16">{children}</main>
     </div>
   )

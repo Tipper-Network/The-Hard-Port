@@ -80,6 +80,19 @@ Cold traffic from YouTube/Instagram must not download the full page at once.
 YouTube and campaign CTAs route: **`/work-with-us` → `/apply`**, not `#apply`, not legacy
 homepage anchors, not operator sign-in.
 
+## THP Access catalog (digital products)
+
+| Route | Role |
+|---|---|
+| `/thp/catalog`, `/thp/catalog/[slug]` | Guides / digital unlocks via HP Access when deployed |
+
+This is **not** the SMB service offer. Do not put catalog grids, product unlock widgets, or
+product CTAs on the homepage funnel. Catalog may appear in the header when Access is installed;
+**Apply** stays the primary CTA.
+
+Product URLs: `packages/access-ui/src/lib/product-path.ts` — web uses `THP_CATALOG_PATH` and
+`thpProductPath()` in `apps/web/src/lib/access-public-paths.ts`.
+
 ## Legacy code
 
 These files are retired from the live homepage — do not wire them back without explicit request:

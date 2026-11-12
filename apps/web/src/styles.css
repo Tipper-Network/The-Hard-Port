@@ -14,11 +14,17 @@
   --color-ink-muted: oklch(0.72 0.03 250);
   --color-gold: oklch(0.80 0.14 85);
   --color-gold-hover: oklch(0.70 0.15 80);
+  /* Brand book: rust = labels, progress, primary CTAs; gold = one highlight per screen */
   --color-rust: oklch(0.62 0.16 35);
+  --color-rust-hover: oklch(0.56 0.17 32);
+  --color-logo-orange: oklch(0.68 0.19 45);
+  --color-logo-navy: oklch(0.32 0.12 264);
 
   --color-primary: var(--color-deepest);
   --color-secondary: var(--color-ink);
   --color-accent: var(--color-gold);
+  --color-cta: var(--color-rust);
+  --color-cta-hover: var(--color-rust-hover);
   --color-alert: var(--color-rust);
 
   /* Scroll-depth backgrounds — one per landing section, in page order.
@@ -47,7 +53,7 @@
   --text-body-lg: 1rem;
   --text-body-lg--line-height: 1.75;
   --max-width-hero: 90rem;
-  --radius-button: 0.25rem;
+  --radius-button: 0;
 
   /* shadcn semantic tokens */
   --color-background: var(--background);
@@ -94,7 +100,7 @@
   --destructive-foreground: var(--color-ink);
   --border: var(--color-navy-light);
   --input: var(--color-navy-light);
-  --ring: var(--color-accent);
+  --ring: var(--color-cta);
   --radius: 0.5rem;
 }
 

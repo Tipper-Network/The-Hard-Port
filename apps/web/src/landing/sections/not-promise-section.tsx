@@ -15,11 +15,11 @@ const notPresentedAs = [
 
 export function NotPromiseSection() {
   return (
-    <section id="not-promise" className="bg-depth-6 px-6 py-20 lg:px-12 lg:py-28">
+    <section id="not-promise" className="bg-depth-7 px-6 py-20 lg:px-12 lg:py-28">
       <div className="mx-auto max-w-hero">
         <div className="grid gap-14 lg:grid-cols-2">
           <div>
-            <p className="text-sm font-bold tracking-[0.2em] text-accent uppercase">
+            <p className="text-sm font-bold tracking-[0.2em] text-rust uppercase">
               What we do not promise
             </p>
             <h2 className="mt-4 font-heading text-3xl font-normal uppercase leading-tight text-secondary md:text-4xl">
@@ -42,7 +42,7 @@ export function NotPromiseSection() {
             <ul className="mt-6 space-y-3">
               {notPresentedAs.map((item) => (
                 <li key={item} className="flex gap-3 text-sm leading-6 text-secondary/70">
-                  <span className="font-bold text-secondary/40">&mdash;</span>
+                  <span className="font-bold text-secondary/40">&middot;</span>
                   {item}
                 </li>
               ))}

@@ -13,7 +13,7 @@ export function ConditionSection() {
       <div className="mx-auto max-w-hero">
         <div className="mx-auto max-w-3xl text-center">
           <div className="flex flex-col items-center justify-center gap-3 sm:flex-row sm:gap-5">
-            <p className="text-sm font-bold tracking-[0.2em] text-accent uppercase">
+            <p className="text-sm font-bold tracking-[0.2em] text-rust uppercase">
               Who this is for
             </p>
             <LinkButton
@@ -28,9 +28,9 @@ export function ConditionSection() {
             Level 1. Established. Surviving. Not moving.
           </h2>
           <p className="mt-5 text-base leading-7 text-secondary/70 md:text-lg">
-            Online or online-dependent microbusinesses with a defined offer and paying
-            customers; not pre-launch, not hobby-stage. You have motion. You do not have
-            direction you can defend with evidence.
+            Community-driven service businesses; gyms, studios, planners, or online-dependent
+            shops with a defined offer and paying customers. Level 1: not pre-launch, not
+            hobby-stage. You have motion. You do not have direction you can defend with evidence.
           </p>
         </div>
 
@@ -52,7 +52,12 @@ export function ConditionSection() {
         </p>
 
         <div className="mt-8 flex justify-center">
-          <LinkButton text="Read how THP works" href="/work-with-us" intensity={2} variant="ghost" />
+          <LinkButton
+            text="Show me what you're doing wrong"
+            href="/work-with-us"
+            intensity={2}
+            variant="ghost"
+          />
         </div>
       </div>
     </section>

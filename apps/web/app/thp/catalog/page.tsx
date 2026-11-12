@@ -10,8 +10,9 @@ import { THP_CATALOG_PATH } from '@/lib/access-public-paths'
 export const dynamic = 'force-dynamic'
 
 export const metadata: Metadata = {
-  title: 'Catalog — THP Access',
-  description: 'Guides, videos, and downloads from The Hard Port.',
+  title: 'Catalog | THP Access',
+  description:
+    'Digital guides and unlocks from The Hard Port. For the Level 1 diagnostic service, start at How it works or Apply.',
   robots: { index: true, follow: true },
 }
 

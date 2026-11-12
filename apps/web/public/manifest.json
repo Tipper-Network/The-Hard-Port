@@ -1,17 +1,17 @@
 {
   "short_name": "The Hard Port",
-  "name": "The Hard Port — Set Sail. Stand Out.",
-  "description": "The Hard Port is a media agency built for brands ready to move — bold creative, sharp strategy, and campaigns that stand out.",
+  "name": "The Hard Port",
+  "description": "Business diagnosis and Level 1 to Level 2 stability work for community-driven service businesses.",
   "icons": [
     {
-      "src": "THP_Logo.svg",
+      "src": "THP_Favicon.svg",
       "type": "image/svg+xml",
       "sizes": "any",
       "purpose": "any"
     }
   ],
-  "start_url": ".",
+  "start_url": "/",
   "display": "standalone",
-  "theme_color": "#0A2C75",
-  "background_color": "#0A2C75"
+  "theme_color": "#12151d",
+  "background_color": "#12151d"
 }

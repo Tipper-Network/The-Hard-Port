@@ -37,8 +37,8 @@ export function Hero() {
       />
 
       <div className="relative z-10 mx-auto flex h-full min-h-[inherit] max-w-hero flex-col justify-center px-6 py-24 md:py-32 lg:px-12">
-        <p className="mb-6 inline-flex w-fit items-center gap-2 border border-accent/60 bg-accent/10 px-3 py-1.5 text-xs font-bold tracking-[0.18em] text-accent uppercase">
-          <span className="inline-block h-1.5 w-1.5 bg-accent" />
+        <p className="mb-6 inline-flex w-fit items-center gap-2 border border-rust/60 bg-rust/10 px-3 py-1.5 text-xs font-bold tracking-[0.18em] text-rust uppercase">
+          <span className="inline-block h-1.5 w-1.5 bg-rust" />
           {slogan}
         </p>
 
@@ -59,8 +59,8 @@ export function Hero() {
         </div>
 
         <p className="mt-6 text-sm text-white/60">
-          Level 1 businesses with paying customers. Application is free. Diagnostic is
-          paid. Not everyone gets in.
+          Level 1 businesses with real customers. Application is free. The Business Reality
+          Diagnostic is paid. Not everyone gets in.
         </p>
       </div>
 

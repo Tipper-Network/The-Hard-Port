@@ -190,7 +190,7 @@ export function ApplicationPipelineForm({ application }: ApplicationPipelineForm
         <button
           type="submit"
           disabled={isPending}
-          className="bg-accent px-6 py-3 text-sm font-bold uppercase tracking-wide text-background disabled:opacity-60"
+          className="rounded-button bg-rust px-6 py-3 text-sm font-bold uppercase tracking-wide text-ink hover:bg-[--color-cta-hover] disabled:opacity-60"
         >
           {isPending ? 'Saving…' : 'Save pipeline'}
         </button>

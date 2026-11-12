@@ -32,7 +32,7 @@ export function ExecutionSection() {
     <section id="execution" className="bg-depth-5 px-6 py-20 lg:px-12 lg:py-28">
       <div className="mx-auto max-w-hero">
         <div className="mx-auto max-w-3xl text-center">
-          <p className="text-sm font-bold tracking-[0.2em] text-accent uppercase">
+          <p className="text-sm font-bold tracking-[0.2em] text-rust uppercase">
             Inside the intervention
           </p>
           <h2 className="mt-4 font-heading text-3xl font-normal uppercase leading-tight text-secondary md:text-4xl">
