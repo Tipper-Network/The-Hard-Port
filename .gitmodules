@@ -1,0 +1,4 @@
+[submodule "deploy/smb-access-service"]
+	path = deploy/smb-access-service
+	url = git@github.com:Tipper-Network/SMB-access-service.git
+	branch = main
