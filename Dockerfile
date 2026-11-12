@@ -11,9 +11,11 @@ WORKDIR /app
 
 COPY package.json pnpm-workspace.yaml pnpm-lock.yaml ./
 COPY apps/web/package.json apps/web/
+COPY packages/access-ui/package.json packages/access-ui/
 
 RUN pnpm install --frozen-lockfile
 
+COPY packages/access-ui packages/access-ui
 COPY apps/web apps/web
 
 ARG NEXT_PUBLIC_THP_API_URL=http://localhost:3001
